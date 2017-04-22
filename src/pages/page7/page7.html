@@ -1,0 +1,60 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Заказ авто</ion-title>
+  </ion-navbar>
+
+    <ion-toolbar >
+        <ion-segment [(ngModel)]="autobtn" class="autoname">
+            <ion-segment-button value="taxi">
+                Службы такси
+            </ion-segment-button>
+            <ion-segment-button value="rent">
+                Аренда автомобилей
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+ 
+
+<ion-content class='auto'>
+    <!-- Segment auto1-->
+    <div [ngSwitch]="autobtn">
+        <ion-list *ngSwitchCase="'taxi'">
+
+                    <!--<ion-list-header>
+                        Службы такси
+                    </ion-list-header>-->
+                    <ion-list class='phonelist'>
+                        <div *ngFor="let item of items" ion-item>
+                            {{item.title}}
+                            <h4>{{item.description}}</h4>
+                            <a href="tel:{{item.call}}" item-right>
+                                <div class="button button-fab" >
+                                    <ion-icon name="call"></ion-icon>
+                                </div>
+                            </a>
+                        </div>
+                    </ion-list>
+        </ion-list>
+    </div>
+
+    <div [ngSwitch]="autobtn"> 
+          <ion-list *ngSwitchCase="'rent'">
+                <!--<ion-list-header>
+                    Аренда автомобилей
+                </ion-list-header>-->
+                <ion-list class='phonelist'>
+                <div *ngFor="let car of cars" ion-item>
+                        {{car.title}}
+                        <h4>Адрес: {{car.description}}</h4>
+                        <a href="tel:{{car.call}}" item-right>
+                            <div class="button button-fab" >
+                                <ion-icon name="call"></ion-icon>
+                            </div>
+                        </a>
+                    </div>
+                </ion-list>
+          </ion-list>
+    </div>
+</ion-content>

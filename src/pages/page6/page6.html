@@ -1,0 +1,37 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>О приложении</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>
+   <div class="about">
+        <img src="assets/img/logo.png" style="width: 70%;">
+        <p>Это мобильный справочник общественного транспорта Калининградской области. Информация о движении пригородных маршрутов: Автобусы, Электрички*, Маршрутные такси и даже паромы.
+        </p>
+        <p>Часть функий находится в разработке - следите за обновлениями. Нам важно сделать актуальный и востребованный справочник общественного транспорта которым будет удобно пользоваться Вам. Делитесь своими идеями, предлагайте функции, а Мы мостараемся внедрить их в KLoBus39.
+        </p>
+        <button ion-button color="primary" full item-left icon-right (click)="doMessage()">Напишите нам <ion-icon name="mail" item-left></ion-icon></button>
+        <p> <b>Внимание!</b> Сервис функционирует в тестовом режиме. Предоставляемая информация может содержать некоторые неточности.
+        </p>
+      
+        <button ion-button color="primary" full item-left icon-right onclick="window.open('http://goo.gl/7O8QKI&c=apps', '_system', 'location=yes'); return false;">Отценить 
+          <ion-icon name="star" item-left></ion-icon>
+          <ion-icon name="star" item-left></ion-icon>
+          <ion-icon name="star" item-left></ion-icon>
+          <ion-icon name="star" item-left></ion-icon>
+          <ion-icon name="star" item-left></ion-icon>
+          </button>
+         
+        <hr>
+        <h2 primary>Справка</h2>
+        <p><b>Поиск</b> - введите поисковый запрос. Фильтрация осуществляется по трем направлениям:
+
+        </p>
+        <li>по населенному пункту</li>
+        <li>по номеру маршрута</li>
+        <li>по промежуточным станциям</li>
+        <p> Результаты поиска сортируются в зависимости от вокзала - станции отправления.</p>
+    </div>
+</ion-content>

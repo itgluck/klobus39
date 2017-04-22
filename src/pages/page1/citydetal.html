@@ -1,0 +1,143 @@
+<ion-header>
+    <ion-navbar no-border-bottom color="secondary">
+        <ion-title>{{ item.title }}</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="citylist">
+
+    <!--Segment Main-->
+
+    <div class="row" style="text-aligin: center;padding-top:2em;">
+        <table class='table'>
+            <tr>
+                <td rowspan="3"><span class='titlenumb'>{{item.numb}}</span></td>
+                <td>
+                    <ion-icon name="time"></ion-icon>
+                </td>
+                <td>
+                    <ion-icon name="pulse"></ion-icon>
+                </td>
+                <td>
+                    <ion-icon name="cash"></ion-icon>
+                </td>
+            </tr>
+            <tr class='detals'>
+                <td>{{item.time}}</td>
+                <td>{{item.dist}}</td>
+                <td>{{item.cost}}</td>
+            </tr>
+            <tr>
+                <td>ч:мин</td>
+                <td>км</td>
+                <td>руб</td>
+            </tr>
+            <tr>
+                <td style="line-height:3.5em;">
+                    <ion-icon name="pin" item-left></ion-icon>
+                    Остановки:
+                </td>
+                <td colspan="3" class="station">{{item.description}} </td>
+            </tr>
+        </table>
+    <!--All Stations-->
+    <!--<div id="stations">
+        <li *ngFor="let station of stations">
+        {{ station }}
+     
+    </li>
+    </div>-->
+    </div>
+
+    <!--Lenta-->
+    <ion-toolbar primary [attr.primary]="isAndroid ? '' : null">
+        <ion-segment [(ngModel)]="menubtn" [attr.light]="isAndroid ? '' : null">
+            <ion-segment-button value="workday">
+                Будни · Суббота
+            </ion-segment-button>
+            <ion-segment-button value="hollyday">
+                Воскресенье · Праздники
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+    <!-- Segment -->
+    <div [ngSwitch]="menubtn">
+        <!--WorkDay-->
+        <ion-list *ngSwitchCase="'workday'">
+            <input class="toggle-box" id="header1" type="checkbox" checked>
+            <label for="header1">Калининград - {{item.title}}</label>
+            <div class="flex-container ">
+                <ul>
+                    <li class="flex-item">
+                        <h5>Отправление</h5>
+                        <div class='time'>{{item.workday}}</div>
+                    </li>
+
+                    <li class="flex-item">
+                        <h5>Прибытие</h5>
+                        <div class='time'>{{item.workday2}}</div>
+                    </li>
+                </ul>
+                <div class="info">{{item.info1}}</div>
+            </div>
+
+            <input class="toggle-box" id="header2" type="checkbox" checked>
+            <label for="header2">{{item.title}} - Калининград</label>
+            <div class="flex-container ">
+                <ul>
+                    <li class="flex-item">
+                        <h5>Отправление</h5>
+                        <div class='time'>{{item.workday3}}</div>
+                    </li>
+
+                    <li class="flex-item">
+                        <h5>Прибытие</h5>
+                        <div class='time'>{{item.workday4}}</div>
+                    </li>
+                </ul>
+                <div class="info">{{item.info2}}</div>
+            </div>
+        </ion-list>
+
+        <!--Hollyday-->
+        <ion-list *ngSwitchCase="'hollyday'">
+            <input class="toggle-box" id="header3" type="checkbox" checked>
+            <label for="header3">Калининград - {{item.title}}</label>
+            <div class="flex-container ">
+                <ul>
+                    <li class="flex-item">
+                        <span class=' dep'><h5>Отправление</h5></span>
+                        <div class='time'>{{item.hollyday}}</div>
+                    </li>
+
+                    <li class="flex-item">
+                        <span class=' arr'><h5>Прибытие</h5> </span>
+                        <div class='time'>{{item.hollyday2}}</div>
+                    </li>
+                </ul>
+                <div class="info">{{item.info3}}</div>
+            </div>
+
+            <input class="toggle-box" id="header4" type="checkbox" checked>
+            <label for="header4">{{item.title}} - Калининград</label>
+            <div class="flex-container ">
+                <ul>
+                    <li class="flex-item">
+                        <span class=' dep'><h5>Отправление</h5></span>
+                        <div class='time'>{{item.hollyday3}}</div>
+                    </li>
+
+                    <li class="flex-item">
+                        <span class=' arr'><h5>Прибытие</h5> </span>
+                        <div class='time'>{{item.hollyday4}}</div>
+                    </li>
+                </ul>
+                <div class="info">{{item.info4}}</div>
+            </div>
+        </ion-list>
+    </div>
+    <!--</ion-list>-->
+    <!--End Segment time-->
+</ion-content>

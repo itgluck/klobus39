@@ -1,0 +1,19 @@
+<ion-menu [content]="content" class="menu">
+ <ion-header>
+  <img menuClose src="assets/img/logo2.png" class='logo' (click)="goHome()">
+ </ion-header>
+
+  <ion-content class="mainmenu">
+ <ion-list class="mainmenu" no-lines >
+           
+            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" color="$primary">
+       <ion-icon name="{{p.icon}}" item-left></ion-icon> <h2>{{p.title}}</h2>
+      </button>
+            <button ion-item onclick="window.open('https://play.google.com/store/search?q=Nikita%20Bolshakov&c=apps', '_system', 'location=yes'); return false;">
+                <ion-icon name="archive" item-left></ion-icon><h2>Другие приложения</h2></button>
+        </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

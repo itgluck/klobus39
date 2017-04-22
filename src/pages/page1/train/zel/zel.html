@@ -1,0 +1,170 @@
+<ion-header>
+    <ion-navbar color="train">
+        <button ion-button menuToggle>
+ <ion-icon name="menu" color="hidden"></ion-icon>
+ </button>
+
+        <ion-title>Детали маршрута</ion-title>
+    </ion-navbar>
+    <ion-toolbar class="trainlist" color="train" >
+        <ion-segment [(ngModel)]="menubtn">
+            <ion-segment-button value="out">
+                из Калининграда
+            </ion-segment-button>
+
+            <ion-segment-button value="in">
+                в Калининград
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="trainlist">
+
+    <div [ngSwitch]="menubtn">
+        <!--out-->
+        <div *ngSwitchCase="'out'">
+
+            <div class="header">
+                <div class="color-overlay">
+                    <div class="city start">Калининград</div>
+                    <div class="date-right">
+                        <div class="city end">Зеленоградск</div>
+                    </div>
+                    <table class='table-train'>
+                        <tr>
+                            <td>
+                                <ion-icon name="time"></ion-icon>
+                            </td>
+                            <td>
+                                <ion-icon name="pulse"></ion-icon>
+                            </td>
+                            <td>
+                                <ion-icon name="cash"></ion-icon>
+                            </td>
+                        </tr>
+                        <tr class='detals'>
+                            <td>:42</td>
+                            <td>43</td>
+                            <td>54</td>
+                        </tr>
+                        <tr>
+                            <td>ч:мин</td>
+                            <td>км</td>
+                            <td>руб</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!--*** TimeLine-->
+            <div class="timeline">
+                <ul style="display:block">
+                    <li *ngFor="let item of items" style="padding-bottom: 7em;">
+                        <div class="bullet {{item.bullet_type}}"></div><h3>{{item.title}}</h3>
+                        
+                    <ion-grid class="grid-train">
+                    <ion-row>
+                        <ion-col col-4>{{item.time}}</ion-col>
+                        <ion-col col-3 class="routnum">6801</ion-col>
+                        <ion-col col-4>кроме Вс</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4>{{item.time2}}</ion-col>
+                        <ion-col col-3 class="routnum">6809</ion-col>
+                        <ion-col col-4>ежедневно</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4>{{item.time3}}</ion-col>
+                        <ion-col col-3 class="routnum">6813</ion-col>
+                        <ion-col col-4>ежедневно</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4>{{item.time4}}</ion-col>
+                        <ion-col col-3 class="routnum">6815</ion-col>
+                        <ion-col col-4>по будням</ion-col>
+                    </ion-row>
+
+                    </ion-grid>
+                      
+                    </li>
+
+                </ul>
+            </div>
+        </div><!-- End Case-->
+
+        <div *ngSwitchCase="'in'">
+
+
+            <div class="header">
+                <div class="color-overlay">
+                    <div class="city start">Зеленоградск</div>
+                    <div class="date-right">
+                        <div class="city end">Калининград</div>
+                    </div>
+                    <table class='table-train'>
+                        <tr>
+                            <td>
+                                <ion-icon name="time"></ion-icon>
+                            </td>
+                            <td>
+                                <ion-icon name="pulse"></ion-icon>
+                            </td>
+                            <td>
+                                <ion-icon name="cash"></ion-icon>
+                            </td>
+                        </tr>
+                        <tr class='detals'>
+                            <td>:42</td>
+                            <td>43</td>
+                            <td>54</td>
+                        </tr>
+                        <tr>
+                            <td>ч:мин</td>
+                            <td>км</td>
+                            <td>руб</td>
+                        </tr>
+                    </table>
+                <!--<div class="actionbutton"><ion-icon name="globe" ></ion-icon></div>-->
+                </div>
+            </div>
+
+            <!--*** TimeLine BACK-->
+            <div class="timeline">
+                <ul style="display:block">
+                    <li *ngFor="let back of backs" style="padding-bottom: 7em;">
+                        <div class="bullet {{back.bullet_type}}"></div><h3>{{back.title}}</h3>
+
+                            <ion-grid class="grid-train">
+                    <ion-row>
+                        <ion-col col-4>{{back.time}}</ion-col>
+                        <ion-col col-3 class="routnum">6802</ion-col>
+                        <ion-col col-4>кроме Вс</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4>{{back.time2}}</ion-col>
+                        <ion-col col-3 class="routnum">6810</ion-col>
+                        <ion-col col-4>ежедневно</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4>{{back.time3}}</ion-col>
+                        <ion-col col-3 class="routnum">6812</ion-col>
+                        <ion-col col-4>ежедневно</ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col col-4>{{back.time4}}</ion-col>
+                        <ion-col col-3 class="routnum">6814</ion-col>
+                        <ion-col col-4>по будням</ion-col>
+                    </ion-row>
+                   
+                    </ion-grid>
+                    </li>
+
+                </ul>
+            </div>
+        
+        </div>
+    </div>
+
+
+</ion-content>

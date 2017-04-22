@@ -1,0 +1,98 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Контакты</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class='contact'>
+    <ion-list-header>
+        Справочная
+    </ion-list-header>
+    <ion-list class='phonelist'>
+        <div ion-item>
+            Автовокзал Южный
+            <h4>Калининград, ул. Железнодорожная 7</h4>
+            <a href="tel:84012-64-36-35" item-right>
+                <div class="button button-fab">
+                    <ion-icon name="call"></ion-icon>
+                </div>
+            </a>
+        </div>
+        <div ion-item>
+            Ж/д вокзал Южный
+            <h4>Калининград, ул. Железнодорожная 13-25</h4>
+            <a href="tel:84012600888" item-right>
+                <div class="button button-fab">
+                    <ion-icon name="call"></ion-icon>
+                </div>
+            </a>
+        </div>
+        <div ion-item>
+            Ж/д вокзал Северный
+            <h4>Калининград, пр-т Советский 2</h4>
+            <a href="tel:88007750000" item-right>
+                <div class="button button-fab">
+                    <ion-icon name="call"></ion-icon>
+                </div>
+            </a>
+        </div>
+        <div ion-item>
+            Международный автовокзал
+            <h4>Калининград, Московский проспект, 184</h4>
+            <a href="tel:8(4012)999-199" item-right>
+                <div class="button button-fab">
+                    <ion-icon name="call"></ion-icon>
+                </div>
+            </a>
+        </div>
+        <div ion-item>
+            Храброво Аэропорт
+            <h4>пос.Храброво</h4>
+            <a href="tel:84012610-610" item-right>
+                <div class="button button-fab">
+                    <ion-icon name="call"></ion-icon>
+                </div>
+            </a>
+        </div>
+    </ion-list>
+
+    <ion-list-header>
+        Перевозчики
+    </ion-list-header>
+    <ion-list class='phonelist'>
+        <div *ngFor="let item of items" ion-item>
+            {{item.title}}
+            <h4>Маршрут: {{item.rout}}</h4>
+            <a href="tel:{{item.call}}" item-right>
+                <div class="button button-fab">
+                    <ion-icon name="call"></ion-icon>
+                </div>
+            </a>
+        </div>
+    </ion-list>
+
+    <ion-list-header>
+        Администрация
+    </ion-list-header>
+    <ion-list class='phonelist2'>
+        <div ion-item>
+            <span> Департамент развития транспортного комплекса и дорожной деятельности</span>
+            <a href="tel:59-95-44" item-right>
+                <div class="button button-fab">
+                    <ion-icon name="call"></ion-icon>
+                </div>
+            </a>
+        </div>
+        <div ion-item>
+            <span>Управление государственного автодорожного надзора по Калининградской области</span>
+
+            <a href="tel:46-72-23" item-right>
+                <div class="button button-fab">
+                    <ion-icon name="call"></ion-icon>
+                </div>
+            </a>
+        </div>
+    </ion-list>
+</ion-content>

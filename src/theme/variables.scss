@@ -1,0 +1,66 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/v2/theming/
+$font-path: "../assets/fonts";
+
+@import "ionic.globals";
+
+// @import url(http://fonts.googleapis.com/css?family=Noto+Sans);
+// audio,
+// canvas,
+// progress,
+// video {
+//   vertical-align: baseline; }
+
+
+ion-app.md {
+  font-size: 1.5rem;
+}
+// toolbar-md{
+//   max-height: 4em;
+//   padding: 0px;
+// }
+ion-navbar .toolbar{
+  min-height: 46px;
+}
+
+
+$colors: (
+  primary:    #1873A0,
+  // secondary:  #AAB3BF,
+  secondary:  #2F93BB,
+  train:    #179EA3,
+  info:       #68BBDC,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  text:       #717984,
+  dark:       #2F6277
+);
+$primary: #1873A0;
+$secondary: #2F93BB;
+$train:    #179EA3;
+$text: #717984;
+$hidden: rgba(26,73,91, .4);
+$hidden2: rgba(144,177,177, .6);
+$bg: #fff;
+$dark: #2F6277;
+
+
+
+
+@import "ionic.theme.default";
+
+
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/v2/ionicons/
+
+@import "ionicons";
+
+
+// Fonts
+// --------------------------------------------------
+
+@import "roboto";
+@import "noto-sans";
+

@@ -1,0 +1,26 @@
+// Погода
+#weather {
+    height: 80%;
+    width: 100%;
+    bottom: 0px;
+    padding: 0px;
+    // margin-top: 64px;
+    overflow:hidden;
+    }
+    #weather div hr {
+        width: 60%;
+    }
+
+ .data {
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     border: 0;
+     background: linear-gradient(110deg, $primary 62%, #2678A1 23%);
+         
+     //  background: #BCA984;
+     //  background-image: url(../../img/weather.png);
+     //  background-size: auto 100%;
+     //  background-repeat: no-repeat;
+    
+ }
