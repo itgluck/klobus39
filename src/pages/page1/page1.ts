@@ -128,38 +128,11 @@ export class DetailsPage {
   <!--Списком -->
     <div class="tab arrows">
       <input id="tab-one" type="checkbox" name="tabs">
-      <label for="tab-one">Label One</label>
+      <label for="tab-one">Северный автовокзал</label>
       <div class="tab-content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
-      </div>
-    </div>
-    <div class="tab">
-      <input id="tab-two" type="checkbox" name="tabs">
-      <label for="tab-two">Label Two</label>
-      <div class="tab-content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
-      </div>
-    </div>
-    <div class="tab">
-      <input id="tab-three" type="checkbox" name="tabs">
-      <label for="tab-three">Label Three</label>
-      <div class="tab-content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
-      </div>
-    </div>
- Списком 
-
-<input type="radio" name="accordion" id="acc-close" />
- </nav>
-
- <!--Северный автовокзал
-	<input type="radio" name="accordion" id="cb1" />
-	<section class="box">
-	<label class="box-title" for="cb1">Северный автовокзал</label>
-	<label class="box-close" for="acc-close"></label>
-
-	<div class="box-content">
-	<ion-list>
+	  <img src="assets/img/map_u.png" class='logo'>  
+        <p>Калининград, ул. Железнодорожная, 7</p>
+      <ion-list>
 		<div class='baner'>	</div>
 		<div *ngFor="let data of spisok">
 			<button ion-item (click)="openNavDetailsPage2(data)" class="citylist">
@@ -169,29 +142,42 @@ export class DetailsPage {
 			</button>
 		</div>
 	</ion-list>	
-	</div>
-	</section> 
+	  </div>
+    </div>
+
+    <div class="tab">
+      <input id="tab-two" type="checkbox" name="tabs">
+      <label for="tab-two">Южный автовокзал</label>
+      <div class="tab-content">
+	  <img src="assets/img/map_s.png" class='logo'>  
+        <p>Калининград, пр-т. Советский, 4</p>
+	
+		<ion-list>
+			<div *ngFor="let item of items">
+			<button ion-item (click)="openNavDetailsPage(item)" class="citylist">
+			<ion-icon name="{{item.icon}}"  item-left></ion-icon>
+			{{ item.title }}<br><div class='en'>{{item.en}}</div>
+			<span item-right class='numb'>{{item.numb}}</span> 
+			</button>
+			</div>
+	</ion-list>
+      </div>
+    </div>
+
+    <!--
+	<div class="tab">
+      <input id="tab-three" type="checkbox" name="tabs">
+      <label for="tab-three">Вокзалы Области</label>
+      <div class="tab-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
+      </div>
+    </div>
 	-->
 
+<input type="radio" name="accordion" id="acc-close" />
+ </nav>
 
- <!--Южный автовокзал
-	<input type="radio" checked name="accordion" id="cb2" />
-	<section class="box">
-	<label class="box-title" for="cb2">Южный автовокзал</label>
-	<label class="box-close" for="acc-close"></label>
-	<div class="box-content">
-	<ion-list>
-	<div *ngFor="let item of items">
-	<button ion-item (click)="openNavDetailsPage(item)" class="citylist">
-	<ion-icon name="{{item.icon}}"  item-left></ion-icon>
-	{{ item.title }}<br><div class='en'>{{item.en}}</div>
-	<span item-right class='numb'>{{item.numb}}</span> 
-	</button>
-	</div>
-	</ion-list>
-	</div>
-	</section>
--->
+
 
 </ion-content>
 `

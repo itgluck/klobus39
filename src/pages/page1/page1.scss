@@ -525,8 +525,6 @@ label {
   position: relative;
   font-weight: bold;
   width: 100%;
-//   background: $hidden2;
-    // height: 50px;
     line-height: 3em;
     padding: 0 3em;
     margin-bottom: 2px;
@@ -543,7 +541,7 @@ label {
 }
 
 .tab-content {
-  max-height: 0;
+  display:none;
   overflow: hidden;
   background: $bg;
   -webkit-transition: max-height .35s;
@@ -558,7 +556,8 @@ label {
 }
 /* :checked */
 input:checked ~ .tab-content {
-  max-height: 10em;
+  max-height: auto;
+  display: block;
 }
 /* Icon */
 label::after {
