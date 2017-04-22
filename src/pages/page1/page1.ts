@@ -126,7 +126,7 @@ export class DetailsPage {
 <!-- АвтоВокзалы -->
 
   <!--Списком -->
-    <div class="tab">
+    <div class="tab arrows">
       <input id="tab-one" type="checkbox" name="tabs">
       <label for="tab-one">Label One</label>
       <div class="tab-content">
