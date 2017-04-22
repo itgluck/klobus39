@@ -269,13 +269,21 @@ input:checked+section.box .box-title:before {
 
 // END .accordion
 //  End  
-.baner {
+.baner{
     width: 100%;
     // height: 30%;
-    max-width: 390px;
+    max-width: 600px;
     margin: 0px auto;
     text-align: center;
 }
+.main-map{
+    width: 100%;
+    // height: 30%;
+    max-width: 600px;
+    margin: 0px auto;
+    // text-align: center;
+}
+
 
 .baner img {
     width: 100%;
@@ -284,11 +292,11 @@ input:checked+section.box .box-title:before {
 }
 
 .watermark {
-    opacity: .4;
+    opacity: .6;
     position: relative;
     top: -30px;
-    left: 50%;
-    margin-left: -33px;
+    left: 10px;
+    float: left;
 }
 
 
@@ -315,11 +323,6 @@ input:checked+section.box .box-title:before {
     box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24);
 }
 
-// .accordion input {
-//   position: absolute;
-//   opacity: 0;
-//   z-index: -1;
-// }
 label {
     position: relative;
     width: 100%;
@@ -350,27 +353,25 @@ label {
 
 .tab-content {
     background: $bg;
+    text-align: center;
 }
 
 .tab-content p {
-    margin: .5em 1.6em;
     font-size: .8em;
     color: $text;
+    float:left;
 }
 
 
 /* :checked */
 
 input:checked~.tab-content {
-    max-height: auto;
     display: block;
 }
 
 label:checked {
     font-weight: bold;
 }
-
-
 /* Icon */
 
 .tab label::after {

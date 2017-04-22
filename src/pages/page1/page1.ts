@@ -39,131 +39,136 @@ export class DetailsPage {
 @Component({
  
  template: `
+
+
 <ion-header>
- <ion-navbar color="primary">
- <button ion-button menuToggle>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
  <ion-icon name="menu" color="hidden"></ion-icon>
  </button>
- <ion-title logo-header>
- <img src="assets/img/logohd.png" class='logo-header'>
- </ion-title>
- </ion-navbar>
+        <ion-title logo-header>
+            <img src="assets/img/logohd.png" class='logo-header'>
+        </ion-title>
+    </ion-navbar>
 
- <ion-toolbar color="primary">
- <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="getItems($event)" placeholder="Укажите город или маршрут"></ion-searchbar>
- </ion-toolbar>
+    <ion-toolbar color="primary">
+        <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="getItems($event)" placeholder="Укажите город или маршрут"></ion-searchbar>
+    </ion-toolbar>
 </ion-header>
 
 
 <ion-content class="citylist">
 
- <!--Accordion-->
-   <div class="arrows accordion">
+    <!--Accordion-->
+    <div class="arrows accordion">
 
- <!--Железнодорожный вокзал-->
-   <div class="tab">
-      <input id="tab-elect" type="checkbox" name="tabs">
-      <label for="tab-elect">Электрички</label>
-      <div class="tab-content">
-	  	<ion-list class="trainbtn">
-					<button ion-item (click)="openBgrt()">
+        <!--Железнодорожный вокзал-->
+        <div class="tab">
+            <input id="tab-elect" type="checkbox" name="tabs">
+            <label for="tab-elect">Электрички</label>
+            <div class="tab-content">
+                <ion-list class="trainbtn">
+                    <button ion-item (click)="openBgrt()">
 						<ion-icon name="subway"  item-left></ion-icon>
 						 Калининград - Багратионовск
 						 <br><div class='en'>Kaliningrad - Bagrationovsk</div>
 					</button>
-					<button ion-item (click)="openBlt()" class="citylist">
+                    <button ion-item (click)="openBlt()" class="citylist">
 						<ion-icon name="subway"  item-left></ion-icon>
 						Калининград - Балтийск
 						<br><div class='en'>Kaliningrad - Baltiysk</div>
 							
 					</button>
-					<button ion-item (click)="openMamo()" class="citylist">
+                    <button ion-item (click)="openMamo()" class="citylist">
 						<ion-icon name="subway"  item-left></ion-icon>
 						Калининград - Мамоново
 						<br><div class='en'>Kaliningrad - Mamonovo
 						<br>Через: Ладушкин</div>
 							
 					</button>
-					<button ion-item (click)="openChern()" class="citylist">
+                    <button ion-item (click)="openChern()" class="citylist">
 						<ion-icon name="subway"  item-left></ion-icon>
 						Калининград - Черняховск
 						<br><div class='en'>Kaliningrad - Cherniahovsk
 						<br>Через: Гвардейск, Черняховск</div>
 							
 					</button>
-					<button ion-item (click)="openSvt2()" class="citylist">
+                    <button ion-item (click)="openSvt2()" class="citylist">
 						<ion-icon name="subway"  item-left></ion-icon>
 						Калининград - Светлогорск-2
 						<br><div class='en'>Kaliningrad - Svetlogorsk-2
 						<br>Через: Переславское</div>
 							
 					</button>
-					<button ion-item (click)="openSvt()" class="citylist">
+                    <button ion-item (click)="openSvt()" class="citylist">
 						<ion-icon name="subway"  item-left></ion-icon>
 						Калининград - Светлогорск-2
 						<br><div class='en'>Kaliningrad - Svetlogorsk-2
 						<br>Через: Зеленоградск, Пионерский</div>
 						
 					</button>
-					<button ion-item (click)="openZel()" class="citylist">
+                    <button ion-item (click)="openZel()" class="citylist">
 						<ion-icon name="subway"  item-left></ion-icon>
 						Калининград - Зеленоградск
 						<br><div class='en'>Kaliningrad - Zelenogradsk</div>
 						
 					</button>
-					<button ion-item (click)="openSov()" class="citylist">
+                    <button ion-item (click)="openSov()" class="citylist">
 						<ion-icon name="subway"  item-left></ion-icon>
 						Калининград - Советск 
 						<br><div class='en'>Kaliningrad - Sovetsk
 						<br>Через Полесск, Славск</div>
 							
 					</button>
-			</ion-list> 
-      </div>
-      </div>
+                </ion-list>
+            </div>
+        </div>
 
 
-<!-- АвтоВокзалы -->
- <div class="tab">
-      <input id="tab-2" type="checkbox" name="tabs" checked>
-      <label for="tab-2">Северный автовокзал</label>
-      <div class="tab-content">
-	  <img src="assets/img/map_s.png" class='logo'> 
-	  <img src="//www.google.com/images/branding/mapslogo/1x/googlelogo_62x24_with_2_stroke_color_66x26dp.png" class="watermark"> 
-        <p>Калининград, пр-т. Советский, 4</p>	 
-      <ion-list>
-		<div class='baner'>	</div>
-		<div *ngFor="let data of spisok">
-			<button ion-item (click)="openNavDetailsPage2(data)" class="citylist">
+        <!-- АвтоВокзалы -->
+        <div class="tab">
+            <input id="tab-2" type="checkbox" name="tabs" checked>
+            <label for="tab-2">Северный автовокзал</label>
+            <div class="tab-content">
+			<div class='main-map'>
+                <img src="assets/img/map_s.png">
+                <img src="//www.google.com/images/branding/mapslogo/1x/googlelogo_62x24_with_2_stroke_color_66x26dp.png" class="watermark">
+                     </div>
+                <p>Калининград, пр-т. Советский, 4</p>
+                <ion-list>
+                    <div *ngFor="let data of spisok">
+                        <button ion-item (click)="openNavDetailsPage2(data)" class="citylist">
 			<ion-icon name="{{data.icon}}"  item-left></ion-icon>
 			{{data.title }}<br><div class='en'>{{data.en}}</div>
 			<span item-right class='numb'>{{data.numb}}</span> 
 			</button>
-		</div>
-	</ion-list>	
-	  </div>
-	  </div>
+                    </div>
+                </ion-list>
+            </div>
+        </div>
 
- <div class="tab">
-      <input id="tab-3" type="checkbox" name="tabs" checked>
-      <label for="tab-3">Южный автовокзал</label>
-      <div class="tab-content">
-	   <img src="assets/img/map_u.png" class='logo'>   
-	    <img src="//www.google.com/images/branding/mapslogo/1x/googlelogo_62x24_with_2_stroke_color_66x26dp.png" class="watermark"> 
-        <p>Калининград, ул. Железнодорожная, 7</p>	
-		<ion-list>
-			<div *ngFor="let item of items">
-			<button ion-item (click)="openNavDetailsPage(item)" class="citylist">
+        <div class="tab">
+            <input id="tab-3" type="checkbox" name="tabs" checked>
+            <label for="tab-3">Южный автовокзал</label>
+            <div class="tab-content">
+			<div class='main-map'>
+                <img src="assets/img/map_u.png">
+                <img src="//www.google.com/images/branding/mapslogo/1x/googlelogo_62x24_with_2_stroke_color_66x26dp.png" class="watermark">
+				</div>
+                <p>Калининград, ул. Железнодорожная, 7</p>
+                <ion-list>
+                    <div *ngFor="let item of items">
+                        <button ion-item (click)="openNavDetailsPage(item)" class="citylist">
 			<ion-icon name="{{item.icon}}"  item-left></ion-icon>
 			{{ item.title }}<br><div class='en'>{{item.en}}</div>
 			<span item-right class='numb'>{{item.numb}}</span> 
 			</button>
-			</div>
-	</ion-list>
-      </div>
-      </div>
+                    </div>
+                </ion-list>
+            </div>
+        </div>
 
-      </div>
+    </div>
 
     <!--
 	<div class="tab">
