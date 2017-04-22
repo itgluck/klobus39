@@ -244,28 +244,19 @@ li {
 
 // Accordion
 .accordion {
-    margin: 0px 0;
-    width: 100%;
+    margin: 8px auto;
+    width: 97%;
 }
 
 .accordion input {
     display: none;
 }
 
-.boxe {
-    position: relative;
-    background: white;
-    top: 8px;
-    margin: auto;
-    width: 97%;
-    height: 50px;
-    transition: all .15s ease-in-out;
-}
 .box {
     position: relative;
     background: white;
     margin: auto;
-    width: 97%;
+    width: 100%;
     height: 50px;
     transition: all .15s ease-in-out;
 }
