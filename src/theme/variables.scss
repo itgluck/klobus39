@@ -22,6 +22,9 @@ ion-app.md {
 ion-navbar .toolbar{
   min-height: 46px;
 }
+.toolbar-md{
+  background: rgba(208,221,226, .2);
+}
 
 
 $colors: (
@@ -33,7 +36,7 @@ $colors: (
   danger:     #f53d3d,
   light:      #f4f4f4,
   text:       #717984,
-  dark:       #2F6277
+  dark:       #2F6277,
 );
 $primary: #1873A0;
 $secondary: #2F93BB;

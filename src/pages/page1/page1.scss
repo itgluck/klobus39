@@ -1,5 +1,6 @@
-.citylist{ 
-    color: $primary;}
+.citylist {
+    color: $primary;
+}
 
 .img {
     min-width: 100%;
@@ -13,6 +14,7 @@
     border: 0px;
     //   box-shadow: 1px 1px 7px;
 }
+
 .logo-header {
     // width: 100%;
     margin-left: -70px;
@@ -20,16 +22,15 @@
     position: absolute;
     top: -14px;
     left: 50%;
-
 }
-.logo-header :before{
+
+.logo-header :before {
     text-align: center;
 }
 
 .row div {
     padding: 0px auto;
     text-align: center;
-
     background: url(https://unsplash.it/440/500?blur);
     background-size: cover;
     height: 25%;
@@ -40,9 +41,9 @@
     text-align: center;
     font-size: .8em;
     color: $hidden;
-
 }
-.table tbody{
+
+.table tbody {
     max-width: 420px;
     margin-top: 15px;
 }
@@ -51,7 +52,7 @@
     font-size: 4em;
     color: $dark;
     margin: 1rem;
-    padding: 3px 6px; 
+    padding: 3px 6px;
     border-radius: 8px;
     border: 1px solid $secondary;
     box-shadow: 0 -1px 2px #9CC6D7, 0 0 2px rgba(103, 153, 173, .12), 0 2px 4px rgba(0, 0, 0, .24);
@@ -62,7 +63,7 @@
     border: 1px solid $primary;
     border-radius: 5px;
     font-weight: 500;
-    background: rgba(235, 250, 252, .5);    
+    background: rgba(235, 250, 252, .5);
     text-align: center;
     min-width: 55px;
     padding: 2px 2px;
@@ -72,9 +73,9 @@
 .trainbtn button {
     color: $primary;
 }
+
 .trainbtn button span {
     border: 1px solid $primary;
-    
     text-align: center;
     min-width: 55px;
     border-radius: 5px;
@@ -85,12 +86,11 @@
 }
 
 .citylist ion-label {
-    
     font-variant: caps;
     //   font-weight: 600;
 }
 
-.sitylist .icon {    
+.sitylist .icon {
     font-size: 1.4em;
 }
 
@@ -108,7 +108,7 @@
 
 .city {
     padding-bottom: 72px;
-    }
+}
 
 .numb {
     border: 1px solid $hidden;
@@ -133,7 +133,7 @@
 .trainbtn .rout {
     width: 80%;
     text-align: center;
-    height:2em;
+    height: 2em;
     display: none;
 }
 
@@ -158,6 +158,16 @@
     color: $primary;
 }
 
+label::after {
+    width: 1em;
+    height: 1em;
+    position: absolute;
+    left: 10px;
+    text-align: center;
+    color: $bg;
+    font-size: 2em;
+}
+
 .time {
     max-width: 60px;
     font-size: 1.5rem;
@@ -170,9 +180,8 @@
 
 .info {
     color: $hidden;
-    margin-bottom:.5em;
+    margin-bottom: .5em;
 }
-
 
 .stop {
     color: $secondary;
@@ -189,11 +198,6 @@
 .bar-button {
     font-size: 2rem;
     padding-right: 6px;
-}
-
-ion-list+hr {
-    margin: 12px 100px;
-    border: 1px $hidden dotted;
 }
 
 // ******************
@@ -243,98 +247,6 @@ li {
 }
 
 // Accordion
-
-
-.box {
-    position: relative;
-    background:$bg;
-    margin: auto;
-    width: 100%;
-    height: 50px;
-    transition: all .15s ease-in-out;
-}
-
-.box::before {
-    content: '';
-    position: absolute;
-    display: block;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    pointer-events: none;
-    box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24);
-}
-
-header.box {
-    background: #00BCD4;
-    z-index: 100;
-    cursor: initial;
-    box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px -2px rgba(0, 0, 0, .12), 0 2px 4px -4px rgba(0, 0, 0, .24);
-}
-
-header .box-title {
-    margin: 0;
-    font-weight: normal;
-    font-size: 16pt;
-    color: white;
-    cursor: initial;
-}
-
-.box-title {
-    width: 100%;
-    height: 3em;
-    line-height: 3em;
-    padding: 0 3em;
-    margin-bottom: 2px;
-    color: $primary;
-    font-size: 1.2em;
-    display: inline-block;
-    cursor: pointer;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.box-content {
-    width: 100%;
-    display: none;
-    color: $primary;
-}
-
-
-.box-close {
-    position: absolute;
-    height: 3em;
-    width: 100%;
-    top: 0;
-    left: 0;
-    cursor: pointer;
-    display: none;
-}
-
-input:checked+.box {
-    height: auto;
-    color: #fff;
-}
-
-input:checked+.box .box-title {
-//   background: linear-gradient(0deg, $primary 7%, #fff 2%);
-    //   border-bottom: 1px solid rgba(0, 0, 0, .18);
-    color: $primary;
-    font-weight: bolder;
-    font-size: 1.3em;
-}
-
-input:checked+.box .box-content,
-input:checked+.box .box-close {
-    display: inline-block;
-    // border-bottom: 1px solid rgba(0, 0, 0, .18);
-}
-
 .arrows section .box-title {
     // padding-left: 44px;
     width: 100%;
@@ -348,7 +260,7 @@ input:checked+.box .box-close {
     left: 20px;
     top: -3px;
     transition: transform .15s ease-in-out;
-    color: rgba(104, 118, 138, .54);
+    color: $bg;
 }
 
 input:checked+section.box .box-title:before {
@@ -356,8 +268,6 @@ input:checked+section.box .box-title:before {
 }
 
 // END .accordion
-
-
 //  End  
 .baner {
     width: 100%;
@@ -372,6 +282,7 @@ input:checked+section.box .box-title:before {
     margin: 0px auto;
     text-align: center;
 }
+
 .watermark {
     opacity: .4;
     position: relative;
@@ -380,119 +291,9 @@ input:checked+section.box .box-title:before {
     margin-left: -33px;
 }
 
-// ***JD style
-.work {
-    width: 100%;
-    padding-right: 10px;
-    max-width: 280px;
-}
-
-.radio {
-    display: none;
-}
-
-.radio:checked+.relative label {
-    cursor: auto;
-    -webkit-transform: translateX(14px);
-    transform: translateX(14px);
-    color: #1F7A6B;
-    top: 10px;
-    padding-bottom: 2px;
-}
-
-.radio:checked+.relative .circle {
-    background: #fff;
-    border: 5px solid #56B9A8;
-    box-shadow: 0px 0px 8px #1F7A6B;
-    -webkit-box-shadow: 0px 0px 8px #1F7A6B;
-}
-
-.radio:checked+.relative .hidden {
-    display: none;
-}
-
-.radio:checked+.relative .ost {
-    color: #56B9A8;
-    padding: 4px 6px 4px;
-    border: 2px solid #F6A515;
-    border-radius: 12px;
-    font-size: .9em;
-    top: 50%;
-    font-weight: bold;
-    -webkit-transform: translate(-54px, -26px);
-    transform: translate(-54px, -26px);
-    -webkit-transition: -webkit-transform .3s linear;
-    transition: -webkit-transform .3s linear;
-    transition: transform .3s linear;
-    transition: transform .3s linear, -webkit-transform .3s linear;
-}
-
-.radio:checked~.content {
-    max-width: 100%;
-    border: 1px solid #F6A515;
-    position: relative;
-    margin: 15px 10px 5px -30px;
-    padding-top: 22px;
-    -webkit-transform: translateX(20px);
-    transform: translateX(20px);
-    -webkit-transition: max-height 0.3s linear, border-color 0.5s linear, -webkit-transform 0.2s linear;
-    transition: max-height 0.3s linear, border-color 0.5s linear, -webkit-transform 0.2s linear;
-    transition: max-height 0.3s linear, border-color 0.5s linear, transform 0.2s linear;
-    transition: max-height 0.3s linear, border-color 0.5s linear, transform 0.2s linear, -webkit-transform 0.2s linear;
-}
-
-.radio:checked~.content p {
-    max-height: 260px;
-    color: #333;
-    -webkit-transition: color 0.3s linear 0.3s;
-    transition: color 0.3s linear 0.3s;
-    margin: 0px 16px;
-    position: relative;
-}
-
-.radio:checked+.relative .dep {
-    top: 50%;
-    margin-top: 26px;
-    color: #1F7A6B;
-    -webkit-transition: color 0.3s linear 0.3s;
-    transition: color 0.3s linear 0.3s;
-}
-
-.radio:checked+.relative .arr {
-    top: 50%;
-    margin-top: -34px;
-}
-
-.col {
-    height: 100%;
-    display: -webkit-inline-box;
-    display: -webkit-inline-flex;
-    display: -ms-inline-flexbox;
-    display: inline-flex;
-    margin: 0px;
-}
-
-.list-container {
-    -webkit-flex-direction: column;
-    height: 100%;
-    -webkit-flex: 1;
-    padding-left: 25%;
-    -webkit-flex: 10 !important;
-    font-variant-alternates: center;
-    content-align: center;
-}
-
-.hidden {
-    color: #CDEAE5;
-    font-size: .7em;
-    padding-top: 2px;
-    left: 10%;
-    position: relative;
-    border-top: 1px solid #CDEAE5;
-}
-//   End JD style
 
 /* Acordeon styles */
+
 .accordion {
     margin: 8px auto;
     width: 100%;
@@ -502,26 +303,26 @@ input:checked+section.box .box-title:before {
 .accordion input {
     display: none;
 }
+
 .tab {
-  width: 100%;
-  top:12px;
-  color: $primary; 
-  overflow: hidden;
-    background:$bg;
+    width: 100%;
+    top: 12px;
+    color: $primary;
+    overflow: hidden;
+    background: $bg;
     margin: .3em auto;
     transition: all .15s ease-in-out;
-       box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24);
-
+    box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24);
 }
+
 // .accordion input {
 //   position: absolute;
 //   opacity: 0;
 //   z-index: -1;
-
 // }
 label {
-  position: relative;
-  width: 100%;
+    position: relative;
+    width: 100%;
     line-height: 3em;
     padding: 0 3em;
     margin-bottom: 2px;
@@ -538,58 +339,72 @@ label {
 }
 
 .tab-content {
-  display:none;
-  overflow: hidden;
-  background: $bg;
+    display: none;
+    overflow: hidden;
+    background: $bg;
     margin-bottom: 4px;
-  -webkit-transition: max-height .35s;
-  -o-transition: max-height .35s;
-  transition: max-height .35s;
+    -webkit-transition: max-height .35s;
+    -o-transition: max-height .35s;
+    transition: max-height .35s;
 }
- .tab-content {
-  background: $bg;
+
+.tab-content {
+    background: $bg;
 }
+
 .tab-content p {
-  margin: .5em 1.6em;
-  font-size: .8em;
-  color: $text;
+    margin: .5em 1.6em;
+    font-size: .8em;
+    color: $text;
 }
+
+
 /* :checked */
-input:checked ~ .tab-content {
-  max-height: auto;
-  display: block;
+
+input:checked~.tab-content {
+    max-height: auto;
+    display: block;
 }
+
 label:checked {
-  font-weight: bold;
+    font-weight: bold;
 }
+
+
 /* Icon */
-label::after {
-  width: 1em;
-  height: 1em;
-//   line-height: 1.4; 
-  position: absolute;
+
+.tab label::after {
+    width: 1em;
+    height: 1em;
+    //   line-height: 1.4; 
+    position: absolute;
     left: 10px;
     text-align: center;
-   color: rgba(104, 118, 138, .54);
-   font-size: 2em;
+    color: $hidden;
+    // color:$bg;
+    font-size: 2em;
 }
-input[type=checkbox] + label::after {
-  content: "\203a";
+
+input[type=checkbox]+label::after {
+    content: "\203a";
 }
-input[type=radio] + label::after {
-  content: "\25BC";
+
+input[type=radio]+label::after {
+    content: "\25BC";
 }
-input[type=checkbox]:checked + label::after {
-  transform: rotate(90deg);
-   position: absolute;
-    left:20px;
+
+input[type=checkbox]:checked+label::after {
+    transform: rotate(90deg);
+    position: absolute;
+    left: 20px;
     top: 10px;
 }
-input[type=checkbox]:checked + label {
-   font-weight: 600;    
-   box-shadow: 0px 5px 2px $hidden2;
+
+input[type=checkbox]:checked+label {
+    font-weight: 600;
+    box-shadow: 0px 5px 2px $hidden2;
 }
-input[type=radio]:checked + label::after {
-  transform: rotateX(180deg);
-  
+
+input[type=radio]:checked+label::after {
+    transform: rotateX(180deg);
 }
