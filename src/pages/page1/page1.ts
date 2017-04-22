@@ -121,44 +121,36 @@ export class DetailsPage {
 		</div>
 	</section>
 
-<input type="radio" name="accordion" id="acc-close" />
- </nav>
 
 
 <!-- АвтоВокзалы -->
 
-  <!--Списком
- <div class = "accordion">
-    <input type = "checkbox" id = "item1" name = "accordion1">
-    <label class="box-title" for = "item1"><i class = "fa fa-check"></i>Content 1<i class = "fa fa-chevron-down"></i></label>
-    <div id = "content1" class = "item">
-      <h4>Title 1</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eleifend id leo quis rutrum. Curabitur condimentum augue et dolor sodales, vel iaculis lacus feugiat.
-      </p>
+  <!--Списком -->
+    <div class="tab">
+      <input id="tab-one" type="checkbox" name="tabs">
+      <label for="tab-one">Label One</label>
+      <div class="tab-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
+      </div>
     </div>
-    <input type = "checkbox" id = "item2" name = "accordion1">
-    <label for = "item2"><i class = "fa fa-check"></i>Content 2<i class = "fa fa-chevron-down"></i></label>
-    <div id = "content2" class = "item">
-      <h4>Title 2</h4>
-      <p>Cras pretium blandit nunc, maximus convallis elit eleifend id. Nullam non posuere eros, sit amet iaculis leo. Morbi tincidunt nibh quis magna dapibus, sit amet imperdiet massa blandit. Maecenas sapien erat, efficitur id est sed, facilisis malesuada magna. Vivamus interdum non urna vel placerat. Duis sed nunc nec mi posuere tempor at sit amet dui. Curabitur faucibus sapien a massa vestibulum, in bibendum orci pharetra.
-      </p>
+    <div class="tab">
+      <input id="tab-two" type="checkbox" name="tabs">
+      <label for="tab-two">Label Two</label>
+      <div class="tab-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
+      </div>
     </div>
-    <input type = "checkbox" id = "item3" name = "accordion1">
-    <label class="box-title" for = "item3"><i class = "fa fa-check"></i>Content 3<i class = "fa fa-chevron-down"></i></label>
-    <div id = "content3" class = "item">
-      <h4>Title 3</h4>
-      <p>Nullam elementum mollis est et tincidunt. Proin luctus euismod nisi et accumsan. Curabitur rutrum nisi odio, ac feugiat dui iaculis at. In volutpat dui ipsum, ut vestibulum diam hendrerit sit amet. Praesent venenatis lorem ante, quis porta tortor fringilla congue. Morbi mauris massa, posuere consequat vulputate vel, rutrum sed ipsum. Sed sed interdum turpis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec blandit, ligula vel semper ullamcorper.
-      </p>
+    <div class="tab">
+      <input id="tab-three" type="checkbox" name="tabs">
+      <label for="tab-three">Label Three</label>
+      <div class="tab-content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
+      </div>
     </div>
-    <input type = "checkbox" id = "item4" name = "accordion1">
-    <label for = "item4"><i class = "fa fa-check"></i>Content 4<i class = "fa fa-chevron-down"></i></label>
-    <div id = "content4" class = "item">
-      <h4>Title 4</h4>
-      <p>Nam ac commodo nibh. Praesent aliquet vehicula risus. Proin at urna eu ipsum vestibulum blandit eu nec est. Aliquam erat volutpat. Proin at elit sollicitudin, tempor mauris at, blandit leo. Nullam sed tortor tortor. Vestibulum mattis mollis posuere. Quisque accumsan quam at quam malesuada, id tempor ex pulvinar. In non vehicula urna, id consectetur mauris. Quisque eget tincidunt quam. Nullam ut ligula sit amet nunc dictum volutpat at ultrices dolor.
-      </p>
-    </div>
-  </div>
- Списком -->
+ Списком 
+
+<input type="radio" name="accordion" id="acc-close" />
+ </nav>
 
  <!--Северный автовокзал
 	<input type="radio" name="accordion" id="cb1" />

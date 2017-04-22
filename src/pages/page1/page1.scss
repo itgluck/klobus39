@@ -254,7 +254,7 @@ li {
 
 .box {
     position: relative;
-    background: white;
+    background:$bg;
     margin: auto;
     width: 100%;
     height: 50px;
@@ -336,7 +336,6 @@ header .box-title {
 
 input:checked+.box {
     height: auto;
-    margin-top: 8px;
     color: #fff;
 }
 
@@ -504,3 +503,73 @@ input:checked+section.box .box-title:before {
 }
 //   End JD style
 
+/* Acordeon styles */
+.tab {
+  margin-bottom: 1px;
+  width: 100%;top:12px;
+  color: $primary; 
+  overflow: hidden;
+    background:$bg;
+    margin: auto;
+    transition: all .15s ease-in-out;
+}
+.accordion input {
+  position: absolute;
+  opacity: 0;
+  z-index: -1;
+
+}
+label {
+  position: relative;
+  display: block;
+  padding: 0 0 0 1em;
+//   background: #ddd;
+  font-weight: bold;
+  line-height: 3;
+  cursor: pointer;
+}
+
+.tab-content {
+  max-height: 0;
+  overflow: hidden;
+  background: $bg;
+  -webkit-transition: max-height .35s;
+  -o-transition: max-height .35s;
+  transition: max-height .35s;
+}
+ .tab-content {
+  background: $bg;
+}
+.tab-content p {
+  margin: 1em;
+}
+/* :checked */
+input:checked ~ .tab-content {
+  max-height: 10em;
+}
+/* Icon */
+label::after {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  width: 3em;
+  height: 3em;
+  line-height: 3;
+  text-align: center;
+  -webkit-transition: all .35s;
+  -o-transition: all .35s;
+  transition: all .35s;
+}
+input[type=checkbox] + label::after {
+  content: "+";
+}
+input[type=radio] + label::after {
+  content: "\25BC";
+}
+input[type=checkbox]:checked + label::after {
+  transform: rotate(315deg);
+}
+input[type=radio]:checked + label::after {
+  transform: rotateX(180deg);
+}
