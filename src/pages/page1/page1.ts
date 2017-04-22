@@ -60,7 +60,7 @@ export class DetailsPage {
 
  <!--Железнодорожный вокзал-->
 	<input type="radio"  name="accordion" id="cb3" />
-	<section class="box">
+	<section class="boxe">
 	<label class="box-title" for="cb3">Электрички</label>
 	<label class="box-close" for="acc-close"></label>
 		<div class="box-content">
@@ -120,6 +120,10 @@ export class DetailsPage {
 			</ion-list> 
 		</div>
 	</section>
+
+
+<!-- АвтоВокзалы -->
+
 
  <!--Северный автовокзал-->
 	<input type="radio" name="accordion" id="cb1" />

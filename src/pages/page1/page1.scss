@@ -252,11 +252,20 @@ li {
     display: none;
 }
 
+.boxe {
+    position: relative;
+    background: white;
+    top: 8px;
+    margin: auto;
+    width: 97%;
+    height: 50px;
+    transition: all .15s ease-in-out;
+}
 .box {
     position: relative;
     background: white;
-    margin-bottom: 4px;
-    width: 100%;
+    margin: auto;
+    width: 97%;
     height: 50px;
     transition: all .15s ease-in-out;
 }
@@ -336,7 +345,7 @@ header .box-title {
 
 input:checked+.box {
     height: auto;
-    margin: 0px 0px 12px;
+    margin-top: 8px;
     color: #fff;
 }
 
