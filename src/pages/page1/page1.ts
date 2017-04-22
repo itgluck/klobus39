@@ -48,23 +48,24 @@ export class DetailsPage {
  <img src="assets/img/logohd.png" class='logo-header'>
  </ion-title>
  </ion-navbar>
+
  <ion-toolbar color="primary">
  <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="getItems($event)" placeholder="Укажите город или маршрут"></ion-searchbar>
-
  </ion-toolbar>
 </ion-header>
+
+
 <ion-content class="citylist">
 
  <!--Accordion-->
- <nav class="accordion arrows">
+   <div class="arrows accordion">
 
  <!--Железнодорожный вокзал-->
-	<input type="radio"  name="accordion" id="cb3" />
-	<section class="box">
-	<label class="box-title" for="cb3">Электрички</label>
-	<label class="box-close" for="acc-close"></label>
-		<div class="box-content">
-			<ion-list class="trainbtn">
+   <div class="tab">
+      <input id="tab-elect" type="checkbox" name="tabs">
+      <label for="tab-elect">Электрички</label>
+      <div class="tab-content">
+	  	<ion-list class="trainbtn">
 					<button ion-item (click)="openBgrt()">
 						<ion-icon name="subway"  item-left></ion-icon>
 						 Калининград - Багратионовск
@@ -118,20 +119,18 @@ export class DetailsPage {
 							
 					</button>
 			</ion-list> 
-		</div>
-	</section>
-
+      </div>
+      </div>
 
 
 <!-- АвтоВокзалы -->
-
-  <!--Списком -->
-    <div class="tab arrows">
-      <input id="tab-one" type="checkbox" name="tabs">
-      <label for="tab-one">Северный автовокзал</label>
+ <div class="tab">
+      <input id="tab-2" type="checkbox" name="tabs" checked>
+      <label for="tab-2">Северный автовокзал</label>
       <div class="tab-content">
-	  <img src="assets/img/map_u.png" class='logo'>  
-        <p>Калининград, ул. Железнодорожная, 7</p>
+	  <img src="assets/img/map_s.png" class='logo'> 
+	  <img src="//www.google.com/images/branding/mapslogo/1x/googlelogo_62x24_with_2_stroke_color_66x26dp.png" class="watermark"> 
+        <p>Калининград, пр-т. Советский, 4</p>	 
       <ion-list>
 		<div class='baner'>	</div>
 		<div *ngFor="let data of spisok">
@@ -143,15 +142,15 @@ export class DetailsPage {
 		</div>
 	</ion-list>	
 	  </div>
-    </div>
+	  </div>
 
-    <div class="tab">
-      <input id="tab-two" type="checkbox" name="tabs">
-      <label for="tab-two">Южный автовокзал</label>
+ <div class="tab">
+      <input id="tab-3" type="checkbox" name="tabs" checked>
+      <label for="tab-3">Южный автовокзал</label>
       <div class="tab-content">
-	  <img src="assets/img/map_s.png" class='logo'>  
-        <p>Калининград, пр-т. Советский, 4</p>
-	
+	   <img src="assets/img/map_u.png" class='logo'>   
+	    <img src="//www.google.com/images/branding/mapslogo/1x/googlelogo_62x24_with_2_stroke_color_66x26dp.png" class="watermark"> 
+        <p>Калининград, ул. Железнодорожная, 7</p>	
 		<ion-list>
 			<div *ngFor="let item of items">
 			<button ion-item (click)="openNavDetailsPage(item)" class="citylist">
@@ -162,22 +161,19 @@ export class DetailsPage {
 			</div>
 	</ion-list>
       </div>
-    </div>
+      </div>
+
+      </div>
 
     <!--
 	<div class="tab">
-      <input id="tab-three" type="checkbox" name="tabs">
-      <label for="tab-three">Вокзалы Области</label>
+      <input id="tab-4" type="checkbox" name="tabs">
+      <label for="tab-4">Вокзалы Области</label>
       <div class="tab-content">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
       </div>
     </div>
 	-->
-
-<input type="radio" name="accordion" id="acc-close" />
- </nav>
-
-
 
 </ion-content>
 `
