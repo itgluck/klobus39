@@ -6,7 +6,7 @@
 
         <ion-title>Детали маршрута</ion-title>
     </ion-navbar>
-    <ion-toolbar class="trainlist" color="train" >
+    <ion-toolbar class="trainlist" color="train">
         <ion-segment [(ngModel)]="menubtn">
             <ion-segment-button value="out">
                 из Калининграда
@@ -61,46 +61,48 @@
             <!--*** TimeLine-->
             <div class="timeline">
                 <ul style="display:block">
-                    <li *ngFor="let item of items" style="padding-bottom: 11em;">
-                        <div class="bullet {{item.bullet_type}}"></div><h3>{{item.title}}</h3>
+                    <li *ngFor="let item of items" style="padding-bottom: 13em;">
+                        <div class="bullet {{item.bullet_type}}"></div>
+                        <h3>{{item.title}}</h3>
                         <ion-grid class="grid-train">
-                       
-                        <ion-row>
-                            <ion-col col-5>{{item.time}}</ion-col>
-                            <ion-col col-2 class="routnum">6701</ion-col>
-                            <ion-col col-4>кроме Вс</ion-col>
-                        </ion-row>
-                        <ion-row>
-                            <ion-col col-5>{{item.time2}}</ion-col>
-                            <ion-col col-2 class="routnum">6703</ion-col>
-                            <ion-col col-4>ежедневно</ion-col>
-                        </ion-row>
-                        <ion-row>
-                            <ion-col col-5>{{item.time3}}</ion-col>
-                            <ion-col col-2 class="routnum">6707</ion-col>
-                            <ion-col col-4>ежедневно</ion-col>
-                        </ion-row>
-                        <ion-row>
-                            <ion-col col-5>{{item.time4}}</ion-col>
-                            <ion-col col-2 class="routnum">6713</ion-col>
-                            <ion-col col-4>ежедневно</ion-col>
-                        </ion-row>
-                        <ion-row>
-                            <ion-col col-5>{{item.time5}}</ion-col>
-                            <ion-col col-2 class="routnum">6717</ion-col>
-                            <ion-col col-4>ежедневно</ion-col>
-                        </ion-row>
-                        <ion-row>
-                            <ion-col col-5>{{item.time6}}</ion-col>
-                            <ion-col col-2 class="routnum">6719</ion-col>
-                            <ion-col col-4>ежедневно</ion-col>
-                        </ion-row>
 
-                        </ion-grid>                           
+                            <ion-row>
+                                <ion-col col-4>{{item.time}}</ion-col>
+                                <ion-col class="routnum"><span>6701</span></ion-col>
+                                <ion-col col-4>кроме Вс</ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col col-4>{{item.time2}}</ion-col>
+                                <ion-col class="routnum"><span>6703</span></ion-col>
+                                <ion-col col-4>ежедневно</ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col col-4>{{item.time3}}</ion-col>
+                                <ion-col class="routnum"><span>6707</span></ion-col>
+                                <ion-col col-4>ежедневно</ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col col-4>{{item.time4}}</ion-col>
+                                <ion-col class="routnum"><span>6713</span></ion-col>
+                                <ion-col col-4>ежедневно</ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col col-4>{{item.time5}}</ion-col>
+                                <ion-col class="routnum"><span>6717</span></ion-col>
+                                <ion-col col-4>ежедневно</ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col col-4>{{item.time6}}</ion-col>
+                                <ion-col class="routnum"><span>6719</span></ion-col>
+                                <ion-col col-4>ежедневно</ion-col>
+                            </ion-row>
+
+                        </ion-grid>
                     </li>
                 </ul>
             </div>
-        </div><!-- End Case-->
+        </div>
+        <!-- End Case-->
 
         <div *ngSwitchCase="'in'">
 
@@ -134,59 +136,60 @@
                             <td>руб</td>
                         </tr>
                     </table>
-                <!--<div class="actionbutton"><ion-icon name="globe" ></ion-icon></div>-->
+                    <!--<div class="actionbutton"><ion-icon name="globe" ></ion-icon></div>-->
                 </div>
             </div>
 
             <!--*** TimeLine BACK-->
             <div class="timeline">
                 <ul style="display:block">
-                    <li *ngFor="let back of backs" style="padding-bottom: 11em;">
-                        <div class="bullet {{back.bullet_type}}"></div><h3>{{back.title}}</h3>
+                    <li *ngFor="let back of backs" style="padding-bottom: 14em;">
+                        <div class="bullet {{back.bullet_type}}"></div>
+                        <h3>{{back.title}}</h3>
 
-                            <ion-grid class="grid-train">
-                    <ion-row>
-                        <ion-col col-5>{{back.time2}}</ion-col>
-                        <ion-col col-2 class="routnum">6700</ion-col>
-                        <ion-col col-4>по будням</ion-col>
-                    </ion-row>
-                    <ion-row>
-                        <ion-col col-5>{{back.time}}</ion-col>
-                        <ion-col col-2 class="routnum">6702</ion-col>
-                        <ion-col col-4>кроме Вс</ion-col>
-                    </ion-row>
-                    <ion-row>
-                        <ion-col col-5>{{back.time3}}</ion-col>
-                        <ion-col col-2 class="routnum">6704</ion-col>
-                        <ion-col col-4>ежедневно</ion-col>
-                    </ion-row>
-                    <ion-row>
-                        <ion-col col-5>{{back.time4}}</ion-col>
-                        <ion-col col-2 class="routnum">6708</ion-col>
-                        <ion-col col-4>ежедневно</ion-col>
-                    </ion-row>
-                    <ion-row>
-                        <ion-col col-5>{{back.time5}}</ion-col>
-                        <ion-col col-2 class="routnum">6714</ion-col>
-                        <ion-col col-4>ежедневно</ion-col>
-                    </ion-row>
-                    <ion-row>
-                        <ion-col col-5>{{back.time6}}</ion-col>
-                        <ion-col col-2 class="routnum">6718</ion-col>
-                        <ion-col col-4>ежедневно</ion-col>
-                    </ion-row>
-                    <ion-row>
-                        <ion-col col-5>{{back.time7}}</ion-col>
-                        <ion-col col-2 class="routnum">6720</ion-col>
-                        <ion-col col-4>ежедневно</ion-col>
-                    </ion-row>
-                   
-                    </ion-grid>
+                        <ion-grid class="grid-train">
+                            <ion-row>
+                                <ion-col col-4>{{back.time2}}</ion-col>
+                                <ion-col class="routnum"><span>6700</span></ion-col>
+                                <ion-col col-4>по будням</ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col col-4>{{back.time}}</ion-col>
+                                <ion-col class="routnum"><span>6702</span></ion-col>
+                                <ion-col col-4>кроме Вс</ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col col-4>{{back.time3}}</ion-col>
+                                <ion-col class="routnum"><span>6704</span></ion-col>
+                                <ion-col col-4>ежедневно</ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col col-4>{{back.time4}}</ion-col>
+                                <ion-col class="routnum"><span>6708</span></ion-col>
+                                <ion-col col-4>ежедневно</ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col col-4>{{back.time5}}</ion-col>
+                                <ion-col class="routnum"><span>6714</span></ion-col>
+                                <ion-col col-4>ежедневно</ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col col-4>{{back.time6}}</ion-col>
+                                <ion-col class="routnum"><span>6718</span></ion-col>
+                                <ion-col col-4>ежедневно</ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col col-4>{{back.time7}}</ion-col>
+                                <ion-col class="routnum"><span>6720</span></ion-col>
+                                <ion-col col-4>ежедневно</ion-col>
+                            </ion-row>
+
+                        </ion-grid>
                     </li>
 
                 </ul>
             </div>
-        
+
         </div>
     </div>
 

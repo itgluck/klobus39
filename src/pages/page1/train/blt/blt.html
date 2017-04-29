@@ -58,14 +58,7 @@
                     </table>
                 </div>
             </div>
-<!--<ion-grid class="gridHeader">
-  <ion-row>
-    <ion-col col-4>Отправление</ion-col>
-    <ion-col col-3>Маршрут</ion-col>
-    <ion-col col-3>День недели</ion-col>
-  </ion-row>
- 
-</ion-grid>-->
+
             <!--*** TimeLine-->
             <div class="timeline">
                 <ul style="display:block">
@@ -73,15 +66,10 @@
                         <div class="bullet {{item.bullet_type}}"></div><h3>{{item.title}}</h3>
                         
                     <ion-grid class="grid-train">
-                    <!--<ion-row>
-                        <ion-col col-5 >{{item.time}}</ion-col>
-                        <ion-col col-2 class="routnum">6401</ion-col>
-                        
-                        <ion-col col-4 class="mini">выходные и праздники</ion-col>
-                    </ion-row>-->
+    
                     <ion-row>
-                        <ion-col col-5>{{item.time2}}</ion-col>
-                        <ion-col col-2 class="routnum">6405</ion-col>                        
+                        <ion-col col-4>{{item.time2}}</ion-col>
+                        <ion-col class="routnum"><span>6405</span></ion-col>                        
                         <ion-col col-4>по будням</ion-col>
                     </ion-row>
                     </ion-grid>
@@ -136,14 +124,14 @@
 
                             <ion-grid class="grid-train">
                     <!--<ion-row>
-                        <ion-col col-5 >{{back.time2}}</ion-col>
+                        <ion-col col-4 >{{back.time2}}</ion-col>
                         <ion-col col-2 class="routnum">6404</ion-col>
                         
                         <ion-col col-4 class="mini">выходные и праздники</ion-col>
                     </ion-row>-->
                     <ion-row>
-                        <ion-col col-5>{{back.time}}</ion-col>
-                        <ion-col col-2 class="routnum">6400</ion-col>                       
+                        <ion-col col-4>{{back.time}}</ion-col>
+                        <ion-col class="routnum"><span>6400</span></ion-col>                       
                         <ion-col col-4>по будням</ion-col>
                     </ion-row>
                     </ion-grid>

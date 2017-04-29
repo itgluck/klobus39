@@ -64,18 +64,18 @@
                         
                     <ion-grid class="grid-train">
                     <ion-row>
-                        <ion-col col-5>{{item.time}}</ion-col>
-                        <ion-col col-2 class="routnum">6303</ion-col>
+                        <ion-col col-4>{{item.time}}</ion-col>
+                        <ion-col class="routnum"><span>6303</span></ion-col>
                         <ion-col col-4>Ср, Сб</ion-col>
                     </ion-row>
                     <ion-row>
-                        <ion-col col-5 >{{item.time2}}</ion-col>
-                        <ion-col col-2 class="routnum">6303</ion-col>
+                        <ion-col col-4 >{{item.time2}}</ion-col>
+                        <ion-col class="routnum"><span>6303</span></ion-col>
                         <ion-col col-4 class="mini">Пн,Пт,Вс и праздники</ion-col>
                     </ion-row>
                     <ion-row>
-                        <ion-col col-5>{{item.time3}}</ion-col>
-                        <ion-col col-2 class="routnum">6307</ion-col>
+                        <ion-col col-4>{{item.time3}}</ion-col>
+                        <ion-col class="routnum"><span>6307</span></ion-col>
                         <ion-col col-4>по будням</ion-col>
                     </ion-row>
                     </ion-grid>                      
@@ -123,28 +123,28 @@
             <!--*** TimeLine BACK-->
             <div class="timeline">
                 <ul style="display:block">
-                    <li *ngFor="let back of backs" style="padding-bottom: 6em;">
+                    <li *ngFor="let back of backs" style="padding-bottom: 7em;">
                         <div class="bullet {{back.bullet_type}}"></div><h3>{{back.title}}</h3>
 
                             <ion-grid class="grid-train">
                      <ion-row>
-                        <ion-col col-5>{{back.time}}</ion-col>
-                        <ion-col col-2 class="routnum">6302</ion-col>
+                        <ion-col col-4>{{back.time}}</ion-col>
+                        <ion-col class="routnum"><span>6302</span></ion-col>
                         <ion-col col-4>по будням</ion-col>
                     </ion-row>
                      <ion-row>
-                        <ion-col col-5>{{back.time2}}</ion-col>
-                        <ion-col col-2 class="routnum">6306</ion-col>
+                        <ion-col col-4>{{back.time2}}</ion-col>
+                        <ion-col class="routnum"><span>6306</span></ion-col>
                         <ion-col col-4>Пн,Ср,Пт,Сб</ion-col>
                     </ion-row>
                      <ion-row>
-                        <ion-col col-5>{{back.time3}}</ion-col>
-                        <ion-col col-2 class="routnum">6306</ion-col>
+                        <ion-col col-4>{{back.time3}}</ion-col>
+                        <ion-col class="routnum"><span>6306</span></ion-col>
                         <ion-col col-4 class="mini">Вс и праздники</ion-col>
                     </ion-row>
                      <ion-row>
-                        <ion-col col-5>{{back.time4}}</ion-col>
-                        <ion-col col-2 class="routnum">6310</ion-col>
+                        <ion-col col-4>{{back.time4}}</ion-col>
+                        <ion-col class="routnum"><span>6310</span></ion-col>
                         <ion-col col-4>по будням</ion-col>
                     </ion-row>
                    
@@ -155,8 +155,5 @@
             </div>
         </div>
     </div>
-
-
-
 
 </ion-content>

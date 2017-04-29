@@ -62,7 +62,7 @@ export class DetailsPage {
     <!--Accordion-->
     <div class="arrows accordion">
 
-        <!--Железнодорожный вокзал-->
+    <!--Железнодорожный вокзал-->
         <div class="tab">
             <input id="tab-elect" type="checkbox" name="tabs">
             <label for="tab-elect">Электрички</label>
@@ -124,15 +124,13 @@ export class DetailsPage {
             </div>
         </div>
 
-
         <!-- АвтоВокзалы -->
         <div class="tab">
             <input id="tab-2" type="checkbox" name="tabs" checked>
             <label for="tab-2">Северный автовокзал</label>
             <div class="tab-content">
-			<div class='main-map'>
+			<div class='main-map' (click)="goToMap()">
                 <img src="assets/img/map_s.png">
-                <img src="//www.google.com/images/branding/mapslogo/1x/googlelogo_62x24_with_2_stroke_color_66x26dp.png" class="watermark">
                      </div>
                 <p>Калининград, пр-т. Советский, 4</p>
                 <ion-list>
@@ -151,10 +149,9 @@ export class DetailsPage {
             <input id="tab-3" type="checkbox" name="tabs" checked>
             <label for="tab-3">Южный автовокзал</label>
             <div class="tab-content">
-			<div class='main-map'>
+			<div class='main-map' (click)='goToMap()'>
                 <img src="assets/img/map_u.png">
-                <img src="//www.google.com/images/branding/mapslogo/1x/googlelogo_62x24_with_2_stroke_color_66x26dp.png" class="watermark">
-				</div>
+             	</div>
                 <p>Калининград, ул. Железнодорожная, 7</p>
                 <ion-list>
                     <div *ngFor="let item of items">
