@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController,Platform} from 'ionic-angular';
-import {GoogleMap, GoogleMapsEvent, GoogleMapsMarker, GoogleMapsLatLng} from 'ionic-native';
+import {GoogleMap, GoogleMapsEvent, GoogleMapsLatLng} from 'ionic-native';
 
 @Component({
   selector: 'page4',
@@ -19,13 +19,13 @@ map: GoogleMap;
 
 loadMap(){
     // somewhere in your component
-    let location = new GoogleMapsLatLng(54.70649,20.509);
+    let klg = new GoogleMapsLatLng(54.70649,20.509);
 
     this.map = new GoogleMap('map',{
       'backgroundColor': 'white',
           'controls': {
             'compass': true,
-            'myLocationButton': true,
+            'myklgButton': true,
             'indoorPicker': true,
             'zoom': true
           },
@@ -36,21 +36,27 @@ loadMap(){
             'zoom': true
           },
           'camera': {
-            'latLng': location,
-            'tilt': 30,
+            'latLng': klg,
+            'tilt': 45,
             'zoom': 12,
             'bearing': 0
           }
     });
-    let marker = new GoogleMapsMarker(this.map);
-    marker.setTitle("Teste");
-    marker.setPosition(location);
+   
+    // let marker = new GoogleMapsMarker(this.map);
+    // marker.setTitle("Teste");
+    // marker.setPosition(klg);
 
     // this.map.setCenter(latLng);
     // this.map.setZoom(12);
+
+     let severniy = new GoogleMapsLatLng(54.70649,20.509);
+     this.map.addMarker(severniy);
 
     this.map.on(GoogleMapsEvent.MAP_READY).subscribe(() => {console.log('Map is ready!');
   });
   
 }
+
+
 }

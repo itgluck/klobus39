@@ -1829,9 +1829,7 @@ export class Page1 {
 	 this.navCtrl.push(Page4);
  }
 //  JD Routs
-//  openPage(train) {
-//  this.navCtrl.push(Rout1);
-//  }
+
  openBgrt() {
  this.navCtrl.push(RoutBgrt);
  }
