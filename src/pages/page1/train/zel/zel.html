@@ -60,7 +60,7 @@
             <!--*** TimeLine-->
             <div class="timeline">
                 <ul style="display:block">
-                    <li *ngFor="let item of items" style="padding-bottom: 7em;">
+                    <li *ngFor="let item of items">
                         <div class="bullet {{item.bullet_type}}"></div><h3>{{item.title}}</h3>
                         
                     <ion-grid class="grid-train">
@@ -132,7 +132,7 @@
             <!--*** TimeLine BACK-->
             <div class="timeline">
                 <ul style="display:block">
-                    <li *ngFor="let back of backs" style="padding-bottom: 7em;">
+                    <li *ngFor="let back of backs">
                         <div class="bullet {{back.bullet_type}}"></div><h3>{{back.title}}</h3>
 
                             <ion-grid class="grid-train">

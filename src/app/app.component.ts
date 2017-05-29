@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
-import { StatusBar, Splashscreen } from 'ionic-native';
+import { Nav, Platform} from 'ionic-angular';
+// import { StatusBar, Splashscreen } from 'ionic-native';
+ import { StatusBar } from '@ionic-native/status-bar';
+ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
@@ -12,7 +14,6 @@ import { Page7 } from '../pages/page7/page7';
 
 // import { RoutBgrt } from '../pages/page1/train/bgrt/bgrt';
 
-import {AdMob} from 'ionic-native';
 declare var banner;
 
 @Component({
@@ -27,12 +28,12 @@ export class MyApp {
 
   pages: Array<{title: string, icon: string, component: any}>;
 
-  constructor(public platform: Platform) {
+  constructor(public platform: Platform, private  statusBar: StatusBar,private splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      // { title: 'Маршруты', icon:'bus', component: Page1 },
+      { title: 'Маршруты', icon:'bus', component: Page1 },
       // { title: 'Электрички', icon:'subway', component: Rout1 },
       { title: 'Заказ авто', icon:'car', component: Page7 },
       { title: 'Погода', icon:'rainy', component: Page3 },
@@ -49,36 +50,13 @@ export class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-      StatusBar.styleDefault();
-      Splashscreen.hide();
+    this.statusBar.overlaysWebView(true);
+      this.splashScreen.hide();
 
-       interface AdMobType {
-         banner:string,
-         interstitial:string
-       };
-        var admobid = {
-      banner: 'ca-app-pub-7133305264165200/3772091776', 
-      // interstitial: 'ca-app-pub-7133305264165200/3617314571'
-     }
   
-    if(AdMob)  AdMob.createBanner( {
-                         adId:admobid.banner,
-                        //  position: AdMob.AD_POSITION.TOP_CENTER,
-                        // isTesting:true,//comment this out before publishing the app
-                        autoShow:true} );
-    
-    // if (AdMob) AdMob.prepareInterstitial({
-    //     adId: admobid.interstitial,
-    //     isTesting: true, //comment this out before publishing the app
-    //     autoShow: false
-    //   });
   });
   }
   
-  // showInterstitials(){
-  //    if (AdMob) AdMob.showInterstitial();
-  // }
-
   openPage(page) {
     this.nav.push(page.component);
     // this.nav.setRoot(page.component);

@@ -3,6 +3,7 @@
 }
 
 
+
 .img {
     min-width: 100%;
     border: 0px;
@@ -276,6 +277,7 @@ input:checked+section.box .box-title:before {
 }
 
 // END .accordion
+//  <img src="assets/img/map_s.png">
 //  End  
 .baner{
     width: 100%;
@@ -291,7 +293,20 @@ input:checked+section.box .box-title:before {
     margin: 0px auto;
     // text-align: center;
 }
-
+.sever {
+    // background-size: cover;
+    background: url(../assets/img/map_s.png);
+    background-repeat: no-repeat;    
+    background-position: center;
+    min-height: 9em;
+}
+.ug {
+    // background-size: cover;
+    background: url(../assets/img/map_u.png);
+    background-repeat: no-repeat;    
+    background-position: center;
+    min-height: 9em;
+}
 
 .baner img {
     width: 100%;
@@ -313,7 +328,7 @@ input:checked+section.box .box-title:before {
 .accordion {
     margin: 3px auto;
     width: 100%;
-    padding: 2%;
+    // padding: 2%;
 }
 
 .accordion input {
@@ -322,11 +337,10 @@ input:checked+section.box .box-title:before {
 
 .tab {
     width: 100%;
-    top: 12px;
     color: $primary;
     overflow: hidden;
     background: $bg;
-    margin: .1em auto 1em;
+    margin-bottom: .3em;
     transition: all .15s ease-in-out;
     box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24);
 }
@@ -352,23 +366,22 @@ label {
 .tab-content {
     display: none;
     overflow: hidden;
-    background: $bg;
-    margin-bottom: 4px;
     -webkit-transition: max-height .35s;
     -o-transition: max-height .35s;
     transition: max-height .35s;
 }
 
 .tab-content {
-    background: $bg;
     text-align: center;
 }
 
 .tab-content p {
     font-size: .8em;
-    color: $text;
-    float: right;
-    padding: 0px 16px;
+    color: $bg;
+    padding: 10px;
+    background: $hidden;
+    margin-top: -3em;
+
 }
 
 
@@ -386,12 +399,10 @@ label:checked {
 .tab label::after {
     width: 1em;
     height: 1em;
-    //   line-height: 1.4; 
     position: absolute;
     left: 10px;
     text-align: center;
     color: $hidden;
-    // color:$bg;
     font-size: 2em;
 }
 
