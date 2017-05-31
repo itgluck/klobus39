@@ -14,10 +14,13 @@ import { NavController, AlertController } from 'ionic-angular';
 export class Page6 {
     AlertController; 
     alertCtrl;
+    // Uri:any;
 	constructor(private nav: NavController, alertCtrl: AlertController){
 		this.nav = nav;
     this.alertCtrl= alertCtrl;
-	}
+
+}
+
 	doMessage() {
     let confirm = this.alertCtrl.create({
       title: 'Напишите нам',
@@ -63,4 +66,16 @@ export class Page6 {
    confirm.present();
   }
 
+doMap(){
+
+  window.open('geo:lat,lon?q=address', '_system');
+  // window.open('geo:lat,lon?q=Kaliningrad', '_system');
+  
+//     Uri gmmIntentUri = Uri.parse("geo:37.7749,-122.4194");
+// Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+// mapIntent.setPackage("com.google.android.apps.maps");
+// if (mapIntent.resolveActivity(getPackageManager()) != null) {
+// startActivity(mapIntent);
+// 	}
+}
 }

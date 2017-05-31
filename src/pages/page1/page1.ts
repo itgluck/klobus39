@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {NavController, NavParams, Platform} from 'ionic-angular';
 
-import { Page4 } from '../page4/page4';
 // import { Rout1 } from './train/rout';
 
 // Routs
@@ -129,7 +128,7 @@ export class DetailsPage {
             <input id="tab-2" type="checkbox" name="tabs" checked>
             <label for="tab-2">Северный автовокзал</label>
             <div class="tab-content">
-			<div class='sever' (click)="goToMap()">
+			<div class='img-box-bg sever'> 
                
                      </div>
                 <p>Калининград, пр-т. Советский, 4</p>
@@ -149,7 +148,7 @@ export class DetailsPage {
             <input id="tab-3" type="checkbox" name="tabs" checked>
             <label for="tab-3">Южный автовокзал</label>
             <div class="tab-content">
-			<div class='ug' (click)='goToMap()'>
+			<div class='img-box-bg ug'>
                
              	</div>
                 <p>Калининград, ул. Железнодорожная, 7</p>
@@ -491,20 +490,20 @@ export class Page1 {
 		'title': 'Гурьевск · Константиновка',
 		'en': 'Gurevsk · Konstantinovka',
 		'description': 'Ижевское, Взморье',
-		time:'1:00', dist: '19',cost:'33',
-		'workday':"06:40",
-		'workday2':"22:03",
-		'workday3':"06:30",
-		'workday4':"20:25",
-		info1:'Периодичность 25 мин',
-		info2:'Периодичность 25 мин',
-		info3:'Периодичность 25 мин',
-		info4:'Периодичность 25 мин',
+		time:'1:05', dist: '19',cost:'33',
+		'workday':"06:41 22:03",
+		'workday2': "07:46 23:02",
+		'workday3':"06:30 20:55",
+		'workday4':"07:30 22:00",
+		info1:'Периодичность 20-25 мин',
+		info2:'Периодичность 20-25 мин',
+		info3:'Периодичность 20-25 мин',
+		info4:'Периодичность 20-25 мин',
 		// station:'',
-		'hollyday':"07:21",
-		'hollyday2':"21:40",
-		'hollyday3':"06:55",
-		'hollyday4':"20:10",
+		'hollyday':"07:21 21:40",
+		'hollyday2':"08:26 22:23",
+		'hollyday3':"06:55 20:10",
+		'hollyday4':"07:50 21:05",
 		'icon': 'bus',' map':'' ,'weather':'',
 		'img':'',
 		'numb':'103'
@@ -1304,16 +1303,16 @@ export class Page1 {
 		'title': 'Советск',
 		'en': 'Sovetsk',
 		'description': 'Полесск, Большаково',
-		time:'2:30', dist: '108',cost:'230',
-		'workday':"09:40 11:00 13:50 16:50 20:00",
-		'workday2':"12:05 13:50 16:40 19:20 22:50",
-		'workday3':"05:00 06:30 13:20 15:15 17:20",
-		'workday4':"07:54 08:50 15:45 18:09 20:14",
+		time:'2:50', dist: '108',cost:'230',
+		'workday':"09:40 11:00 13:50 16:50 21:00",
+		'workday2':"12:25 13:50 16:40 19:40 23:50",
+		'workday3':"05:00 06:10 13:20 15:15 17:20",
+		'workday4':"07:54 09:00 15:55 18:09 20:14",
 		// station:'',
-		'hollyday':"09:40 11:00 13:50 16:50 20:00",
-		'hollyday2':"12:05 13:50 16:40 19:20 22:50",
-		'hollyday3':"05:00 06:30 13:20 15:15 17:20",
-		'hollyday4':"07:54 08:50 15:45 18:09 20:14",
+		'hollyday':"09:40 11:00 13:50 16:50 21:00",
+		'hollyday2':"12:25 13:50 16:40 19:40 23:50",
+		'hollyday3':"05:00 06:10 13:20 15:15 17:20",
+		'hollyday4':"07:54 09:00 15:55 18:09 20:14",
 		'icon': 'bus',' map':'' ,'weather':'',
 		'img':'sovetsk',
 		'numb':'513'
@@ -1825,9 +1824,9 @@ export class Page1 {
  openNavDetailsPage2(data) {
  this.navCtrl.push(DetailsPage , { item: data });
  }
- goToMap() {
-	 this.navCtrl.push(Page4);
- }
+//  goToMap() {
+// 	 this.navCtrl.push(Page4);
+//  }
 //  JD Routs
 
  openBgrt() {

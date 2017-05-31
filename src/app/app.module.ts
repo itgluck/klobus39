@@ -1,6 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { SplashScreen } from '@ionic-native/splash-screen';
+// import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { BrowserModule } from '@angular/platform-browser';
 import {GoogleMaps} from '@ionic-native/google-maps';
@@ -75,7 +75,7 @@ import { RoutSvt2 } from '../pages/page1/train/svt2/svt2';
   ],
   providers: [
     StatusBar,
-    SplashScreen,
+    // SplashScreen,
     GoogleMaps,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
