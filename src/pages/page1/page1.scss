@@ -1,5 +1,6 @@
 .citylist {
     color: $primary;
+       background: #EBEDEE;
     font-family: 'Roboto', 'Arial Narrow', Arial, sans-serif;
 
     h5 {
@@ -11,9 +12,18 @@
 ion-grid {
     margin-top: -1.5em;
 }
+button{
+    background: #fff;
 }
 
+}
+.bg {
+    background: #fff;
+}
 
+.searchbar-md .searchbar-input {
+    border-radius: 8px;
+}
 
 .img {
     min-width: 100%;
@@ -65,25 +75,30 @@ ion-grid {
     width: 40%;
     span {
     font-size: 3em;
-    color: $dark;
+    color: $primary;
+    background: $bg2;
     margin: 1rem;
     padding: 3px 6px;
     border-radius: 8px;
     border: 1px solid $secondary;
-    box-shadow: 0 -1px 2px #9CC6D7, 0 0 2px rgba(103, 153, 173, .12), 0 2px 4px rgba(0, 0, 0, .24);
+    // box-shadow: 0 -1px 2px #9CC6D7, 0 0 2px rgba(103, 153, 173, .12), 0 2px 4px rgba(0, 0, 0, .24);
     }
 }
 
+.border-top {
+    border-top: 1px solid rgba(10,10,14, .2);;
+    height: 3rem;
+}
 // End Spec
 .citylist button span {
     border: 1px solid $primary;
     border-radius: 5px;
     font-weight: 500;
-    background: rgba(235, 250, 252, .5);
+    background: #eee;
     text-align: center;
-    min-width: 38px;
+    min-width: 4.5rem;
     padding: 4px;
-    box-shadow: 0 1px 2px #9CC6D7, 0 0 2px rgba(103, 153, 173, .22), 0 2px 4px rgba(0, 0, 0, .24);
+    // box-shadow: 0 1px 2px #9CC6D7, 0 0 2px rgba(103, 153, 173, .22), 0 2px 4px rgba(0, 0, 0, .24);
 }
 
 .trainbtn button {
@@ -103,7 +118,7 @@ ion-grid {
 
 .citylist ion-label {
     font-variant: caps;
-    font-size: 1.4rem;
+    font-size: 1.68rem;
 }
 
 .sitylist .icon {
@@ -127,8 +142,7 @@ ion-grid {
 }
 
 .numb {
-    border: 1px solid $hidden;
-    font-size: 1.3rem;
+    font-size: 1.45rem;
     position: absolute;
     top: 12%;
     right: 5%;
@@ -304,6 +318,7 @@ input:checked+section.box .box-title:before {
 .img-box-bg {
     background-repeat: no-repeat;    
     background-position: center;
+    margin-bottom: -5.2em;
           min-height: 14em;
     @media screen and (max-width: 440px) {
           min-height: 9em;
@@ -317,6 +332,7 @@ input:checked+section.box .box-title:before {
 .sever {
     background: url(../assets/img/map_s.png);
     background-size: cover;
+
 }
 .ug {
     background: url(../assets/img/map_u.png);
@@ -365,8 +381,8 @@ label {
     width: 100%;
     line-height: 3em;
     padding: 0 3em;
-    margin-bottom: 2px;
     color: $primary;
+    background: #EEEEEE;
     font-size: 1.2em;
     display: inline-block;
     cursor: pointer;
@@ -388,6 +404,7 @@ label {
 
 .tab-content {
     text-align: center;
+    margin-top: 4px;
 }
 
 .tab-content p {
@@ -395,7 +412,7 @@ label {
     color: $bg;
     padding: 10px;
     background: $hidden2;
-    margin-top: -3em;
+    // margin-top: -3em;
 
 }
 

@@ -50,7 +50,7 @@ export class DetailsPage {
         </ion-title>
     </ion-navbar>
 
-    <ion-toolbar color="primary">
+    <ion-toolbar color="primary"> 
         <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="getItems($event)" placeholder="Укажите город или маршрут"></ion-searchbar>
     </ion-toolbar>
 </ion-header>
@@ -67,7 +67,7 @@ export class DetailsPage {
             <label for="tab-elect">Электрички</label>
             <div class="tab-content">
                 <ion-list class="trainbtn">
-                    <button ion-item (click)="openBgrt()">
+                    <button ion-item (click)="openBgrt()" class="citylist">
 						<ion-icon name="subway"  item-left></ion-icon>
 						 Калининград - Багратионовск
 						 <br><div class='en'>Kaliningrad - Bagrationovsk</div>
@@ -128,9 +128,9 @@ export class DetailsPage {
             <input id="tab-2" type="checkbox" name="tabs" checked>
             <label for="tab-2">Северный автовокзал</label>
             <div class="tab-content">
-			<div class='img-box-bg sever'> 
-               
-                     </div>
+              <a href="geo:54.7214,20.50011?z=15&q=Северный вокзал">
+			<div class='img-box-bg sever'> </div>
+			  </a>
                 <p>Калининград, пр-т. Советский, 4</p>
                 <ion-list>
                     <div *ngFor="let data of spisok">
@@ -148,9 +148,9 @@ export class DetailsPage {
             <input id="tab-3" type="checkbox" name="tabs" checked>
             <label for="tab-3">Южный автовокзал</label>
             <div class="tab-content">
-			<div class='img-box-bg ug'>
-               
-             	</div>
+			<a href="geo:54.6935,20.50188?z=15&q=Южный вокзал">
+			<div class='img-box-bg ug'></div>
+			</a>               
                 <p>Калининград, ул. Железнодорожная, 7</p>
                 <ion-list>
                     <div *ngFor="let item of items">

@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
-import { NavController,Platform} from 'ionic-angular';// import {GoogleMap, GoogleMapsEvent, GoogleMapsLatLng} from 'ionic-native';
-import {
- GoogleMaps,
- GoogleMap,
- GoogleMapsEvent,
- LatLng,
- CameraPosition,
- MarkerOptions
-} from '@ionic-native/google-maps';
+import { NavController,Platform} from 'ionic-angular';
+// import {GoogleMap, GoogleMapsEvent, GoogleMapsLatLng} from 'ionic-native';
+// import {
+//  GoogleMaps,
+//  GoogleMap,
+//  GoogleMapsEvent,
+//  LatLng,
+//  CameraPosition,
+//  MarkerOptions
+// } from '@ionic-native/google-maps';
 
 
 @Component({
@@ -18,45 +19,45 @@ export class Page4 {
 
 // map: GoogleMap;
 
-  constructor(public navCtrl: NavController, public platform: Platform ,public googleMaps: GoogleMaps) {
+  constructor(public navCtrl: NavController, public platform: Platform) {
     
     platform.ready().then(() => {
-      this.loadMap();
+      // this.loadMap();
     });
   }
 
 
-loadMap(){
- let element: HTMLElement = document.getElementById('map');
+// loadMap(){
+//  let element: HTMLElement = document.getElementById('map');
 
- let map: GoogleMap = this.googleMaps.create(element);
+//  let map: GoogleMap = this.googleMaps.create(element);
 
  // listen to MAP_READY event
  // You must wait for this event to fire before adding something to the map or modifying it in anyway
- map.one(GoogleMapsEvent.MAP_READY).then(
-   () => {
-     console.log('Map is ready!');
-     // Now you can add elements to the map like the marker
-   }
- );
+//  map.one(GoogleMapsEvent.MAP_READY).then(
+//    () => {
+//      console.log('Map is ready!');
+//      // Now you can add elements to the map like the marker
+//    }
+//  );
 
-  let ionic: LatLng = new LatLng(54.70649, 20.509);
+//   let ionic: LatLng = new LatLng(54.70649, 20.509);
 
- // create CameraPosition
- let position: CameraPosition = {
-   target: ionic,
-   zoom: 18,
-   tilt: 30
- };
+//  // create CameraPosition
+//  let position: CameraPosition = {
+//    target: ionic,
+//    zoom: 18,
+//    tilt: 30
+//  };
 
- // move the map's camera to position
- map.moveCamera(position);
+//  // move the map's camera to position
+//  map.moveCamera(position);
 
-// create new marker
- let markerOptions: MarkerOptions = {
-   position: ionic,
-   title: 'Ionic'
- };
+// // create new marker
+//  let markerOptions: MarkerOptions = {
+//    position: ionic,
+//    title: 'Ionic'
+//  };
 
 //  const marker: Marker = map.addMarker(markerOptions)
 //    .then((marker: Marker) => {
@@ -72,13 +73,13 @@ loadMap(){
 //  }
 
   // map ready event
-        map.one(GoogleMapsEvent.MAP_READY)
-            //move camera to position
-            .then(() => map.moveCamera(position))
-            //add a marker
-            .then(() => map.addMarker(markerOptions),
-                //show some info
-                (marker) => marker.showInfoWindow());
+        // map.one(GoogleMapsEvent.MAP_READY)
+        //     //move camera to position
+        //     .then(() => map.moveCamera(position))
+        //     //add a marker
+        //     .then(() => map.addMarker(markerOptions),
+        //         //show some info
+        //         (marker) => marker.showInfoWindow());
 
     // let klg = new LatLng(54.70649,20.509);
 
@@ -120,5 +121,5 @@ loadMap(){
 // }
 
 
-}
+// }
 }

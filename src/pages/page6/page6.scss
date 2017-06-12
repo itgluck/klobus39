@@ -9,11 +9,20 @@
 .about p {
     color: $text;
     text-indent: 25px;
+    // text-align: left;
     text-align: justify;
+    padding: .25em;
 }
 .about li {
     text-align: left;
+    margin-left: 2em;
 }
 .about h2 {
     text-align: center;
+}
+.about hr {
+    min-width: 100%;
+}
+.button-full-md {
+    margin-bottom: 1.2em;
 }

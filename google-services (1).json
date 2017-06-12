@@ -1,0 +1,66 @@
+{
+  "project_info": {
+    "project_number": "155670320659",
+    "firebase_url": "https://klobus-56622.firebaseio.com",
+    "project_id": "klobus-56622",
+    "storage_bucket": "klobus-56622.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:155670320659:android:fb5af5ffcf896ed6",
+        "android_client_info": {
+          "package_name": "com.itgluck.klobus39"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "155670320659-aeomtmluhod5a5q4ps6ovifiihcb2c05.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.itgluck.klobus39",
+            "certificate_hash": "bc095e68a1e99081facd2b6bcbbd2650010c45b0"
+          }
+        },
+        {
+          "client_id": "155670320659-40cknf69pjfs520teuk66otubvduih92.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.itgluck.klobus39",
+            "certificate_hash": "ce3403695f1941a1fd62ba9ea5068edc9d6096af"
+          }
+        },
+        {
+          "client_id": "155670320659-im1abano1i809cpomoj2qr41df5v6d7o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.itgluck.klobus39",
+            "certificate_hash": "8bb207d4db0a18f876d780d7b06e4852c078ec0f"
+          }
+        },
+        {
+          "client_id": "155670320659-e29cgl2v9h5g169t7uoqk28edhsk0l69.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQ-aRimmoJbrNmKiEBzKa2e-TyGEEb1vc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

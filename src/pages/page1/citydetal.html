@@ -7,7 +7,7 @@
 <!--<img src="//www.google.com/images/branding/mapslogo/1x/googlelogo_62x24_with_2_stroke_color_66x26dp.png" class="watermark">-->
 
 
-<ion-content class="citylist">
+<ion-content class="citylist bg">
 
     <!--Segment Main-->
 
@@ -46,8 +46,8 @@
     </div>
 
     <!--Lenta-->
-    <ion-toolbar primary [attr.primary]="isAndroid ? '' : null">
-        <ion-segment [(ngModel)]="menubtn" [attr.light]="isAndroid ? '' : null">
+    <ion-toolbar class="border-top">
+        <ion-segment [(ngModel)]="menubtn">
             <ion-segment-button value="workday">
                 Будни · Суббота
             </ion-segment-button>
@@ -63,21 +63,8 @@
         <ion-list *ngSwitchCase="'workday'">
             <input class="toggle-box" id="header1" type="checkbox" checked>
             <label for="header1">Калининград - {{item.title}}</label>
-            <!--<div class="flex-container ">
-                <ul>
-                    <li class="flex-item">
-                        <h5>Отправление</h5>
-                        <div class='time'>{{item.workday}}</div>
-                    </li>
-
-                    <li class="flex-item">
-                        <h5>Прибытие</h5>
-                        <div class='time'>{{item.workday2}}</div>
-                    </li>
-                </ul>
-                <div class="info">{{item.info1}}</div>
-            </div>-->
 <!--Расписание Будни прямое-->
+            <div class="flex-container">
             <ion-grid>
                 <ion-row>
                     <ion-col>
@@ -86,31 +73,23 @@
                     <ion-col>
                         <h5>Прибытие</h5>
                     </ion-col>
-
                 </ion-row>
                 <ion-row>
-                    <ion-col col-6 offset-12 class="time">{{item.workday}}</ion-col>
+                    <ion-col col-6 class="time">{{item.workday}}</ion-col>
                     <ion-col col-6 class="time">{{item.workday2}}</ion-col>
                 </ion-row>
+                <ion-row>
+                    <ion-col col-12 class="info">{{item.info1}}</ion-col>
+                </ion-row>
             </ion-grid>
-            <div class="info">{{item.info1}}</div>
+            </div>
 
-<!--End-->
             <input class="toggle-box" id="header2" type="checkbox" checked>
-            <label for="header2">{{item.title}} - Калининград</label>
+<!--End-->
 
-            <!--<ul>
-                    <li class="flex-item">
-                        <h5>Отправление</h5>
-                        <div class='time'>{{item.workday3}}</div>
-                    </li>
-
-                    <li class="flex-item">
-                        <h5>Прибытие</h5>
-                        <div class='time'>{{item.workday4}}</div>
-                    </li>
-                </ul>-->
 <!--Расписание Будни обратное-->
+            <label for="header2">{{item.title}} - Калининград</label>
+            <div class="flex-container">            
             <ion-grid>
                 <ion-row>
                     <ion-col>
@@ -119,38 +98,25 @@
                     <ion-col>
                         <h5>Прибытие</h5>
                     </ion-col>
-
                 </ion-row>
                 <ion-row>
-                    <ion-col col-6 offset-12 class="time">{{item.workday3}}</ion-col>
+                    <ion-col col-6 class="time">{{item.workday3}}</ion-col>
                     <ion-col col-6 class="time">{{item.workday4}}</ion-col>
                 </ion-row>
+                 <ion-row>
+                    <ion-col col-12 class="info">{{item.info2}}</ion-col>
+                </ion-row>
             </ion-grid>
-            <div class="info">{{item.info2}}</div>
-
-<!--End-->
-
+            </div>
         </ion-list>
-
-        <!--Hollyday-->
+<!--End-->
+<!--Hollyday-->
         <ion-list *ngSwitchCase="'hollyday'">
             <input class="toggle-box" id="header3" type="checkbox" checked>
             <label for="header3">Калининград - {{item.title}}</label>
-            <!--<div class="flex-container ">
-                <ul>
-                    <li class="flex-item">
-                        <span class=' dep'><h5>Отправление</h5></span>
-                        <div class='time'>{{item.hollyday}}</div>
-                    </li>
-
-                    <li class="flex-item">
-                        <span class=' arr'><h5>Прибытие</h5> </span>
-                        <div class='time'>{{item.hollyday2}}</div>
-                    </li>
-                </ul>
-                <div class="info">{{item.info3}}</div>
-            </div>-->
+         
 <!--Расписание Выходные прямое-->
+            <div class="flex-container"> 
             <ion-grid>
                 <ion-row>
                     <ion-col>
@@ -159,34 +125,23 @@
                     <ion-col>
                         <h5>Прибытие</h5>
                     </ion-col>
-
                 </ion-row>
                 <ion-row>
-                    <ion-col col-6 offset-12 class="time">{{item.hollyday}}</ion-col>
+                    <ion-col col-6 class="time">{{item.hollyday}}</ion-col>
                     <ion-col col-6 class="time">{{item.hollyday2}}</ion-col>
                 </ion-row>
+                 <ion-row>
+                    <ion-col col-12 class="info">{{item.info3}}</ion-col>
+                </ion-row>
             </ion-grid>
-            <div class="info">{{item.info3}}</div>
+            </div>
 
 <!--End-->
 
             <input class="toggle-box" id="header4" type="checkbox" checked>
             <label for="header4">{{item.title}} - Калининград</label>
-            <!--<div class="flex-container ">
-                <ul>
-                    <li class="flex-item">
-                        <span class=' dep'><h5>Отправление</h5></span>
-                        <div class='time'>{{item.hollyday3}}</div>
-                    </li>
-
-                    <li class="flex-item">
-                        <span class=' arr'><h5>Прибытие</h5> </span>
-                        <div class='time'>{{item.hollyday4}}</div>
-                    </li>
-                </ul>
-                <div class="info">{{item.info4}}</div>
-            </div>-->
  <!--Расписание Выходные обратное-->
+            <div class="flex-container"> 
             <ion-grid>
                 <ion-row>
                     <ion-col>
@@ -198,15 +153,15 @@
 
                 </ion-row>
                 <ion-row>
-                    <ion-col col-6 offset-12 class="time">{{item.hollyday3}}</ion-col>
+                    <ion-col col-6 class="time">{{item.hollyday3}}</ion-col>
                     <ion-col col-6 class="time">{{item.hollyday4}}</ion-col>
                 </ion-row>
+                 <ion-row>
+                    <ion-col col-12 class="info">{{item.info4}}</ion-col>
+                </ion-row>
             </ion-grid>
-            <div class="info">{{item.info4}}</div>
-
-<!--End-->           
+            </div>
         </ion-list>
+<!--End-->           
     </div>
-    <!--</ion-list>-->
-    <!--End Segment time-->
 </ion-content>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 
+import {SocialSharing} from '@ionic-native/social-sharing';    
 /*
   Generated class for the Page6 page.
 
@@ -15,11 +16,27 @@ export class Page6 {
     AlertController; 
     alertCtrl;
     // Uri:any;
-	constructor(private nav: NavController, alertCtrl: AlertController){
+	constructor(private nav: NavController, alertCtrl: AlertController, private socialSharing: SocialSharing){
 		this.nav = nav;
     this.alertCtrl= alertCtrl;
 
+
+// SocialSaring
+
+
+  // this.socialSharing.canShareViaEmail().then(() => {
+
+  // }).catch(() => {
+
+  // });
+
+  // this.socialSharing.shareViaEmail('Body','Subject', ['gluck007@mail.ru']).then(() => {
+  // }).catch(() =>{
+
+  // });
+
 }
+
 
 	doMessage() {
     let confirm = this.alertCtrl.create({
@@ -36,7 +53,7 @@ export class Page6 {
           text: 'Написать',
           handler: () => {
             console.log('Message clicked');			
-			window.open('mailto:it.gluck@ya.ru?subject=Предложение-Отзыв о работе сервиса KLoBus39&body=App build v1.1.  Здравсвуй, уважаемые разработчики!');
+			window.open('mailto:it.gluck@ya.ru?subject=Предложение-Отзыв о работе сервиса KLoBus39&body=App build v3.1 */ Здравсвуйте, уважаемые разработчики!');
           }
         }
       ]
@@ -46,7 +63,7 @@ export class Page6 {
 	doUpdate() {
     let confirm = this.alertCtrl.create({
       title: 'Отценить',
-      message: 'Будем рады Вашему отзыву<p><h6>Текущая версия: 1.1</h6></p>',
+      message: 'Будем рады Вашему отзыву<p><h6>Версия приложения: 3.1</h6></p>',
       buttons: [
         {
           text: 'Отмена',
@@ -58,7 +75,7 @@ export class Page6 {
           text: 'Отценить',
           handler: () => {
             console.log('Rate clicked');			
-			window.open('http://goo.gl/7O8QKI');
+			window.open('https://play.google.com/store/apps/details?id=com.itgluck.klobus39');
           }
         }
       ]
@@ -66,16 +83,25 @@ export class Page6 {
    confirm.present();
   }
 
-doMap(){
+  // test
+// doShare() {
+// let options = {
+//   message: 'share this', // not supported on some apps (Facebook, Instagram)
+//   subject: 'the subject', // fi. for email
+//   files: ['', ''], // an array of filenames either locally or remotely
+//   url: 'https://www.website.com/foo/#bar?a=b',
+//   chooserTitle: 'Pick an app' // Android only, you can override the default share sheet title
+// }
 
-  window.open('geo:lat,lon?q=address', '_system');
-  // window.open('geo:lat,lon?q=Kaliningrad', '_system');
-  
-//     Uri gmmIntentUri = Uri.parse("geo:37.7749,-122.4194");
-// Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-// mapIntent.setPackage("com.google.android.apps.maps");
-// if (mapIntent.resolveActivity(getPackageManager()) != null) {
-// startActivity(mapIntent);
-// 	}
-}
+// let onSuccess = function(result) {
+//   console.log("Share completed? " + result.completed); // On Android apps mostly return false even while it's true
+//   console.log("Shared to app: " + result.app); // On Android result.app is currently empty. On iOS it's empty when sharing is cancelled (result.completed=false)
+// }
+
+// let onError = function(msg) {
+//   console.log("Sharing failed with message: " + msg);
+// }
+// }
+
+// window.plugins.socialsharing.shareWithOptions(options, onSuccess, onError);
 }

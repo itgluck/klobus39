@@ -1,9 +1,12 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
+import {SocialSharing} from '@ionic-native/social-sharing';        
+
 // import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { BrowserModule } from '@angular/platform-browser';
-import {GoogleMaps} from '@ionic-native/google-maps';
+// import {GoogleMaps} from '@ionic-native/google-maps';
 // import {Marker} from '@ionic-native/google-maps';
 
 import { MyApp } from './app.component';
@@ -28,6 +31,25 @@ import { RoutSvt } from '../pages/page1/train/svt/svt';
 import { RoutSvt2 } from '../pages/page1/train/svt2/svt2';
 // Detail
 
+// Cloud
+
+const cloudSettings: CloudSettings = {
+  'core': {
+    'app_id': 'dec8db27',
+  },
+  'push': {
+    'sender_id': '155670320659',
+    'pluginConfig': {
+      'ios': {
+        'badge': true,
+        'sound': true
+      },
+      'android': {
+        'iconColor': '#343434'
+      }
+    }
+  }
+};
 
 @NgModule({
   declarations: [
@@ -51,7 +73,8 @@ import { RoutSvt2 } from '../pages/page1/train/svt2/svt2';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    CloudModule.forRoot(cloudSettings)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -75,8 +98,9 @@ import { RoutSvt2 } from '../pages/page1/train/svt2/svt2';
   ],
   providers: [
     StatusBar,
+    SocialSharing,
     // SplashScreen,
-    GoogleMaps,
+    // GoogleMaps,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

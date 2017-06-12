@@ -147,7 +147,7 @@ $grey: rgba(159, 161, 161, .4);
 $light: rgba(194, 230, 220, .5);
 $purple: #B97CFC;
 $pink: #F93B69;
-$disable: #C3DEDF;
+$disable: #938FA8;
 $var: #C3DEDF;
 $orange: #EB8B6E;
 .trainlist .header {
@@ -223,6 +223,8 @@ $orange: #EB8B6E;
 }
 
 .timeline {
+    max-width: 30em;
+    margin: .5em auto .5em;
     li {
         margin-left: 1.5em;
         text-align: left;
@@ -239,7 +241,7 @@ $orange: #EB8B6E;
             height: 100%;
             left: 1.5em;
             width: .12em;
-            background-color: $disable;
+            background-color: $train;
             position: absolute;
             top: 0;
             z-index: -1;
@@ -283,7 +285,7 @@ $orange: #EB8B6E;
             margin-left: -2.15em;
             border: 4px solid $white;
             background: $train;
-             box-shadow: 0 0 3px #9CD7D0, 0 0 1px rgba(103, 153, 173, .5), 0 0 3px rgba(0, 0, 0, .5);
+             box-shadow: 0 0 3px #5237CB, 0 2px 1px rgba(103, 153, 173, .5), 0 2px 3px rgba(0, 0, 0, .2);
         }
     }
     .st {
