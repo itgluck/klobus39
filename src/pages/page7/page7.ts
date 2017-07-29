@@ -1,5 +1,4 @@
 import { Component } from'@angular/core';
-import { NavController } from'ionic-angular';
 
 
 /*
@@ -16,7 +15,7 @@ export class Page7 {
  cars=[];
  autobtn: string = "taxi";
 
-  constructor(private nav: NavController) {
+  constructor() {
 this.autobtn= "taxi";
  this.items = [
        {'title':'Агат',

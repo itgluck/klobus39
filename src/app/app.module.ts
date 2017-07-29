@@ -18,6 +18,8 @@ import { Page4 } from '../pages/page4/page4';
 import { Page5 } from '../pages/page5/page5';
 import { Page6 } from '../pages/page6/page6';
 import { Page7 } from '../pages/page7/page7';
+import { Promo } from '../pages/promo/promo';
+import { DetailsPromo } from '../pages/promo/promo';
 // import { Rout1 } from '../pages/page1/train/rout';
 // import { RoutPage } from '../pages/page1/train/rout';
 // Routs
@@ -70,6 +72,8 @@ const cloudSettings: CloudSettings = {
     RoutZel,
     RoutSvt,
     RoutSvt2,
+    Promo,
+    DetailsPromo
   ],
   imports: [
     BrowserModule,
@@ -95,12 +99,12 @@ const cloudSettings: CloudSettings = {
     RoutZel,
     RoutSvt,
     RoutSvt2,
+    Promo,
+    DetailsPromo
   ],
   providers: [
     StatusBar,
     SocialSharing,
-    // SplashScreen,
-    // GoogleMaps,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

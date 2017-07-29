@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
 
 
 /*
@@ -14,7 +13,7 @@ import { NavController } from 'ionic-angular';
 export class Page2 {
   items = [];
 
-  constructor(private nav: NavController) {
+  constructor() {
 
     this.items = [
       {

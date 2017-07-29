@@ -1,13 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController } from 'ionic-angular';
 
-import {SocialSharing} from '@ionic-native/social-sharing';    
-/*
-  Generated class for the Page6 page.
+// import {SocialSharing} from '@ionic-native/social-sharing';    
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page6',
   templateUrl: 'page6.html'
@@ -15,7 +10,9 @@ import {SocialSharing} from '@ionic-native/social-sharing';
 export class Page6 {
     AlertController; 
     alertCtrl;
-	constructor(private nav: NavController, alertCtrl: AlertController, private socialSharing: SocialSharing){
+  constructor(private nav: NavController, alertCtrl: AlertController, 
+    // private socialSharing: SocialSharing
+  ){
 		this.nav = nav;
     this.alertCtrl= alertCtrl;
 

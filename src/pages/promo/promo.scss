@@ -1,0 +1,72 @@
+.promo .slides {
+      height: 12em; 
+}
+
+
+.slides img {
+     text-align: center;
+ } 
+  @media screen and (min-device-width: 640px) {
+    .slides img{
+      max-width: 640px;
+    }
+
+   }
+
+//    .micro .slides img{
+      
+//      height: 210px;
+//    }
+   .micro .slides{
+     height: 13em;
+   }
+  @media screen and (min-device-height: 740px) {
+       .micro .slides{
+     height: 30%;
+   }
+   }
+
+
+
+    .promo {
+    font-size: 1.6rem;
+    color: $text;
+    padding: 16px;
+    text-align: center;
+}
+ ion-fab[right] {
+    right: 10px;
+    top: 25px;
+}
+.promo p {
+    color: $text;
+    text-indent: 1.42em;
+    // text-align: left;
+    text-align: justify;
+    margin: .5em;
+}
+.promo a {
+    color:$dark;    
+    text-decoration: none;
+}
+.promo li {
+    text-align: left;
+    margin-left: 2em;
+}
+.promo h2 {
+    text-align: center;    
+    font-size: 1.8rem;
+}
+.promo h3 {
+    font-size: 1.8rem;
+}
+.promo h4 {
+    font-size: 1.2rem;
+    color:$info;
+}
+.promo hr {
+    min-width: 100%;
+}
+.button-full-md {
+    margin-bottom: 1.2em;
+}

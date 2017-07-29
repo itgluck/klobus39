@@ -1,0 +1,17 @@
+.slides {
+  
+    height: 12em;
+    /*display: none;*/
+}
+
+
+.slides img {
+     /* max-height: 10em; */
+     max-width: 20em;
+     text-align: center;
+ } 
+  @media screen and (max-device-width: 320px) {
+.slides {
+      display: none; 
+}
+  }

@@ -1,7 +1,7 @@
-Ionic 2 App Base
+Mobile App KLoBus39
 =====================
 
-This is the base template for Ionic 2 starter apps.
+https://vk.com/klobus_39
 
 ## Using this project
 
