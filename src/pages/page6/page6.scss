@@ -2,7 +2,7 @@
 .about {
     font-size: 1.6rem;
     color: $text;
-    padding: 0px 16px;
+    padding: 16px;
     text-align: center;
 }
 
@@ -19,6 +19,9 @@
 }
 .about h2 {
     text-align: center;
+}
+.about h3 {
+    font-size: 1.8rem;
 }
 .about hr {
     min-width: 100%;
