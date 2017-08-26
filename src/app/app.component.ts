@@ -9,7 +9,7 @@ import { Page5 } from '../pages/page5/page5';
 import { Page6 } from '../pages/page6/page6';
 import { Page7 } from '../pages/page7/page7';
 
-// import { DetailsPromo } from '../pages/promo/promo';
+import {DetailsPromo} from '../pages/promo/promo';
 
 import {
   Push,
@@ -71,7 +71,10 @@ export class MyApp {
     // this.nav.setRoot(page.component);
     // this.nav.push(page.component);
   }
-
+	// Promo route
+	goPromo() {
+		this.nav.push(DetailsPromo);
+	}
 
 
 }

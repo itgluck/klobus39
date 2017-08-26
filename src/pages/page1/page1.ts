@@ -42,6 +42,12 @@ export class DetailsPage {
         <button ion-button menuToggle>
  <ion-icon name="menu" color="hidden"></ion-icon>
  </button>
+ <ion-buttons end>
+        <button ion-button onclick="window.plugins.socialsharing.share('KLoBus39 транспорт Калининградской области', 'Рекомендую приложение KLoBus39', 'https://pp.userapi.com/c638320/v638320752/4bd5e/UgZtg-jvSbs.jpg', 'https://play.google.com/store/apps/details?id=com.itgluck.klobus39')">
+        
+ <ion-icon name="share" color="hidden"></ion-icon>
+ </button>
+ </ion-buttons>
         <ion-title logo-header>
             <img src="assets/img/logohd.png" class='logo-header'>
 		</ion-title>
@@ -50,7 +56,8 @@ export class DetailsPage {
     <ion-toolbar color="primary"> 
         <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="getItems($event)" placeholder="Укажите город или маршрут"></ion-searchbar>
 	</ion-toolbar>
-</ion-header>
+
+	</ion-header>
 
 
 <ion-content class="citylist">
@@ -60,11 +67,13 @@ export class DetailsPage {
   
 
     <!--Железнодорожный вокзал--> 
+
         <div class="tab">
             <input id="tab-elect" type="checkbox" name="tabs">
             <label for="tab-elect">Электрички</label>
-            <div class="tab-content">
-                <ion-list class="trainbtn">
+			<div class="tab-content">
+
+				<ion-list class="trainbtn">
                     <button ion-item (click)="openBgrt()" class="citylist">
 						<ion-icon name="subway"  item-left></ion-icon>
 						 Калининград - Багратионовск
@@ -120,7 +129,8 @@ export class DetailsPage {
                 </ion-list>
 			
 				</div>
-        </div>
+		</div>
+		
  <h5>Автовокзалы г.Калининград</h5>
   <!-- АвтоВокзалы -->
         <div class="tab">
@@ -161,9 +171,6 @@ export class DetailsPage {
                 </ion-list>
 			</div>
         </div>
-    
-
-		<promo-slide></promo-slide>
 
        <h5>Автостанции Калининградской области</h5>
 
@@ -171,8 +178,6 @@ export class DetailsPage {
       <input id="tab-4" type="checkbox" name="tabs">
       <label for="tab-4">Советск</label>
       <div class="tab-content">
-       <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
-	   -->
 	   <a href="geo:55.081515,21.87958?z=9&q=АВ Советск">
 			<div class='img-box-bg sov'></div>
 			</a>               
@@ -181,7 +186,7 @@ export class DetailsPage {
                     <div *ngFor="let sov of sovetsk">
                         <button ion-item (click)="openNavDetailsSov(sov)" class="citylist">
 			<ion-icon name="{{sov.icon}}"  item-left></ion-icon>
-			{{ sov.title }}<br><div class='en'>{{sov.en}}</div>
+			{{sov.title }}<br><div class='en'>{{sov.en}}</div>
 			<span item-right class='numb'>{{sov.numb}}</span> 
 			</button>
                     </div>
@@ -190,6 +195,46 @@ export class DetailsPage {
     </div>
 	
 	<div class="tab">
+      <input id="tab-6" type="checkbox" name="tabs">
+      <label for="tab-6">Черняховск</label>
+      <div class="tab-content">
+	   <a href="geo:54.6311,21.8202?z=9&q=Черняховск автовокзал">
+			<div class='img-box-bg cher'></div>
+			</a>               
+                <p>Черняховск, ул. Пушкина 1</p>
+                <ion-list>
+                    <div *ngFor="let cher of chernahovsk">
+                        <button ion-item (click)="openNavDetailsCher(cher)" class="citylist">
+			<ion-icon name="{{cher.icon}}"  item-left></ion-icon>
+			{{cher.title }}<br><div class='en'>{{cher.en}}</div>
+			<span item-right class='numb'>{{cher.numb}}</span> 
+			</button>
+                    </div>
+                </ion-list>
+      </div>
+	</div>
+		
+	<div class="tab">
+      <input id="tab-12" type="checkbox" name="tabs">
+      <label for="tab-12">Озерск</label>
+      <div class="tab-content">
+	   <a href="geo:54.943894,22.492978?z=8&q=Озерск автостанция">
+			<div class='img-box-bg ozer'></div>
+			</a>               
+                <p>Озерск,ул. Комсомольская 3</p>
+                <ion-list>
+                    <div *ngFor="let ozer of ozersk">
+                        <button ion-item (click)="openNavDetailsOzersk(ozer)" class="citylist">
+			<ion-icon name="{{ozer.icon}}"  item-left></ion-icon>
+			{{ozer.title }}<br><div class='en'>{{ozer.en}}</div>
+			<span item-right class='numb'>{{ozer.numb}}</span> 
+			</button>
+                    </div>
+                </ion-list>
+      </div>
+    </div>
+<!--
+		<div class="tab">
       <input id="tab-5" type="checkbox" name="tabs">
       <label for="tab-5">Гусев</label>
       <div class="tab-content">
@@ -207,36 +252,12 @@ export class DetailsPage {
                     </div>
                 </ion-list>
       </div>
-    </div>
+	</div>
 	
-	<div class="tab">
-      <input id="tab-6" type="checkbox" name="tabs">
-      <label for="tab-6">Черняховск</label>
-      <div class="tab-content">
-       <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
-	   -->
-	   <a href="geo:54.6311,21.8202?z=9&q=Черняховск автовокзал">
-			<div class='img-box-bg cher'></div>
-			</a>               
-                <p>Черняховск, ул. Пушкина 1</p>
-                <ion-list>
-                    <div *ngFor="let cher of chernahovsk">
-                        <button ion-item (click)="openNavDetailsCher(cher)" class="citylist">
-			<ion-icon name="{{cher.icon}}"  item-left></ion-icon>
-			{{cher.title }}<br><div class='en'>{{cher.en}}</div>
-			<span item-right class='numb'>{{cher.numb}}</span> 
-			</button>
-                    </div>
-                </ion-list>
-      </div>
-    </div>
-
 	<div class="tab">
       <input id="tab-7" type="checkbox" name="tabs">
       <label for="tab-7">Большаково</label>
       <div class="tab-content">
-       <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
-	   -->
 	   <a href="geo:54.8805,21.6521?z=8&q=Большаково автостанция">
 			<div class='img-box-bg bol'></div>
 			</a>               
@@ -256,8 +277,6 @@ export class DetailsPage {
       <input id="tab-8" type="checkbox" name="tabs">
       <label for="tab-8">Гвардейск</label>
       <div class="tab-content">
-       <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
-	   -->
 	   <a href="geo:54.6311,21.8202?z=9&q=Гвардейск автостанция">
 			<div class='img-box-bg gvrd'></div>
 			</a>               
@@ -277,8 +296,6 @@ export class DetailsPage {
       <input id="tab-9" type="checkbox" name="tabs">
       <label for="tab-9">Железнодорожный</label>
       <div class="tab-content">
-       <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
-	   -->
 	   <a href="geo:54.361693,21.305466?z=7">
 			<div class='img-box-bg jzd'></div>
 			</a>               
@@ -299,8 +316,6 @@ export class DetailsPage {
       <input id="tab-10" type="checkbox" name="tabs">
       <label for="tab-10">Краснознаменск</label>
       <div class="tab-content">
-       <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
-	   -->
 	   <a href="geo:54.943894,22.492978?z=8&q=Краснознаменск автостанция">
 			<div class='img-box-bg krz'></div>
 			</a>               
@@ -321,8 +336,6 @@ export class DetailsPage {
       <input id="tab-11" type="checkbox" name="tabs">
       <label for="tab-11">Неман</label>
       <div class="tab-content">
-       <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
-	   -->
 	   <a href="geo:54.943894,22.492978?z=8&q=Неман автостанция">
 			<div class='img-box-bg neman'></div>
 			</a>               
@@ -338,37 +351,11 @@ export class DetailsPage {
                 </ion-list>
       </div>
     </div>
-
-	
-	<div class="tab">
-      <input id="tab-12" type="checkbox" name="tabs" checked>
-      <label for="tab-12">Озерск</label>
-      <div class="tab-content">
-       <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
-	   -->
-	   <a href="geo:54.943894,22.492978?z=8&q=Озерск автостанция">
-			<div class='img-box-bg ozer'></div>
-			</a>               
-                <p>Озерск,ул. Комсомольская 3</p>
-                <ion-list>
-                    <div *ngFor="let ozer of ozersk">
-                        <button ion-item (click)="openNavDetailsOzersk(ozer)" class="citylist">
-			<ion-icon name="{{ozer.icon}}"  item-left></ion-icon>
-			{{ozer.title }}<br><div class='en'>{{ozer.en}}</div>
-			<span item-right class='numb'>{{ozer.numb}}</span> 
-			</button>
-                    </div>
-                </ion-list>
-      </div>
-    </div>
-
 	
 	<div class="tab">
       <input id="tab-13" type="checkbox" name="tabs">
       <label for="tab-13">Правдинск</label>
       <div class="tab-content">
-       <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>
-	   -->
 	   <a href="geo:54.4463,21.01878?z=9&q=Правдинск автостанция">
 			<div class='img-box-bg prav'></div>
 			</a>               
@@ -383,7 +370,9 @@ export class DetailsPage {
                     </div>
                 </ion-list>
       </div>
-    </div>
+	</div>
+	-->
+
 	</div> 
 
 
@@ -1212,7 +1201,7 @@ export class Page1 {
 				'numb': '583'
 			},
 			{
-				'title': 'Озёрск',
+				'title': 'Озерск',
 				'en': 'Ozersk',
 				'description': 'Гвардейск, Черняховск',
 				time: '2:50', dist: '124', cost: '200',
@@ -1230,7 +1219,7 @@ export class Page1 {
 				'numb': '515'
 			},
 			{
-				'title': 'Озёрск',
+				'title': 'Озерск',
 				'en': 'Ozersk',
 				'description': 'Гвардейск',
 				time: '2:50', dist: '124', cost: '200',
@@ -1248,7 +1237,7 @@ export class Page1 {
 				'numb': '566'
 			},
 			{
-				'title': 'Озёрск',
+				'title': 'Озерск',
 				'en': 'Ozersk',
 				'description': 'Правдинск',
 				time: '2:50', dist: '124', cost: '272',
@@ -1266,7 +1255,7 @@ export class Page1 {
 				'numb': '527'
 			},
 			{
-				'title': 'Озёрск',
+				'title': 'Озерск',
 				'en': 'Ozersk',
 				'description': 'Правдинск, Железнодорожный',
 				time: '2:50', dist: '124', cost: '267',
@@ -1284,7 +1273,7 @@ export class Page1 {
 				'numb': '525'
 			},
 			{
-				'title': 'Озёрск',
+				'title': 'Озерск',
 				'en': 'Ozersk',
 				'description': 'Правдинск, Железнодорожный',
 				time: '2:50', dist: '124', cost: '267',
@@ -2013,7 +2002,7 @@ export class Page1 {
 		];
 		// End Severniy 
 
-		//Советск
+		//Советск +
 		this.sovetsk = [
 			{
 				'title': 'Неман',
@@ -2251,9 +2240,9 @@ export class Page1 {
 				'workday2': "08:16 13:55",
 				'workday3': "*08:17 14:00",
 				'workday4': "09:55 15:48",
-				'hollyday': "06:30 *12:15",
+				'hollyday': "06:30 12:15",
 				'hollyday2': "08:16 13:55",
-				'hollyday3': "*08:17 14:00",
+				'hollyday3': "08:17 14:00",
 				'hollyday4': "09:55 15:48",
 				'icon': 'bus',
 				'map': '',
@@ -2397,56 +2386,47 @@ export class Page1 {
 				'img': '',
 			},
 			{
-				'title': 'Советск',
-				'en': 'Sovetsk',
+				'title': 'Калининград',
+				'en': 'Kaliningrad',
 				city: 'Советск',
-				'description': ' Полесск, Большаково',
-				time: '2:30', dist: '108', cost: '240',
-				'workday3': "07:30 08:30 09:30 10:30 11:30 12:30 13:30 14:30 15:30 16:30 17:30 18:30 19:30 20:30 ",
-				'workday4': "09:30 10:30 11:30 12:30 13:30 14:30 15:30 16:30 17:30 18:30 19:30 20:30 21:30 22:30",
-				'workday': "06:00 07:00 08:00 09:00 10:00 11:00 12:00 13:00 14:00 15:00 16:00 17:00 18:00 20:00",
-				'workday2': "08:00 09:00 10:00 11:00 12:00 13:00 14:00 15:00 16:00 17:00 18:00 19:00 20:00 22:00",
+				'description': 'Полесск, Большаково',
+				time: '2:00', dist: '108', cost: '240',
+				'workday3': "06:00 07:00 08:00 09:00 10:00 11:00 12:00 13:00 14:00 15:00 16:00 17:00 18:00 *19:00 20:00",
+				'workday4': "08:00 09:00 10:00 11:00 12:00 13:00 14:00 15:00 16:00 17:00 18:00 19:00 20:00 21:00 22:00",
+				'workday': "07:30 08:30 09:30 10:30 11:30 12:30 13:30 14:30 15:30 16:30 17:30 18:30 19:30 20:30 *21:30",
+				'workday2': "09:30 10:30 11:30 12:30 13:30 14:30 15:30 16:30 17:30 18:30 19:30 20:30 21:30 22:30 23:30",
 				// station:'',
-				'hollyday3': "07:30 09:30 10:30 11:30 12:30 13:30 14:30 15:30 16:30 17:30 18:30 19:30 20:30 21:30*",
-				'hollyday4': "09:30 11:30 12:30 13:30 14:30 15:30 16:30 17:30 18:30 19:30 20:30 21:30 22:30 23:30",
-				'hollyday': "07:00 08:00 09:00 10:00 11:00 12:00 13:00 14:00 15:00 16:00 17:00 18:00 19:00* 20:00",
-				'hollyday2': "09:00 10:00 11:00 12:00 13:00 14:00 15:00 16:00 17:00 18:00 19:00 20:00 21:00 22:00",
+				'hollyday3': "07:00 08:00 09:00 10:00 11:00 12:00 13:00 14:00 15:00 16:00 17:00 18:00 *19:00 20:00",
+				'hollyday4': "09:00 10:00 11:00 12:00 13:00 14:00 15:00 16:00 17:00 18:00 19:00 20:00 21:00 22:00",
+				'hollyday': "07:30 09:30 10:30 11:30 12:30 13:30 14:30 15:30 16:30 17:30 18:30 19:30 20:30 *21:30",
+				'hollyday2': "09:30 11:30 12:30 13:30 14:30 15:30 16:30 17:30 18:30 19:30 20:30 21:30 22:30 23:30",
 				'icon': 'bus', 'map': '',
-				info1: '* : только по пятницам, субботам и воскресеньям',
-				info2: '* : только по пятницам, субботам и воскресеньям',
-				info3: '* : только по пятницам, субботам и воскресеньям',
-				info4: '* : только по пятницам, субботам и воскресеньям',
 				'img': 'sovetsk',
 				'numb': '600э'
 			},
 			{
-				'title': 'Советск',
-				'en': 'Sovetsk',
+				'title': 'Калининград',
+				'en': 'Kaliningrad',
 				'description': '',
 				city: 'Советск',
-				time: '2:30', dist: '108', cost: '240',
-				'workday3': "08:00 *09:00 10:00 11:00 12:00 13:00 14:00 15:00 16:00 17:00 18:00 19:00 20:00 21:00",
-				'workday4': "10:00 11:00 12:00 13:00 14:00 15:00 16:00 17:00 18:00 19:00 20:00 21:00 22:00 23:00",
-				'workday': "05:30 *06:30 07:30 08:30 09:30 10:30 11:30 12:30 13:30 14:30 15:30 16:30 17:30 18:30 19:30",
-				'workday2': "07:30 08:30 09:30 10:30 11:30 12:30 13:30 14:30 15:30 16:30 17:30 18:30 19:30 20:30 21:30",
+				time: '2:00', dist: '108', cost: '240',
+				'workday3': "05:30 06:30 07:30 08:30 09:30 10:30 11:30 12:30 13:30 14:30 15:30 16:30 17:30 18:30 19:30",
+				'workday4': "07:30 08:30 09:30 10:30 11:30 12:30 13:30 14:30 15:30 16:30 17:30 18:30 19:30 20:30 21:30",
+				'workday': "08:00 09:00 10:00 11:00 12:00 13:00 14:00 15:00 16:00 17:00 18:00 19:00 20:00 21:00",
+				'workday2': "10:00 11:00 12:00 13:00 14:00 15:00 16:00 17:00 18:00 19:00 20:00 21:00 22:00 23:00",
 				// station:'',
-				'hollyday3': "*09:00 10:00 11:00 12:00 13:00 14:00 15:00 16:00 17:00 18:00 19:00 20:00 21:00",
-				'hollyday4': "11:00 12:00 13:00 14:00 15:00 16:00 17:00 18:00 19:00 20:00 21:00 22:00 23:00",
-				'hollyday': "*06:30 07:30 08:30 09:30 10:30 11:30 12:30 13:30 14:30 15:30 16:30 17:30 18:30 19:30",
-				'hollyday2': "08:30 09:30 10:30 11:30 12:30 13:30 14:30 15:30 16:30 17:30 18:30 19:30 20:30 21:30",
+				'hollyday3': "07:30 08:30 09:30 10:30 11:30 12:30 13:30 14:30 15:30 16:30 17:30 18:30 19:30",
+				'hollyday4': "09:30 10:30 11:30 12:30 13:30 14:30 15:30 16:30 17:30 18:30 19:30 20:30 21:30",
+				'hollyday': "10:00 11:00 12:00 13:00 14:00 15:00 16:00 17:00 18:00 19:00 20:00 21:00",
+				'hollyday2': "12:00 13:00 14:00 15:00 16:00 17:00 18:00 19:00 20:00 21:00 22:00 23:00",
 				'icon': 'bus', 'map': '',
-				info1: '* : только по пятницам, субботам и воскресеньям',
-				info2: '* : только по пятницам, субботам и воскресеньям',
-				info3: '* : только по пятницам, субботам и воскресеньям',
-				info4: '* : только по пятницам, субботам и воскресеньям',
 				'img': 'sovetsk',
 				'numb': '601э'
 			},
 		];
 		// End Sovetsk
 
-
-		//Ozersk
+		//Ozersk +
 		this.ozersk = [
 			{
 				'title': 'Смирново',
@@ -2454,7 +2434,7 @@ export class Page1 {
 				'numb': '113',
 				'description': '',
 				city: 'Озерск',
-				time: '0:44', dist: '-', cost: '-',
+				time: '0:40', dist: '-', cost: '-',
 				'workday': "07:00 13:30",
 				'workday2': "07:40 14:14",
 				'workday3': "07:45 14:15 ",
@@ -2470,7 +2450,7 @@ export class Page1 {
 				'en': 'Lujki',
 				'numb': '114',
 				'description': '',
-				city: 'Озерск',
+				city: 'Озёрск',
 				time: '0:50', dist: '-', cost: '-',
 				'workday': "06:45 14:00",
 				'workday2': "07:36 14:53",
@@ -2487,8 +2467,8 @@ export class Page1 {
 				'en': 'Shishkino',
 				'numb': '121',
 				'description': '',
-				city: 'Озерск',
-				time: '0:20', dist: '-', cost: '-',
+				city: 'Озёрск',
+				time: '0:25', dist: '-', cost: '-',
 				'workday': "06:30 13:20",
 				'workday2': "06:55 13:39",
 				'workday3': "07:00 13:40",
@@ -2501,11 +2481,11 @@ export class Page1 {
 			},
 			{
 				'title': 'Яблоновка',
-				'en': 'Iablonovka',
+				'en': 'Yablonovka',
 				'numb': '122',
 				'description': 'Кутузово, Псковское',
-				city: 'Озерск',
-				time: '0:20', dist: '-', cost: '-',
+				city: 'Озёрск',
+				time: '0:30', dist: '-', cost: '-',
 				'workday': "07:50 13:20 17:10",
 				'workday2': "08:20 13:42 17:40",
 				'workday3': "08:30 13:43 17:40",
@@ -2521,7 +2501,7 @@ export class Page1 {
 				'en': 'Gusev',
 				'numb': '362',
 				'description': 'Гурьевское, Замостье, Маяковское',
-				city: 'Озерск',
+				city: 'Озёрск',
 				time: '0:45', dist: '-', cost: '-',
 				'workday': "08:00 09:00 12:25 15:20 17:15 19:06",
 				'workday2': "08:45 09:45 13:10 16:05 17:55 19:51",
@@ -2540,7 +2520,7 @@ export class Page1 {
 				'en': 'Chernyahovsk',
 				'numb': '363',
 				'description': 'Красноярское',
-				city: 'Озерск',
+				city: 'Озёрск',
 				time: '0:48', dist: '-', cost: '-',
 				'workday': "07:00 08:20 09:30 10:00 11:00 12:10 14:00 15:50 17:00 18:50",
 				'workday2': "07:48 09:08 10:18 10:48 11:48 12:58 14:48 16:38 17:48 19:38",
@@ -2559,8 +2539,8 @@ export class Page1 {
 				'en': 'Kaliningrad',
 				'numb': '515',
 				'description': 'Новогурьевское, Черняховск, Гвардейск',
-				city: 'Озерск',
-				time: '0:48', dist: '-', cost: '-',
+				city: 'Озёрск',
+				time: '2:40', dist: '-', cost: '-',
 				'workday': "05:50 13:10",
 				'workday2': "08:30 15:50",
 				'workday3': "09:10 16:20 18:50",
@@ -2578,7 +2558,7 @@ export class Page1 {
 				'en': 'Kaliningrad',
 				'numb': '525',
 				'description': 'Железнодорожный, Правдинск',
-				city: 'Озерск',
+				city: 'Озёрск',
 				time: '3:15', dist: '-', cost: '-',
 				'workday': "07:45 15:55",
 				'workday2': "11:02 19:12",
@@ -2597,7 +2577,7 @@ export class Page1 {
 				'en': 'Kaliningrad',
 				'numb': '527',
 				'description': 'Правдинск',
-				city: 'Озерск',
+				city: 'Озёрск',
 				time: '3:15', dist: '-', cost: '-',
 				'workday': "07:00",
 				'workday2': "10:15 ",
@@ -2616,7 +2596,7 @@ export class Page1 {
 				'en': 'Kaliningrad',
 				'numb': '554',
 				'description': 'Гвардейск',
-				city: 'Озерск',
+				city: 'Озёрск',
 				time: '2:30', dist: '-', cost: '-',
 				'workday': "14:30",
 				'workday2': "17:01",
@@ -2635,7 +2615,7 @@ export class Page1 {
 				'en': 'Kaliningrad',
 				'numb': '554',
 				'description': 'Правдинск',
-				city: 'Озерск',
+				city: 'Озёрск',
 				time: '3:06', dist: '-', cost: '-',
 				'workday': "06:00",
 				'workday2': "09:06",
@@ -2655,7 +2635,7 @@ export class Page1 {
 				'numb': '555',
 				'description': 'Черняховск',
 				city: 'Калининград',
-				time: '2:10', dist: '-', cost: '-',
+				time: '2:20', dist: '-', cost: '-',
 				'workday': "06:30 10:30",
 				'workday2': "09:25 12:40",
 				'workday3': "13:05 17:00",
@@ -2692,7 +2672,7 @@ export class Page1 {
 				'en': 'Chernyahovsk',
 				'numb': '564',
 				'description': 'Демидовка, Липки',
-				city: 'Озерск',
+				city: 'Озёрск',
 				time: '1:45', dist: '-', cost: '-',
 				'workday': "07:00 11:30",
 				'workday2': "08:45 13:18",
@@ -2710,8 +2690,8 @@ export class Page1 {
 				'title': 'Черняховск',
 				'en': 'Chernyahovsk',
 				'numb': '565',
-				'description': 'Новостроево',
-				city: 'Озерск',
+				'description': 'Новостроево, Демидовка',
+				city: 'Озёрск',
 				time: '1:35', dist: '-', cost: '-',
 				'workday': "06:00 12:30 16:50",
 				'workday2': "07:35 14:10 18:30",
@@ -2734,7 +2714,7 @@ export class Page1 {
 				'en': 'Kaliningrad',
 				'numb': '566',
 				'description': 'Гвардейск',
-				city: 'Озерск',
+				city: 'Озёрск',
 				time: '2:50', dist: '-', cost: '-',
 				'workday': "07:50 16:30",
 				'workday2': "10:40 18:45",
@@ -2751,7 +2731,7 @@ export class Page1 {
 		];
 		// End ozersk
 
-		//Cherniahovsk
+		//Cherniahovsk +
 		this.chernahovsk = [
 			{
 				'title': 'Покровское',
@@ -2818,7 +2798,7 @@ export class Page1 {
 				'en': 'Gremiache',
 				'numb': '105к',
 				'description': 'Тимирязево',
-				time: '1:00', dist: '-', cost: '-',
+				time: '0:30', dist: '-', cost: '-',
 				'workday': " 06:25 08:50 12:10 14:50 17:10 *18:20",
 				'workday2': "06:54 09:19 12:39 15:19 17:39 18:38",
 				'workday3': "06:55 09:20 12:40 15:20 17:40 *18:40",
@@ -2842,7 +2822,7 @@ export class Page1 {
 				'en': 'Zelenyi bor',
 				'numb': '108',
 				'description': 'Тимофеевка',
-				time: '1:00', dist: '-', cost: '-',
+				time: '0:35', dist: '-', cost: '-',
 				'workday': "06:30 12:00 14:00 17:30",
 				'workday2': " 07:05 12:35 14:35 18:05",
 				'workday3': "07:10 12:38 14:37 18:06",
@@ -2855,6 +2835,508 @@ export class Page1 {
 				city: 'Черняховск',
 				'icon': 'bus',
 				'map': '',
+			},
+			{
+				'title': 'Пушкарево',
+				'en': 'Pushkarevo',
+				'numb': '119',
+				'description': 'Междуречье',
+				time: '0:45', dist: '-', cost: '-',
+				'workday': "07:55 14:20",
+				'workday2': "08:39 15:04",
+				'workday3': "08:40 15:05 ",
+				'workday4': "09:24 15:48",
+				// station:'',
+				'hollyday': "07:55 14:20",
+				'hollyday2': "08:39 15:04",
+				'hollyday3': "08:40 15:05 ",
+				'hollyday4': "09:24 15:48",
+				city: 'Черняховск',
+				'icon': 'bus',
+				'map': '',
+			},
+			{
+				'title': 'Зеленцово',
+				'en': 'Zelentcovo',
+				'numb': '127',
+				'description': 'Тельманово, Свобода',
+				time: '0:35', dist: '-', cost: '-',
+				'workday': "06:25 12:50 17:20",
+				'workday2': "07:01 13:29 17:59",
+				'workday3': "07:03 13:30 18:00",
+				'workday4': "07:40 14:09 18:38",
+				// station:'',
+				'hollyday': "12:50",
+				'hollyday2': "13:29",
+				'hollyday3': "13:30",
+				'hollyday4': "14:09",
+				city: 'Черняховск',
+				'icon': 'bus',
+				'map': '',
+			},
+			{
+				'title': 'Гусев',
+				'en': 'Gusev',
+				'numb': '343',
+				'description': 'Лермантово',
+				time: ':40', dist: '-', cost: '-',
+				'workday': " 07:41",
+				'workday2': "08:20",
+				'workday3': "06:55",
+				'workday4': "07:36",
+				// station:'',
+				'hollyday': " 07:41",
+				'hollyday2': "08:20",
+				'hollyday3': "06:55",
+				'hollyday4': "07:36",
+				city: 'Черняховск',
+				'icon': 'bus',
+				'map': '',
+			},
+			{
+				'title': 'Озерск',
+				'en': 'Ozersk',
+				'numb': '363',
+				'description': 'Шувалово, Новое Гурьевское',
+				time: ':48', dist: '-', cost: '-',
+				'workday': "08:10 09:10 09:40 10:40 12:00 13:20 15:00 15:30 17:20 18:00 19:40",
+				'workday2': "08:58 09:58 10:28 11:28 12:48 14:08 15:48 16:18 18:08 18:44 20:28",
+				'workday3': "07:00 08:20 09:30 10:00 11:00 12:10 14:00 15:50 17:00 18:50",
+				'workday4': "07:48 09:08 10:18 10:48 11:48 12:58 14:48 16:38 17:48 19:38",
+				// station:'',
+				'hollyday': "08:10 09:40 10:40 13:20 15:30 18:00 19:40",
+				'hollyday2': "08:58 10:28 11:28 14:08 16:18 18:44 20:28",
+				'hollyday3': "07:00 09:30 11:00 12:10 17:00 18:50",
+				'hollyday4': "07:48 10:18 11:48 12:58 17:48 19:38",
+				city: 'Черняховск',
+				'icon': 'bus',
+				'map': '',
+			},
+			{
+				'title': 'Советск',
+				'en': 'Sovetsk',
+				'numb': '503',
+				'description': 'Калиновка, Большаково, Славск',
+				time: '1:45', dist: '-', cost: '-',
+				'workday': "10:35 16:00 20:10",
+				'workday2': "12:20 17:44 21:55",
+				'workday3': "06:30 08:20 14:00 17:50",
+				'workday4': "08:17 10:07 15:45 19:25",
+				// station:'',
+				'hollyday': "10:35 16:00 20:10",
+				'hollyday2': "12:20 17:44 21:55",
+				'hollyday3': "06:30 08:20 14:00 17:50",
+				'hollyday4': "08:17 10:07 15:45 19:25",
+				city: 'Черняховск',
+				'icon': 'bus',
+				'map': '',
+			},
+			{
+				'title': 'Озёрск',
+				'en': 'Ozersk',
+				'numb': '515',
+				'description': 'Красноярское',
+				time: '0:35', dist: '-', cost: '-',
+				'workday': "11:05 18:25 20:45 ",
+				'workday2': "11:40 18:59 21:22",
+				'workday3': "05:50 13:10",
+				'workday4': "06:30 13:50",
+				// station:'',
+				'hollyday': "11:05 18:25 20:45 ",
+				'hollyday2': "11:40 18:59 21:22",
+				'hollyday3': "05:50 13:10",
+				'hollyday4': "06:30 13:50",
+				city: 'Калининград',
+				'icon': 'bus',
+				'map': '',
+			},
+			{
+				'title': 'Калининград',
+				'en': 'Kaliningrad',
+				'numb': '515',
+				'description': 'Гвардейск',
+				time: '1:55', dist: '-', cost: '-',
+				'workday': "06:35 13:55",
+				'workday2': "08:30 15:50",
+				'workday3': "09:10 16:20 18:50",
+				'workday4': "11:00 18:20 20:40",
+				// station:'',
+				'hollyday': "06:35 13:55",
+				'hollyday2': "08:30 15:50",
+				'hollyday3': "09:10 16:20 18:50",
+				'hollyday4': "11:00 18:20 20:40",
+				city: 'Озёрск',
+				'icon': 'bus',
+				'map': '',
+			},
+			{
+				'title': 'Калининград',
+				'en': 'Kaliningrad',
+				'numb': '520',
+				'description': 'Железнодорожный, Правдинск, Домново',
+				time: '3:27', dist: '-', cost: '-',
+				'workday': "04:50 09:30 15:10 18:00",
+				'workday2': "07:27 12:43 18:27 21:27",
+				'workday3': "05:20 11:50 13:25 19:00",
+				'workday4': "08:24 14:54 16:38 22:13",
+				// station:'',
+				'hollyday': "09:30 15:10 18:00",
+				'hollyday2': "12:43 18:27 21:27",
+				'hollyday3': "05:20 11:50 13:25 19:00",
+				'hollyday4': "08:24 14:54 16:38 22:13",
+				city: 'Черняховск',
+				'icon': 'bus',
+				'map': '',
+			},
+			{
+				'title': 'Краснознаменск',
+				'en': 'Krasnoznamensk',
+				'numb': '526',
+				'description': 'Гусев, Нестеров',
+				time: '2:15', dist: '-', cost: '-',
+				'workday': "09:15 17:55",
+				'workday2': "11:32 20:12",
+				'workday3': "06:20 13:35",
+				'workday4': "09:15 16:15",
+				// station:'',
+				'hollyday': "09:15 17:55",
+				'hollyday2': "11:32 20:12",
+				'hollyday3': "06:20 13:35",
+				'hollyday4': "09:15 16:15",
+				city: 'Калининград',
+				'icon': 'bus',
+				'map': '',
+			},
+			{
+				'title': 'Калининград',
+				'en': 'Kaliningrad',
+				'numb': '526',
+				'description': 'Гвардейск',
+				time: '1:55', dist: '-', cost: '-',
+				'workday': "09:20 16:20",
+				'workday2': "11:15 18:20",
+				'workday3': "07:10 15:50",
+				'workday4': "09:00 17:40",
+				// station:'',
+				'hollyday': "09:20 16:20",
+				'hollyday2': "11:15 18:20",
+				'hollyday3': "07:10 15:50",
+				'hollyday4': "09:00 17:40",
+				city: 'Краснознаменск',
+				'icon': 'bus',
+				'map': '',
+			},
+			{	'title': 'Советск',
+				'en': 'Sovetsk',
+				'numb': '530',
+				'description': 'Большаково',
+				time: '1:25', dist: '-', cost: '-',
+				'workday': "08:25 12:30 14:20 17:30",
+				'workday2': "09:49 13:55 15:40 18:55",
+				'workday3': "10:20 12:35 14:55",
+				'workday4': "11:45 13:55 16:30",
+				// station:'',
+				'hollyday': "08:25 12:30 17:30",
+				'hollyday2': "09:49 13:55 18:55",
+				'hollyday3': "10:20 14:55",
+				'hollyday4': "11:45 16:30",
+				city: 'Черняховск',
+				'icon': 'bus',
+				'map': '',
+			},
+			{	'title': 'Неман',
+				'en': 'Neman',
+				'numb': '542',
+				'description': 'Ульяново',
+				time: '1:40', dist: '-', cost: '-',
+				'workday': "*05:45 12:00",
+				'workday2': "07:21 13:18",
+				'workday3': "*07:35 13:30",
+				'workday4': "09:11 14:51",
+				// station:'',
+				'hollyday': "*05:45 12:00",
+				'hollyday2': "07:21 13:18",
+				'hollyday3': "*07:35 13:30",
+				'hollyday4': "09:11 14:51",
+				city: 'Черняховск',
+				'icon': 'bus',
+				'map': '',
+				info1: '* : рейс выполняется до Советска',
+				info2: '* : рейс выполняется из Советска',
+				info3: '* : рейс выполняется до Советска',
+				info4: '* : рейс выполняется из Советска',
+	
+			},
+			{
+				'title': 'Калининград',
+				'en': 'Kaliningrad',
+				'numb': '554',
+				'description': 'Гвардейск',
+				time: '2:17', dist: '-', cost: '-',
+				'workday': "15:15",
+				'workday2': "17:32",
+				'workday3': "--:--",
+				'workday4': "--:--",
+				// station:'',
+				'hollyday': "15:15",
+				'hollyday2': "17:32",
+				'hollyday3': "--:--",
+				'hollyday4': "--:--",
+				city: 'Озёрск',
+				'icon': 'bus',
+				'map': '',
+			},
+			{
+				'title': 'Карамышево',
+				'en': 'Karamishevo',
+				'numb': '555',
+				'description': 'Озёрск',
+				time: '1:00', dist: '-', cost: '-',
+				'workday': "14:50 18:30",
+				'workday2': "15:50 19:30",
+				'workday3': "06:00 10:00",
+				'workday4': "07:18 11:05",
+				'hollyday': "14:50 18:30",
+				'hollyday2': "15:50 19:30",
+				'hollyday3': "06:00 10:00",
+				'hollyday4': "07:18 11:05",
+				city: 'Калининград',
+				'icon': 'bus',
+				'map': '',
+			},
+			{
+				'title': 'Калининград',
+				'en': 'Kaliningrad',
+				'numb': '555',
+				'description': '',
+				time: '1:30', dist: '-', cost: '-',
+				'workday': "07:23 11:10",
+				'workday2': "09:25 12:40",
+				'workday3': "13:05 17:00",
+				'workday4': "14:45 18:25",
+				'hollyday': "07:23 11:10",
+				'hollyday2': "09:25 12:40",
+				'hollyday3': "13:05 17:00",
+				'hollyday4': "14:45 18:25",
+				city: 'Карамышево',
+				'icon': 'bus',
+				'map': '',
+			},
+			{	'title': 'Озёрск',
+				'en': 'Ozersk',
+				'numb': '564',
+				'description': 'Свобода, Липки, Демидовка',
+				time: '1:45', dist: '-', cost: '-',
+				'workday': "09:00 13:30",
+				'workday2': "10:45 15:16",
+				'workday3': "07:00 11:30",
+				'workday4': "08:45 13:43",
+				'hollyday': "09:00 13:30",
+				'hollyday2': "10:45 15:16",
+				'hollyday3': "07:00 11:30",
+				'hollyday4': "08:45 13:43",
+				city: 'Черняховск',
+				'icon': 'bus',
+				'map': '',
+			},
+			{	'title': 'Озёрск',
+				'en': 'Ozersk',
+				'numb': '565',
+				'description': 'Новостроево, Демидовка',
+				time: '1:30', dist: '-', cost: '-',
+				'workday': "07:40 14:40 18:40",
+				'workday2': "09:10 16:10 20:10",
+				'workday3': "06:00 12:30 16:50",
+				'workday4': "07:25 14:10 18:30",
+				'hollyday': "07:40 14:40 18:40",
+				'hollyday2': "09:10 16:10 20:10",
+				'hollyday3': "06:00 12:30 16:50",
+				'hollyday4': "07:25 14:10 18:30",
+				city: 'Черняховск',
+				'icon': 'bus',
+				'map': '',	
+				info1: '* : по Пн и Пт с заездом в п.Демидовка',
+				info2: '* : по Пн и Пт с заездом в п.Демидовка',
+			},
+			{	'title': 'Озёрск',
+				'en': 'Ozersk',
+				'numb': '566',
+				'description': 'Красноярское',
+				time: '0:45', dist: '-', cost: '-',
+				'workday': "16:05",
+				'workday2': "16:50",
+				'workday3': "07:50 16:20",
+				'workday4': "08:32 17:10 ",
+				'hollyday': "16:05",
+				'hollyday2': "16:50",
+				'hollyday3': "07:50 16:20",
+				'hollyday4': "08:32 17:10 ",
+				city: 'Калининград',
+				'icon': 'bus',
+			},
+			{	'title': 'Калининград',
+				'en': 'Kaliningrad',
+				'numb': '566',
+				'description': 'Гвардейск',
+				city: 'Озёрск',
+				time: '2:00', dist: '-', cost: '-',
+				'workday': "08:38 17:15",
+				'workday2': "10:40 18:45",
+				'workday3': "14:00",
+				'workday4': "16:00",
+				'hollyday': "08:38 17:15",
+				'hollyday2': "10:40 18:45",
+				'hollyday3': "14:00",
+				'hollyday4': "16:00",
+				'icon': 'bus',
+			},
+			{	'title': 'Калининград',
+				'en': 'Kaliningrad',
+				'numb': '567',
+				'description': 'Железнодорожный, Правдинск, Гвардейск',
+				city: 'Черняховск',
+				time: '5:10', dist: '-', cost: '-',
+				'workday': "07:00 13:00",
+				'workday2': "11:10 17:10",
+				'workday3': "08:10 15:30",
+				'workday4': "12:20 19:40",
+				'hollyday': "07:00 13:00",
+				'hollyday2': "11:10 17:10",
+				'hollyday3': "08:10 15:30",
+				'hollyday4': "12:20 19:40",
+				'icon': 'bus',
+			},
+			{	'title': 'Гусев',
+				'en': 'Gusev',
+				'numb': '580',
+				'description': 'Лермантово',
+				city: 'Калининград',
+				time: '0:30', dist: '-', cost: '-',
+				'workday': "19:25 23:30",
+				'workday2': "19:55 00:05",
+				'workday3': "05:00 17:10",
+				'workday4': "05:30 17:40",
+				'icon': 'bus',
+				'hollyday': "19:25 23:30",
+				'hollyday2': "19:55 00:05",
+				'hollyday3': "05:00 17:10",
+				'hollyday4': "05:30 17:40",
+			},
+			{	'title': 'Гусев',
+				'en': 'Gusev',
+				'numb': '580',
+				'description': 'Лермантово',
+				city: 'Светлогорск',
+				time: '0:40', dist: '-', cost: '-',
+				'workday': "*14:45 21:40",
+				'workday2': "15:25 22:18",
+				'workday3': "*06:20 14:00",
+				'workday4': "06:50 14:38",
+				'icon': 'bus',
+				'hollyday': "*14:45 21:40",
+				'hollyday2': "15:25 22:18",
+				'hollyday3': "*06:20 14:00",
+				'hollyday4': "06:50 14:38",
+				'info1': "Рейс выполняется с 01.05 по 30.09",
+				'info2': "Рейс выполняется с 01.05 по 30.09",
+				'info3': "Рейс выполняется с 01.05 по 30.09",
+				'info4': "Рейс выполняется с 01.05 по 30.09",
+			},
+			{	'title': 'Светлогорск',
+				'en': 'Svetlogorsk',
+				'numb': '581',
+				'description': 'Гвардейск, Калининград',
+				city: 'Гусев',
+				time: '3:25', dist: '-', cost: '-',
+				'workday': "*06:55 14:43",
+				'workday2': "10:30 18:10",
+				'workday3': "*11:35 *18:35",
+				'workday4': "14:40 21:39",
+				'icon': 'bus',
+				'hollyday': "*06:55 14:43",
+				'hollyday2': "10:30 18:10",
+				'hollyday3': "*11:35 *18:35",
+				'hollyday4': "14:40 21:39",
+				'info1': "Рейс выполняется с 01.05 по 30.09",
+				'info2': "Рейс выполняется с 01.05 по 30.09",
+				'info3': "Рейс выполняется с 01.05 по 30.09",
+				'info4': "Рейс выполняется с 01.05 по 30.09",
+			},
+			{	'title': 'Калининград',
+				'en': 'Kaliningrad',
+				'numb': '583',
+				'description': 'Гвардейск',
+				city: 'Чернышевское',
+				time: '1:50', dist: '-', cost: '-',
+				'workday': "08:05 10:10 11:25 19:05",
+				'workday2': "09:55 12:00 13:15 20:55",
+				'workday3': "09:45 11:50 14:20",
+				'workday4': "11:35 13:40 16:10",
+				'icon': 'bus',
+				'hollyday': "08:05 10:10 11:25 19:05",
+				'hollyday2': "09:55 12:00 13:15 20:55",
+				'hollyday3': "09:45 11:50 14:20",
+				'hollyday4': "11:35 13:40 16:10",
+			},
+			{	'title': 'Чернышевское',
+				'en': 'Chernishevskoe',
+				'numb': '583',
+				'description': 'Гусев, Нестеров',
+				city: 'Калининград',
+				time: '1:20', dist: '-', cost: '-',
+				'workday': "11:40 13:45 16:15",
+				'workday2': "13:01 15:17 17:40",
+				'workday3': "*06:55 *09:00 *10:15 17:30",
+				'workday4': "08:00 10:05 11:20 19:00",
+				'icon': 'bus',
+				'hollyday': "11:40 13:45 16:15",
+				'hollyday2': "13:01 15:17 17:40",
+				'hollyday3': "*06:55 *09:00 *10:15 17:30",
+				'hollyday4': "08:00 10:05 11:20 19:00",
+				info1: '* : рейс выполняется до Нестерова',
+				info2: '* : рейс выполняется из Нестерова',
+				info3: '* : рейс выполняется до Нестерова',
+				info4: '* : рейс выполняется из Нестерова',
+			},
+			{	'title': 'Калининград',
+				'en': 'Kaliningrad',
+				'numb': '680э',
+				'description': '',
+				city: 'Гусев',
+				time: '1:30', dist: '-', cost: '-',
+				'workday': "05:58 06:23 *06:55 07:13 07:38 08:28 08:53 09:43 10:33 10:58 11:48 12:10 12:38 13:03 13:28 14:18 14:58 15:33 15:58 16:48 18:20 19:50",
+				'workday2': "07:28 07:53 08:25 08:43 09:08 09:58 10:23 11:13 12:03 12:28 13:18 13:40 14:08 14:33 14:58 15:48 16:26 17:03 17:28 18:18 19:50 21:20",
+				'workday3': "08:00 08:2 08:50 09:25 10:20 10:50 11:20 12:10 12:30 *12:55 13:25 13:50 14:40 15:05 15:30 16:45 17:10 18:00 18:25 19:15 19:30 20:30 21:00",
+				'workday4': "09:30 09:55 10:20 10:55 11:50 12:20 12:50 13:35 14:00 14:25 14:55 15:20 16:10 16:35 17:00 18:15 18:40 19:30 19:55 20:45 21:00 22:00 22:30",
+				'icon': 'bus',
+				'hollyday': "05:58 06:23 *06:55 07:13 07:38 08:28 08:53 09:43 10:33 10:58 11:48 12:10 12:38 13:03 13:28 14:18 14:58 15:33 15:58 16:48 18:20 18:33 19:50",
+				'hollyday2': "07:28 07:53 08:25 08:43 09:08 09:58 10:23 11:13 12:03 12:28 13:18 13:40 14:08 14:33 14:58 15:48 16:26 17:03 17:28 18:18 19:50 20:03 21:20",
+				'hollyday3': "08:00 08:2 08:50 09:25 10:20 10:50 11:20 12:10 12:30 *12:55 13:25 13:50 14:40 15:05 15:30 16:45 17:10 18:00 18:25 19:15 19:30 20:30 21:00",
+				'hollyday4': "09:30 09:55 10:20 10:55 11:50 12:20 12:50 13:35 14:00 14:25 14:55 15:20 16:10 16:35 17:00 18:15 18:40 19:30 19:55 20:45 21:00 22:00 22:30",
+				info1: '* : рейс выполняется с 01.10 по 30.04',
+				info2: '* : рейс выполняется с 01.10 по 30.04',
+				info3: '* : рейс выполняется с 01.10 по 30.04',
+				info4: '* : рейс выполняется с 01.10 по 30.04',
+			},
+			{	'title': 'Гусев',
+				'en': 'Gusev',
+				'numb': '680э',
+				'description': '',
+				city: 'Калининград',
+				time: '0:30', dist: '-', cost: '-',
+				'workday': "09:33 10:00 10:25 11:00 11:55 12:25 12:55 13:40 14:05 *14:30 15:00 15:25 16:15 16:40 17:05 18:20 18:45 19:33 20:00 20:48 21:01 22:05 22:35",
+				'workday2': "10:03 10:30 10:55 11:35 12:25 12:55 13:25 14:10 14:35 15:00 15:30 15:55 16:45 17:10 17:35 18:50 19:15 20:03 20:30 21:18 21:30 22:35 22:35",
+				'workday3': "05:25 05:50 *06:20 06:40 07:00 07:50 08:20 09:10 10:00 10:25 11:15 11:35 12:05 12:30 12:55 13:45 14:25 15:00 15:25 16:15 17:45 19:15",
+				'workday4': "05:55 06:20 06:50 07:10 07:35 08:25 08:50 09:40 10:30 10:55 11:45 12:05 12:35 13:00 13:25 14:15 14:55 15:30 15:55 16:45 18:15 19:45",
+				'icon': 'bus',
+				'hollyday': "09:33 10:00 10:25 11:00 11:55 12:25 12:55 13:40 14:05 *14:30 15:00 15:25 16:15 16:40 17:05 18:20 18:45 19:33 20:00 20:48 21:01 22:05 22:35",
+				'hollyday2': "10:03 10:30 10:55 11:35 12:25 12:55 13:25 14:10 14:35 15:00 15:30 15:55 16:45 17:10 17:35 18:50 19:15 20:03 20:30 21:18 21:30 22:35 22:35",
+				'hollyday3': "05:25 05:50 *06:20 06:40 07:00 07:50 08:20 09:10 10:00 10:25 11:15 11:35 12:05 12:30 12:55 13:45 14:25 15:00 15:25 16:15 17:45 18:00 19:15",
+				'hollyday4': "05:55 06:20 06:50 07:10 07:35 08:25 08:50 09:40 10:30 10:55 11:45 12:05 12:35 13:00 13:25 14:15 14:55 15:30 15:55 16:45 18:15 18:30 19:45",
+				info1: '* : рейс выполняется с 01.10 по 30.04',
+				info2: '* : рейс выполняется с 01.10 по 30.04',
+				info3: '* : рейс выполняется с 01.10 по 30.04',
+				info4: '* : рейс выполняется с 01.10 по 30.04',
 			},
 		];
 		// End Cherniahovsk
@@ -2925,11 +3407,111 @@ export class Page1 {
 			}
 			return false;
 		})
+		//Sov
 		this.sovetsk = this.sovetsk.filter((sov) => {
 			if (sov.title.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
 				sov.numb.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
 				sov.en.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
 				sov.description.toLowerCase().indexOf(q.toLowerCase()) >= 0
+			) {
+				return true;
+			}
+			return false;
+		})
+		//Gus
+		this.gusev = this.gusev.filter((gus) => {
+			if (gus.title.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				gus.numb.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				gus.en.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				gus.description.toLowerCase().indexOf(q.toLowerCase()) >= 0
+			) {
+				return true;
+			}
+			return false;
+		})
+		//Cher
+		this.chernahovsk = this.chernahovsk.filter((cher) => {
+			if (cher.title.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				cher.numb.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				cher.en.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				cher.description.toLowerCase().indexOf(q.toLowerCase()) >= 0
+			) {
+				return true;
+			}
+			return false;
+		})
+		//Bolsh
+		this.bolshakovo = this.bolshakovo.filter((bolsh) => {
+			if (bolsh.title.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				bolsh.numb.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				bolsh.en.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				bolsh.description.toLowerCase().indexOf(q.toLowerCase()) >= 0
+			) {
+				return true;
+			}
+			return false;
+		})
+		//Gvard
+		this.gvardeysk = this.gvardeysk.filter((gvard) => {
+			if (gvard.title.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				gvard.numb.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				gvard.en.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				gvard.description.toLowerCase().indexOf(q.toLowerCase()) >= 0
+			) {
+				return true;
+			}
+			return false;
+		})
+		//Jzd
+		this.jzdorojniy = this.jzdorojniy.filter((jzd) => {
+			if (jzd.title.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				jzd.numb.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				jzd.en.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				jzd.description.toLowerCase().indexOf(q.toLowerCase()) >= 0
+			) {
+				return true;
+			}
+			return false;
+		})
+		//Krasnznam
+		this.krznamensk = this.krznamensk.filter((krz) => {
+			if (krz.title.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				krz.numb.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				krz.en.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				krz.description.toLowerCase().indexOf(q.toLowerCase()) >= 0
+			) {
+				return true;
+			}
+			return false;
+		})
+		//Neman
+		this.neman = this.neman.filter((nem) => {
+			if (nem.title.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				nem.numb.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				nem.en.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				nem.description.toLowerCase().indexOf(q.toLowerCase()) >= 0
+			) {
+				return true;
+			}
+			return false;
+		})
+		//Ozersk
+		this.ozersk = this.ozersk.filter((ozer) => {
+			if (ozer.title.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				ozer.numb.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				ozer.en.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				ozer.description.toLowerCase().indexOf(q.toLowerCase()) >= 0
+			) {
+				return true;
+			}
+			return false;
+		})
+		//Pravdinsk
+		this.pravdinsk = this.pravdinsk.filter((prav) => {
+			if (prav.title.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				prav.numb.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				prav.en.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				prav.description.toLowerCase().indexOf(q.toLowerCase()) >= 0
 			) {
 				return true;
 			}
@@ -2941,69 +3523,69 @@ export class Page1 {
 
 	// Навигация.
 
-	openNavDetailsPage(item) {
-		this.navCtrl.push(DetailsPage, { item: item });
-	}
-	openNavDetailsPage2(data) {
-		this.navCtrl.push(DetailsPage, { item: data });
-	}
-	openNavDetailsSov(sov) {
-		this.navCtrl.push(DetailsPage, { item: sov });
-	}
-	openNavDetailsGus(gus) {
-		this.navCtrl.push(DetailsPage, { item: gus });
-	}
-	openNavDetailsCher(cher) {
-		this.navCtrl.push(DetailsPage, { item: cher });
-	}
-	openNavDetailsBolsh(bolsh) {
-		this.navCtrl.push(DetailsPage, { item: bolsh });
-	}
-	openNavDetailsGvard(gvard) {
-		this.navCtrl.push(DetailsPage, { item: gvard });
-	}
-	openNavDetailsJzd(jzd) {
-		this.navCtrl.push(DetailsPage, { item: jzd });
-	}
-	openNavDetailsKrz(krz) {
-		this.navCtrl.push(DetailsPage, { item: krz });
-	}
-	openNavDetailsNeman(nem) {
-		this.navCtrl.push(DetailsPage, { item: nem });
-	}
-	openNavDetailsOzersk(ozer) {
-		this.navCtrl.push(DetailsPage, { item: ozer });
-	}
-	openNavDetailsPravdinsk(prav) {
-		this.navCtrl.push(DetailsPage, { item: prav });
-	}
+		openNavDetailsPage(item) {
+			this.navCtrl.push(DetailsPage, { item: item });
+		}
+		openNavDetailsPage2(data) {
+			this.navCtrl.push(DetailsPage, { item: data });
+		}
+		openNavDetailsSov(sov) {
+			this.navCtrl.push(DetailsPage, { item: sov });
+		}
+		openNavDetailsGus(gus) {
+			this.navCtrl.push(DetailsPage, { item: gus });
+		}
+		openNavDetailsCher(cher) {
+			this.navCtrl.push(DetailsPage, { item: cher });
+		}
+		openNavDetailsBolsh(bolsh) {
+			this.navCtrl.push(DetailsPage, { item: bolsh });
+		}
+		openNavDetailsGvard(gvard) {
+			this.navCtrl.push(DetailsPage, { item: gvard });
+		}
+		openNavDetailsJzd(jzd) {
+			this.navCtrl.push(DetailsPage, { item: jzd });
+		}
+		openNavDetailsKrz(krz) {
+			this.navCtrl.push(DetailsPage, { item: krz });
+		}
+		openNavDetailsNeman(nem) {
+			this.navCtrl.push(DetailsPage, { item: nem });
+		}
+		openNavDetailsOzersk(ozer) {
+			this.navCtrl.push(DetailsPage, { item: ozer });
+		}
+		openNavDetailsPravdinsk(prav) {
+			this.navCtrl.push(DetailsPage, { item: prav });
+		}
 
 	//  JD Routs
 
-	openBgrt() {
-		this.navCtrl.push(RoutBgrt);
-	}
-	openBlt() {
-		this.navCtrl.push(RoutBlt);
-	}
-	openMamo() {
-		this.navCtrl.push(RoutMamo);
-	}
-	openChern() {
-		this.navCtrl.push(RoutChern);
-	}
-	openSov() {
-		this.navCtrl.push(RoutSov);
-	}
-	openSvt() {
-		this.navCtrl.push(RoutSvt);
-	}
-	openSvt2() {
-		this.navCtrl.push(RoutSvt2);
-	}
-	openZel() {
-		this.navCtrl.push(RoutZel);
-	}
+		openBgrt() {
+			this.navCtrl.push(RoutBgrt);
+		}
+		openBlt() {
+			this.navCtrl.push(RoutBlt);
+		}
+		openMamo() {
+			this.navCtrl.push(RoutMamo);
+		}
+		openChern() {
+			this.navCtrl.push(RoutChern);
+		}
+		openSov() {
+			this.navCtrl.push(RoutSov);
+		}
+		openSvt() {
+			this.navCtrl.push(RoutSvt);
+		}
+		openSvt2() {
+			this.navCtrl.push(RoutSvt2);
+		}
+		openZel() {
+			this.navCtrl.push(RoutZel);
+		}
 
 	// End
 	// Promo route

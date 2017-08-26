@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.itgluck.klobus39" version="3.2.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.itgluck.klobus39" version="3.5.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>KLoBus39</name>
     <description>Общественный транспорт Калининградской области</description>
     <author email="it.gluck@ya.ru" href="ghttps://goo.gl/9fGdWU">Bolshakov Nikita</author>
@@ -13,12 +13,12 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
-        <icon density="ldpi" src="resources\android\icon\drawable-ldpi-icon.png" />
-        <icon density="mdpi" src="resources\android\icon\drawable-mdpi-icon.png" />
-        <icon density="hdpi" src="resources\android\icon\drawable-hdpi-icon.png" />
-        <icon density="xhdpi" src="resources\android\icon\drawable-xhdpi-icon.png" />
-        <icon density="xxhdpi" src="resources\android\icon\drawable-xxhdpi-icon.png" />
-        <icon density="xxxhdpi" src="resources\android\icon\drawable-xxxhdpi-icon.png" />
+        <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
+        <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
+        <icon density="hdpi" src="resources/android/icon/drawable-hdpi-icon.png" />
+        <icon density="xhdpi" src="resources/android/icon/drawable-xhdpi-icon.png" />
+        <icon density="xxhdpi" src="resources/android/icon/drawable-xxhdpi-icon.png" />
+        <icon density="xxxhdpi" src="resources/android/icon/drawable-xxxhdpi-icon.png" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
@@ -31,7 +31,9 @@
     <preference name="android-targetSdkVersion" value="23" />
     <preference name="KeepRunning" value="true" />
     <preference name="BackupWebStorage" value="none" />
-    <preference name="loadUrlTimeoutValue" value="70000" />
+    <preference name="loadUrlTimeoutValue" value="65000" />
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="3000" />
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>

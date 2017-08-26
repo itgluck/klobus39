@@ -15,6 +15,13 @@ ion-grid {
 button{
     background: #fff;
 }
+iframe {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    border: none;
+    position: relative;
+}
 
 }
 ion-content {
