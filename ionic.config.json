@@ -1,5 +1,8 @@
 {
   "name": "KLoBus39",
   "app_id": "dec8db27",
-  "type": "ionic-angular"
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
 }
