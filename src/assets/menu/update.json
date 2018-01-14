@@ -1,0 +1,15 @@
+{
+    "results": [{
+        "title": "Обновить",
+        "subtitle": "Доступна новая версия",
+        "img": "../assets/img/download.png",
+        "icon": "archive",
+        "ver": "3.7"
+    }],
+    "info": {
+        "seed": "95191c57151c5da0",
+        "results": 4,
+        "page": 1,
+        "version": "3.7"
+    }
+}
