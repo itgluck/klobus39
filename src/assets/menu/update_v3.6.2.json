@@ -1,9 +1,8 @@
 {
     "results": [{
         "title": "Обновить",
-        "subtitle": "Доступна новая версия!!!",
+        "subtitle": "Доступна новая версия",
         "img": "../assets/img/download.png",
         "icon": "archive",
-        "ver": ""
     }]
 }
