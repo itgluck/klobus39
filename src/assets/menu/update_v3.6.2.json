@@ -2,7 +2,6 @@
     "results": [{
         "title": "Обновить",
         "subtitle": "Доступна новая версия",
-        "img": "../assets/img/download.png",
-        "icon": "../assets/menu/icon.png"
+        "img": "../assets/menu/icon.png"
     }]
 }
