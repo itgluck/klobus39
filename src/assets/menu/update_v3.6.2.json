@@ -3,6 +3,6 @@
         "title": "Обновить",
         "subtitle": "Доступна новая версия",
         "img": "../assets/img/download.png",
-        "icon": "archive",
+        "icon": "../assets/menu/icon.png"
     }]
 }
