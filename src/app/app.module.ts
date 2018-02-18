@@ -78,6 +78,6 @@ import { AdMobFree } from '@ionic-native/admob-free';
     AdMobFree,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
-})
+}) 
 export class AppModule {}
 
