@@ -6,7 +6,6 @@
 *.log
 *.tmp
 *.tmp.*
-*.rar
 log.txt
 *.sublime-project
 *.sublime-workspace
@@ -14,6 +13,7 @@ log.txt
 npm-debug.log*
 
 .idea/
+.sourcemaps/
 .sass-cache/
 .tmp/
 .versions/
@@ -22,7 +22,6 @@ dist/
 node_modules/
 tmp/
 temp/
-www/
 hooks/
 platforms/
 plugins/

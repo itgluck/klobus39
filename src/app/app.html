@@ -1,41 +1,33 @@
 <ion-menu [content]="content" class="menu">
-    <ion-header style="text-align:center;">
-        <img menuClose src="assets/img/logo.png" class='logo' (click)="goHome()">
+    <ion-header class='logo'>
+        <h2 menuClose (click)="goHome()">Калининград</h2>
+        <!-- <img menuClose src="assets/img/kaliningrad.jpg" class='logo' (click)="goHome()"> -->
+        <iframe src="assets/menu/index.html"></iframe>
     </ion-header>
 
     <ion-content class="mainmenu">
         <ion-list class="mainmenu" no-lines>
-
-            <button ion-item onclick="window.open('geo: 54.7074,20.5084?z=11', '_system', 'location=yes'); return false;">
-                <ion-icon name="map" item-left></ion-icon><h2>Карта</h2></button>
+            <div *ngIf="show">
+                <button (click)="show = !show" *ngFor="let promo of (infoblocks | async)?.results" ion-item onclick="window.open('https://play.google.com/store/apps/details?id=com.itgluck.klobus39', '_system', 'location=yes'); return false;">
+                <!-- <ion-icon name="{{ promo.icon }}" item-left></ion-icon> -->
+                <img src="{{promo.img}}" item start>
+                <h2>{{ promo.title }}</h2>
+                <i class="inf" >{{ promo.subtitle}}</i>
+             </button>
+            </div>
             <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" color="$primary">
        <ion-icon name="{{p.icon}}" item-left></ion-icon> <h2>{{p.title}}</h2>
       </button>
-              <button ion-item
-         onclick="window.plugins.socialsharing.share('KLoBus39 транспорт Калининградской области', 'Рекомендую приложение KLoBus39', 'https://pp.userapi.com/c638320/v638320752/4bd5e/UgZtg-jvSbs.jpg', 'https://play.google.com/store/apps/details?id=com.itgluck.klobus39')">
+            <button ion-item onclick="window.plugins.socialsharing.share('KLoBus39 транспорт Калининградской области', 'Рекомендую приложение KLoBus39', 'https://pp.userapi.com/c638320/v638320752/4bd5e/UgZtg-jvSbs.jpg', 'https://play.google.com/store/apps/details?id=com.itgluck.klobus39')">
             <ion-icon name="share" item-left></ion-icon><h2>Поделиться</h2>
             </button>
-            <!-- <button ion-item onclick="window.open('https://play.google.com/store/search?q=Nikita%20Bolshakov&c=apps', '_system', 'location=yes'); return false;">
-                <ion-icon name="archive" item-left></ion-icon><h2>Другие приложения</h2>
-            </button> -->
-             <button menuClose ion-item (click)="goPromo()">
+            <button menuClose ion-item (click)="goPromo()">
                 <ion-icon name="cart" item-left></ion-icon><h2>Магазин</h2>
-            </button> 
+            </button>
         </ion-list>
+
     </ion-content>
 </ion-menu>
 
 <!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
-
-
-<!--<a href="geo:38.897096,-77.036545">open map</a>-->
-<!--
- <a href="javascript:openMaps('&daddr=38.897096,+-77.036545')"><‌​img src="img/ico_pin.png" />Directions</a> function openMaps(querystring) { var maproot = ''; var lat = position.coords.latitude; var lng = position.coords.longitude; var myLoc = new google.maps.Lat.Lng(lat, lng); maproot = "geo:" + myLoc + "?saddr=" + myLoc; window.location = maproot + querystring; }-->
-
-<!--This work for me...
-
-var addressLongLat = yourLatitude+','+yourLongitude
-For Android Maps App:
-
-window.open("geo:"+addressLongLat);-->

@@ -1,22 +1,20 @@
-import { Component } from'@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { Slides, Content } from 'ionic-angular';
 
-
-/*
-  Generated class for the WeatherPage page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   templateUrl:'page7.html',
 })
 export class Page7 {
  items= [];
  cars=[];
- autobtn: string = "taxi";
+//  tabs=[];
+//  autobtn: string = "taxi";
 
   constructor() {
-this.autobtn= "taxi";
+// this.autobtn= "taxi";
+this.tabs = ["Такси", "Аренда авто"];
+
+  
  this.items = [
        {'title':'Агат',
        'description':'',
@@ -180,6 +178,34 @@ this.autobtn= "taxi";
   ];
 
   }
+
+   // ScrollTabs
+   @ViewChild('SwipedTabsSlider') SwipedTabsSlider: Slides;
+   @ViewChild('scroll') scroll: Content;
+
+   SwipedTabsIndicator: any = null;
+   tabs: any = [];
+
+   ionViewDidEnter() {
+       this.SwipedTabsIndicator = document.getElementById("indicator");
+   }
+
+   selectTab(index) {
+       this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (100 * index) + '%,0,0)';
+       this.SwipedTabsSlider.slideTo(index, 50);
+   }
+
+   updateIndicatorPosition() {
+       if (this.SwipedTabsSlider.length() > this.SwipedTabsSlider.getActiveIndex()) {
+           this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (this.SwipedTabsSlider.getActiveIndex() * 100) + '%,0,0)';
+       }
+
+   }
+
+   animateIndicator($event) {
+       if (this.SwipedTabsIndicator)
+           this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (($event.progress * (this.SwipedTabsSlider.length() - 1)) * 100) + '%,0,0)';
+   }
 
 }
 

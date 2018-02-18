@@ -1,60 +1,51 @@
 <ion-header>
 
-  <ion-navbar color="primary">
-    <ion-title>Заказ авто</ion-title>
-  </ion-navbar>
+    <ion-navbar color="primary">
+        <ion-title>Заказ авто</ion-title>
+    </ion-navbar>
 
-    <ion-toolbar >
-        <ion-segment [(ngModel)]="autobtn" class="autoname">
-            <ion-segment-button value="taxi">
-                Службы такси
+    <ion-toolbar no-border-bottom color="primary">
+        <ion-segment class="SwipedTabs-tabs">
+            <ion-segment-button *ngFor='let tab of tabs ; let i = index ' style="width:100%;" value="IngoreMe" (click)="selectTab(i)" [ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }'>
+                {{tab}}
             </ion-segment-button>
-            <ion-segment-button value="rent">
-                Аренда автомобилей
-            </ion-segment-button>
+
         </ion-segment>
+        <div id='indicator' class="SwipedTabs-indicatorSegment" style="width:50%;"></div>
     </ion-toolbar>
 </ion-header>
- 
+
 
 <ion-content class='auto'>
     <!-- Segment auto1-->
-    <div [ngSwitch]="autobtn">
-        <ion-list *ngSwitchCase="'taxi'">
+    <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideWillChange)="updateIndicatorPosition()" (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="true" style="height:unset;">
+        <ion-slide>
 
-                    <!--<ion-list-header>
-                        Службы такси
-                    </ion-list-header>-->
-                    <ion-list class='phonelist'>
-                        <div *ngFor="let item of items" ion-item>
-                            {{item.title}}
-                            <h4>{{item.description}}</h4>
-                            <a href="tel:{{item.call}}" item-right>
-                                <div class="button button-fab" >
-                                    <ion-icon name="call"></ion-icon>
-                                </div>
-                            </a>
+            <ion-list class='phonelist'>
+                <div *ngFor="let item of items" ion-item>
+                    {{item.title}}
+                    <h4>{{item.description}}</h4>
+                    <a href="tel:{{item.call}}" item-right>
+                        <div class="button button-fab">
+                            <ion-icon name="call"></ion-icon>
                         </div>
-                    </ion-list>
-        </ion-list>
-    </div>
+                    </a>
+                </div>
+            </ion-list>
+        </ion-slide>
 
-    <div [ngSwitch]="autobtn"> 
-          <ion-list *ngSwitchCase="'rent'">
-                <!--<ion-list-header>
-                    Аренда автомобилей
-                </ion-list-header>-->
-                <ion-list class='phonelist'>
+        <ion-slide>
+            <ion-list class='phonelist'>
                 <div *ngFor="let car of cars" ion-item>
-                        {{car.title}}
-                        <h4>Адрес: {{car.description}}</h4>
-                        <a href="tel:{{car.call}}" item-right>
-                            <div class="button button-fab" >
-                                <ion-icon name="call"></ion-icon>
-                            </div>
-                        </a>
-                    </div>
-                </ion-list>
-          </ion-list>
-    </div>
+                    {{car.title}}
+                    <h4>Адрес: {{car.description}}</h4>
+                    <a href="tel:{{car.call}}" item-right>
+                        <div class="button button-fab">
+                            <ion-icon name="call"></ion-icon>
+                        </div>
+                    </a>
+                </div>
+            </ion-list>
+        </ion-slide>
+    </ion-slides>
 </ion-content>

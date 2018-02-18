@@ -2,83 +2,106 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta charset="UTF-8">
-  <title>KLoBus39</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="format-detection" content="telephone=no">
-  <meta name="msapplication-tap-highlight" content="no">
+    <meta charset="UTF-8">
+    <title>KLoBus39</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
 
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#4e8ef7">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4e8ef7">
 
 
-  <link href="build/main.css" rel="stylesheet">
+    <link href="build/main.css" rel="stylesheet">
 
-  <style>
-
-    #p_prldr {
-      position: fixed;
-      left: 0;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      background: #fff;
-
-      z-index: 30;
-    }
-
-    .contpre small {
-      font-size: 1em;
-    }
-
-    .contpre {
-      width: 10em;
-      height: 26em;
-      position: absolute;
-      left: 50%;
-      top: 45%;
-      margin-left: -5em;
-      margin-top: 5em;
-      color:#384970;
-      font-size: 1.4em;
-      font-family: sans-serif;
-      letter-spacing: 0.12em;
-      text-align: center;
-      line-height: 1em;
-    }
-
-    #p_prldr .svg_anm {
-      position: absolute;
-      width: 20em;
-      height: 5em;
-      background: url("assets/img/logo.png") center center no-repeat;
-      background-size: 14em;
-      margin: -10em 0 0 -10em;
-    }
-  </style>
+    <style>
+        #loader {
+            position: fixed;
+            left: 0;
+            top: 10%;
+            right: 0;
+            bottom: 0;
+            background: #fff;
+            z-index: 30;
+        }
+        /* #loader span {
+            position: absolute;
+            width: 20em;
+            top: 45%;
+            left: -10em;
+            height: 6em;
+            background: url(assets/img/logo.png) center center no-repeat;
+            background-size: 20em;
+            margin-left: 50%;
+        } */
+        
+        .spinner {
+            /* width: 20em;
+            top: 45%; */
+            left: -10em;
+            margin-left: 50%;
+            height: 20em;
+            background: url(assets/img/spiner.png) center center no-repeat;
+            background-size: 10em;
+            margin: 100px auto;
+            -webkit-animation: sk-bounce 6s infinite ease-in-out;
+            animation: sk-bounce 6s infinite ease-in-out;
+        }
+        
+        @-webkit-keyframes sk-bounce {
+            0%,
+            100% {
+                -webkit-transform: scale(0.8)
+            }
+            25% {
+                -webkit-transform: scale(.40);
+                -webkit-transform: perspective(150px) rotateY(30deg)
+            }
+            75% {
+                -webkit-transform: scale(.40);
+                -webkit-transform: perspective(150px) rotateY(-30deg)
+            }
+        }
+        
+        @keyframes sk-bounce {
+            0%,
+            100% {
+                transform: scale(0.8);
+                -webkit-transform: scale(0.8);
+            }
+            25% {
+                transform: scale(.4);
+                -webkit-transform: scale(.4);
+                transform: perspective(150px) rotateY(30deg);
+                -webkit-transform: perspective(150px) rotateY(30deg)
+            }
+            75% {
+                transform: scale(.4);
+                -webkit-transform: scale(.4);
+                transform: perspective(150px) rotateY(30deg);
+                -webkit-transform: perspective(150px) rotateY(-30deg)
+            }
+        }
+    </style>
 
 </head>
 
 
 <body>
 
-  <ion-app>
+    <ion-app>
 
-    <div id="p_prldr">
-      <div class="contpre">
-        <span class="svg_anm"></span>
-        <br>Подождите<br>
-        <small>идет загрузка</small>
-      </div>
-    </div>
+        <div id="loader">
+            <div class="spinner"></div>
+            <!-- <span></span> -->
+        </div>
+    </ion-app>
 
-  </ion-app>
+    <script src="cordova.js"></script>
+    <script src="build/polyfills.js"></script>
+    <script src="build/vendor.js"></script>
 
-  <script src="cordova.js"></script>
-  <script src="build/polyfills.js"></script>
-  <script src="build/vendor.js"></script>
-
-  <script src="build/main.js"></script>
+    <script src="build/main.js"></script>
 
 </body>
 

@@ -1,0 +1,158 @@
+<ion-header>
+    <ion-navbar color="train">
+        <button ion-button menuToggle>
+ <ion-icon name="menu" color="hidden"></ion-icon>
+ </button>
+
+        <ion-title>Детали маршрута</ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="doMessage()">
+            <ion-icon name="attach" item-left></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+    <ion-toolbar class="trainlist" color="train">
+
+        <ion-segment class="SwipedTabs-tabs">
+            <ion-segment-button *ngFor='let tab of tabs ; let i = index ' style="width:100%;" value="IngoreMe" (click)="selectTab(i)" [ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }'>
+                {{tab}}
+            </ion-segment-button>
+        </ion-segment>
+        <div id='indicator' class="SwipedTabs-indicatorSegment" style="width:50%;"></div>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="trainlist">
+
+
+    <table class='table-train'>
+        <tr>
+            <td>
+                <ion-icon name="time"></ion-icon>
+            </td>
+            <td>
+                <ion-icon name="pulse"></ion-icon>
+            </td>
+            <td>
+                <ion-icon name="cash"></ion-icon>
+            </td>
+        </tr>
+        <tr class='detals'>
+            <td>{{item.time}}</td>
+            <td>{{item.dist}}</td>
+            <td>{{item.cost}}</td>
+        </tr>
+        <tr>
+            <td>ч:мин</td>
+            <td>км</td>
+            <td>руб</td>
+        </tr>
+    </table>
+
+    <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideWillChange)="updateIndicatorPosition()" (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="true" style="height:unset;">
+        <ion-slide>
+            <div class="header">
+                <div class="city start">{{item.city}}</div>
+                <div class="city end">{{item.title}}</div>
+            </div>
+
+            <!--*** TimeLine-->
+            <ion-grid class="info">
+                <ion-row>
+                    <ion-col col-4>Отправление</ion-col>
+                    <ion-col col-3>Маршрут</ion-col>
+                    <ion-col col-3 push-1>День</ion-col>
+                </ion-row>
+            </ion-grid>
+            <div class="timeline">
+                <ul style="display:block">
+                    <li *ngFor="let item of item.station">
+                        <div class="bullet {{item.bullet_type}}"></div>
+                        <h3>{{item.title}}</h3>
+
+                        <ion-grid class="grid-train">
+                            <ion-row>
+                                <ion-col col-2>{{item.t1}}</ion-col>
+                                <ion-col col-2 offset-2 class="rout_num">{{item.r1}}</ion-col>
+                                <ion-col col-4 push-2 class="mini">{{item.d1}}</ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col col-2>{{item.t2}}</ion-col>
+                                <ion-col col-2 offset-2 class="rout_num">{{item.r2}}</ion-col>
+                                <ion-col col-4 push-2 class="mini">{{item.d2}}</ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col col-2>{{item.t3}}</ion-col>
+                                <ion-col col-2 offset-2 class="rout_num">{{item.r3}}</ion-col>
+                                <ion-col col-4 push-2 class="mini">{{item.d3}}</ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col col-2>{{item.t4}}</ion-col>
+                                <ion-col col-2 offset-2 class="rout_num">{{item.r4}}</ion-col>
+                                <ion-col col-4 push-2 class="mini">{{item.d4}}</ion-col>
+                            </ion-row>
+                        </ion-grid>
+
+                    </li>
+
+                </ul>
+            </div>
+            <!-- End Case-->
+        </ion-slide>
+        <!--End-->
+
+
+        <ion-slide>
+            <div class="header">
+                <div class="city start">{{item.title}}</div>
+                <div class="city end">{{item.city}}</div>
+
+            </div>
+            <ion-grid class="info">
+                <ion-row>
+                    <ion-col col-4>Отправление</ion-col>
+                    <ion-col col-3>Маршрут</ion-col>
+                    <ion-col col-3 push-1>День</ion-col>
+                </ion-row>
+            </ion-grid>
+            <!--*** TimeLine BACK-->
+            <div class="timeline">
+                <ul style="display:block">
+                    <li *ngFor="let back of item.back">
+                        <div class="bullet {{back.bullet_type}}"></div>
+                        <h3>{{back.title}}</h3>
+
+                        <ion-grid class="grid-train">
+                            <ion-row>
+                                <ion-col col-2>{{back.t1}}</ion-col>
+                                <ion-col col-2 offset-2 class="rout_num">{{back.r1}}</ion-col>
+                                <ion-col col-4 push-2 class="mini">{{back.d1}}</ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col col-2>{{back.t2}}</ion-col>
+                                <ion-col col-2 offset-2 class="rout_num">{{back.r2}}</ion-col>
+                                <ion-col col-4 push-2 class="mini">{{back.d2}}</ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col col-2>{{back.t3}}</ion-col>
+                                <ion-col col-2 offset-2 class="rout_num">{{back.r3}}</ion-col>
+                                <ion-col col-4 push-2 class="mini">{{back.d3}}</ion-col>
+                            </ion-row>
+                            <ion-row>
+                                <ion-col col-2>{{back.t4}}</ion-col>
+                                <ion-col col-2 offset-2 class="rout_num">{{back.r4}}</ion-col>
+                                <ion-col col-4 push-2 class="mini">{{back.d4}}</ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </li>
+
+                </ul>
+            </div>
+        </ion-slide>
+        <!--End-->
+
+    </ion-slides>
+
+    <!-- New Seg -->
+
+</ion-content>

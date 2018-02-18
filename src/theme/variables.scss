@@ -1,73 +1,50 @@
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/v2/theming/
 $font-path: "../assets/fonts";
-
 @import "ionic.globals";
-
-// @import url(http://fonts.googleapis.com/css?family=Noto+Sans);
+@import url(http://fonts.googleapis.com/css?family=Noto+Sans);
 // audio,
 // canvas,
 // progress,
 // video {
 //   vertical-align: baseline; }
-
-
 ion-app.md {
-  font-size: 1.5rem;
+    font-size: 1.5rem;
 }
+
 // toolbar-md{
 //   max-height: 4em;
 //   padding: 0px;
 // }
-ion-navbar .toolbar{
-  min-height: 46px;
-}
-.toolbar-md{
-  background: rgba(208,221,226, .2);
+ion-navbar .toolbar {
+    min-height: 46px;
 }
 
+.toolbar-md {
+    background: rgba(190, 209, 216, 0.603);
+}
 
-$colors: (
-  primary:    #384970,
-  // secondary:  #AAB3BF,
-  secondary:  #5B6A8F,
-  train:    #433870,
-  info:       #68BBDC,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  text:       #5D6B7E,
-  dark:       #3F8392,
-);
+$colors: ( primary: #435D6F, // secondary:  #AAB3BF,
+secondary: rgba(67, 93, 111, .9), train: #435D6F, info: #68BBDC, danger: #f53d3d, light: #f4f4f4, text: #5D6B7E, dark: #3F8392, );
 // $primary: #1873A0;
-$primary: #384970;
-$secondary: #5B6A8F;
-$train:    #433870;
+$primary: #435D6F;
+$secondary: rgba(67, 93, 111, .9);
+$train: #435D6F;
 $text: #5D6B7E;
-$hidden: rgba(49,62,92, .6);
-$hidden2: rgba(10,15,30,.45);
+$hidden: rgba(107, 117, 130, 0.4);
+$hidden2: rgba(10, 15, 30, .45);
 $bg: #fff;
-$bg2: rgba(208, 221, 226, .3);
+$bg2: #f7f7f7;
 $dark: #3F8392;
 $info: #91A1BB;
-
-
-
-
 @import "ionic.theme.default";
-
-
+// @import "ionic.theme.dark";
 // Ionicons
 // --------------------------------------------------
 // The premium icon font for Ionic. For more info, please see:
 // http://ionicframework.com/docs/v2/ionicons/
-
 @import "ionicons";
-
-
 // Fonts
 // --------------------------------------------------
-
 @import "roboto";
 @import "noto-sans";
-
-

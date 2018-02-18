@@ -1,16 +1,9 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, NavParams, AlertController, Slides, Content } from 'ionic-angular';
 
 // Routs
-import { RoutBlt } from './train/blt/blt';
-import { RoutBgrt } from './train/bgrt/bgrt';
-import { RoutMamo } from './train/mamo/mamo';
-import { RoutChern } from './train/chern/chern';
-import { RoutSov } from './train/sov/sov';
-import { RoutSvt } from './train/svt/svt';
-import { RoutSvt2 } from './train/svt2/svt2';
-import { RoutZel } from './train/zel/zel';
-import { Promo } from '../promo/promo';
+import { TrainDetails } from './train/train';
+import { AdMobFree, AdMobFreeBannerConfig } from '@ionic-native/admob-free';
 
 
 @Component({
@@ -18,366 +11,380 @@ import { Promo } from '../promo/promo';
 })
 export class DetailsPage {
 	item: any;
-	spisok: any;
-	menubtn: string = "workday";
-	//  details: string = "time";
-	// isAndroid: boolean = true;
-
-	constructor(params: NavParams, public navCtrl: NavController) {
+	alertCtrl;
+	constructor(params: NavParams, alertCtrl: AlertController, public navCtrl: NavController) {
 
 		this.item = params.data.item;
-		this.menubtn = "workday";
-		// this.isAndroid = platform.is('android');
+		this.tabs = ["Будни · Суббота", "Воскресенье · Праздники"];
+		this.alertCtrl = alertCtrl;
 	}
 
+	// New Segment
+	@ViewChild('SwipedTabsSlider') SwipedTabsSlider: Slides;
+	@ViewChild('scroll') scroll: Content;
+
+	SwipedTabsIndicator: any = null;
+	tabs: any = [];
+	// tabElementWidth_px :number= 150;
+	doMessage() {
+		let confirm = this.alertCtrl.create({
+			title: 'Напишите нам',
+			message: 'Если у Вас есть идеи - как улучшить приложение или Вы заметили неточность в данных',
+			buttons: [
+				{
+					text: 'Не сейчас',
+					handler: () => {
+						console.log('Cancel clicked');
+					}
+				},
+				{
+					text: 'Написать',
+					handler: () => {
+						console.log('Message clicked');
+						window.open('mailto:it.gluck@ya.ru?subject=Отзыв мобильное приложение KLoBus39&body=Версия приложения v3.6.1 */Здравсвуйте, ');
+					}
+				}
+			]
+		});
+		confirm.present();
+	}
+
+	ionViewDidEnter() {
+		this.SwipedTabsIndicator = document.getElementById("indicator");
+	}
+
+	selectTab(index) {
+		this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (100 * index) + '%,0,0)';
+		//    this.scroll.scrollTo(index*this.tabElementWidth_px,0,50);
+		this.SwipedTabsSlider.slideTo(index, 50);
+	}
+
+	updateIndicatorPosition() {
+		if (this.SwipedTabsSlider.length() > this.SwipedTabsSlider.getActiveIndex()) {
+			this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (this.SwipedTabsSlider.getActiveIndex() * 100) + '%,0,0)';
+		}
+	}
+	animateIndicator($event) {
+		if (this.SwipedTabsIndicator)
+			this.SwipedTabsIndicator.style.webkitTransform = 'translate3d(' + (($event.progress * (this.SwipedTabsSlider.length() - 1)) * 100) + '%,0,0)';
+	}
 }
 
-@Component({ 
+
+
+// Page1
+@Component({
 
 	template: `
-
+ 
 
 <ion-header style="text-align:center;">
     <ion-navbar color="primary">
-        <button ion-button menuToggle>
- <ion-icon name="menu" color="hidden"></ion-icon>
- </button>
- <ion-buttons end>
-        <button ion-button onclick="window.plugins.socialsharing.share('KLoBus39 транспорт Калининградской области', 'Рекомендую приложение KLoBus39', 'https://pp.userapi.com/c638320/v638320752/4bd5e/UgZtg-jvSbs.jpg', 'https://play.google.com/store/apps/details?id=com.itgluck.klobus39')">
-        
- <ion-icon name="share" color="hidden"></ion-icon>
- </button>
- </ion-buttons>
+        <button ion-button menuToggle (click)='showBannerAd()'>
+ 			<ion-icon name="menu" color="hidden"></ion-icon>
+ 		</button>
+		<ion-buttons end>
+				<button ion-button onclick="window.plugins.socialsharing.share('KLoBus39 транспорт Калининградской области', 'Рекомендую приложение KLoBus39', 'https://pp.userapi.com/c638320/v638320752/4bd5e/UgZtg-jvSbs.jpg', 'https://play.google.com/store/apps/details?id=com.itgluck.klobus39')">
+				<ion-icon name="share" color="hidden"></ion-icon>
+				</button>
+				<button ion-button (click)="hide()" (click)="toggle()">
+				<ion-icon name="search" color="hidden"></ion-icon>
+				</button>
+		</ion-buttons>
         <ion-title logo-header>
-            <img src="assets/img/logohd.png" class='logo-header'>
+			
+			KLoBus39
 		</ion-title>
-	 </ion-navbar>
-
-    <ion-toolbar color="primary"> 
-        <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="getItems($event)" placeholder="Укажите город или маршрут"></ion-searchbar>
+	</ion-navbar>
+	
+    <ion-toolbar color="primary" class="animate-if"  *ngIf="checked"> 
+        <ion-searchbar  [(ngModel)]="searchQuery" (ionInput)="getItems($event)" placeholder="Укажите город или маршрут"></ion-searchbar>
 	</ion-toolbar>
+	
 
-	</ion-header>
+</ion-header>
 
 
 <ion-content class="citylist">
+
 
     <!--Accordion-->
     <div class="arrows accordion">
   
 
     <!--Железнодорожный вокзал--> 
-
-        <div class="tab">
-            <input id="tab-elect" type="checkbox" name="tabs">
-            <label for="tab-elect">Электрички</label>
-			<div class="tab-content">
+ 
+        <div class="tab" [ngClass]="{noimg: !visibility}">
+			<input id="tab-elect" type="checkbox" name="tabs">
+			
+            <label for="tab-elect">Электрички <ion-icon name="subway" item-end></ion-icon></label>
+			<div class="tab-content" >
 
 				<ion-list class="trainbtn">
-                    <button ion-item (click)="openBgrt()" class="citylist">
-						<ion-icon name="subway"  item-left></ion-icon>
-						 Калининград - Багратионовск
-						 <br><div class='en'>Kaliningrad - Bagrationovsk</div>
-					</button>
-                    <button ion-item (click)="openBlt()" class="citylist">
-						<ion-icon name="subway"  item-left></ion-icon>
-						Калининград - Балтийск
-						<br><div class='en'>Kaliningrad - Baltiysk</div>
+					<div *ngFor="let train of trains">
+						<button ion-item (click)="trainList(train)" class="citylist">
 							
-					</button>
-                    <button ion-item (click)="openMamo()" class="citylist">
-						<ion-icon name="subway"  item-left></ion-icon>
-						Калининград - Мамоново
-						<br><div class='en'>Kaliningrad - Mamonovo
-						<br>Через: Ладушкин</div>
-							
-					</button>
-                    <button ion-item (click)="openChern()" class="citylist">
-						<ion-icon name="subway"  item-left></ion-icon>
-						Калининград - Черняховск
-						<br><div class='en'>Kaliningrad - Cherniahovsk
-						<br>Через: Гвардейск, Черняховск</div>
-							
-					</button>
-                    <button ion-item (click)="openSvt2()" class="citylist">
-						<ion-icon name="subway"  item-left></ion-icon>
-						Калининград - Светлогорск-2
-						<br><div class='en'>Kaliningrad - Svetlogorsk-2
-						<br>Через: Переславское</div>
-							
-					</button>
-                    <button ion-item (click)="openSvt()" class="citylist">
-						<ion-icon name="subway"  item-left></ion-icon>
-						Калининград - Светлогорск-2
-						<br><div class='en'>Kaliningrad - Svetlogorsk-2
-						<br>Через: Зеленоградск, Пионерский</div>
-						
-					</button>
-                    <button ion-item (click)="openZel()" class="citylist">
-						<ion-icon name="subway"  item-left></ion-icon>
-						Калининград - Зеленоградск
-						<br><div class='en'>Kaliningrad - Zelenogradsk</div>
-						
-					</button>
-                    <button ion-item (click)="openSov()" class="citylist">
-						<ion-icon name="subway"  item-left></ion-icon>
-						Калининград - Советск 
-						<br><div class='en'>Kaliningrad - Sovetsk
-						<br>Через Полесск, Славск</div>
-							
-					</button>
-                </ion-list>
-			
-				</div>
+							Калининград - {{train.title}}
+							<br><div class='en'>Kaliningrad - {{train.en}}
+							<br>{{train.info}}</div>
+						</button>
+					</div>
+                </ion-list>			
+			</div>
 		</div>
 		
- <h5>Автовокзалы г.Калининград</h5>
-  <!-- АвтоВокзалы -->
-        <div class="tab">
-            <input id="tab-2" type="checkbox" name="tabs" >
-            <label for="tab-2">Северный автовокзал</label>
-            <div class="tab-content">
-              <a href="geo:54.7214,20.50011?z=15&q=Северный вокзал">
-			<div class='img-box-bg sever'> </div>
-			  </a>
-                <p>Калининград, пр-т. Советский, 4</p>
-                <ion-list>
-                    <div *ngFor="let data of spisok">
-                        <button ion-item (click)="openNavDetailsPage2(data)" class="citylist">
-			<ion-icon name="{{data.icon}}"  item-left></ion-icon>
-			{{data.title }}<br><div class='en'>{{data.en}}</div>
-			<span item-right class='numb'>{{data.numb}}</span> 
-			</button>
-                    </div>
-                </ion-list>
-            </div>
-        </div>
-        <div class="tab">
-            <input id="tab-3" type="checkbox" name="tabs">
-            <label for="tab-3">Южный автовокзал</label>
-            <div class="tab-content">
-			<a href="geo:54.6935,20.50188?z=15&q=Южный вокзал">
-			<div class='img-box-bg ug'></div>
-			</a>               
-                <p>Калининград, ул. Железнодорожная, 7</p>
-                <ion-list>
-                    <div *ngFor="let item of items">
-                        <button ion-item (click)="openNavDetailsPage(item)" class="citylist">
-			<ion-icon name="{{item.icon}}"  item-left></ion-icon>
-			{{ item.title }}<br><div class='en'>{{item.en}}</div>
-			<span item-right class='numb'>{{item.numb}}</span> 
-			</button>
-                    </div> 
-                </ion-list>
+ 	<h5>Автовокзалы г.Калининград</h5>
+		<!-- АвтоВокзалы --> 
+				<div class="tab">
+					<input id="tab-2" type="checkbox" name="tabs">
+					<label for="tab-2">Северный автовокзал  <ion-icon item-end name="bus"></ion-icon></label>
+					<div class="tab-content"  [ngClass]="{invisible: !visibility}">
+					<a [ngClass]="{noimg: !visibility}" href="geo:54.7214,20.50011?z=15&q=Северный вокзал">
+					<div class='img-box-bg sever'></div>
+					<p>Калининград, пр-т. Советский, 4</p>
+					</a>
+						<ion-list>
+							<div *ngFor="let data of spisok">
+								<button ion-item (click)="openNavDetailsPage2(data)" class="citylist">
+					
+					{{data.title }}<br><div class='en'>{{data.en}}</div>
+					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{data.numb}}</span> 
+					</button>
+							</div>
+						</ion-list>
+					</div>
+				</div>
+				<div class="tab">
+					<input id="tab-3" type="checkbox" name="tabs">
+					<label for="tab-3">Южный автовокзал <ion-icon name="bus"  item-end></ion-icon></label>
+					<div class="tab-content" [ngClass]="{invisible: !visibility}">
+					<a [ngClass]="{noimg: !visibility}" href="geo:54.6935,20.50188?z=15&q=Южный вокзал">
+					<div class='img-box-bg ug'></div>
+					<p>Калининград, ул. Железнодорожная, 7</p>
+					</a>               
+						<ion-list>
+							<div *ngFor="let item of items">
+								<button ion-item (click)="openNavDetailsPage(item)" class="citylist">
+					{{ item.title }}<br><div class='en'>{{item.en}}</div>
+					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{item.numb}}</span> 
+					</button>
+							</div> 
+						</ion-list>
+					</div>
+				</div>
+
+	<h5>Автостанции Калининградской области</h5>
+
+			<div class="tab">
+			<input id="tab-4" type="checkbox" name="tabs">
+			<label for="tab-4">Советск <ion-icon name="bus"  item-end></ion-icon></label>
+			<div class="tab-content" [ngClass]="{invisible: !visibility}">
+			<a [ngClass]="{noimg: !visibility}" href="geo:55.081515,21.87958?z=9&q=АВ Советск">
+					<div class='img-box-bg sov'></div>
+					<p>Советск, ул. Первомайская, 8а</p>
+					</a>               
+						<ion-list>
+							<div *ngFor="let sov of sovetsk">
+								<button ion-item (click)="openNavDetailsSov(sov)" class="citylist">
+					{{sov.title }}<br><div class='en'>{{sov.en}}</div>
+					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{sov.numb}}</span> 
+					</button>
+							</div>
+						</ion-list>
 			</div>
-        </div>
+			</div>
+			
+			<div class="tab">
+			<input id="tab-6" type="checkbox" name="tabs">
+			<label for="tab-6">Черняховск <ion-icon name="bus" item-end></ion-icon></label>
+			<div class="tab-content" [ngClass]="{invisible: !visibility}">
+			<a [ngClass]="{noimg: !visibility}" href="geo:54.6311,21.8202?z=9&q=Черняховск автовокзал">
+					<div class='img-box-bg cher'></div>
+					<p>Черняховск, ул. Пушкина 1</p>
+					</a>               
+						<ion-list>
+							<div *ngFor="let cher of chernahovsk">
+								<button ion-item (click)="openNavDetailsCher(cher)" class="citylist">
+					{{cher.title }}<br><div class='en'>{{cher.en}}</div>
+					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{cher.numb}}</span> 
+					</button>
+							</div>
+						</ion-list>
+			</div>
+			</div>
+				
+			<div class="tab">
+			<input id="tab-12" type="checkbox" name="tabs">
+			<label for="tab-12">Озерск <ion-icon name="bus"  item-end></ion-icon></label>
+			<div class="tab-content" [ngClass]="{invisible: !visibility}">
+			<a [ngClass]="{noimg: !visibility}" href="geo:54.943894,22.492978?z=8&q=Озерск автостанция">
+					<div class='img-box-bg ozer'></div>
+					<p>Озерск,ул. Комсомольская 3</p>
+					</a>               
+						<ion-list>
+							<div *ngFor="let ozer of ozersk">
+								<button ion-item (click)="openNavDetailsOzersk(ozer)" class="citylist">
+					{{ozer.title }}<br><div class='en'>{{ozer.en}}</div>
+					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{ozer.numb}}</span> 
+					</button>
+							</div>
+						</ion-list>
+			</div>
+			</div>
+				<div class="tab">
+			<input id="tab-5" type="checkbox" name="tabs">
+			<label for="tab-5">Гусев <ion-icon name="bus" item-end></ion-icon></label>
+			<div class="tab-content" [ngClass]="{invisible: !visibility}">
+			<a [ngClass]="{noimg: !visibility}" href="geo:54.585265,22.198909?z=8&q=Гусев жд вокзал">
+					<div class='img-box-bg gus'></div>
+					<p>Гусев, ул. Менделеева</p>
+					</a>               
+						<ion-list>
+							<div *ngFor="let gus of gusev">
+								<button ion-item (click)="openNavDetailsGus(gus)" class="citylist">
+					{{gus.title }}<br><div class='en'>{{gus.en}}</div>
+					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{gus.numb}}</span> 
+					</button>
+							</div>
+						</ion-list>
+			</div>
+			</div>
+			
+			<div class="tab">
+			<input id="tab-7" type="checkbox" name="tabs">
+					<label for="tab-7">Большаково <ion-icon name="bus" item-end></ion-icon></label>
+			<div class="tab-content" [ngClass]="{invisible: !visibility}">
+			<a [ngClass]="{noimg: !visibility}" href="geo:54.8805,21.6521?z=8&q=Большаково автостанция">
+					<div class='img-box-bg bol'></div>
+					<p>пос. Большаково, Черняховского ул., 2-б</p>
+					</a>               
+						<ion-list>
+							<div *ngFor="let bolsh of bolshakovo">
+								<button ion-item (click)="openNavDetailsBolsh(bolsh)" class="citylist">
+					{{bolsh.title }}<br><div class='en'>{{bolsh.en}}</div>
+					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{bolsh.numb}}</span> 
+					</button>
+							</div>
+						</ion-list>
+			</div>
+			</div>
+			<div class="tab">
+			<input id="tab-8" type="checkbox" name="tabs">
+					<label for="tab-8">Гвардейск <ion-icon name="bus" item-end></ion-icon></label>
+			<div class="tab-content" [ngClass]="{invisible: !visibility}">
+			<a [ngClass]="{noimg: !visibility}" href="geo:54.6311,21.8202?z=9&q=Гвардейск автостанция">
+					<div class='img-box-bg gvrd'></div>
+					<p>г. Гвардейск, ул. Гагарина 5а</p>
+					</a>               
+						<ion-list>
+							<div *ngFor="let gvard of gvardeysk">
+								<button ion-item (click)="openNavDetailsGvard(gvard)" class="citylist">
+					{{gvard.title }}<br><div class='en'>{{gvard.en}}</div>
+					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{gvard.numb}}</span> 
+					</button>
+							</div>
+						</ion-list>
+			</div>
+			</div>
+			<div class="tab">
+			<input id="tab-9" type="checkbox" name="tabs">
+			<label for="tab-9">Железнодорожный <ion-icon name="bus" item-end></ion-icon></label>
+			<div class="tab-content" [ngClass]="{invisible: !visibility}">
+			<a [ngClass]="{noimg: !visibility}" href="geo:54.361693,21.305466?z=7">
+					<div class='img-box-bg jzd'></div>
+					<p>пос. Железнодорожный</p>
+					</a>               
+						<ion-list>
+							<div *ngFor="let jzd of jzdorojniy">
+								<button ion-item (click)="openNavDetailsJzd(jzd)" class="citylist">
+					{{jzd.title }}<br><div class='en'>{{jzd.en}}</div>
+					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{jzd.numb}}</span> 
+					</button>
+							</div>
+						</ion-list>
+			</div>
+			</div>
 
-       <h5>Автостанции Калининградской области</h5>
+			<div class="tab">
+			<input id="tab-10" type="checkbox" name="tabs">
+			<label for="tab-10">Краснознаменск <ion-icon name="bus" item-end></ion-icon></label>
+			<div class="tab-content" [ngClass]="{invisible: !visibility}">
+			<a [ngClass]="{noimg: !visibility}" href="geo:54.943894,22.492978?z=8&q=Краснознаменск автостанция">
+					<div class='img-box-bg krz'></div>
+					<p>пос. Краснознаменск,ул. Калининградская 47</p>
+					</a>               
+						<ion-list>
+							<div *ngFor="let krz of krznamensk">
+								<button ion-item (click)="openNavDetailsKrz(krz)" class="citylist">
+					{{krz.title }}<br><div class='en'>{{krz.en}}</div>
+					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{krz.numb}}</span> 
+					</button>
+							</div>
+						</ion-list>
+			</div>
+			</div>
+			
+			<div class="tab">
+			<input id="tab-11" type="checkbox" name="tabs">
+			<label for="tab-11">Неман <ion-icon name="bus" item-end></ion-icon></label>
+			<div class="tab-content" [ngClass]="{invisible: !visibility}">
+			<a [ngClass]="{noimg: !visibility}" href="geo:54.943894,22.492978?z=8&q=Неман автостанция">
+					<div class='img-box-bg neman'></div>
+					<p>Неман,ул. Красноармейская 2</p>
+					</a>               
+						<ion-list>
+							<div *ngFor="let nem of neman">
+								<button ion-item (click)="openNavDetailsNeman(nem)" class="citylist">
+					{{nem.title }}<br><div class='en'>{{nem.en}}</div>
+					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{nem.numb}}</span> 
+					</button>
+							</div>
+						</ion-list>
+			</div>
+			</div>
+			
+			<div class="tab">
+			<input id="tab-13" type="checkbox" name="tabs">
+			<label for="tab-13">Правдинск <ion-icon name="bus" item-end></ion-icon></label>
+			<div class="tab-content" [ngClass]="{invisible: !visibility}">
+			<a [ngClass]="{noimg: !visibility}" href="geo:54.4463,21.01878?z=9&q=Правдинск автостанция">
+					<div class='img-box-bg prav'></div>
+					<p>Правдинск,ул. Набережная 1</p>
+					</a>               
+						<ion-list>
+							<div *ngFor="let prav of pravdinsk">
+								<button ion-item (click)="openNavDetailsPravdinsk(prav)" class="citylist">
+					{{prav.title }}<br><div class='en'>{{prav.en}}</div>
+					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{prav.numb}}</span> 
+					</button>
+							</div>
+						</ion-list>
+			</div>
+			</div>
 
-	<div class="tab">
-      <input id="tab-4" type="checkbox" name="tabs">
-      <label for="tab-4">Советск</label>
-      <div class="tab-content">
-	   <a href="geo:55.081515,21.87958?z=9&q=АВ Советск">
-			<div class='img-box-bg sov'></div>
-			</a>               
-                <p>Советск, ул. Первомайская, 8а</p>
-                <ion-list>
-                    <div *ngFor="let sov of sovetsk">
-                        <button ion-item (click)="openNavDetailsSov(sov)" class="citylist">
-			<ion-icon name="{{sov.icon}}"  item-left></ion-icon>
-			{{sov.title }}<br><div class='en'>{{sov.en}}</div>
-			<span item-right class='numb'>{{sov.numb}}</span> 
-			</button>
-                    </div>
-                </ion-list>
-      </div>
-    </div>
-	
-	<div class="tab">
-      <input id="tab-6" type="checkbox" name="tabs">
-      <label for="tab-6">Черняховск</label>
-      <div class="tab-content">
-	   <a href="geo:54.6311,21.8202?z=9&q=Черняховск автовокзал">
-			<div class='img-box-bg cher'></div>
-			</a>               
-                <p>Черняховск, ул. Пушкина 1</p>
-                <ion-list>
-                    <div *ngFor="let cher of chernahovsk">
-                        <button ion-item (click)="openNavDetailsCher(cher)" class="citylist">
-			<ion-icon name="{{cher.icon}}"  item-left></ion-icon>
-			{{cher.title }}<br><div class='en'>{{cher.en}}</div>
-			<span item-right class='numb'>{{cher.numb}}</span> 
-			</button>
-                    </div>
-                </ion-list>
-      </div>
+			<h5>Балтийская коса</h5>
+
+			<div class="tab">
+				<input id="tab-14" type="checkbox" name="tabs">
+				<label for="tab-14">Паром <ion-icon name="boat"  item-end></ion-icon></label>
+				<div class="tab-content" [ngClass]="{invisible: !visibility}">             
+					<ion-list>
+						<div *ngFor="let boat of parom">
+							<button ion-item (click)="openNavDetailsParom(boat)" class="citylist">
+								{{boat.title}}<br><div class='en'>{{boat.en}}</div>
+								<span item-right class='numb'><ion-icon start name="boat"></ion-icon></span> 
+							</button>
+						</div>
+					</ion-list> 
+				</div>
+			</div>
 	</div>
-		
-	<div class="tab">
-      <input id="tab-12" type="checkbox" name="tabs">
-      <label for="tab-12">Озерск</label>
-      <div class="tab-content">
-	   <a href="geo:54.943894,22.492978?z=8&q=Озерск автостанция">
-			<div class='img-box-bg ozer'></div>
-			</a>               
-                <p>Озерск,ул. Комсомольская 3</p>
-                <ion-list>
-                    <div *ngFor="let ozer of ozersk">
-                        <button ion-item (click)="openNavDetailsOzersk(ozer)" class="citylist">
-			<ion-icon name="{{ozer.icon}}"  item-left></ion-icon>
-			{{ozer.title }}<br><div class='en'>{{ozer.en}}</div>
-			<span item-right class='numb'>{{ozer.numb}}</span> 
-			</button>
-                    </div>
-                </ion-list>
-      </div>
-    </div>
-<!--
-		<div class="tab">
-      <input id="tab-5" type="checkbox" name="tabs">
-      <label for="tab-5">Гусев</label>
-      <div class="tab-content">
-	   <a href="geo:54.585265,22.198909?z=8&q=Гусев жд вокзал">
-			<div class='img-box-bg gus'></div>
-			</a>               
-                <p>Гусев, ул. Менделеева</p>
-                <ion-list>
-                    <div *ngFor="let gus of gusev">
-                        <button ion-item (click)="openNavDetailsGus(gus)" class="citylist">
-			<ion-icon name="{{gus.icon}}"  item-left></ion-icon>
-			{{gus.title }}<br><div class='en'>{{gus.en}}</div>
-			<span item-right class='numb'>{{gus.numb}}</span> 
-			</button>
-                    </div>
-                </ion-list>
-      </div>
-	</div>
-	
-	<div class="tab">
-      <input id="tab-7" type="checkbox" name="tabs">
-      <label for="tab-7">Большаково</label>
-      <div class="tab-content">
-	   <a href="geo:54.8805,21.6521?z=8&q=Большаково автостанция">
-			<div class='img-box-bg bol'></div>
-			</a>               
-                <p>пос. Большаково, Черняховского ул., 2-б</p>
-                <ion-list>
-                    <div *ngFor="let bolsh of bolshakovo">
-                        <button ion-item (click)="openNavDetailsBolsh(bolsh)" class="citylist">
-			<ion-icon name="{{bolsh.icon}}"  item-left></ion-icon>
-			{{bolsh.title }}<br><div class='en'>{{bolsh.en}}</div>
-			<span item-right class='numb'>{{bolsh.numb}}</span> 
-			</button>
-                    </div>
-                </ion-list>
-      </div>
-    </div>
-	<div class="tab">
-      <input id="tab-8" type="checkbox" name="tabs">
-      <label for="tab-8">Гвардейск</label>
-      <div class="tab-content">
-	   <a href="geo:54.6311,21.8202?z=9&q=Гвардейск автостанция">
-			<div class='img-box-bg gvrd'></div>
-			</a>               
-                <p>г. Гвардейск, ул. Гагарина 5а</p>
-                <ion-list>
-                    <div *ngFor="let gvard of gvardeysk">
-                        <button ion-item (click)="openNavDetailsGvard(gvard)" class="citylist">
-			<ion-icon name="{{gvard.icon}}"  item-left></ion-icon>
-			{{gvard.title }}<br><div class='en'>{{gvard.en}}</div>
-			<span item-right class='numb'>{{gvard.numb}}</span> 
-			</button>
-                    </div>
-                </ion-list>
-      </div>
-    </div>
-	<div class="tab">
-      <input id="tab-9" type="checkbox" name="tabs">
-      <label for="tab-9">Железнодорожный</label>
-      <div class="tab-content">
-	   <a href="geo:54.361693,21.305466?z=7">
-			<div class='img-box-bg jzd'></div>
-			</a>               
-                <p>пос. Железнодорожный</p>
-                <ion-list>
-                    <div *ngFor="let jzd of jzdorojniy">
-                        <button ion-item (click)="openNavDetailsJzd(jzd)" class="citylist">
-			<ion-icon name="{{jzd.icon}}"  item-left></ion-icon>
-			{{jzd.title }}<br><div class='en'>{{jzd.en}}</div>
-			<span item-right class='numb'>{{jzd.numb}}</span> 
-			</button>
-                    </div>
-                </ion-list>
-      </div>
-    </div>
-
-	<div class="tab">
-      <input id="tab-10" type="checkbox" name="tabs">
-      <label for="tab-10">Краснознаменск</label>
-      <div class="tab-content">
-	   <a href="geo:54.943894,22.492978?z=8&q=Краснознаменск автостанция">
-			<div class='img-box-bg krz'></div>
-			</a>               
-                <p>пос. Краснознаменск,ул. Калининградская 47</p>
-                <ion-list>
-                    <div *ngFor="let krz of krznamensk">
-                        <button ion-item (click)="openNavDetailsKrz(krz)" class="citylist">
-			<ion-icon name="{{krz.icon}}"  item-left></ion-icon>
-			{{krz.title }}<br><div class='en'>{{krz.en}}</div>
-			<span item-right class='numb'>{{krz.numb}}</span> 
-			</button>
-                    </div>
-                </ion-list>
-      </div>
-    </div>
-	
-	<div class="tab">
-      <input id="tab-11" type="checkbox" name="tabs">
-      <label for="tab-11">Неман</label>
-      <div class="tab-content">
-	   <a href="geo:54.943894,22.492978?z=8&q=Неман автостанция">
-			<div class='img-box-bg neman'></div>
-			</a>               
-                <p>Неман,ул. Красноармейская 2</p>
-                <ion-list>
-                    <div *ngFor="let nem of neman">
-                        <button ion-item (click)="openNavDetailsNeman(nem)" class="citylist">
-			<ion-icon name="{{nem.icon}}"  item-left></ion-icon>
-			{{nem.title }}<br><div class='en'>{{nem.en}}</div>
-			<span item-right class='numb'>{{nem.numb}}</span> 
-			</button>
-                    </div>
-                </ion-list>
-      </div>
-    </div>
-	
-	<div class="tab">
-      <input id="tab-13" type="checkbox" name="tabs">
-      <label for="tab-13">Правдинск</label>
-      <div class="tab-content">
-	   <a href="geo:54.4463,21.01878?z=9&q=Правдинск автостанция">
-			<div class='img-box-bg prav'></div>
-			</a>               
-                <p>Правдинск,ул. Набережная 1</p>
-                <ion-list>
-                    <div *ngFor="let prav of pravdinsk">
-                        <button ion-item (click)="openNavDetailsPravdinsk(prav)" class="citylist">
-			<ion-icon name="{{prav.icon}}"  item-left></ion-icon>
-			{{prav.title }}<br><div class='en'>{{prav.en}}</div>
-			<span item-right class='numb'>{{prav.numb}}</span> 
-			</button>
-                    </div>
-                </ion-list>
-      </div>
-	</div>
-	-->
-
-	</div> 
-
 
 </ion-content>
-`
+`,
+	styles: [`.invisible{display:block;}
+			.noimg{display:none !important;}
+`]
 })
 export class Page1 {
 	// Exp всех направлений
@@ -393,26 +400,1584 @@ export class Page1 {
 	neman = [];
 	ozersk = [];
 	pravdinsk = [];
+	parom = [];
 
-	//  trains= [];
+	trains = [];
 	item: any;
 	searchQuery: string = '';
-	//  str: string='';
+	checked: boolean = false;
+	visibility: boolean = true;
 
 
-	constructor(public navCtrl: NavController, params: NavParams) {
+	constructor(public navCtrl: NavController, params: NavParams, 
+		private adMobFree:AdMobFree
+	) {
 		this.searchQuery = '';
 		this.initializeItems();
-		this.item = params.data.train;
+		this.item = params.data.item;
+		this.showBannerAd();
 	}
+
+	hide() {
+		this.checked = !this.checked;
+		this.initializeItems();
+		this.searchQuery = '';
+	}
+	toggle() {
+		this.visibility = !this.visibility;
+	}
+
+	// AdMob https://www.youtube.com/watch?v=4wXSAtSc0go
+	showBannerAd() {
+			const bannerConfig: AdMobFreeBannerConfig = {
+				id: 'ca-app-pub-7133305264165200/6243373138',
+				// isTesting: true,
+				autoShow: true,
+				bannerAtTop: true
+			}
+
+			this.adMobFree.banner.config(bannerConfig);
+			this.adMobFree.banner.prepare()
+			.then( () =>{
+				console.log('AdMob готов')
+		})
+
+		.catch(e => console.log(e));
+	}   //End adMob
+
+
 	initializeItems() {
 		// DB
+	
+		
+	
+		// Trains
+
+		this.trains = [
+			{
+				'title': 'Багратионовск',
+				'en': 'Bagrationovsk',
+				city: 'Калининград',
+				time: '0:40', dist: '22', cost: '38',
+				station: [
+					{
+						'title': 'Калининград Южный',
+						'bullet_type': 'def start',
+						'time': '07:45',
+						rout: '6312'
+					},
+					{
+						'title': 'о.п. 4км',
+						'bullet_type': 'def',
+						'time': '07:52',
+						rout: '6312'
+					},
+					{
+						'title': 'Дзержинская-новая',
+						'bullet_type': 'disable',
+						'time': '--:--',
+						rout: '6312'
+					},
+					{
+						'title': 'о.п. 6 км',
+						'bullet_type': 'disable',
+						'time': '--:--',
+						rout: '6312'
+					},
+					{
+						'title': 'о.п. Отважное',
+						'bullet_type': 'def',
+						'time': '08:03',
+					},
+					{
+						'title': 'Владимиров',
+						'bullet_type': 'def',
+						'time': '08:08',
+						rout: '6312'
+					},
+					{
+						'title': 'о.п. 18 км',
+						'bullet_type': 'def',
+						'time': '08:14',
+						rout: '6312'
+					},
+					{
+						'title': 'о.п. 20 км',
+						'bullet_type': 'disable',
+						'time': '--:--',
+						rout: '6312'
+					},
+					{
+						'title': 'о.п. 21 км',
+						'bullet_type': 'def',
+						'time': '08:19',
+						rout: '6312'
+					},
+					{
+						'title': 'Стрельня Новая',
+						'bullet_type': 'def start',
+						'time': '08:24',
+						rout: '6312'
+					},
+					{
+						'title': 'Багратионовск',
+						'bullet_type': 'disable',
+						'time': '--:--',
+						rout: '6312'
+					}
+				],
+				back: [
+					{
+						'title': 'Багратионовск',
+						'bullet_type': 'disable',
+						'time': '--:--',
+						rout: '6317'
+					},
+					{
+						'title': 'Стрельня Новая',
+						'bullet_type': 'def start',
+						'time': '19:10',
+						rout: '6317'
+					},
+					{
+						'title': 'о.п. 21 км',
+						'bullet_type': 'def',
+						'time': '19:13',
+						rout: '6317'
+					},
+					{
+						'title': 'о.п. 20 км',
+						'bullet_type': 'def',
+						'time': '19:16',
+						rout: '6317'
+					},
+					{
+						'title': 'о.п. 18 км',
+						'bullet_type': 'def',
+						'time': '19:21',
+						rout: '6317'
+					},
+					{
+						'title': 'Владимиров',
+						'bullet_type': 'def',
+						'time': '19:27',
+						rout: '6317'
+					},
+					{
+						'title': 'о.п. Отважное',
+						'bullet_type': 'def',
+						'time': '19:33',
+						rout: '6317'
+					},
+					{
+						'title': 'о.п. 6 км',
+						'bullet_type': 'disable',
+						'time': '--:--',
+						rout: '6317'
+					},
+					{
+						'title': 'Дзержинская-новая',
+						'bullet_type': 'disable',
+						'time': '--:--',
+						rout: '6317'
+					},
+					{
+						'title': 'о.п. 4км',
+						'bullet_type': 'def',
+						'time': '19:43',
+						rout: '6317'
+					},
+					{
+						'title': 'Калининград Южный',
+						'bullet_type': 'def start',
+						'time': '19:50',
+						rout: '6317'
+					}
+				]
+			},
+			{
+				'title': 'Балтийск',
+				'en': 'Baltiysk',
+				city: 'Калининград',
+				time: '1:01', dist: '47', cost: '78',
+				station: [
+					{
+						'title': 'Калининград Северный',
+						'bullet_type': 'def start',
+						'time': '18:22',
+						'rout': '6407',
+					},
+					{
+						'title': 'Западный-новый',
+						'bullet_type': 'def',
+						'time': '18:30',
+						'rout': '6407',
+					},
+					{
+						'title': 'Лесное-новое',
+						'bullet_type': 'def',
+						'time': '18:38',
+						'rout': '6407',
+					},
+					{
+						'title': 'о.п. 13 км',
+						'bullet_type': 'def',
+						'time': '18:42',
+						'rout': '6407',
+					},
+					{
+						'title': 'Люблино',
+						'bullet_type': 'def',
+						'time': '18:45',
+						'rout': '6407',
+					},
+					{
+						'title': 'о.п. 18 км',
+						'bullet_type': 'def',
+						'time': '18:49',
+						'rout': '6407',
+					},
+					{
+						'title': 'Шиповка',
+						'bullet_type': 'def',
+						'time': '18:54',
+						'rout': '6407',
+					},
+					{
+						'title': 'о.п. 29 км',
+						'bullet_type': 'def',
+						'time': '19:01',
+						'rout': '6407',
+					},
+					{
+						'title': 'о.п. 33 км',
+						'bullet_type': 'disable',
+						'time': '--:--',
+						'rout': '6407',
+					},
+					{
+						'title': 'Приморск-новый',
+						'bullet_type': 'def',
+						'time': '19:07',
+						'rout': '6407',
+					},
+					{
+						'title': 'Мечниково',
+						'bullet_type': 'def',
+						'time': '19:14',
+						'rout': '6407',
+					},
+					{
+						'title': 'о.п. 45 км',
+						'bullet_type': 'def',
+						'time': '19:18',
+						'rout': '6407',
+					},
+					{
+						'title': 'Балтийск',
+						'bullet_type': 'def start',
+						'time': '19:22',
+						'rout': '6407',
+					}],
+				back: [
+					{
+						'title': 'Балтийск',
+						'bullet_type': 'def start',
+						'time': '06:01',
+						'rout': '6410'
+					},
+					{
+						'title': 'о.п. 45 км',
+						'bullet_type': 'def',
+						'time': '06:05',
+						'rout': '6410'
+					},
+					{
+						'title': 'Мечниково',
+						'bullet_type': 'def',
+						'time': '06:09',
+						'rout': '6410'
+					},
+					{
+						'title': 'Приморск-новый',
+						'bullet_type': 'def',
+						'time': '06:16',
+						'rout': '6410'
+					},
+					{
+						'title': 'о.п. 33 км',
+						'bullet_type': 'disable',
+						'time': '--:--',
+						'rout': '6410'
+					},
+					{
+						'title': 'о.п. 29 км',
+						'bullet_type': 'def',
+						'time': '06:23',
+						'rout': '6410'
+					},
+					{
+						'title': 'Шиповка',
+						'bullet_type': 'def',
+						'time': '06:30',
+						'rout': '6410'
+					},
+					{
+						'title': 'о.п. 18 км',
+						'bullet_type': 'def',
+						'time': '06:35',
+						'rout': '6410'
+					},
+					{
+						'title': 'Люблино',
+						'bullet_type': 'def',
+						'time': '06:40',
+						'rout': '6410'
+					},
+					{
+						'title': 'о.п. 13 км',
+						'bullet_type': 'def',
+						'time': '06:43',
+						'rout': '6410'
+					},
+					{
+						'title': 'Лесное-новое',
+						'bullet_type': 'def',
+						'time': '06:47',
+						'rout': '6410'
+					},
+					{
+						'title': 'Западный-новый',
+						'bullet_type': 'def',
+						'time': '06:56',
+						'rout': '6410'
+					},
+					{
+						'title': 'Калининград-Северный',
+						'bullet_type': 'def start',
+						'time': '07:02',
+						'rout': '6410'
+					}
+				]
+			},
+			{
+				'title': 'Мамоново',
+				'en': 'Mamonovo',
+				info: 'Через Ладушкин',
+				city: 'Калининград',
+				time: '1:07', dist: '50', cost: '89',
+				station: [
+					{
+						'title': 'Калининград Южный',
+						'bullet_type': 'def start',
+						// 't1':'09:35','r1':'6302','d1':'по будням',
+						// 't2':'09:35','r2':'6323','d2':'по будням',
+						// 't3':'09:35','r3':'6307','d3':'по будням',
+					},
+					{
+						'title': 'Киевская',
+						'bullet_type': 'def',
+						'time': '09:41',
+						'time2': '09:41',
+						'time3': '18:06',
+					},
+					{
+						'title': 'Голубево',
+						'bullet_type': 'def',
+						'time': '09:50',
+						'time2': '09:50',
+						'time3': '18:14',
+					},
+					{
+						'title': '1298',
+						'bullet_type': 'def',
+						'time': '09:54',
+						'time2': '09:54',
+						'time3': '18:18',
+					},
+					{
+						'title': 'Светлое',
+						'bullet_type': 'def',
+						'time': '09:58',
+						'time2': '09:58',
+						'time3': '18:22',
+					},
+					{
+						'title': '1305',
+						'bullet_type': 'def',
+						'time': '10:02',
+						'time2': '10:02',
+						'time3': '18:26',
+					},
+					{
+						'title': '1307',
+						'bullet_type': 'def',
+						'time': '10:06',
+						'time2': '10:06',
+						'time3': '18:30',
+					},
+					{
+						'title': '1312',
+						'bullet_type': 'def',
+						'time': '10:13',
+						'time2': '10:11',
+						'time3': '18:35',
+					},
+					{
+						'title': 'Ладушкин',
+						'bullet_type': 'def start',
+						'time': '10:11',
+						'time2': '10:16',
+						'time3': '18:40',
+					},
+					{
+						'title': 'Сосновый Бор',
+						'bullet_type': 'var',
+						'time': '--:--',
+						'time2': '10:21',
+						'time3': '18:45',
+					},
+					{
+						'title': 'Приморское-новое',
+						'bullet_type': 'var',
+						'time': '--:--',
+						'time2': '10:26',
+						'time3': '18:50',
+					},
+					{
+						'title': 'Знаменка-новая',
+						'bullet_type': 'var',
+						'time': '--:--',
+						'time2': '10:32',
+						'time3': '18:56',
+					},
+					{
+						'title': '1333',
+						'bullet_type': 'var',
+						'time': '--:--',
+						'time2': '10:38',
+						'time3': '19:02',
+					},
+					{
+						'title': 'Мамоново',
+						'bullet_type': 'def start',
+						'time': '--:--',
+						'time2': '10:43',
+						'time3': '19:07',
+					}],
+				back: [{
+					'title': 'Мамоново',
+					'bullet_type': 'def start',
+					'time': '06:15',
+					'time2': '--:--',
+					'time3': '16:20',
+					'time4': '19:36',
+				},
+				{
+					'title': '1333',
+					'bullet_type': 'var',
+					'time': '06:19',
+					'time2': '--:--',
+					'time3': '16:24',
+					'time4': '19:40',
+				},
+				{
+					'title': 'Знаменка-новая',
+					'bullet_type': 'var',
+					'time': '06:25',
+					'time2': '--:--',
+					'time3': '16:30',
+					'time4': '19:46',
+				},
+				{
+					'title': 'Приморское-новое',
+					'bullet_type': 'var',
+					'time': '06:31',
+					'time2': '--:--',
+					'time3': '16:36',
+					'time4': '19:52',
+				},
+				{
+					'title': 'Сосновый Бор',
+					'bullet_type': 'var',
+					'time': '06:36',
+					'time2': '--:--',
+					'time3': '16:41',
+					'time4': '19:57',
+				},
+				{
+					'title': 'Ладушкин',
+					'bullet_type': 'def start',
+					'time': '06:40',
+					'time2': '16:45',
+					'time3': '16:45',
+					'time4': '20:01',
+				},
+				{
+					'title': '1312 км',
+					'bullet_type': 'def',
+					'time': '06:45',
+					'time2': '16:50',
+					'time3': '16:50',
+					'time4': '20:06',
+				},
+				{
+					'title': '1307 км',
+					'bullet_type': 'def',
+					'time': '06:50',
+					'time2': '16:55',
+					'time3': '16:55',
+					'time4': '20:11',
+				},
+				{
+					'title': '1305 км',
+					'bullet_type': 'def',
+					'time': '06:54',
+					'time2': '17:00',
+					'time3': '17:00',
+					'time4': '20:15',
+				},
+				{
+					'title': 'Светлое',
+					'bullet_type': 'def',
+					'time': '06:58',
+					'time2': '17:03',
+					'time3': '17:03',
+					'time4': '20:19',
+				},
+				{
+					'title': '1298 км',
+					'bullet_type': 'def',
+					'time': '07:03',
+					'time2': '17:09',
+					'time3': '17:09',
+					'time4': '20:24',
+				},
+				{
+					'title': 'Голубево',
+					'bullet_type': 'def',
+					'time': '07:06',
+					'time2': '17:12',
+					'time3': '17:12',
+					'time4': '20:27',
+				},
+				{
+					'title': 'Киевская',
+					'bullet_type': 'def',
+					'time': '07:16',
+					'time2': '17:22',
+					'time3': '17:22',
+					'time4': '20:37',
+				},
+				{
+					'title': 'Калининград Южный',
+					'bullet_type': 'def start',
+					'time': '07:21',
+					'time2': '17:27',
+					'time3': '17:27',
+					'time4': '20:42',
+				}]
+			},
+			{
+				'title': 'Черняховск',
+				'en': 'Cherniahovsk',
+				info: 'Через Гвардейск, Черняховск',
+				city: 'Калининград',
+				time: '1:30', dist: '90', cost: '146',
+				station: [{
+					'title': 'Калининград Южный',
+					'bullet_type': 'def start',
+					'time': '18:00',
+				},
+				{
+					'title': 'Айвазовская',
+					'bullet_type': 'def',
+					'time': '18:08',
+				},
+				{
+					'title': 'Луговое-новое',
+					'bullet_type': 'def',
+					'time': '18:14',
+				},
+				{
+					'title': '1271 км',
+					'bullet_type': 'def',
+					'time': '18:19',
+				},
+				{
+					'title': 'Комсомольск-западный',
+					'bullet_type': 'def',
+					'time': '18:24',
+				},
+				{
+					'title': 'Озерки-Новые',
+					'bullet_type': 'def',
+					'time': '18:31',
+				},
+				{
+					'title': '1252 км',
+					'bullet_type': 'def',
+					'time': '18:37',
+				},
+				{
+					'title': 'Гвардейск',
+					'bullet_type': 'def',
+					'time': '18:44',
+				},
+				{
+					'title': 'Знаменск',
+					'bullet_type': 'def',
+					'time': '18:52',
+				},
+				{
+					'title': 'Пушкарево',
+					'bullet_type': 'def',
+					'time': '19:01',
+				},
+				{
+					'title': 'Междуречье',
+					'bullet_type': 'def',
+					'time': '19:11',
+				},
+				{
+					'title': 'Пастухово',
+					'bullet_type': 'def',
+					'time': '19:19',
+				},
+				{
+					'title': 'Черняховск',
+					'bullet_type': 'def start',
+					'time': '19:30',
+				}],
+				back: [{
+					'title': 'Черняховск',
+					'bullet_type': 'def start',
+					'time': '07:07',
+				},
+				{
+					'title': 'Пастухово',
+					'bullet_type': 'def',
+					'time': '07:17',
+				},
+				{
+					'title': 'Междуречье',
+					'bullet_type': 'def',
+					'time': '07:24',
+				},
+				{
+					'title': 'Пушкарево',
+					'bullet_type': 'def',
+					'time': '07:33',
+				},
+				{
+					'title': 'Знаменск',
+					'bullet_type': 'def',
+					'time': '07:41',
+				},
+				{
+					'title': 'Гвардейск',
+					'bullet_type': 'def',
+					'time': '07:49',
+				},
+				{
+					'title': '1252 км',
+					'bullet_type': 'def',
+					'time': '07:55',
+				},
+				{
+					'title': 'Озерки-Новые',
+					'bullet_type': 'def',
+					'time': '08:02',
+				},
+				{
+					'title': 'Комсомольск-западный',
+					'bullet_type': 'def',
+					'time': '08:10',
+				},
+				{
+					'title': '1271 км',
+					'bullet_type': 'def',
+					'time': '08:14',
+				},
+				{
+					'title': 'Луговое-новое',
+					'bullet_type': 'def',
+					'time': '08:19',
+				},
+				{
+					'title': 'Айвазовская',
+					'bullet_type': 'def',
+					'time': '08:25',
+				},
+				{
+					'title': 'Калининград Южный',
+					'bullet_type': 'def start',
+					'time': '08:34',
+				}]
+			},
+			{
+				'title': 'Светлогорск-2',
+				'en': 'Svetlogorsk-2',
+				info: 'Через Переславское',
+				city: 'Калининград',
+				time: '1:00', dist: '46', cost: '76',
+				station: [
+					{
+						'title': 'Калининград Южный',
+						'bullet_type': 'def start',
+						'time': '06:23', //6701
+						'time2': '07:42', //6703
+						'time3': '11:09', //6707
+						'time4': '15:10', //6713
+						'time5': '17:39', //6717
+						'time6': '18:28', //6719
+						'route': '6701 6703 6707 6713 6717 6719'
+					},
+					{
+						'title': 'Калининград Северный',
+						'bullet_type': 'def',
+						'time': '06:30',
+						'time2': '07:49',
+						'time3': '11:17',
+						'time4': '15:18',
+						'time5': '17:47',
+						'time6': '18:36',
+					},
+					{
+						'title': 'Сельма',
+						'bullet_type': 'def',
+						'time': '06:34',
+						'time2': '07:53',
+						'time3': '11:21',
+						'time4': '15:22',
+						'time5': '17:51',
+						'time6': '18:40',
+					},
+					{
+						'title': 'Чкаловск-Западный',
+						'bullet_type': 'def',
+						'time': '06:39',
+						'time2': '07:58',
+						'time3': '11:26',
+						'time4': '15:27',
+						'time5': '17:56',
+						'time6': '18:45',
+					},
+					{
+						'title': 'Дружное',
+						'bullet_type': 'def',
+						'time': '06:45',
+						'time2': '08:04',
+						'time3': '11:32',
+						'time4': '15:33',
+						'time5': '18:02',
+						'time6': '18:52',
+					},
+					{
+						'title': 'Колосовка',
+						'bullet_type': 'def',
+						'time': '06:50',
+						'time2': '08:10',
+						'time3': '11:37',
+						'time4': '15:38',
+						'time5': '18:07',
+						'time6': '18:57',
+					},
+					{
+						'title': '20 км',
+						'bullet_type': 'def',
+						'time': '06:54',
+						'time2': '08:13',
+						'time3': '11:40',
+						'time4': '15:41',
+						'time5': '18:10',
+						'time6': '19:00',
+					},
+					{
+						'title': 'Переславское',
+						'bullet_type': 'def',
+						'time': '06:59',
+						'time2': '08:17',
+						'time3': '11:44',
+						'time4': '15:46',
+						'time5': '18:14',
+						'time6': '19:04',
+					},
+					{
+						'title': 'Романово',
+						'bullet_type': 'var',
+						'time': '--:--',
+						'time2': '08:23',
+						'time3': '11:50',
+						'time4': '15:52',
+						'time5': '18:20',
+						'time6': '--:--',
+					},
+					{
+						'title': 'Пионерский Курорт',
+						'bullet_type': 'def',
+						'time': '07:12',
+						'time2': '08:30',
+						'time3': '11:58',
+						'time4': '15:59',
+						'time5': '18:28',
+						'time6': '19:17',
+					},
+					{
+						'title': 'Светлогорск-1',
+						'bullet_type': 'def',
+						'time': '07:19',
+						'time2': '08:37',
+						'time3': '12:05',
+						'time4': '16:06',
+						'time5': '18:35',
+						'time6': '19:24',
+					},
+					{
+						'title': 'Светлогорск-2',
+						'bullet_type': 'def start',
+						'time': '07:24',
+						'time2': '08:42',
+						'time3': '12:10',
+						'time4': '16:11',
+						'time5': '18:40',
+						'time6': '19:29',
+					}
+				],
+				back: [
+					{
+						'title': 'Светлогорск-2',
+						'bullet_type': 'def start',
+						'time': '07:39', //6702
+						'time2': '06:35', //6700
+						'time3': '09:00', //6704
+						'time4': '12:26', //6708
+						'time5': '17:11', //6714
+						'time6': '19:17', //6718
+						'time7': '20:28', //6720
+					},
+					{
+						'title': 'Светлогорск-1',
+						'bullet_type': 'def',
+						'time': '07:45',
+						'time2': '06:41',
+						'time3': '09:06',
+						'time4': '12:32',
+						'time5': '17:17',
+						'time6': '19:24',
+						'time7': '20:34',
+					},
+					{
+						'title': 'Пионерский Курорт',
+						'bullet_type': 'def',
+						'time': '07:51',
+						'time2': '06:47',
+						'time3': '09:12',
+						'time4': '12:38',
+						'time5': '17:24',
+						'time6': '19:31',
+						'time7': '20:40',
+					},
+					{
+						'title': 'Романово',
+						'bullet_type': 'var',
+						'time': '07:57',
+						'time2': '--:--',
+						'time3': '09:18',
+						'time4': '12:44',
+						'time5': '17:30',
+						'time6': '19:37',
+						'time7': '--:--',
+					},
+					{
+						'title': 'Переславское',
+						'bullet_type': 'def',
+						'time': '08:03',
+						'time2': '06:59',
+						'time3': '09:24',
+						'time4': '12:50',
+						'time5': '17:36',
+						'time6': '19:43',
+						'time7': '20:52',
+					},
+					{
+						'title': '20 км',
+						'bullet_type': 'def',
+						'time': '08:06',
+						'time2': '07:02',
+						'time3': '09:27',
+						'time4': '12:53',
+						'time5': '17:39',
+						'time6': '19:46',
+						'time7': '20:55',
+					},
+					{
+						'title': 'Колосовка',
+						'bullet_type': 'def',
+						'time': '08:10',
+						'time2': '07:06',
+						'time3': '09:31',
+						'time4': '12:57',
+						'time5': '17:43',
+						'time6': '19:50',
+						'time7': '21:00',
+					},
+					{
+						'title': 'Дружное',
+						'bullet_type': 'def',
+						'time': '08:15',
+						'time2': '07:11',
+						'time3': '09:36',
+						'time4': '13:03',
+						'time5': '17:48',
+						'time6': '19:55',
+						'time7': '21:05',
+					},
+					{
+						'title': 'Чкаловск-Западный',
+						'bullet_type': 'def',
+						'time': '08:22',
+						'time2': '07:18',
+						'time3': '09:43',
+						'time4': '13:10',
+						'time5': '17:56',
+						'time6': '20:02',
+						'time7': '21:12',
+					},
+					{
+						'title': 'Сельма',
+						'bullet_type': 'def',
+						'time': '08:26',
+						'time2': '07:22',
+						'time3': '09:47',
+						'time4': '13:14',
+						'time5': '18:00',
+						'time6': '20:06',
+						'time7': '21:16',
+					},
+					{
+						'title': 'Калининград Северный',
+						'bullet_type': 'def',
+						'time': '08:32',
+						'time2': '07:28',
+						'time3': '09:52',
+						'time4': '13:20',
+						'time5': '18:06',
+						'time6': '20:12',
+						'time7': '21:22',
+					},
+					{
+						'title': 'Калининград Южный',
+						'bullet_type': 'def start',
+						'time': '08:38',
+						'time2': '07:34',
+						'time3': '09:58',
+						'time4': '13:26',
+						'time5': '18:12',
+						'time6': '20:18',
+						'time7': '21:28',
+					}
+				]
+			},
+			{
+				'title': 'Светлогорск-2',
+				'en': 'Svetlogorsk-2',
+				info: 'Через Зеленоградск, Пионерский',
+				city: 'Калининград',
+				time: '1:34', dist: '43', cost: '95',
+				station: [{
+					'title': 'Калининград Южный',
+					'bullet_type': 'def start',
+					'time': '08:00', //6900
+					'time2': '06:23',
+				},
+				{
+					'title': 'Калининград Северный',
+					'bullet_type': 'def',
+					'time': '08:08',
+					'time2': '06:23',
+				},
+				{
+					'title': 'Кутузово-Новое',
+					'bullet_type': 'def',
+					'time': '08:14',
+					'time2': '06:23',
+				},
+				{
+					'title': '7 км',
+					'bullet_type': 'def',
+					'time': '08:21',
+					'time2': '06:23',
+				},
+				{
+					'title': 'Рябиновка',
+					'bullet_type': 'def',
+					'time': '08:25',
+					'time2': '06:23',
+				},
+				{
+					'title': 'Каштановка',
+					'bullet_type': 'def',
+					'time': '08:30',
+					'time2': '06:23',
+				},
+				{
+					'title': 'Муромское',
+					'bullet_type': 'def',
+					'time': '08:34',
+					'time2': '06:23',
+				},
+				{
+					'title': 'Сосновка',
+					'bullet_type': 'disable',
+					'time': '--:--',
+					'time2': '06:23',
+				},
+				{
+					'title': 'Зеленоградск-новый',
+					'bullet_type': 'def',
+					'time': '08:57',
+					'time2': '06:23',
+				},
+				{
+					'title': 'Малиновка',
+					'bullet_type': 'def',
+					'time': '09:01',
+					'time2': '06:23',
+				},
+				{
+					'title': 'Сокольники-1',
+					'bullet_type': 'def',
+					'time': '09:04',
+					'time2': '06:23',
+				},
+				{
+					'title': 'Сокольники-2',
+					'bullet_type': 'def',
+					'time': '09:07',
+					'time2': '06:23',
+				},
+				{
+					'title': 'Рощино',
+					'bullet_type': 'def',
+					'time': '09:11',
+					'time2': '06:23',
+				},
+				{
+					'title': 'Куликово',
+					'bullet_type': 'def',
+					'time': '09:14',
+					'time2': '06:23',
+				},
+				{
+					'title': 'Пионерский Курорт',
+					'bullet_type': 'def',
+					'time': '09:22',
+					'time2': '06:23',
+				},
+				{
+					'title': 'Светлогорск-1',
+					'bullet_type': 'def',
+					'time': '09:29',
+					'time2': '06:23',
+				},
+				{
+					'title': 'Светлогорск-2',
+					'bullet_type': 'def start',
+					'time': '09:34',
+					'time2': '06:23',
+				}],
+				back: [{
+					'title': 'Светлогорск-2',
+					'bullet_type': 'def start',
+					'time': '10:04', //6902
+					'time2': '--:--',
+				},
+				{
+					'title': 'Светлогорск-1',
+					'bullet_type': 'var',
+					'time': '10:10',
+					'time2': '--:--',
+				},
+				{
+					'title': 'Пионерский Курорт',
+					'bullet_type': 'def',
+					'time': '10::16',
+					'time2': '06:05',
+				},
+				{
+					'title': 'Куликово',
+					'bullet_type': 'def',
+					'time': '10::24',
+					'time2': '06:13',
+				},
+				{
+					'title': 'Рощино',
+					'bullet_type': 'def',
+					'time': '10::27',
+					'time2': '06:16',
+				},
+				{
+					'title': 'Сокольники-2',
+					'bullet_type': 'def',
+					'time': '10::31',
+					'time2': '06:20',
+				},
+				{
+					'title': 'Сокольники-1',
+					'bullet_type': 'def',
+					'time': '10::34',
+					'time2': '06:23',
+				},
+				{
+					'title': 'Малиновка',
+					'bullet_type': 'def',
+					'time': '10::37',
+					'time2': '06:26',
+				},
+				{
+					'title': 'Зеленоградск-новый',
+					'bullet_type': 'def',
+					'time': '10:55',
+					'time2': '06:45',
+				},
+				{
+					'title': 'Сосновка',
+					'bullet_type': 'def',
+					'time': '11:01',
+					'time2': '06:51',
+				},
+				{
+					'title': 'Муромское',
+					'bullet_type': 'def',
+					'time': '11:05',
+					'time2': '06:55',
+				},
+				{
+					'title': 'Каштановка',
+					'bullet_type': 'def',
+					'time': '11:09',
+					'time2': '06:59',
+				},
+				{
+					'title': 'Рябиновка',
+					'bullet_type': 'def',
+					'time': '11:15',
+					'time2': '07:04',
+				},
+				{
+					'title': '7 км',
+					'bullet_type': 'def',
+					'time': '11:19',
+					'time2': '07:08',
+				},
+				{
+					'title': 'Кутузово-Новое',
+					'bullet_type': 'def',
+					'time': '11:26',
+					'time2': '07:15',
+				},
+				{
+					'title': 'Калининград Северный',
+					'bullet_type': 'def',
+					'time': '11:33',
+					'time2': '07:22',
+				},
+				{
+					'title': 'Калининград Южный',
+					'bullet_type': 'def start',
+					'time': '11:39',
+					'time2': '07:28',
+				}]
+			},
+			{
+				'title': 'Зеленоградск',
+				'en': 'Zelenogradsk',
+				city: 'Калининград',
+				time: '0:42', dist: '43', cost: '54',
+				station: [{
+					'title': 'Калининград Южный',
+					'bullet_type': 'def start',
+					'time': '06:40',
+					'time2': '15:40', //6809
+					'time3': '17:33', //6913
+					'time4': '18:40', //6815
+				},
+				{
+					'title': 'Калининград Северный',
+					'bullet_type': 'def',
+					'time': '06:47',
+					'time2': '15:48',
+					'time3': '17:41',
+					'time4': '18:48',
+				},
+				{
+					'title': 'Кутузово-Новое',
+					'bullet_type': 'def',
+					'time': '06:52',
+					'time2': '15:54',
+					'time3': '17:47',
+					'time4': '18:53',
+				},
+				{
+					'title': '7 км',
+					'bullet_type': 'def',
+					'time': '06:59',
+					'time2': '16:01',
+					'time3': '17:54',
+					'time4': '19:00',
+				},
+				{
+					'title': 'Рябиновка',
+					'bullet_type': 'def',
+					'time': '07:04',
+					'time2': '16:05',
+					'time3': '17:58',
+					'time4': '19:04',
+				},
+				{
+					'title': 'Каштановка',
+					'bullet_type': 'def',
+					'time': '07:09',
+					'time2': '16:10',
+					'time3': '18:03',
+					'time4': '19:09',
+				},
+				{
+					'title': 'Муромское',
+					'bullet_type': 'def',
+					'time': '07:13',
+					'time2': '16:14',
+					'time3': '18:07',
+					'time4': '19:13',
+				},
+				{
+					'title': 'Сосновка',
+					'bullet_type': 'var',
+					'time': '--:--',
+					'time2': '16:19',
+					'time3': '18:12',
+					'time4': '19:18',
+				},
+				{
+					'title': 'Зеленоградск-новый',
+					'bullet_type': 'def start',
+					'time': '07:21',
+					'time2': '16:25',
+					'time3': '18:18',
+					'time4': '19:24',
+				}],
+				back: [{
+					'title': 'Зеленоградск-новый',
+					'bullet_type': 'def start',
+					'time': '07:44', //6802
+					'time2': '17:19', //6810
+					'time3': '18:46', //6812
+					'time4': '19:49', //6814
+				},
+				{
+					'title': 'Сосновка',
+					'bullet_type': 'var',
+					'time': '07:50',
+					'time2': '--:--',
+					'time3': '--:--',
+					'time4': '--:--',
+				},
+				{
+					'title': 'Муромское',
+					'bullet_type': 'def',
+					'time': '07:54',
+					'time2': '17:27',
+					'time3': '18:54',
+					'time4': '19:57',
+				},
+				{
+					'title': 'Каштановка',
+					'bullet_type': 'def',
+					'time': '07:58',
+					'time2': '17:31',
+					'time3': '18:58',
+					'time4': '20:01',
+				},
+				{
+					'title': 'Рябиновка',
+					'bullet_type': 'def',
+					'time': '08:03',
+					'time2': '17:36',
+					'time3': '19:04',
+					'time4': '20:07',
+				},
+				{
+					'title': '7 км',
+					'bullet_type': 'def',
+					'time': '08:07',
+					'time2': '17:40',
+					'time3': '19:08',
+					'time4': '20:11',
+				},
+				{
+					'title': 'Кутузово-Новое',
+					'bullet_type': 'def',
+					'time': '08:14',
+					'time2': '17:47',
+					'time3': '19:15',
+					'time4': '20:18',
+				},
+				{
+					'title': 'Калининград Северный',
+					'bullet_type': 'def',
+					'time': '08:21',
+					'time2': '17:55',
+					'time3': '19:22',
+					'time4': '20:25',
+				},
+				{
+					'title': 'Калининград Южный',
+					'bullet_type': 'def start',
+					'time': '08:27',
+					'time2': '18:01',
+					'time3': '19:28',
+					'time4': '20:31',
+				}]
+			},
+			{
+				'title': 'Советск',
+				'en': 'Sovetsk',
+				info: 'Через Полесск, Славск',
+				city: 'Калининград',
+				time: '2:16', dist: '125', cost: '200',
+				station: [{
+					'title': 'Калининград Южный',
+					'bullet_type': 'def start',
+					'time': '18:10',
+				},
+				{
+					'title': 'Калининград Северный',
+					'bullet_type': 'def',
+					'time': '18:19',
+				},
+				{
+					'title': 'Кутузово-Новое',
+					'bullet_type': 'def',
+					'time': '18:25',
+				},
+				{
+					'title': 'Гурьевск-центральный ',
+					'bullet_type': 'def',
+					'time': '18:32',
+				},
+				{
+					'title': 'Гурьевск-новый',
+					'bullet_type': 'def',
+					'time': '18:37',
+				},
+				{
+					'title': 'Баевка-1 ',
+					'bullet_type': 'def',
+					'time': '18:45',
+				},
+				{
+					'title': 'Баевка-2 ',
+					'bullet_type': 'def',
+					'time': '18:49',
+				},
+				{
+					'title': 'Добрино ',
+					'bullet_type': 'def',
+					'time': '18:54',
+				},
+				{
+					'title': 'Славянское',
+					'bullet_type': 'def',
+					'time': '19:02',
+				},
+				{
+					'title': 'Полесск',
+					'bullet_type': 'def',
+					'time': '19:11',
+				},
+				{
+					'title': 'Шолохово',
+					'bullet_type': 'def',
+					'time': '19:20',
+				},
+				{
+					'title': 'Петино',
+					'bullet_type': 'def',
+					'time': '19:25',
+				},
+				{
+					'title': 'Богатово',
+					'bullet_type': 'def',
+					'time': '19:31',
+				},
+				{
+					'title': 'Залесье',
+					'bullet_type': 'def',
+					'time': '19:40',
+				},
+				{
+					'title': 'Большаково',
+					'bullet_type': 'def',
+					'time': '19:48',
+				},
+				{
+					'title': 'Славск',
+					'bullet_type': 'def',
+					'time': '20:02',
+				},
+				{
+					'title': 'Щегловка',
+					'bullet_type': 'def',
+					'time': '20:06',
+				},
+				{
+					'title': 'Ржевское',
+					'bullet_type': 'def',
+					'time': '20:12',
+				},
+				{
+					'title': '119 км',
+					'bullet_type': 'def',
+					'time': '20:17',
+				},
+				{
+					'title': 'Советск',
+					'bullet_type': 'def start',
+					'time': '20:26',
+				}],
+				back: [{
+					'title': 'Советск',
+					'bullet_type': 'def start',
+					'time': '06:29',
+					'time2': '17:52',
+				},
+				{
+					'title': '119 км',
+					'bullet_type': 'def',
+					'time': '06:39',
+					'time2': '18:02',
+				},
+				{
+					'title': 'Ржевское',
+					'bullet_type': 'def',
+					'time': '06:44',
+					'time2': '18:07',
+				},
+				{
+					'title': 'Щегловка',
+					'bullet_type': 'def',
+					'time': '06:50',
+					'time2': '18:13',
+				},
+				{
+					'title': 'Славск',
+					'bullet_type': 'def',
+					'time': '06:55',
+					'time2': '18:18',
+				},
+				{
+					'title': 'Большаково',
+					'bullet_type': 'def',
+					'time': '07:09',
+					'time2': '18:32',
+				},
+				{
+					'title': 'Залесье',
+					'bullet_type': 'def',
+					'time': '07:17',
+					'time2': '18:42',
+				},
+				{
+					'title': 'Богатово',
+					'bullet_type': 'def',
+					'time': '07:26',
+					'time2': '18:51',
+				},
+				{
+					'title': 'Петино',
+					'bullet_type': 'def',
+					'time': '07:31',
+					'time2': '18:56',
+				},
+				{
+					'title': 'Шолохово',
+					'bullet_type': 'def',
+					'time': '07:36',
+					'time2': '19:01',
+				},
+				{
+					'title': 'Полесск',
+					'bullet_type': 'def',
+					'time': '07:45',
+					'time2': '19:11',
+				},
+				{
+					'title': 'Славянское',
+					'bullet_type': 'def',
+					'time': '07:53',
+					'time2': '19:20',
+				},
+				{
+					'title': 'Добрино',
+					'bullet_type': 'def',
+					'time': '08:01',
+					'time2': '19:28',
+				},
+				{
+					'title': 'Баевка-2',
+					'bullet_type': 'def',
+					'time': '08:06',
+					'time2': '19:33',
+				},
+				{
+					'title': 'Баевка-1',
+					'bullet_type': 'def',
+					'time': '08:10',
+					'time2': '19:37',
+				},
+				{
+					'title': 'Гурьевск-новый',
+					'bullet_type': 'def',
+					'time': '08:18',
+					'time2': '19:45',
+				},
+				{
+					'title': 'Гурьевск-центральный',
+					'bullet_type': 'var',
+					'time': '08:24',
+					'time2': '--:--',
+				},
+				{
+					'title': 'Кутузово-Новое',
+					'bullet_type': 'def',
+					'time': '08:31',
+					'time2': '19:56',
+				},
+				{
+					'title': 'Калининград Северный',
+					'bullet_type': 'def',
+					'time': '08:39',
+					'time2': '20:04',
+				},
+				{
+					'title': 'Калининград Южный',
+					'bullet_type': 'def start',
+					'time': '08:46',
+					'time2': '20:11',
+				}]
+			},
+		]
+
+		// End Trains
+
+
 		// Южный вокзал
 		this.items = [
 			{
 				'title': 'Багратионовск',
 				'en': 'Bagrationovsk',
-				'description': 'Чехово, Тишино ,Березовка',
+				'description': 'Чехово, Тишино, Березовка',
 				time: '1:05', dist: '39', cost: '84',
 				'workday': "07:20 12:15 15:30",
 				'workday2': "08:25 13:20 16:45",
@@ -545,23 +2110,6 @@ export class Page1 {
 				info4: 'по воскресеньям периодичность 25 мин',
 				'img': '',
 				'numb': '207э'
-			},
-			{
-				'title': 'Балтийская коса',
-				'en': 'Baltiiskaya kosa',
-				'description': 'Балтийск, п.Коса',
-				time: '0:07', dist: '1', cost: '50',
-				'workday': "07:20 10:00 12:00 14:00 16:00 18:00 20:00 21:30",
-				'workday2': "07:27 10:07 12:07 14:07 16:07 18:07 20:07 21:35",
-				'workday3': "07:30 10:10 12:10 14:10 16:10 18:10 20:10 21:40",
-				'workday4': "07:37 10:17 12:17 14:17 16:17 18:17 20:17 22:45",
-				'hollyday': "07:20 10:00 12:00 14:00 16:00 18:00 20:00 21:30",
-				'hollyday2': "07:27 10:07 12:07 14:07 16:07 18:07 20:07 21:35",
-				'hollyday3': "07:30 10:10 12:10 14:10 16:10 18:10 20:10 21:40",
-				'hollyday4': "07:37 10:17 12:17 14:17 16:17 18:17 20:17 22:45",
-				'icon': 'boat', 'map': '', city: 'Калининград',
-				'img': 'blt',
-				'numb': 'паром'
 			},
 			{
 				'title': 'Большая поляна',
@@ -3026,7 +4574,8 @@ export class Page1 {
 				'icon': 'bus',
 				'map': '',
 			},
-			{	'title': 'Советск',
+			{
+				'title': 'Советск',
 				'en': 'Sovetsk',
 				'numb': '530',
 				'description': 'Большаково',
@@ -3044,7 +4593,8 @@ export class Page1 {
 				'icon': 'bus',
 				'map': '',
 			},
-			{	'title': 'Неман',
+			{
+				'title': 'Неман',
 				'en': 'Neman',
 				'numb': '542',
 				'description': 'Ульяново',
@@ -3065,7 +4615,7 @@ export class Page1 {
 				info2: '* : рейс выполняется из Советска',
 				info3: '* : рейс выполняется до Советска',
 				info4: '* : рейс выполняется из Советска',
-	
+
 			},
 			{
 				'title': 'Калининград',
@@ -3122,7 +4672,8 @@ export class Page1 {
 				'icon': 'bus',
 				'map': '',
 			},
-			{	'title': 'Озёрск',
+			{
+				'title': 'Озёрск',
 				'en': 'Ozersk',
 				'numb': '564',
 				'description': 'Свобода, Липки, Демидовка',
@@ -3139,7 +4690,8 @@ export class Page1 {
 				'icon': 'bus',
 				'map': '',
 			},
-			{	'title': 'Озёрск',
+			{
+				'title': 'Озёрск',
 				'en': 'Ozersk',
 				'numb': '565',
 				'description': 'Новостроево, Демидовка',
@@ -3154,11 +4706,12 @@ export class Page1 {
 				'hollyday4': "07:25 14:10 18:30",
 				city: 'Черняховск',
 				'icon': 'bus',
-				'map': '',	
+				'map': '',
 				info1: '* : по Пн и Пт с заездом в п.Демидовка',
 				info2: '* : по Пн и Пт с заездом в п.Демидовка',
 			},
-			{	'title': 'Озёрск',
+			{
+				'title': 'Озёрск',
 				'en': 'Ozersk',
 				'numb': '566',
 				'description': 'Красноярское',
@@ -3174,7 +4727,8 @@ export class Page1 {
 				city: 'Калининград',
 				'icon': 'bus',
 			},
-			{	'title': 'Калининград',
+			{
+				'title': 'Калининград',
 				'en': 'Kaliningrad',
 				'numb': '566',
 				'description': 'Гвардейск',
@@ -3190,7 +4744,8 @@ export class Page1 {
 				'hollyday4': "16:00",
 				'icon': 'bus',
 			},
-			{	'title': 'Калининград',
+			{
+				'title': 'Калининград',
 				'en': 'Kaliningrad',
 				'numb': '567',
 				'description': 'Железнодорожный, Правдинск, Гвардейск',
@@ -3206,7 +4761,8 @@ export class Page1 {
 				'hollyday4': "12:20 19:40",
 				'icon': 'bus',
 			},
-			{	'title': 'Гусев',
+			{
+				'title': 'Гусев',
 				'en': 'Gusev',
 				'numb': '580',
 				'description': 'Лермантово',
@@ -3222,7 +4778,8 @@ export class Page1 {
 				'hollyday3': "05:00 17:10",
 				'hollyday4': "05:30 17:40",
 			},
-			{	'title': 'Гусев',
+			{
+				'title': 'Гусев',
 				'en': 'Gusev',
 				'numb': '580',
 				'description': 'Лермантово',
@@ -3242,7 +4799,8 @@ export class Page1 {
 				'info3': "Рейс выполняется с 01.05 по 30.09",
 				'info4': "Рейс выполняется с 01.05 по 30.09",
 			},
-			{	'title': 'Светлогорск',
+			{
+				'title': 'Светлогорск',
 				'en': 'Svetlogorsk',
 				'numb': '581',
 				'description': 'Гвардейск, Калининград',
@@ -3262,7 +4820,8 @@ export class Page1 {
 				'info3': "Рейс выполняется с 01.05 по 30.09",
 				'info4': "Рейс выполняется с 01.05 по 30.09",
 			},
-			{	'title': 'Калининград',
+			{
+				'title': 'Калининград',
 				'en': 'Kaliningrad',
 				'numb': '583',
 				'description': 'Гвардейск',
@@ -3278,7 +4837,8 @@ export class Page1 {
 				'hollyday3': "09:45 11:50 14:20",
 				'hollyday4': "11:35 13:40 16:10",
 			},
-			{	'title': 'Чернышевское',
+			{
+				'title': 'Чернышевское',
 				'en': 'Chernishevskoe',
 				'numb': '583',
 				'description': 'Гусев, Нестеров',
@@ -3298,7 +4858,8 @@ export class Page1 {
 				info3: '* : рейс выполняется до Нестерова',
 				info4: '* : рейс выполняется из Нестерова',
 			},
-			{	'title': 'Калининград',
+			{
+				'title': 'Калининград',
 				'en': 'Kaliningrad',
 				'numb': '680э',
 				'description': '',
@@ -3318,7 +4879,8 @@ export class Page1 {
 				info3: '* : рейс выполняется с 01.10 по 30.04',
 				info4: '* : рейс выполняется с 01.10 по 30.04',
 			},
-			{	'title': 'Гусев',
+			{
+				'title': 'Гусев',
 				'en': 'Gusev',
 				'numb': '680э',
 				'description': '',
@@ -3369,6 +4931,25 @@ export class Page1 {
 			},
 		];
 		// End gusev
+		this.parom = [
+			{
+				'title': 'Балтийская коса',
+				'en': 'Baltiiskaya kosa',
+				'description': 'паром - Балтийск, п.Коса',
+				time: '0:07', dist: '1', cost: '50',
+				'workday': "07:20 10:00 12:00 14:00 16:00 18:00 20:00 21:30",
+				'workday2': "07:27 10:07 12:07 14:07 16:07 18:07 20:07 21:35",
+				'workday3': "07:30 10:10 12:10 14:10 16:10 18:10 20:10 21:40",
+				'workday4': "07:37 10:17 12:17 14:17 16:17 18:17 20:17 22:45",
+				'hollyday': "07:20 10:00 12:00 14:00 16:00 18:00 20:00 21:30",
+				'hollyday2': "07:27 10:07 12:07 14:07 16:07 18:07 20:07 21:35",
+				'hollyday3': "07:30 10:10 12:10 14:10 16:10 18:10 20:10 21:40",
+				'hollyday4': "07:37 10:17 12:17 14:17 16:17 18:17 20:17 22:45",
+				'icon': 'boat', 'map': '', city: 'Калининград',
+				'img': 'blt',
+				'numb': ''
+			}
+		]
 
 	}
 
@@ -3517,80 +5098,68 @@ export class Page1 {
 			}
 			return false;
 		})
+		//Parom
+		this.parom = this.parom.filter((prav) => {
+			if (prav.title.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				prav.numb.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				prav.en.toLowerCase().indexOf(q.toLowerCase()) >= 0 ||
+				prav.description.toLowerCase().indexOf(q.toLowerCase()) >= 0
+			) {
+				return true;
+			}
+			return false;
+		})
 
 	}
 	// ::::::::::::::::: END Поиск
 
 	// Навигация.
 
-		openNavDetailsPage(item) {
-			this.navCtrl.push(DetailsPage, { item: item });
-		}
-		openNavDetailsPage2(data) {
-			this.navCtrl.push(DetailsPage, { item: data });
-		}
-		openNavDetailsSov(sov) {
-			this.navCtrl.push(DetailsPage, { item: sov });
-		}
-		openNavDetailsGus(gus) {
-			this.navCtrl.push(DetailsPage, { item: gus });
-		}
-		openNavDetailsCher(cher) {
-			this.navCtrl.push(DetailsPage, { item: cher });
-		}
-		openNavDetailsBolsh(bolsh) {
-			this.navCtrl.push(DetailsPage, { item: bolsh });
-		}
-		openNavDetailsGvard(gvard) {
-			this.navCtrl.push(DetailsPage, { item: gvard });
-		}
-		openNavDetailsJzd(jzd) {
-			this.navCtrl.push(DetailsPage, { item: jzd });
-		}
-		openNavDetailsKrz(krz) {
-			this.navCtrl.push(DetailsPage, { item: krz });
-		}
-		openNavDetailsNeman(nem) {
-			this.navCtrl.push(DetailsPage, { item: nem });
-		}
-		openNavDetailsOzersk(ozer) {
-			this.navCtrl.push(DetailsPage, { item: ozer });
-		}
-		openNavDetailsPravdinsk(prav) {
-			this.navCtrl.push(DetailsPage, { item: prav });
-		}
+	openNavDetailsPage(item) {
+		this.navCtrl.push(DetailsPage, { item: item });
+	}
+	openNavDetailsPage2(data) {
+		this.navCtrl.push(DetailsPage, { item: data });
+	}
+	openNavDetailsSov(sov) {
+		this.navCtrl.push(DetailsPage, { item: sov });
+	}
+	openNavDetailsGus(gus) {
+		this.navCtrl.push(DetailsPage, { item: gus });
+	}
+	openNavDetailsCher(cher) {
+		this.navCtrl.push(DetailsPage, { item: cher });
+	}
+	openNavDetailsBolsh(bolsh) {
+		this.navCtrl.push(DetailsPage, { item: bolsh });
+	}
+	openNavDetailsGvard(gvard) {
+		this.navCtrl.push(DetailsPage, { item: gvard });
+	}
+	openNavDetailsJzd(jzd) {
+		this.navCtrl.push(DetailsPage, { item: jzd });
+	}
+	openNavDetailsKrz(krz) {
+		this.navCtrl.push(DetailsPage, { item: krz });
+	}
+	openNavDetailsNeman(nem) {
+		this.navCtrl.push(DetailsPage, { item: nem });
+	}
+	openNavDetailsOzersk(ozer) {
+		this.navCtrl.push(DetailsPage, { item: ozer });
+	}
+	openNavDetailsPravdinsk(prav) {
+		this.navCtrl.push(DetailsPage, { item: prav });
+	}
+	openNavDetailsParom(boat) {
+		this.navCtrl.push(DetailsPage, { item: boat });
+	}
 
 	//  JD Routs
-
-		openBgrt() {
-			this.navCtrl.push(RoutBgrt);
-		}
-		openBlt() {
-			this.navCtrl.push(RoutBlt);
-		}
-		openMamo() {
-			this.navCtrl.push(RoutMamo);
-		}
-		openChern() {
-			this.navCtrl.push(RoutChern);
-		}
-		openSov() {
-			this.navCtrl.push(RoutSov);
-		}
-		openSvt() {
-			this.navCtrl.push(RoutSvt);
-		}
-		openSvt2() {
-			this.navCtrl.push(RoutSvt2);
-		}
-		openZel() {
-			this.navCtrl.push(RoutZel);
-		}
-
-	// End
-	// Promo route
-	goPromo() {
-		this.navCtrl.push(Promo);
+	trainList(train) {
+		this.navCtrl.push(TrainDetails, { item: train });
 	}
+
+
 
 }

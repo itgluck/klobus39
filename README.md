@@ -1,22 +1,11 @@
-Mobile App KLoBus39
-=====================
+This is a starter template for swipedTabs in ionic 3 .
 
-https://vk.com/klobus_39
+# a simple example using swiped tabs  IONIC 3
 
-## Using this project
 
-You'll need the Ionic CLI with support for v2 apps:
+[Youtube Link](https://www.youtube.com/watch?v=dJTFt0aeRUo&feature=youtu.be)<br>
+![](ionic3SwipedTabs.gif)<br>
 
-```bash
-$ npm install -g ionic
-```
+#Need Custom Work? 
+If you need help with your Ionic apps, if you need a specific plugin or integration. Let's get in touch. I'll be glad to develop or advise you for your app! Email me at karraysoufien@gmail.com.
 
-Then run:
-
-```bash
-$ ionic start myApp
-```
-
-More info on this can be found on the Ionic [Getting Started](http://ionicframework.com/docs/v2/getting-started/) page.
-
-cordova plugin add phonegap-plugin-push --variable SENDER_ID=155670320659 --save

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 
 // import {SocialSharing} from '@ionic-native/social-sharing';    
 
@@ -10,13 +10,10 @@ import { NavController, AlertController } from 'ionic-angular';
 export class Page6 {
     AlertController; 
     alertCtrl;
-  constructor(private nav: NavController, alertCtrl: AlertController, 
+  constructor( alertCtrl: AlertController, 
     // private socialSharing: SocialSharing
   ){
-		this.nav = nav;
     this.alertCtrl= alertCtrl;
-
-
 }
 
 

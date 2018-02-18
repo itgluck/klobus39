@@ -1,37 +1,28 @@
-
 .citylist {
     color: $primary;
-       background: #EBEDEE;
+    // background: #EBEDEE;
+    font-weight: 200;
     font-family: 'Roboto', 'Arial Narrow', Arial, sans-serif;
-
     h5 {
-    color: $hidden;
-    font-size: 1.4rem;
-
-}
-ion-grid {
-    margin-top: -1.5em;
-}
-button{
-    background: #fff;
-}
-iframe {
-    height: 100%;
-    width: 100%;
-    margin: 0px;
-    border: none;
-    position: relative;
+        font-weight: 300;
+        color: $hidden;
+        margin: 18px;
+        font-size: 1.6rem;
+    }
+    .col {
+        padding: 0;
+    }
+    a {
+        text-decoration: none;
+    }
 }
 
-}
 ion-content {
     bottom: 8em;
     position: absolute;
 }
 
-
 // Рекламный банер
-
 promo-box {
     max-height: 15em;
 }
@@ -41,7 +32,9 @@ promo-box {
 }
 
 .searchbar-md .searchbar-input {
-    border-radius: 8px;
+    border-radius: 6px;
+    font-weight: 200;
+    font-size: 1.2em;
 }
 
 .img {
@@ -50,8 +43,6 @@ promo-box {
     margin-bottom: 0px;
     box-shadow: 0px 2px 7px;
 }
-
-
 
 .logo-header {
     max-height: 1.5em;
@@ -66,7 +57,7 @@ promo-box {
 .row div {
     padding: 0px auto;
     text-align: center;
-    // background: url(https://unsplash.it/440/500?blur);
+    background: url(https://unsplash.it/440/500?blur);
     background-size: cover;
     height: 25%;
 }
@@ -86,71 +77,48 @@ promo-box {
 .titlenumb {
     width: 40%;
     span {
-    font-size: 3em;
-    color: $primary;
-    background: $bg2;
-    margin: 1rem;
-    padding: 3px 6px;
-    border-radius: 8px;
-    border: 1px solid $secondary;
-    // box-shadow: 0 -1px 2px #9CC6D7, 0 0 2px rgba(103, 153, 173, .12), 0 2px 4px rgba(0, 0, 0, .24);
+        font-size: 3em;
+        font-weight: 400;
+        color: $primary;
+        background: $bg2;
+        border: 1px solid #eee;
+        border-bottom: 3px solid $secondary;
+        border-radius: 4px;
+        margin: 5px;
+        padding: 4px 7px;
+        // border-radius: 8px;
+        // border: 1px solid $secondary;
+        // box-shadow: 0 -1px 2px #9CC6D7, 0 0 2px rgba(103, 153, 173, .12), 0 2px 4px rgba(0, 0, 0, .24);
+    }
+    ion-icon {
+        font-size: 3.2rem;
+        margin-right: 8px;
     }
 }
 
 .border-top {
-    border-top: 1px solid rgba(10,10,14, .2);;
+    border-top: 1px solid rgba(10, 10, 14, .2);
+    ;
     height: 3rem;
 }
+
 // End Spec
-.citylist button span {
-    border: 1px solid $primary;
-    border-radius: 5px;
-    font-weight: 500;
-    background: #eee;
-    text-align: center;
-    min-width: 4.5rem;
-    padding: 4px;
-    // box-shadow: 0 1px 2px #9CC6D7, 0 0 2px rgba(103, 153, 173, .22), 0 2px 4px rgba(0, 0, 0, .24);
-}
-
-.trainbtn button {
-    color: $train;
-}
-
-.trainbtn button span {
-    border: 1px solid $primary;
-    text-align: center;
-    min-width: 55px;
-    border-radius: 5px;
-    margin: 8px;
-    padding: 2px 5px;
-    font-size: .8em;
-    box-shadow: 0 1px 2px #9CC6D7, 0 0 2px rgba(103, 153, 173, .22), 0 2px 4px rgba(0, 0, 0, .24);
-}
-
-.citylist ion-label {
-    font-variant: caps;
-    font-size: 1.68rem;
-}
-
-.sitylist .icon {
-    font-size: 1.4em;
-}
-
-.citylist ion-label:after {
-    position: absolute;
-    display: inline-block;
-    line-height: 1;
-    content: '\203a';
-    font-size: 30pt;
-    right: 6px;
-    top: 2px;
-    transition: transform .15s ease-in-out;
-    color: $hidden;
-}
-
-.city {
-    padding-bottom: 72px;
+.citylist button {
+    span {
+        border: 1px solid $hidden;
+        border-bottom: 3px solid $secondary;
+        border-radius: 4px;
+        font-weight: 500;
+        background: $bg2;
+        text-align: center;
+        min-width: 5.8rem;
+        padding: 0.5rem;
+        margin: 5px 10px !important;
+        ion-icon {
+            display: inline;
+            margin-right: 4px;
+        }
+    }
 }
 
 .numb {
@@ -161,13 +129,59 @@ promo-box {
     // color: $secondary;
 }
 
+.trainbtn button {
+    color: $train;
+    // height: 4.5em;
+    border-bottom: 1px $hidden solid;
+    .item-inner {
+        border-bottom: none !important;
+    }
+    ion-label {
+        height: 3em;
+    }
+    ion-label:after {
+        top: 7px;
+    }
+}
+
+.trainbtn button span {
+    border: 1px solid $primary;
+    text-align: center;
+    min-width: 55px;
+    border-radius: 12px;
+    margin: 8px;
+    padding: 2px 5px;
+    font-size: .8em;
+    box-shadow: 0 1px 2px #9CC6D7, 0 0 2px rgba(103, 153, 173, .22), 0 2px 4px rgba(0, 0, 0, .24);
+}
+
+.citylist ion-label {
+    font-variant: caps;
+    font-size: 1.8rem;
+    font-weight: 300;
+    height: 2em;
+    margin: 10px 8px 10px 0;
+}
+
+.citylist ion-label:after {
+    position: absolute;
+    right: 1%;
+    top: 3px;
+    display: inline-block;
+    // line-height: 1;
+    content: '\203a';
+    font-size: 30pt;
+    color: $hidden;
+    margin-right: 5px;
+}
+
 .en {
     color: $hidden;
     padding-left: 12px;
-    padding-bottom: 5px;
-    font-size: .8em;
+    padding-bottom: 2px;
+    font-size: 1.28rem;
     // line-height: 12px;
-    font-weight: 300;
+    font-weight: 200;
 }
 
 .trainbtn .rout {
@@ -176,25 +190,12 @@ promo-box {
     height: 2em;
     display: none;
 }
-.item-md {
-    padding-left: 12px;
-}
-.item-md [item-left], .item-md [item-right] {
-    margin: 5px 8px 8px 0;
-}
-
-.item-md ion-icon[item-left]+.item-inner,
-.item-md ion-icon[item-left]+.item-input {
-    margin-left: 0px;
-}
 
 .item {
-    // font-size: 1.6rem;
-    font-weight: 500;
+    font-weight: 300;
 }
 
-.item>ion-icon {
-    min-height: 3rem;
+.tab .item>ion-icon {
     font-size: 3rem;
     line-height: 1;
 }
@@ -202,6 +203,7 @@ promo-box {
 .detals {
     font-size: 1.2em;
     color: $primary;
+    font-weight: 300;
 }
 
 label::after {
@@ -210,7 +212,7 @@ label::after {
     position: absolute;
     left: 10px;
     text-align: center;
-    color: $bg;
+    // color: $bg;
     font-size: 2em;
 }
 
@@ -218,17 +220,17 @@ label::after {
     max-width: 5em;
     font-size: 1.5rem;
     text-align: center;
-    font-weight: 500;
+    font-weight: 300;
     position: relative;
     margin: 0 auto;
-    color:$primary;
+    color: $primary;
 }
 
 .info {
-    color: $hidden;
-    margin-bottom: .5em;
-    padding: 0 1.5em;
+    color: $hidden2;
+    margin-top: .5em;
     text-align: center;
+    font-size: 1.2rem;
 }
 
 .stop {
@@ -250,13 +252,12 @@ label::after {
 
 // ******************
 .flex-container {
-    margin-top: -20px;
+    margin-top: -15px;
     display: flex;
     flex-direction: column;
     width: 100%;
     text-align: center;
 }
-
 
 ul {
     display: flex;
@@ -298,7 +299,8 @@ li {
 .arrows section .box-title:before {
     position: absolute;
     display: block;
-    content: '\203a';
+    // content: '\203a';
+    content: '\f362';
     font-size: 28pt;
     left: 20px;
     top: -3px;
@@ -313,85 +315,103 @@ input:checked+section.box .box-title:before {
 // END .accordion
 //  <img src="assets/img/map_s.png">
 //  End  
-.baner{
+.baner {
     width: 100%;
     // height: 30%;
     max-width: 600px;
     margin: 0px auto;
     text-align: center;
 }
-.main-map{
+
+.main-map {
     width: 100%;
     // height: 30%;
     max-width: 900px;
     margin: 0px auto;
     // text-align: center;
 }
+
 .img-box-bg {
-    background-repeat: no-repeat;    
+    background-repeat: no-repeat;
     background-position: center;
     margin-bottom: -5.2em;
-          min-height: 14em;
+    min-height: 14em;
     @media screen and (max-width: 440px) {
-          min-height: 9em;
-     }
+        min-height: 10em;
+    }
     @media screen and (min-width: 640px) {
         //   background-size: 100%;
-          min-height: 18em;
-     }
-
+        min-height: 18em;
+    }
+    // p {
+    //     font-size: .8em;
+    //     letter-spacing: .1em;
+    //     color: $bg;
+    //     padding: 8px;
+    //     background: $hidden2;
+    //     margin-bottom: 0em;
+    // }
 }
+
 .sever {
     background: url(../assets/img/map_s.png);
     background-size: cover;
-
 }
+
 .ug {
     background: url(../assets/img/map_u.png);
     background-size: cover;
 }
+
 .sov {
     background: url(../assets/img/map_sov.png);
     background-size: cover;
 }
+
 .cher {
     background: url(../assets/img/map_cher.png);
     background-size: cover;
 }
+
 .gus {
     background: url(../assets/img/map_gus.png);
     background-size: cover;
 }
+
 .bol {
     background: url(../assets/img/map_bol.png);
     background-size: cover;
 }
+
 .gvrd {
     background: url(../assets/img/map_gvrd.png);
     background-size: cover;
 }
+
 .jzd {
     background: url(../assets/img/map_jzd.png);
     background-size: cover;
 }
+
 .krz {
     background: url(../assets/img/map_krz.png);
     background-size: cover;
 }
+
 .neman {
     background: url(../assets/img/map_neman.png);
     background-size: cover;
 }
+
 .ozer {
     background: url(../assets/img/map_ozer.png);
     background-size: cover;
 }
+
 .prav {
     background: url(../assets/img/map_prav.png);
     background-size: cover;
 }
-
-
 
 .watermark {
     opacity: .6;
@@ -419,7 +439,7 @@ input:checked+section.box .box-title:before {
     color: $primary;
     overflow: hidden;
     background: $bg;
-    margin-bottom: .3em;
+    margin-bottom: .5em;
     transition: all .15s ease-in-out;
     box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24);
 }
@@ -429,17 +449,13 @@ label {
     width: 100%;
     line-height: 3em;
     padding: 0 3em;
-    color: $primary;
-    background: #EEEEEE;
-    font-size: 1.2em;
+    font-weight: 300;
+    // margin-bottom: 2px;
+    // color: $primary;
+    color: rgba(107, 117, 130, .8);
+    background: rgba(215, 223, 230, 0.4);
+    font-size: 1.3em;
     display: inline-block;
-    cursor: pointer;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 
 .tab-content {
@@ -448,11 +464,7 @@ label {
     -webkit-transition: max-height .35s;
     -o-transition: max-height .35s;
     transition: max-height .35s;
-}
-
-.tab-content {
     text-align: center;
-    margin-top: 4px;
 }
 
 .tab-content p {
@@ -462,7 +474,6 @@ label {
     padding: 8px;
     background: $hidden2;
     margin-bottom: 0em;
-
 }
 
 
@@ -472,9 +483,11 @@ input:checked~.tab-content {
     display: block;
 }
 
-label:checked {
-    font-weight: bold;
-}
+// label:checked {
+//     // font-weight: bold;
+//     // color: $primary;
+// }
+
 /* Icon */
 
 .tab label::after {
@@ -498,15 +511,135 @@ input[type=radio]+label::after {
 input[type=checkbox]:checked+label::after {
     transform: rotate(90deg);
     position: absolute;
+    color: $primary;
     left: 20px;
     top: 10px;
 }
 
-input[type=checkbox]:checked+label {
-    font-weight: 600;
-    box-shadow: 0px 3px 3px $hidden2;
+.checked {
+    font-weight: 500;
+    background: rgba(215, 223, 230, 0.6);
+    // border-bottom: 2px solid $hidden2;
+    border-bottom: 1px solid $secondary;
+    box-shadow: $hidden -1px 3px 3px;
+    color: $primary;
+    ion-icon {
+        color: $secondary;
+        display: inherit;
+        display: none;
+    }
+}
+
+.unchecked {
+    display: none;
+}
+
+.toggle-box input[type=checkbox]:checked+label::after {
+    color: $bg !important;
+}
+
+.toggle-box input[type=checkbox]+label::after {
+    color: $bg !important;
+}
+
+.tab input[type=checkbox]:checked+label {
+    font-weight: 500;
+    background: rgba(215, 223, 230, 0.6);
+    // border-bottom: 2px solid $hidden2;
+    border-bottom: 1px solid $secondary;
+    box-shadow: $hidden -1px 3px 3px;
+    color: $primary;
+    ion-icon {
+        color: $secondary;
+        display: inherit;
+        display: none;
+    }
+}
+
+.tab input[type=checkbox]+label ion-icon {
+    position: absolute;
+    right: 1.4em;
 }
 
 input[type=radio]:checked+label::after {
     transform: rotateX(180deg);
 }
+
+// New Segment
+.SwipedTabs-indicatorSegment {
+    -webkit-transition: 0.3s all;
+    -moz-transition: 0.3s all;
+    -o-transition: 0.3s all;
+    transition: 0.3s all;
+    transform-origin: top 0 left 0;
+    height: 2px;
+    position: relative;
+    top: -2px;
+    background-color: #fff;
+}
+
+.SwipedTabs-tabs ion-segment-button {
+    border-bottom: 2px rgb(131, 139, 150) solid !important;
+    color: rgb(164, 176, 194) !important;
+    font-weight: 300;
+}
+
+.SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
+    color: #fff !important;
+    // font-size: 1.3rem;
+}
+
+.SwipedTabs-tabs {
+    background-color: $secondary;
+    border-top: solid 1px $primary;
+    height: 3em;
+}
+
+.swiper-wrapper {
+    // height: 40rem;
+}
+
+.swiper-slide {
+    align-items: normal;
+}
+
+.slide-zoom {
+    padding-bottom: 1em;
+}
+
+.swiper-pagination-bullet-active {
+    background: $secondary;
+    opacity: 1;
+}
+
+.citylist hr {
+    margin: 4px auto;
+    width: 25%;
+}
+
+.citylist ion-slides {
+    // height: auto;
+}
+
+// New Segment
+.animate-if {
+    // animation: animatetop 1.4s;
+    // position: relative;
+    animation-duration: .6s;
+    animation-name: slidein;
+    padding: 6px;
+}
+
+@keyframes slidein {
+    from {
+        top: -4em;
+        z-index: -10;
+        opacity: 0;
+    }
+    to {
+        top: 0em;
+        opacity: 1;
+    }
+}
+
+// End

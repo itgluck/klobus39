@@ -1,0 +1,13 @@
+
+    <plugin name="phonegap-plugin-push" spec="^2.1.3">
+        <variable name="SENDER_ID" value="155670320659" />
+    </plugin>
+
+    ionic state refresh
+
+
+    Если вы хотите использовать последнюю версию кордовы и кордовы-андроида: 
+cordova plugin rm cordova-plugin-admob-free       ->
+cordova plugin add https://github.com/RenaudROHLINGER/lycwed-cordova-plugin-admob-free
+
+Repo исправлен для последней версии. Я не могу использовать PR-репо в данный момент, так как это конкретная версия cordova 8.0
