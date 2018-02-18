@@ -2,6 +2,6 @@
     "results": [{
         "title": "Обновить",
         "subtitle": "Доступна новая версия",
-        "img": "../assets/menu/icon.png"
+        "img": "https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/menu/icon.png"
     }]
 }
