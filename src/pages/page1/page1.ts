@@ -5,7 +5,6 @@ import { NavController, NavParams, AlertController, Slides, Content } from 'ioni
 import { TrainDetails } from './train/train';
 import { AdMobFree, AdMobFreeBannerConfig } from '@ionic-native/admob-free';
 
-
 @Component({
 	templateUrl: 'citydetal.html',
 })
@@ -41,7 +40,7 @@ export class DetailsPage {
 					text: 'Написать',
 					handler: () => {
 						console.log('Message clicked');
-						window.open('mailto:it.gluck@ya.ru?subject=Отзыв мобильное приложение KLoBus39&body=Версия приложения v3.6.1 */Здравсвуйте, ');
+						window.open('mailto:klobus39@ya.ru?subject=Отзыв мобильное приложение KLoBus39&body=Версия приложения v3.6.4 */Здравсвуйте, ');
 					}
 				}
 			]
@@ -76,7 +75,7 @@ export class DetailsPage {
 @Component({
 	template: `
 <ion-header style="text-align:center;">
-    <ion-navbar color="primary">
+    <ion-navbar color="primary" (click)="startADB()">
         <button ion-button menuToggle >
  			<ion-icon name="menu" color="hidden"></ion-icon>
  		</button>
@@ -413,7 +412,6 @@ export class Page1 {
 		this.searchQuery = '';
 		this.initializeItems();
 		this.item = params.data.item;
-		// this.showBannerAd();
 	}
 
 	hide() {
@@ -425,43 +423,26 @@ export class Page1 {
 		this.visibility = !this.visibility;
 	}
 
-	// AdMob https://www.youtube.com/watch?v=4wXSAtSc0go
-	// showBannerAd() {
-	// 		const bannerConfig: AdMobFreeBannerConfig = {
-	// 			id: 'ca-app-pub-7133305264165200/6243373138',
-	// 			// isTesting: true,
-	// 			autoShow: true,
-	// 			bannerAtTop: true
-	// 		}
-
-	// 		this.adMobFree.banner.config(bannerConfig);
-	// 		this.adMobFree.banner.prepare()
-	// 		.then( () =>{
-	// 			console.log('AdMob готов')
-	// 	})
-
-	// 	.catch(e => console.log(e));
-	// }   //End adMob
-
-
-	initializeItems() {
-		// AdMob Block #############
+	startADB() {
+				// AdMob Block #############
 		const bannerConfig: AdMobFreeBannerConfig = {
-			id: 'ca-app-pub-7133305264165200/6243373138',
-			// isTesting: true,
-			autoShow: true,
-			bannerAtTop: true
+		id: 'ca-app-pub-7133305264165200/6243373138',
+		// isTesting: true,
+		autoShow: true,
+		bannerAtTop: true
 		}
-		
+
 		this.adMobFree.banner.config(bannerConfig);
 		this.adMobFree.banner.prepare()
 		.then( () =>{
-			console.log('AdMob готов')
+		console.log('AdMob готов')
 		})
-		
+
 		.catch(e => console.log(e));
 		// AdMob Block #############
-		
+	}
+
+	initializeItems() {		
 		
 		// Trains
 

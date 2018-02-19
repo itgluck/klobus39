@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.itgluck.klobus39" version="3.6.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.itgluck.klobus39" version="3.6.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>KLoBus39</name>
     <description>Общественный транспорт Калининградской области</description>
-    <author email="it.gluck@ya.ru" href="ghttps://goo.gl/9fGdWU">Bolshakov Nikita</author>
+    <author email="klobus39@ya.ru" href="ghttps://goo.gl/9fGdWU">Bolshakov Nikita</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
-    <allow-intent href="sms:*"/>
+    <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <platform name="android">

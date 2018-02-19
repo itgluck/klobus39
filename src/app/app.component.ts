@@ -14,6 +14,7 @@ import { Observable } from 'rxjs/Observable';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
+// import { AdMobFree, AdMobFreeBannerConfig } from '@ionic-native/admob-free';
 // import { Push, PushToken } from '@ionic/cloud-angular';
 
 
@@ -29,7 +30,8 @@ export class MyApp {
 
   pages: Array<{ title: string, icon: string, component: any }>;
 
-  constructor(public platform: Platform, private statusBar: StatusBar,
+  constructor(public platform: Platform, private statusBar: StatusBar, 
+    // private adMobFree:AdMobFree,
     public http: Http
     // public push: Push
   ) {
@@ -42,8 +44,8 @@ export class MyApp {
     ];
 
 
-    // Check VersionApp  этот блок будет показан в версии 3.6.2
-    this.infoblocks = this.http.get('https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/menu/update_v3.6.2.json').map(res => res.json());
+    // Check VersionApp  этот блок будет показан в версии 3.6.4
+    this.infoblocks = this.http.get('https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/menu/update_v3.6.4.json').map(res => res.json());
 
     // Local
     // this.infoblocks = this.http.get('../assets/menu/update.json').map(res => res.json());
@@ -54,10 +56,13 @@ export class MyApp {
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.overlaysWebView(true);
+      
+
+
     }
     );
 
-
+    
   }
 
   openPage(page) {
@@ -69,5 +74,23 @@ export class MyApp {
   goPromo() {
     this.nav.push(DetailsPromo);
   }
+  // startADB() {
+  //         		// AdMob Block #############
+	// 	const bannerConfig: AdMobFreeBannerConfig = {
+	// 		id: 'ca-app-pub-7133305264165200/6243373138',
+	// 		// isTesting: true,
+	// 		autoShow: true,
+	// 		bannerAtTop: true
+	// 	}
+		
+	// 	this.adMobFree.banner.config(bannerConfig);
+	// 	this.adMobFree.banner.prepare()
+	// 	.then( () =>{
+	// 		console.log('AdMob готов')
+	// 	})
+		
+	// 	.catch(e => console.log(e));
+	// 	// AdMob Block #############
+  // }
 
 }
