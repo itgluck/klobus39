@@ -94,7 +94,7 @@ export class DetailsPage {
 		</ion-title>
 	</ion-navbar>
 	
-    <ion-toolbar color="primary" class="animate-if"  *ngIf="checked"> 
+    <ion-toolbar color="primary" *ngIf="checked"> 
         <ion-searchbar  [(ngModel)]="searchQuery" (ionInput)="getItems($event)" placeholder="Укажите город или маршрут"></ion-searchbar>
 	</ion-toolbar>
 	
@@ -380,7 +380,9 @@ export class DetailsPage {
 </ion-content>
 `,
 	styles: [`.invisible{display:block;}
-			.noimg{display:none !important;}
+			.noimg{
+				display:none !important;
+			}
 `]
 })
 export class Page1 {
@@ -443,23 +445,24 @@ export class Page1 {
 
 
 	initializeItems() {
-		// DB
+		// AdMob Block #############
 		const bannerConfig: AdMobFreeBannerConfig = {
 			id: 'ca-app-pub-7133305264165200/6243373138',
 			// isTesting: true,
 			autoShow: true,
 			bannerAtTop: true
 		}
-
+		
 		this.adMobFree.banner.config(bannerConfig);
 		this.adMobFree.banner.prepare()
 		.then( () =>{
 			console.log('AdMob готов')
-	})
-
-	.catch(e => console.log(e));
+		})
 		
-	
+		.catch(e => console.log(e));
+		// AdMob Block #############
+		
+		
 		// Trains
 
 		this.trains = [

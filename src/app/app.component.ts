@@ -33,7 +33,7 @@ export class MyApp {
     public http: Http
     // public push: Push
   ) {
-  
+
     this.pages = [
       { title: 'Заказ авто', icon: 'car', component: Page7 },
       { title: 'Контакты', icon: 'call', component: Page2 },
@@ -49,49 +49,19 @@ export class MyApp {
     // this.infoblocks = this.http.get('../assets/menu/update.json').map(res => res.json());
 
   }
-  
+
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-        this.statusBar.overlaysWebView(true);
-        // this.splashScreen.hide();
-
-        //PushBlock
-        // this.push.register().then((t: PushToken) => {
-        //   return this.push.saveToken(t);
-        //   }).then((t: PushToken) => {
-        //   console.log('Token saved:', t.token);
-        // });
-        //End PushBlock
-
-        // AdMob
-      //   let bannerConfig: AdMobFreeBannerConfig = {
-      //   // isTesting: true, // Remove in production
-      //   id:'ca-app-pub-7133305264165200/6243373138',//id: Your Ad Unit ID goes here
-      //   autoShow: true
-      //  };
-      //   this.admob.banner.config(bannerConfig);
-
-      //   this.admob.banner.prepare().then(() => {
-      //   // success
-      // }).catch(e => console.log(e));
-
-      // END AdMob
-
-
-
-          } 
-        );
+      this.statusBar.overlaysWebView(true);
+    }
+    );
 
 
   }
 
   openPage(page) {
     this.nav.push(page.component);
-    // this.nav.setRoot(page.component);
-    // this.nav.push(page.component);
   }
   goHome() {
     this.nav.setRoot(Page1);
