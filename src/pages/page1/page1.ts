@@ -74,13 +74,10 @@ export class DetailsPage {
 
 // Page1
 @Component({
-
 	template: `
- 
-
 <ion-header style="text-align:center;">
     <ion-navbar color="primary">
-        <button ion-button menuToggle (click)='showBannerAd()'>
+        <button ion-button menuToggle >
  			<ion-icon name="menu" color="hidden"></ion-icon>
  		</button>
 		<ion-buttons end>
@@ -409,13 +406,12 @@ export class Page1 {
 	visibility: boolean = true;
 
 
-	constructor(public navCtrl: NavController, params: NavParams, 
-		private adMobFree:AdMobFree
+	constructor(public navCtrl: NavController, params: NavParams, private adMobFree:AdMobFree
 	) {
 		this.searchQuery = '';
 		this.initializeItems();
 		this.item = params.data.item;
-		this.showBannerAd();
+		// this.showBannerAd();
 	}
 
 	hide() {
@@ -428,27 +424,40 @@ export class Page1 {
 	}
 
 	// AdMob https://www.youtube.com/watch?v=4wXSAtSc0go
-	showBannerAd() {
-			const bannerConfig: AdMobFreeBannerConfig = {
-				id: 'ca-app-pub-7133305264165200/6243373138',
-				// isTesting: true,
-				autoShow: true,
-				bannerAtTop: true
-			}
+	// showBannerAd() {
+	// 		const bannerConfig: AdMobFreeBannerConfig = {
+	// 			id: 'ca-app-pub-7133305264165200/6243373138',
+	// 			// isTesting: true,
+	// 			autoShow: true,
+	// 			bannerAtTop: true
+	// 		}
 
-			this.adMobFree.banner.config(bannerConfig);
-			this.adMobFree.banner.prepare()
-			.then( () =>{
-				console.log('AdMob готов')
-		})
+	// 		this.adMobFree.banner.config(bannerConfig);
+	// 		this.adMobFree.banner.prepare()
+	// 		.then( () =>{
+	// 			console.log('AdMob готов')
+	// 	})
 
-		.catch(e => console.log(e));
-	}   //End adMob
+	// 	.catch(e => console.log(e));
+	// }   //End adMob
 
 
 	initializeItems() {
 		// DB
-	
+		const bannerConfig: AdMobFreeBannerConfig = {
+			id: 'ca-app-pub-7133305264165200/6243373138',
+			// isTesting: true,
+			autoShow: true,
+			bannerAtTop: true
+		}
+
+		this.adMobFree.banner.config(bannerConfig);
+		this.adMobFree.banner.prepare()
+		.then( () =>{
+			console.log('AdMob готов')
+	})
+
+	.catch(e => console.log(e));
 		
 	
 		// Trains
