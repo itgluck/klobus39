@@ -407,7 +407,7 @@ export class Page1 {
 	visibility: boolean = true;
 
 
-	constructor(public navCtrl: NavController, params: NavParams, private adMobFree:AdMobFree
+	constructor(public navCtrl: NavController, params: NavParams, private adMobFree: AdMobFree
 	) {
 		this.searchQuery = '';
 		this.initializeItems();
@@ -424,26 +424,26 @@ export class Page1 {
 	}
 
 	startADB() {
-				// AdMob Block #############
+		// AdMob Block #############
 		const bannerConfig: AdMobFreeBannerConfig = {
-		id: 'ca-app-pub-7133305264165200/6243373138',
-		// isTesting: true,
-		autoShow: true,
-		bannerAtTop: true
+			id: 'ca-app-pub-7133305264165200/6243373138',
+			// isTesting: true,
+			autoShow: true,
+			bannerAtTop: true
 		}
 
 		this.adMobFree.banner.config(bannerConfig);
 		this.adMobFree.banner.prepare()
-		.then( () =>{
-		console.log('AdMob готов')
-		})
+			.then(() => {
+				console.log('AdMob готов')
+			})
 
-		.catch(e => console.log(e));
+			.catch(e => console.log(e));
 		// AdMob Block #############
 	}
 
-	initializeItems() {		
-		
+	initializeItems() {
+
 		// Trains
 
 		this.trains = [
@@ -763,212 +763,187 @@ export class Page1 {
 					{
 						'title': 'Калининград Южный',
 						'bullet_type': 'def start',
-						// 't1':'09:35','r1':'6302','d1':'по будням',
+						// 'ok1':'showRow',
+						't1': '18:10', 'r1': '6307', 'd1': 'по будням',
 						// 't2':'09:35','r2':'6323','d2':'по будням',
-						// 't3':'09:35','r3':'6307','d3':'по будням',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow',
 					},
 					{
 						'title': 'Киевская',
 						'bullet_type': 'def',
-						'time': '09:41',
-						'time2': '09:41',
-						'time3': '18:06',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow',
+						't1': '18:14', 'r1': '6307', 'd1': 'по будням'
+
 					},
 					{
 						'title': 'Голубево',
 						'bullet_type': 'def',
-						'time': '09:50',
-						'time2': '09:50',
-						'time3': '18:14',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow',
+						't1': '18:23', 'r1': '6307', 'd1': 'по будням'
 					},
 					{
 						'title': '1298',
 						'bullet_type': 'def',
-						'time': '09:54',
-						'time2': '09:54',
-						'time3': '18:18',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow',
+						't1': '18:27', 'r1': '6307', 'd1': 'по будням'
 					},
 					{
 						'title': 'Светлое',
 						'bullet_type': 'def',
-						'time': '09:58',
-						'time2': '09:58',
-						'time3': '18:22',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow',
+						't1': '18:31', 'r1': '6307', 'd1': 'по будням'
 					},
 					{
 						'title': '1305',
 						'bullet_type': 'def',
-						'time': '10:02',
-						'time2': '10:02',
-						'time3': '18:26',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow',
+						't1': '18:35', 'r1': '6307', 'd1': 'по будням'
 					},
 					{
 						'title': '1307',
 						'bullet_type': 'def',
-						'time': '10:06',
-						'time2': '10:06',
-						'time3': '18:30',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow',
+						't1': '18:39', 'r1': '6307', 'd1': 'по будням'
 					},
 					{
 						'title': '1312',
 						'bullet_type': 'def',
-						'time': '10:13',
-						'time2': '10:11',
-						'time3': '18:35',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow',
+						't1': '18:44', 'r1': '6307', 'd1': 'по будням'
 					},
 					{
 						'title': 'Ладушкин',
 						'bullet_type': 'def start',
-						'time': '10:11',
-						'time2': '10:16',
-						'time3': '18:40',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow',
+						't1': '18:49', 'r1': '6307', 'd1': 'по будням'
 					},
 					{
 						'title': 'Сосновый Бор',
 						'bullet_type': 'var',
-						'time': '--:--',
-						'time2': '10:21',
-						'time3': '18:45',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow',
+						't1': '18:54', 'r1': '6307', 'd1': 'по будням'
 					},
 					{
 						'title': 'Приморское-новое',
 						'bullet_type': 'var',
-						'time': '--:--',
-						'time2': '10:26',
-						'time3': '18:50',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow',
+						't1': '18:59', 'r1': '6307', 'd1': 'по будням'
 					},
 					{
 						'title': 'Знаменка-новая',
 						'bullet_type': 'var',
-						'time': '--:--',
-						'time2': '10:32',
-						'time3': '18:56',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow',
+						't1': '19:05', 'r1': '6307', 'd1': 'по будням'
 					},
 					{
 						'title': '1333',
 						'bullet_type': 'var',
-						'time': '--:--',
-						'time2': '10:38',
-						'time3': '19:02',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow',
+						't1': '19:11', 'r1': '6307', 'd1': 'по будням'
 					},
 					{
 						'title': 'Мамоново',
 						'bullet_type': 'def start',
-						'time': '--:--',
-						'time2': '10:43',
-						'time3': '19:07',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow',
+						't1': '19:17', 'r1': '6307', 'd1': 'по будням'
 					}],
 				back: [{
 					'title': 'Мамоново',
 					'bullet_type': 'def start',
-					'time': '06:15',
-					'time2': '--:--',
-					'time3': '16:20',
-					'time4': '19:36',
+					'ok2': 'showRow', 'ok3': 'noRow', 'ok4': 'noRow',
+					't1': '06:15', 'r1': '6302', 'd1': 'по будням',
+					't2': '19:45', 'r2': '6310', 'd2': 'по будням'
 				},
 				{
 					'title': '1333',
 					'bullet_type': 'var',
-					'time': '06:19',
-					'time2': '--:--',
-					'time3': '16:24',
-					'time4': '19:40',
+					'ok2': 'showRow', 'ok3': 'noRow', 'ok4': 'noRow',
+					't1': '06:18', 'r1': '6302', 'd1': 'по будням',
+					't2': '19:48', 'r2': '6310', 'd2': 'по будням'
 				},
 				{
 					'title': 'Знаменка-новая',
 					'bullet_type': 'var',
-					'time': '06:25',
-					'time2': '--:--',
-					'time3': '16:30',
-					'time4': '19:46',
+					'ok2':'showRow','ok3':'noRow','ok4':'noRow',
+					't1':'06:24','r1':'6302','d1':'по будням',
+					't2':'19:54','r2':'6310','d2':'по будням'
 				},
 				{
 					'title': 'Приморское-новое',
 					'bullet_type': 'var',
-					'time': '06:31',
-					'time2': '--:--',
-					'time3': '16:36',
-					'time4': '19:52',
+					'ok2':'showRow','ok3':'noRow','ok4':'noRow',
+					't1':'06:30','r1':'6302','d1':'по будням',
+					't2':'20:00','r2':'6310','d2':'по будням'
 				},
 				{
 					'title': 'Сосновый Бор',
 					'bullet_type': 'var',
-					'time': '06:36',
-					'time2': '--:--',
-					'time3': '16:41',
-					'time4': '19:57',
+					'ok2':'showRow','ok3':'noRow','ok4':'noRow',
+					't1':'06:35','r1':'6302','d1':'по будням',
+					't2':'20:05','r2':'6310','d2':'по будням'
 				},
 				{
 					'title': 'Ладушкин',
 					'bullet_type': 'def start',
-					'time': '06:40',
-					'time2': '16:45',
-					'time3': '16:45',
-					'time4': '20:01',
+					'ok2':'showRow','ok3':'noRow','ok4':'noRow',
+					't1':'06:39','r1':'6302','d1':'по будням',
+					't2':'20:09','r2':'6310','d2':'по будням'
 				},
 				{
 					'title': '1312 км',
 					'bullet_type': 'def',
-					'time': '06:45',
-					'time2': '16:50',
-					'time3': '16:50',
-					'time4': '20:06',
+					'ok2':'showRow','ok3':'noRow','ok4':'noRow',
+					't1':'06:44','r1':'6302','d1':'по будням',
+					't2':'20:14','r2':'6310','d2':'по будням'
 				},
 				{
 					'title': '1307 км',
 					'bullet_type': 'def',
-					'time': '06:50',
-					'time2': '16:55',
-					'time3': '16:55',
-					'time4': '20:11',
+					'ok2':'showRow','ok3':'noRow','ok4':'noRow',
+					't1':'06:49','r1':'6302','d1':'по будням',
+					't2':'20:19','r2':'6310','d2':'по будням'
 				},
 				{
 					'title': '1305 км',
 					'bullet_type': 'def',
-					'time': '06:54',
-					'time2': '17:00',
-					'time3': '17:00',
-					'time4': '20:15',
+					'ok2':'showRow','ok3':'noRow','ok4':'noRow',
+					't1':'06:53','r1':'6302','d1':'по будням',
+					't2':'20:23','r2':'6310','d2':'по будням'
 				},
 				{
 					'title': 'Светлое',
 					'bullet_type': 'def',
-					'time': '06:58',
-					'time2': '17:03',
-					'time3': '17:03',
-					'time4': '20:19',
+					'ok2':'showRow','ok3':'noRow','ok4':'noRow',
+					't1':'06:57','r1':'6302','d1':'по будням',
+					't2':'20:27','r2':'6310','d2':'по будням'
 				},
 				{
 					'title': '1298 км',
 					'bullet_type': 'def',
-					'time': '07:03',
-					'time2': '17:09',
-					'time3': '17:09',
-					'time4': '20:24',
+					'ok2':'showRow','ok3':'noRow','ok4':'noRow',
+					't1':'07:02','r1':'6302','d1':'по будням',
+					't2':'20:32','r2':'6310','d2':'по будням'
 				},
 				{
 					'title': 'Голубево',
 					'bullet_type': 'def',
-					'time': '07:06',
-					'time2': '17:12',
-					'time3': '17:12',
-					'time4': '20:27',
+					'ok2':'showRow','ok3':'noRow','ok4':'noRow',
+					't1':'07:05','r1':'6302','d1':'по будням',
+					't2':'20:35','r2':'6310','d2':'по будням'
 				},
 				{
 					'title': 'Киевская',
 					'bullet_type': 'def',
-					'time': '07:16',
-					'time2': '17:22',
-					'time3': '17:22',
-					'time4': '20:37',
+					'ok2':'showRow','ok3':'noRow','ok4':'noRow',
+					't1':'07:14','r1':'6302','d1':'по будням',
+					't2':'20:44','r2':'6310','d2':'по будням'
 				},
 				{
 					'title': 'Калининград Южный',
 					'bullet_type': 'def start',
-					'time': '07:21',
-					'time2': '17:27',
-					'time3': '17:27',
-					'time4': '20:42',
+					'ok2':'showRow','ok3':'noRow','ok4':'noRow',
+					't1':'07:21','r1':'6302','d1':'по будням',
+					't2':'20:51','r2':'6310','d2':'по будням'
 				}]
 			},
 			{

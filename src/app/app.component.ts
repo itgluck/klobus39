@@ -74,23 +74,6 @@ export class MyApp {
   goPromo() {
     this.nav.push(DetailsPromo);
   }
-  // startADB() {
-  //         		// AdMob Block #############
-	// 	const bannerConfig: AdMobFreeBannerConfig = {
-	// 		id: 'ca-app-pub-7133305264165200/6243373138',
-	// 		// isTesting: true,
-	// 		autoShow: true,
-	// 		bannerAtTop: true
-	// 	}
-		
-	// 	this.adMobFree.banner.config(bannerConfig);
-	// 	this.adMobFree.banner.prepare()
-	// 	.then( () =>{
-	// 		console.log('AdMob готов')
-	// 	})
-		
-	// 	.catch(e => console.log(e));
-	// 	// AdMob Block #############
-  // }
+
 
 }

@@ -1,21 +1,29 @@
-// .trainlist button span,
-// .rout_num {
-//     // border: 1px solid $train;
-//     text-align: center;
-//     border-radius: 12px;
-//     padding: 4px;
-//     font-weight: 500;
-// }
+.trainlist .rout_num{
+    border: 1px solid $hidden;
+    border-bottom: 3px solid $secondary;
+    border-radius: 6px;
+    font-weight: 500;
+    background: $bg2;
+    text-align: center;
+    // min-width: 5.8rem;
+    padding:5px;
+    margin: 5px 10px !important;
+    ion-icon {
+        margin-right: 8px;
+    }
+}
+
+
 .trainlist ion-list {
     box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24);
     margin-bottom: 1em;
 }
 
-.rout {
-    width: 15%;
-    text-align: center;
-    display: inline-block;
-}
+// .rout {
+//     width: 15%;
+//     text-align: center;
+//     display: inline-block;
+// }
 
 .trainlist {
     color: $train;
@@ -24,6 +32,7 @@
         color: $text;
         margin-top: -3em;
         line-height: 1.3em;
+        min-height: 6.5em;
         // position: absolute;
         left: 2em;
         // width: 90%;
@@ -100,7 +109,8 @@
 }
 
 .trainlist .icon {
-    font-size: 1.8em;
+    font-size: 1.3em;
+    margin-right: 8px;
 }
 
 .trainlist ion-label:after {
@@ -294,7 +304,7 @@ $orange: #EB8B6E;
     }
     h3 {
         font-size: 1.1em;
-        font-weight: 300;
+        font-weight: 500;
         top: -34px;
         position: relative;
         padding-bottom: 5px;
@@ -307,6 +317,10 @@ $orange: #EB8B6E;
         font-weight: 400;
         color: $dark-grey;
     }
+}
+
+.showRow {
+    display: block;
 }
 
 // *****END

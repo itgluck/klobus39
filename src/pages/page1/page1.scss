@@ -107,11 +107,11 @@ promo-box {
     span {
         border: 1px solid $hidden;
         border-bottom: 3px solid $secondary;
-        border-radius: 4px;
+        border-radius: 6px;
         font-weight: 500;
         background: $bg2;
         text-align: center;
-        min-width: 5.8rem;
+        min-width: 6rem;
         padding: 0.5rem;
         margin: 5px 10px !important;
         ion-icon {
@@ -231,6 +231,7 @@ label::after {
     margin-top: .5em;
     text-align: center;
     font-size: 1.2rem;
+    max-width: 36em;
 }
 
 .stop {
@@ -530,7 +531,7 @@ input[type=checkbox]:checked+label::after {
     }
 }
 
-.unchecked {
+.unchecked, .noRow {
     display: none;
 }
 

@@ -59,9 +59,9 @@
             <!--*** TimeLine-->
             <ion-grid class="info">
                 <ion-row>
-                    <ion-col col-4>Отправление</ion-col>
-                    <ion-col col-3>Маршрут</ion-col>
-                    <ion-col col-3 push-1>День</ion-col>
+                    <ion-col col-3 push-1>Отправление</ion-col>
+                    <ion-col col-3 push-1>Маршрут</ion-col>
+                    <ion-col col-4 push-2>День недели</ion-col>
                 </ion-row>
             </ion-grid>
             <div class="timeline">
@@ -71,25 +71,25 @@
                         <h3>{{item.title}}</h3>
 
                         <ion-grid class="grid-train">
-                            <ion-row>
+                            <ion-row class={{item.ok1}}>
                                 <ion-col col-2>{{item.t1}}</ion-col>
-                                <ion-col col-2 offset-2 class="rout_num">{{item.r1}}</ion-col>
-                                <ion-col col-4 push-2 class="mini">{{item.d1}}</ion-col>
+                                <ion-col col-3 push-1 class="rout_num"><ion-icon start name='subway'></ion-icon>{{item.r1}}</ion-col>
+                                <ion-col col-5 push-2 class="mini">{{item.d1}}</ion-col>
                             </ion-row>
-                            <ion-row>
+                            <ion-row class={{item.ok2}}>
                                 <ion-col col-2>{{item.t2}}</ion-col>
-                                <ion-col col-2 offset-2 class="rout_num">{{item.r2}}</ion-col>
-                                <ion-col col-4 push-2 class="mini">{{item.d2}}</ion-col>
+                                <ion-col col-3 push-1 class="rout_num"><ion-icon start name='subway'></ion-icon>{{item.r2}}</ion-col>
+                                <ion-col col-5 push-2 class="mini">{{item.d2}}</ion-col>
                             </ion-row>
-                            <ion-row>
+                            <ion-row class={{item.ok3}}>
                                 <ion-col col-2>{{item.t3}}</ion-col>
-                                <ion-col col-2 offset-2 class="rout_num">{{item.r3}}</ion-col>
-                                <ion-col col-4 push-2 class="mini">{{item.d3}}</ion-col>
+                                <ion-col col-3 push-1 class="rout_num"><ion-icon start name='subway'></ion-icon>{{item.r3}}</ion-col>
+                                <ion-col col-5 push-2 class="mini">{{item.d3}}</ion-col>
                             </ion-row>
-                            <ion-row>
+                            <ion-row class={{item.ok4}}>
                                 <ion-col col-2>{{item.t4}}</ion-col>
-                                <ion-col col-2 offset-2 class="rout_num">{{item.r4}}</ion-col>
-                                <ion-col col-4 push-2 class="mini">{{item.d4}}</ion-col>
+                                <ion-col col-3 push-1 class="rout_num"><ion-icon start name='subway'></ion-icon>{{item.r4}}</ion-col>
+                                <ion-col col-5 push-2 class="mini">{{item.d4}}</ion-col>
                             </ion-row>
                         </ion-grid>
 
@@ -110,9 +110,9 @@
             </div>
             <ion-grid class="info">
                 <ion-row>
-                    <ion-col col-4>Отправление</ion-col>
-                    <ion-col col-3>Маршрут</ion-col>
-                    <ion-col col-3 push-1>День</ion-col>
+                    <ion-col col-3 push-1>Отправление</ion-col>
+                    <ion-col col-3 push-1>Маршрут</ion-col>
+                    <ion-col col-4 push-2>День недели</ion-col>
                 </ion-row>
             </ion-grid>
             <!--*** TimeLine BACK-->
@@ -123,25 +123,25 @@
                         <h3>{{back.title}}</h3>
 
                         <ion-grid class="grid-train">
-                            <ion-row>
+                            <ion-row class={{back.ok1}}>
                                 <ion-col col-2>{{back.t1}}</ion-col>
-                                <ion-col col-2 offset-2 class="rout_num">{{back.r1}}</ion-col>
-                                <ion-col col-4 push-2 class="mini">{{back.d1}}</ion-col>
+                                <ion-col col-3 push-1 class="rout_num"><ion-icon start name='subway'></ion-icon>{{back.r1}}</ion-col>
+                                <ion-col col-5 push-2 class="mini">{{back.d1}}</ion-col>
                             </ion-row>
-                            <ion-row>
+                            <ion-row class={{back.ok2}}>
                                 <ion-col col-2>{{back.t2}}</ion-col>
-                                <ion-col col-2 offset-2 class="rout_num">{{back.r2}}</ion-col>
-                                <ion-col col-4 push-2 class="mini">{{back.d2}}</ion-col>
+                                <ion-col col-3 push-1 class="rout_num"><ion-icon start name='subway'></ion-icon>{{back.r2}}</ion-col>
+                                <ion-col col-5 push-2 class="mini">{{back.d2}}</ion-col>
                             </ion-row>
-                            <ion-row>
+                            <ion-row class={{back.ok3}}>
                                 <ion-col col-2>{{back.t3}}</ion-col>
-                                <ion-col col-2 offset-2 class="rout_num">{{back.r3}}</ion-col>
-                                <ion-col col-4 push-2 class="mini">{{back.d3}}</ion-col>
+                                <ion-col col-3 push-1 class="rout_num"><ion-icon start name='subway'></ion-icon>{{back.r3}}</ion-col>
+                                <ion-col col-5 push-2 class="mini">{{back.d3}}</ion-col>
                             </ion-row>
-                            <ion-row>
+                            <ion-row class={{back.ok4}}>
                                 <ion-col col-2>{{back.t4}}</ion-col>
-                                <ion-col col-2 offset-2 class="rout_num">{{back.r4}}</ion-col>
-                                <ion-col col-4 push-2 class="mini">{{back.d4}}</ion-col>
+                                <ion-col col-3 push-1 class="rout_num"><ion-icon start name='subway'></ion-icon>{{back.r4}}</ion-col>
+                                <ion-col col-5 push-2 class="mini">{{back.d4}}</ion-col>
                             </ion-row>
                         </ion-grid>
                     </li>
