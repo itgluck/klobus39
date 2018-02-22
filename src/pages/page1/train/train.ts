@@ -12,7 +12,7 @@ export class TrainDetails {
     constructor(params: NavParams, public navCtrl: NavController, alertCtrl: AlertController) {
         this.item = params.data.item;
         this.tabs = ["Из Калининграда", "В Калининград"];
-        this.alertCtrl=alertCtrl;
+        this.alertCtrl = alertCtrl;
     }
     // ScrollTabs
     @ViewChild('SwipedTabsSlider') SwipedTabsSlider: Slides;
@@ -43,25 +43,26 @@ export class TrainDetails {
     }
 
     doMessage() {
-		let confirm = this.alertCtrl.create({
-		  title: 'Напишите нам',
-		  message: 'Если у Вас есть идеи - как улучшить приложение или Вы заметили неточность в данных',
-		  buttons: [
-			{
-			  text: 'Не сейчас',
-			  handler: () => {
-				console.log('Cancel clicked');
-			  }
-			},
-			{
-			  text: 'Написать',
-			  handler: () => {
-				console.log('Message clicked');			
-				window.open('mailto:it.gluck@ya.ru?subject=Отзыв мобильное приложение KLoBus39&body=Версия приложения v3.6.1 */Здравсвуйте, ');			  }
-			}
-		  ]
-		});
-	   confirm.present();
-	  }
+        let confirm = this.alertCtrl.create({
+            title: 'Напишите нам',
+            message: 'Если у Вас есть идеи - как улучшить приложение или Вы заметили неточность в данных',
+            buttons: [
+                {
+                    text: 'группа VK',
+                    handler: () => {
+                        console.log('Message VK');
+                        window.open('https://vk.com/klobus_39', '_system', 'location=yes'); return false;
+                    }
+                },
+                {
+                    text: 'Не сейчас',
+                    handler: () => {
+                        console.log('Cancel clicked');
+                    }
+                }
+            ]
+        });
+        confirm.present();
+    }
 
 }
