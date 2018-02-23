@@ -75,7 +75,7 @@ export class DetailsPage {
 @Component({
 	template: `
 <ion-header style="text-align:center;">
-    <ion-navbar color="primary">
+    <ion-navbar color="primary"  (click)="startADB()">
         <button ion-button menuToggle >
  			<ion-icon name="menu" color="hidden"></ion-icon>
  		</button>
@@ -101,7 +101,7 @@ export class DetailsPage {
 </ion-header>
 
 
-<ion-content class="citylist">
+<ion-content class="citylist" >
 
 
     <!--Accordion-->
@@ -118,7 +118,7 @@ export class DetailsPage {
 
 				<ion-list class="trainbtn">
 					<div *ngFor="let train of trains">
-						<button ion-item (click)="trainList(train)" class="citylist" (click)="startADB()">
+						<button ion-item (click)="trainList(train)" class="citylist">
 							
 							Калининград - {{train.title}}
 							<br><div class='en'>Kaliningrad - {{train.en}}
@@ -141,7 +141,7 @@ export class DetailsPage {
 					</a>
 						<ion-list>
 							<div *ngFor="let data of spisok">
-								<button ion-item (click)="openNavDetailsPage2(data)" class="citylist" (click)="startADB()">
+								<button ion-item (click)="openNavDetailsPage2(data)" class="citylist">
 					
 					{{data.title }}<br><div class='en'>{{data.en}}</div>
 					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{data.numb}}</span> 
@@ -160,7 +160,7 @@ export class DetailsPage {
 					</a>               
 						<ion-list>
 							<div *ngFor="let item of items">
-								<button ion-item (click)="openNavDetailsPage(item)" class="citylist" (click)="startADB()">
+								<button ion-item (click)="openNavDetailsPage(item)" class="citylist">
 					{{ item.title }}<br><div class='en'>{{item.en}}</div>
 					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{item.numb}}</span> 
 					</button>
@@ -181,7 +181,7 @@ export class DetailsPage {
 					</a>               
 						<ion-list>
 							<div *ngFor="let sov of sovetsk">
-								<button ion-item (click)="openNavDetailsSov(sov)" (click)="startADB()" class="citylist">
+								<button ion-item (click)="openNavDetailsSov(sov)" class="citylist">
 					{{sov.title }}<br><div class='en'>{{sov.en}}</div>
 					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{sov.numb}}</span> 
 					</button>
@@ -200,7 +200,7 @@ export class DetailsPage {
 					</a>               
 						<ion-list>
 							<div *ngFor="let cher of chernahovsk">
-								<button ion-item (click)="openNavDetailsCher(cher)" (click)="startADB()" class="citylist">
+								<button ion-item (click)="openNavDetailsCher(cher)" class="citylist">
 					{{cher.title }}<br><div class='en'>{{cher.en}}</div>
 					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{cher.numb}}</span> 
 					</button>
@@ -219,7 +219,7 @@ export class DetailsPage {
 					</a>               
 						<ion-list>
 							<div *ngFor="let ozer of ozersk">
-								<button ion-item (click)="openNavDetailsOzersk(ozer)" (click)="startADB()" class="citylist">
+								<button ion-item (click)="openNavDetailsOzersk(ozer)" class="citylist">
 					{{ozer.title }}<br><div class='en'>{{ozer.en}}</div>
 					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{ozer.numb}}</span> 
 					</button>
@@ -237,7 +237,7 @@ export class DetailsPage {
 					</a>               
 						<ion-list>
 							<div *ngFor="let gus of gusev">
-								<button ion-item (click)="openNavDetailsGus(gus)" (click)="startADB()" class="citylist">
+								<button ion-item (click)="openNavDetailsGus(gus)" class="citylist">
 					{{gus.title }}<br><div class='en'>{{gus.en}}</div>
 					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{gus.numb}}</span> 
 					</button>
@@ -256,7 +256,7 @@ export class DetailsPage {
 					</a>               
 						<ion-list>
 							<div *ngFor="let bolsh of bolshakovo">
-								<button ion-item (click)="openNavDetailsBolsh(bolsh)" (click)="startADB()" class="citylist">
+								<button ion-item (click)="openNavDetailsBolsh(bolsh)" class="citylist">
 					{{bolsh.title }}<br><div class='en'>{{bolsh.en}}</div>
 					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{bolsh.numb}}</span> 
 					</button>
@@ -274,7 +274,7 @@ export class DetailsPage {
 					</a>               
 						<ion-list>
 							<div *ngFor="let gvard of gvardeysk">
-								<button ion-item (click)="openNavDetailsGvard(gvard)" (click)="startADB()" class="citylist">
+								<button ion-item (click)="openNavDetailsGvard(gvard)" class="citylist">
 					{{gvard.title }}<br><div class='en'>{{gvard.en}}</div>
 					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{gvard.numb}}</span> 
 					</button>
@@ -292,7 +292,7 @@ export class DetailsPage {
 					</a>               
 						<ion-list>
 							<div *ngFor="let jzd of jzdorojniy">
-								<button ion-item (click)="openNavDetailsJzd(jzd)" (click)="startADB()" class="citylist">
+								<button ion-item (click)="openNavDetailsJzd(jzd)" class="citylist">
 					{{jzd.title }}<br><div class='en'>{{jzd.en}}</div>
 					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{jzd.numb}}</span> 
 					</button>
@@ -311,7 +311,7 @@ export class DetailsPage {
 					</a>               
 						<ion-list>
 							<div *ngFor="let krz of krznamensk">
-								<button ion-item (click)="openNavDetailsKrz(krz)" (click)="startADB()" class="citylist">
+								<button ion-item (click)="openNavDetailsKrz(krz)" class="citylist">
 					{{krz.title }}<br><div class='en'>{{krz.en}}</div>
 					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{krz.numb}}</span> 
 					</button>
@@ -330,7 +330,7 @@ export class DetailsPage {
 					</a>               
 						<ion-list>
 							<div *ngFor="let nem of neman">
-								<button ion-item (click)="openNavDetailsNeman(nem)" (click)="startADB()" class="citylist">
+								<button ion-item (click)="openNavDetailsNeman(nem)" class="citylist">
 					{{nem.title }}<br><div class='en'>{{nem.en}}</div>
 					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{nem.numb}}</span> 
 					</button>
@@ -349,7 +349,7 @@ export class DetailsPage {
 					</a>               
 						<ion-list>
 							<div *ngFor="let prav of pravdinsk">
-								<button ion-item (click)="openNavDetailsPravdinsk(prav)" (click)="startADB()" class="citylist">
+								<button ion-item (click)="openNavDetailsPravdinsk(prav)" class="citylist">
 					{{prav.title }}<br><div class='en'>{{prav.en}}</div>
 					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{prav.numb}}</span> 
 					</button>
@@ -366,7 +366,7 @@ export class DetailsPage {
 				<div class="tab-content" [ngClass]="{invisible: !visibility}">             
 					<ion-list>
 						<div *ngFor="let boat of parom">
-							<button ion-item (click)="openNavDetailsParom(boat)" class="citylist" (click)="startADB()">
+							<button ion-item (click)="openNavDetailsParom(boat)" class="citylist">
 								{{boat.title}}<br><div class='en'>{{boat.en}}</div>
 								<span item-right class='numb'><ion-icon start name="boat"></ion-icon></span> 
 							</button>
