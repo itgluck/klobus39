@@ -1998,6 +1998,181 @@ export class Page1 {
 				}]
 			},
 			{
+				'title': 'Пионерский Курорт',
+				'en': 'Pionerskiy Kurort',
+				city: 'Калининград',
+				time: '1:23', dist: '43', cost: '68',
+				station: [{
+					'title': 'Калининград Южный',
+					'bullet_type': 'def start',
+					't1': '10:50',
+					'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					'r1': '6903', 'd1': 'ежедневно',
+				},
+				{'title': 'Калининград-Северный',
+				'bullet_type': 'def',
+				't1': '10:58',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				'r1': '6903', 'd1': 'ежедневно',
+				},
+				{'title': 'Кутузово-Новое',
+				'bullet_type': 'def',
+				't1': '11:04',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				'r1': '6903', 'd1': 'ежедневно',
+				},
+				{'title': 'о.п. 7 км',
+				'bullet_type': 'def',
+				't1': '11:11',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				'r1': '6903', 'd1': 'ежедневно',
+				},
+				{'title': 'Рябиновка',
+				'bullet_type': 'def',
+				't1': '11:15',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				'r1': '6903', 'd1': 'ежедневно',
+				},
+				{'title': 'Каштановка',
+				'bullet_type': 'def',
+				't1': '11:20',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				'r1': '6903', 'd1': 'ежедневно',
+				},
+				{'title': 'Муромское',
+				'bullet_type': 'def',
+				't1': '11:24',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				'r1': '6903', 'd1': 'ежедневно',
+				},
+				{'title': 'Сосновка',
+				'bullet_type': 'def',
+				't1': '11:29',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				'r1': '6903', 'd1': 'ежедневно',
+				},
+				{'title': 'Зеленоградск-новый',
+				'bullet_type': 'def',
+				't1': '11:49',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				'r1': '6903', 'd1': 'ежедневно',
+				},
+				{'title': 'Малиновка',
+				'bullet_type': 'def',
+				't1': '11:53',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				'r1': '6903', 'd1': 'ежедневно',
+				},
+				{'title': 'Сокольники-1',
+				'bullet_type': 'def',
+				't1': '11:56',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				'r1': '6903', 'd1': 'ежедневно',
+				},
+				{'title': 'Сокольники-2',
+				'bullet_type': 'def',
+				't1': '11:59',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				'r1': '6903', 'd1': 'ежедневно',
+				},
+				{'title': 'Рощино',
+				'bullet_type': 'def',
+				't1': '12:03',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				'r1': '6903', 'd1': 'ежедневно',
+				},
+				{'title': 'Куликово',
+				'bullet_type': 'def',
+				't1': '12:06',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				'r1': '6903', 'd1': 'ежедневно',
+				},
+				{'title': 'Пионерский Курорт',
+				'bullet_type': 'def start',
+				't1': '12:13',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				'r1': '6903', 'd1': 'ежедневно',
+				},
+			],
+			back:[
+				{'title': 'Пионерский Курорт',
+				'bullet_type': 'def start',
+				't1': '06:05','r1': '6900', 'd1': 'по будням',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				},
+				{'title': 'Куликово',
+				'bullet_type': 'def',
+				't1': '06:13','r1': '6900', 'd1': 'по будням',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				},
+				{'title': 'Рощино',
+				'bullet_type': 'def ',
+				't1': '06:16','r1': '6900', 'd1': 'по будням',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				},
+				{'title': 'Сокольники-2',
+				'bullet_type': 'def ',
+				't1': '06:20','r1': '6900', 'd1': 'по будням',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				},
+				{'title': 'Сокольники-1',
+				'bullet_type': 'def ',
+				't1': '06:23','r1': '6900', 'd1': 'по будням',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				},
+				{'title': 'Малиновка',
+				'bullet_type': 'def ',
+				't1': '06:26','r1': '6900', 'd1': 'по будням',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				},
+				{'title': 'Зеленоградск-новый',
+				'bullet_type': 'def ',
+				't1': '06:45','r1': '6900', 'd1': 'по будням',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				},
+				{'title': 'Сосновка',
+				'bullet_type': 'def ',
+				't1': '06:51','r1': '6900', 'd1': 'по будням',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				},
+				{'title': 'Муромское',
+				'bullet_type': 'def ',
+				't1': '06:55','r1': '6900', 'd1': 'по будням',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				},
+				{'title': 'Каштановка',
+				'bullet_type': 'def ',
+				't1': '06:59','r1': '6900', 'd1': 'по будням',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				},
+				{'title': 'Рябиновка',
+				'bullet_type': 'def ',
+				't1': '07:04','r1': '6900', 'd1': 'по будням',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				},
+				{'title': 'о.п. 7 км',
+				'bullet_type': 'def ',
+				't1': '07:08','r1': '6900', 'd1': 'по будням',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				},
+				{'title': 'Кутузово-Новое',
+				'bullet_type': 'def ',
+				't1': '07:15','r1': '6900', 'd1': 'по будням',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				},
+				{'title': 'Калининград-Северный',
+				'bullet_type': 'def',
+				't1': '07:22','r1': '6900', 'd1': 'по будням',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				},
+				{'title': 'Калининград-Южный',
+				'bullet_type': 'def start',
+				't1': '07:28','r1': '6900', 'd1': 'по будням',
+				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+				}
+			]
+		},
+			{
 				'title': 'Советск',
 				'en': 'Sovetsk',
 				info: 'Через Полесск, Славск',
@@ -2006,121 +2181,121 @@ export class Page1 {
 				station: [{
 					'title': 'Калининград Южный',
 					'bullet_type': 'def start',
-					't1': '18:20', 'r1': '6385/6', 'd1': 'кроме Сб',
+					't1': '18:20', 'r1': '6385', 'd1': 'кроме Сб',
 					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
 					'title': 'Калининград Северный',
 					'bullet_type': 'def',
-					't1': '18:29', 'r1': '6385/6', 'd1': 'кроме Сб',
+					't1': '18:29', 'r1': '6385', 'd1': 'кроме Сб',
 					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
 					'title': 'Кутузово-Новое',
 					'bullet_type': 'def',
-					't1': '18:35', 'r1': '6385/6', 'd1': 'кроме Сб',
+					't1': '18:35', 'r1': '6385', 'd1': 'кроме Сб',
 					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
 					'title': 'Гурьевск-центральный ',
 					'bullet_type': 'def',
-					't1': '18:42', 'r1': '6385/6', 'd1': 'кроме Сб',
+					't1': '18:42', 'r1': '6385', 'd1': 'кроме Сб',
 					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
 					'title': 'Гурьевск-новый',
 					'bullet_type': 'def',
-					't1': '18:47', 'r1': '6385/6', 'd1': 'кроме Сб',
+					't1': '18:47', 'r1': '6385', 'd1': 'кроме Сб',
 					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
 					'title': 'Баевка-1 ',
 					'bullet_type': 'disable',
-					'r1': '6385/6', 'd1': 'кроме Сб',
+					'r1': '6385', 'd1': 'кроме Сб',
 					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
 					'title': 'Баевка-2 ',
 					'bullet_type': 'def',
-					't1': '18:58', 'r1': '6385/6', 'd1': 'кроме Сб',
+					't1': '18:58', 'r1': '6385', 'd1': 'кроме Сб',
 					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
 					'title': 'Добрино ',
 					'bullet_type': 'def',
-					't1': '19:03', 'r1': '6385/6', 'd1': 'кроме Сб',
+					't1': '19:03', 'r1': '6385', 'd1': 'кроме Сб',
 					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
 					'title': 'Славянское',
 					'bullet_type': 'def',
-					't1': '19:11', 'r1': '6385/6', 'd1': 'кроме Сб',
+					't1': '19:11', 'r1': '6385', 'd1': 'кроме Сб',
 					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
 					'title': 'Полесск',
 					'bullet_type': 'def',
-					't1': '19:20', 'r1': '6385/6', 'd1': 'кроме Сб',
+					't1': '19:20', 'r1': '6385', 'd1': 'кроме Сб',
 					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
 					'title': 'Шолохово',
 					'bullet_type': 'def',
-					't1': '19:29', 'r1': '6385/6', 'd1': 'кроме Сб',
+					't1': '19:29', 'r1': '6385', 'd1': 'кроме Сб',
 					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
 					'title': 'Петино',
 					'bullet_type': 'def',
-					't1': '19:34', 'r1': '6385/6', 'd1': 'кроме Сб',
+					't1': '19:34', 'r1': '6385', 'd1': 'кроме Сб',
 					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
 					'title': 'Богатово',
 					'bullet_type': 'def',
-					't1': '19:40', 'r1': '6385/6', 'd1': 'кроме Сб',
+					't1': '19:40', 'r1': '6385', 'd1': 'кроме Сб',
 					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
 					'title': 'Залесье',
 					'bullet_type': 'def',
-					't1': '19:49', 'r1': '6385/6', 'd1': 'кроме Сб',
+					't1': '19:49', 'r1': '6385', 'd1': 'кроме Сб',
 					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
 					'title': 'Большаково',
 					'bullet_type': 'def',
-					't1': '19:57', 'r1': '6385/6', 'd1': 'кроме Сб',
+					't1': '19:57', 'r1': '6385', 'd1': 'кроме Сб',
 					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
 					'title': 'Славск',
 					'bullet_type': 'def',
-					't1': '20:11', 'r1': '6385/6', 'd1': 'кроме Сб',
+					't1': '20:11', 'r1': '6385', 'd1': 'кроме Сб',
 					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
 					'title': 'Щегловка',
 					'bullet_type': 'def',
-					't1': '20:15', 'r1': '6385/6', 'd1': 'кроме Сб',
+					't1': '20:15', 'r1': '6385', 'd1': 'кроме Сб',
 					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
 					'title': 'Ржевское',
 					'bullet_type': 'def',
-					't1': '20:21', 'r1': '6385/6', 'd1': 'кроме Сб',
+					't1': '20:21', 'r1': '6385', 'd1': 'кроме Сб',
 					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
 					'title': '119 км',
 					'bullet_type': 'disable',
-					'r1': '6385/6', 'd1': 'кроме Сб',
+					'r1': '6385', 'd1': 'кроме Сб',
 					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
 					'title': 'Советск',
 					'bullet_type': 'def start',
-					't1': '20:33', 'r1': '6385/6', 'd1': 'кроме Сб',
+					't1': '20:33', 'r1': '6385', 'd1': 'кроме Сб',
 					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				}],
 				back: [{
@@ -2128,8 +2303,8 @@ export class Page1 {
 					'bullet_type': 'def start',
 					't1': '06:29',
 					't2': '18:01',
-					'r1': '6381/2', 'd1': 'кроме Вс',
-					'r2': '6387/8', 'd2': 'только Вс',
+					'r1': '6381', 'd1': 'кроме Вс',
+					'r2': '6387', 'd2': 'только Вс',
 					'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
@@ -2137,8 +2312,8 @@ export class Page1 {
 					'bullet_type': 'disable',
 
 
-					'r1': '6381/2', 'd1': 'кроме Вс',
-					'r2': '6387/8', 'd2': 'только Вс',
+					'r1': '6381', 'd1': 'кроме Вс',
+					'r2': '6387', 'd2': 'только Вс',
 					'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
@@ -2146,8 +2321,8 @@ export class Page1 {
 					'bullet_type': 'def',
 					't1': '06:44',
 					't2': '18:16',
-					'r1': '6381/2', 'd1': 'кроме Вс',
-					'r2': '6387/8', 'd2': 'только Вс',
+					'r1': '6381', 'd1': 'кроме Вс',
+					'r2': '6387', 'd2': 'только Вс',
 					'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
@@ -2155,8 +2330,8 @@ export class Page1 {
 					'bullet_type': 'def',
 					't1': '06:50',
 					't2': '18:22',
-					'r1': '6381/2', 'd1': 'кроме Вс',
-					'r2': '6387/8', 'd2': 'только Вс',
+					'r1': '6381', 'd1': 'кроме Вс',
+					'r2': '6387', 'd2': 'только Вс',
 					'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
@@ -2164,8 +2339,8 @@ export class Page1 {
 					'bullet_type': 'def',
 					't1': '06:55',
 					't2': '18:27',
-					'r1': '6381/2', 'd1': 'кроме Вс',
-					'r2': '6387/8', 'd2': 'только Вс',
+					'r1': '6381', 'd1': 'кроме Вс',
+					'r2': '6387', 'd2': 'только Вс',
 					'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
@@ -2173,8 +2348,8 @@ export class Page1 {
 					'bullet_type': 'def',
 					't1': '07:09',
 					't2': '18:41',
-					'r1': '6381/2', 'd1': 'кроме Вс',
-					'r2': '6387/8', 'd2': 'только Вс',
+					'r1': '6381', 'd1': 'кроме Вс',
+					'r2': '6387', 'd2': 'только Вс',
 					'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
@@ -2182,8 +2357,8 @@ export class Page1 {
 					'bullet_type': 'def',
 					't1': '07:17',
 					't2': '18:51',
-					'r1': '6381/2', 'd1': 'кроме Вс',
-					'r2': '6387/8', 'd2': 'только Вс',
+					'r1': '6381', 'd1': 'кроме Вс',
+					'r2': '6387', 'd2': 'только Вс',
 					'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
@@ -2191,8 +2366,8 @@ export class Page1 {
 					'bullet_type': 'def',
 					't1': '07:26',
 					't2': '19:00',
-					'r1': '6381/2', 'd1': 'кроме Вс',
-					'r2': '6387/8', 'd2': 'только Вс',
+					'r1': '6381', 'd1': 'кроме Вс',
+					'r2': '6387', 'd2': 'только Вс',
 					'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
@@ -2200,8 +2375,8 @@ export class Page1 {
 					'bullet_type': 'def',
 					't1': '07:31',
 					't2': '19:05',
-					'r1': '6381/2', 'd1': 'кроме Вс',
-					'r2': '6387/8', 'd2': 'только Вс',
+					'r1': '6381', 'd1': 'кроме Вс',
+					'r2': '6387', 'd2': 'только Вс',
 					'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
@@ -2209,8 +2384,8 @@ export class Page1 {
 					'bullet_type': 'def',
 					't1': '07:36',
 					't2': '19:10',
-					'r1': '6381/2', 'd1': 'кроме Вс',
-					'r2': '6387/8', 'd2': 'только Вс',
+					'r1': '6381', 'd1': 'кроме Вс',
+					'r2': '6387', 'd2': 'только Вс',
 					'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
@@ -2218,8 +2393,8 @@ export class Page1 {
 					'bullet_type': 'def',
 					't1': '07:45',
 					't2': '19:21',
-					'r1': '6381/2', 'd1': 'кроме Вс',
-					'r2': '6387/8', 'd2': 'только Вс',
+					'r1': '6381', 'd1': 'кроме Вс',
+					'r2': '6387', 'd2': 'только Вс',
 					'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
@@ -2227,8 +2402,8 @@ export class Page1 {
 					'bullet_type': 'def',
 					't1': '07:53',
 					't2': '19:31',
-					'r1': '6381/2', 'd1': 'кроме Вс',
-					'r2': '6387/8', 'd2': 'только Вс',
+					'r1': '6381', 'd1': 'кроме Вс',
+					'r2': '6387', 'd2': 'только Вс',
 					'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
@@ -2236,8 +2411,8 @@ export class Page1 {
 					'bullet_type': 'def',
 					't1': '08:01',
 					't2': '19:40',
-					'r1': '6381/2', 'd1': 'кроме Вс',
-					'r2': '6387/8', 'd2': 'только Вс',
+					'r1': '6381', 'd1': 'кроме Вс',
+					'r2': '6387', 'd2': 'только Вс',
 					'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
@@ -2245,16 +2420,16 @@ export class Page1 {
 					'bullet_type': 'def',
 					't1': '08:06',
 					't2': '19:45',
-					'r1': '6381/2', 'd1': 'кроме Вс',
-					'r2': '6387/8', 'd2': 'только Вс',
+					'r1': '6381', 'd1': 'кроме Вс',
+					'r2': '6387', 'd2': 'только Вс',
 					'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
 					'title': 'Баевка-1',
 					'bullet_type': 'disable',
 
-					'r1': '6381/2', 'd1': 'кроме Вс',
-					'r2': '6387/8', 'd2': 'только Вс',
+					'r1': '6381', 'd1': 'кроме Вс',
+					'r2': '6387', 'd2': 'только Вс',
 					'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
@@ -2262,8 +2437,8 @@ export class Page1 {
 					'bullet_type': 'def',
 					't1': '08:18',
 					't2': '19:57',
-					'r1': '6381/2', 'd1': 'кроме Вс',
-					'r2': '6387/8', 'd2': 'только Вс',
+					'r1': '6381', 'd1': 'кроме Вс',
+					'r2': '6387', 'd2': 'только Вс',
 					'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
@@ -2271,8 +2446,8 @@ export class Page1 {
 					'bullet_type': 'var',
 					't1': '08:24',
 					't2': '20:02',
-					'r1': '6381/2', 'd1': 'кроме Вс',
-					'r2': '6387/8', 'd2': 'только Вс',
+					'r1': '6381', 'd1': 'кроме Вс',
+					'r2': '6387', 'd2': 'только Вс',
 					'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
@@ -2280,8 +2455,8 @@ export class Page1 {
 					'bullet_type': 'def',
 					't1': '08:31',
 					't2': '20:12',
-					'r1': '6381/2', 'd1': 'кроме Вс',
-					'r2': '6387/8', 'd2': 'только Вс',
+					'r1': '6381', 'd1': 'кроме Вс',
+					'r2': '6387', 'd2': 'только Вс',
 					'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
@@ -2289,8 +2464,8 @@ export class Page1 {
 					'bullet_type': 'def',
 					't1': '08:39',
 					't2': '20:19',
-					'r1': '6381/2', 'd1': 'кроме Вс',
-					'r2': '6387/8', 'd2': 'только Вс',
+					'r1': '6381', 'd1': 'кроме Вс',
+					'r2': '6387', 'd2': 'только Вс',
 					'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				},
 				{
@@ -2298,8 +2473,8 @@ export class Page1 {
 					'bullet_type': 'def start',
 					't1': '08:46',
 					't2': '20:25',
-					'r1': '6381/2', 'd1': 'кроме Вс',
-					'r2': '6387/8', 'd2': 'только Вс',
+					'r1': '6381', 'd1': 'кроме Вс',
+					'r2': '6387', 'd2': 'только Вс',
 					'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 				}]
 			},
@@ -2314,7 +2489,7 @@ export class Page1 {
 				'title': 'Багратионовск',
 				'en': 'Bagrationovsk',
 				'description': 'Чехово, Тишино, Березовка',
-				time: '1:05', dist: '39', cost: '84',
+				time: '1:05', dist: '49', cost: '84',
 				'workday': "07:20 12:15 15:30",
 				'workday2': "08:25 13:20 16:45",
 				'workday3': "09:15 13:50 17:30",
@@ -2778,7 +2953,7 @@ export class Page1 {
 					{title:'Безымянка',tax:'69'},
 					{title:'Сосновка',tax:'75'},
 					{title:'Зеленоградск',tax:'84'}
-				],
+				]
 			},
 			{
 				'title': 'Зеленоградск',
