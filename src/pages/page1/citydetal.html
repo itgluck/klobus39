@@ -1,23 +1,28 @@
+<script src="js/index.js"></script>
+
 <ion-header>
-    <ion-navbar no-border-bottom color="primary"  (click)="startADB()">
+    <ion-navbar no-border-bottom color="primary" (click)="startADB()">
         <ion-title>{{ item.title }}</ion-title>
         <ion-buttons end>
             <button ion-button (click)="doMessage()">
-            <ion-icon name="attach" item-left></ion-icon>
+                <ion-icon name="attach" item-left></ion-icon>
             </button>
         </ion-buttons>
     </ion-navbar>
 
 </ion-header>
 
-<ion-content class="citylist bg">
+<ion-content class="citylist">
 
     <!--Segment Main-->
     <!-- <img class="bus" src="https://js.cx/clipart/train.gif" onclick="this.style.left='450px'"> -->
     <div class="row" style="text-aligin: center;padding-top:1em;">
         <table class='table'>
             <tr>
-                <td rowspan="3" class='titlenumb'><span><ion-icon start name="{{item.icon}}"></ion-icon>{{item.numb}}</span></td>
+                <td rowspan="3" class='titlenumb'>
+                    <span>
+                        <ion-icon start name="{{item.icon}}"></ion-icon>{{item.numb}}</span>
+                </td>
                 <td>
                     <ion-icon name="time"></ion-icon>
                 </td>
@@ -47,9 +52,32 @@
             </tr>
         </table>
     </div>
+
+
+    <!-- <Список станций> -->
+        <input class="toggle-box" id="st1" type="checkbox" checked>
+        <label for="st1">Все станции</label>
+        <!--Расписание Будни прямое-->
+        <div>
+            <ion-grid >
+                <ion-row  *ngFor="let station of item.station">
+                    <ion-col push-2 col-6>
+                        {{station.title}}
+                    </ion-col>
+                    <ion-col push-2 col-2>
+                            {{station.tax}} руб
+                        <!-- <h4>{{station.cost}}</h4> -->
+                    </ion-col>
+                </ion-row>
+        
+            </ion-grid>
+        </div>
+    <!-- </Список станций> -->
+
     <ion-toolbar no-border-bottom color="primary">
         <ion-segment class="SwipedTabs-tabs">
-            <ion-segment-button *ngFor='let tab of tabs ; let i = index ' style="width:100%;" value="IngoreMe" (click)="selectTab(i)" [ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }'>
+            <ion-segment-button *ngFor='let tab of tabs ; let i = index ' style="width:100%;" value="IngoreMe" (click)="selectTab(i)"
+                [ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }'>
 
                 <!-- [ngStyle]="{'width.px': (this.tabElementWidth_px)}"> -->
                 {{tab}}
@@ -61,9 +89,11 @@
 
 
     <!-- New Seg -->
-    <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideWillChange)="updateIndicatorPosition()" (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="true" style="height:unset;">
+    <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideWillChange)="updateIndicatorPosition()"
+        (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="true" style="height:unset;">
         <ion-slide>
             <!--WorkDay-->
+
             <ion-list>
                 <input class="toggle-box" id="header1" type="checkbox" checked>
                 <label for="header1">{{item.city}} - {{item.title}}</label>

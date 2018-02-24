@@ -44,8 +44,8 @@ export class MyApp {
     ];
 
 
-    // Check VersionApp  этот блок будет показан в версии 3.6.4
-    this.infoblocks = this.http.get('https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/menu/update_v3.6.4.json').map(res => res.json());
+    // Check VersionApp  этот блок будет показан в версии 3.6.5
+    this.infoblocks = this.http.get('https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/menu/update_v3.6.5.json').map(res => res.json());
 
     // Local
     // this.infoblocks = this.http.get('../assets/menu/update.json').map(res => res.json());
