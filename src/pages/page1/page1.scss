@@ -111,7 +111,7 @@ promo-box {
         font-weight: 500;
         background: $bg2;
         text-align: center;
-        min-width: 6rem;
+        min-width: 6.3rem;
         padding: 0.5rem;
         margin: 5px 10px !important;
         ion-icon {
@@ -344,16 +344,7 @@ input:checked+section.box .box-title:before {
         //   background-size: 100%;
         min-height: 18em;
     }
-    // p {
-    //     font-size: .8em;
-    //     letter-spacing: .1em;
-    //     color: $bg;
-    //     padding: 8px;
-    //     background: $hidden2;
-    //     margin-bottom: 0em;
-    // }
 }
-
 .sever {
     background: url(../assets/img/map_s.png);
     background-size: cover;
@@ -551,15 +542,14 @@ input[type=checkbox]:checked+label::after {
     box-shadow: $hidden -1px 3px 3px;
     color: $primary;
     ion-icon {
-        color: $secondary;
         display: inherit;
-        display: none;
     }
 }
 
 .tab input[type=checkbox]+label ion-icon {
     position: absolute;
     right: 1.4em;
+    display: none;
 }
 
 input[type=radio]:checked+label::after {

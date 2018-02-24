@@ -45,6 +45,7 @@ export class MyApp {
 
 
     // Check VersionApp  этот блок будет показан в версии 3.6.5
+    // Создать на сайте фаил 3.6.4 
     this.infoblocks = this.http.get('https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/menu/update_v3.6.5.json').map(res => res.json());
 
     // Local

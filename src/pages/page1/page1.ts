@@ -137,37 +137,43 @@ export class DetailsPage {
 		<!-- АвтоВокзалы --> 
 				<div class="tab">
 					<input id="tab-2" type="checkbox" name="tabs">
-					<label for="tab-2">Северный автовокзал  <ion-icon item-end name="bus"></ion-icon></label>
-					<div class="tab-content"  [ngClass]="{invisible: !visibility}">
-					<a [ngClass]="{noimg: !visibility}" href="geo:54.7214,20.50011?z=15&q=Северный вокзал">
-					<div class='img-box-bg sever'></div>
-					<p>Калининград, пр-т. Советский, 4</p>
+					<label for="tab-2">Северный автовокзал  
+					<a href="geo:54.7214,20.50011?z=15&q=Северный вокзал">
+					<ion-icon item-end name="pin"></ion-icon>
 					</a>
+					</label>
+					<div class="tab-content"  [ngClass]="{invisible: !visibility}">
+					
 						<ion-list>
 							<div *ngFor="let data of spisok">
 								<button ion-item (click)="openNavDetailsPage2(data)" class="citylist">
-					
-					{{data.title }}<br><div class='en'>{{data.en}}</div>
-					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{data.numb}}</span> 
-					</button>
+									{{data.title }}
+									<br><div class='en'>{{data.en}}</div>
+									<span item-right class='numb'>
+									<ion-icon start name="bus"></ion-icon>
+									{{data.numb}}
+									</span> 
+								</button>
 							</div>
 						</ion-list>
 					</div>
 				</div>
+
 				<div class="tab">
 					<input id="tab-3" type="checkbox" name="tabs">
-					<label for="tab-3">Южный автовокзал <ion-icon name="bus"  item-end></ion-icon></label>
+					<label for="tab-3">Южный автовокзал 
+					<a href="geo:54.6935,20.50188?z=15&q=Южный вокзал">
+					<ion-icon name="pin" item-end></ion-icon>
+					</a>    
+					</label>
 					<div class="tab-content" [ngClass]="{invisible: !visibility}">
-					<a [ngClass]="{noimg: !visibility}" href="geo:54.6935,20.50188?z=15&q=Южный вокзал">
-					<div class='img-box-bg ug'></div>
-					<p>Калининград, ул. Железнодорожная, 7</p>
-					</a>               
+					
 						<ion-list>
 							<div *ngFor="let item of items">
 								<button ion-item (click)="openNavDetailsPage(item)" class="citylist">
-					{{ item.title }}<br><div class='en'>{{item.en}}</div>
-					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{item.numb}}</span> 
-					</button>
+								{{ item.title }}<br><div class='en'>{{item.en}}</div>
+								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{item.numb}}</span> 
+								</button>
 							</div> 
 						</ion-list>
 					</div>
@@ -175,210 +181,213 @@ export class DetailsPage {
 
 	<h5>Автостанции Калининградской области</h5>
 
-			<div class="tab">
-			<input id="tab-4" type="checkbox" name="tabs">
-			<label for="tab-4">Советск <ion-icon name="bus"  item-end></ion-icon></label>
-			<div class="tab-content" [ngClass]="{invisible: !visibility}">
-			<a [ngClass]="{noimg: !visibility}" href="geo:55.081515,21.87958?z=9&q=АВ Советск">
-					<div class='img-box-bg sov'></div>
-					<p>Советск, ул. Первомайская, 8а</p>
+				<div class="tab">
+					<input id="tab-4" type="checkbox" name="tabs">
+					<label for="tab-4">Советск 
+					<a href="geo:55.081515,21.87958?z=9&q=АВ Советск">
+					<ion-icon name="pin" item-end></ion-icon>					
 					</a>               
+					</label>
+					<div class="tab-content" [ngClass]="{invisible: !visibility}">
 						<ion-list>
 							<div *ngFor="let sov of sovetsk">
 								<button ion-item (click)="openNavDetailsSov(sov)" class="citylist">
-					{{sov.title }}<br><div class='en'>{{sov.en}}</div>
-					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{sov.numb}}</span> 
-					</button>
+								{{sov.title }}<br><div class='en'>{{sov.en}}</div>
+								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{sov.numb}}</span> 
+								</button>
 							</div>
 						</ion-list>
-			</div>
-			</div>
+					</div>
+				</div>
 			
-			<div class="tab">
-			<input id="tab-6" type="checkbox" name="tabs">
-			<label for="tab-6">Черняховск <ion-icon name="bus" item-end></ion-icon></label>
-			<div class="tab-content" [ngClass]="{invisible: !visibility}">
-			<a [ngClass]="{noimg: !visibility}" href="geo:54.6311,21.8202?z=9&q=Черняховск автовокзал">
-					<div class='img-box-bg cher'></div>
-					<p>Черняховск, ул. Пушкина 1</p>
-					</a>               
+				<div class="tab">
+					<input id="tab-6" type="checkbox" name="tabs">
+					<label for="tab-6">Черняховск
+					<a href="geo:54.6311,21.8202?z=9&q=Черняховск автовокзал">
+					<ion-icon name="pin" item-end></ion-icon>
+					</a>
+					</label>
+					<div class="tab-content" [ngClass]="{invisible: !visibility}">
 						<ion-list>
 							<div *ngFor="let cher of chernahovsk">
 								<button ion-item (click)="openNavDetailsCher(cher)" class="citylist">
-					{{cher.title }}<br><div class='en'>{{cher.en}}</div>
-					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{cher.numb}}</span> 
-					</button>
+								{{cher.title }}<br><div class='en'>{{cher.en}}</div>
+								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{cher.numb}}</span> 
+								</button>
 							</div>
 						</ion-list>
-			</div>
-			</div>
-				
-			<div class="tab">
-			<input id="tab-12" type="checkbox" name="tabs">
-			<label for="tab-12">Озерск <ion-icon name="bus"  item-end></ion-icon></label>
-			<div class="tab-content" [ngClass]="{invisible: !visibility}">
-			<a [ngClass]="{noimg: !visibility}" href="geo:54.943894,22.492978?z=8&q=Озерск автостанция">
-					<div class='img-box-bg ozer'></div>
-					<p>Озерск,ул. Комсомольская 3</p>
+					</div>
+				</div>
+					
+				<div class="tab">
+					<input id="tab-12" type="checkbox" name="tabs">
+					<label for="tab-12">Озерск 
+					<a href="geo:54.943894,22.492978?z=8&q=Озерск автостанция">
+					<ion-icon name="pin" item-end></ion-icon>
 					</a>               
+					</label>
+					<div class="tab-content" [ngClass]="{invisible: !visibility}">
 						<ion-list>
 							<div *ngFor="let ozer of ozersk">
 								<button ion-item (click)="openNavDetailsOzersk(ozer)" class="citylist">
-					{{ozer.title }}<br><div class='en'>{{ozer.en}}</div>
-					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{ozer.numb}}</span> 
-					</button>
+								{{ozer.title }}<br><div class='en'>{{ozer.en}}</div>
+								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{ozer.numb}}</span> 
+								</button>
 							</div>
 						</ion-list>
-			</div>
-			</div>
+					</div>
+				</div>
+
 				<div class="tab">
-			<input id="tab-5" type="checkbox" name="tabs">
-			<label for="tab-5">Гусев <ion-icon name="bus" item-end></ion-icon></label>
-			<div class="tab-content" [ngClass]="{invisible: !visibility}">
-			<a [ngClass]="{noimg: !visibility}" href="geo:54.585265,22.198909?z=8&q=Гусев жд вокзал">
-					<div class='img-box-bg gus'></div>
-					<p>Гусев, ул. Менделеева</p>
+					<input id="tab-5" type="checkbox" name="tabs">
+					<label for="tab-5">Гусев 
+					<a href="geo:54.585265,22.198909?z=8&q=Гусев жд вокзал">
+					<ion-icon name="pin" item-end></ion-icon>
 					</a>               
+					</label>
+					<div class="tab-content" [ngClass]="{invisible: !visibility}">
 						<ion-list>
 							<div *ngFor="let gus of gusev">
 								<button ion-item (click)="openNavDetailsGus(gus)" class="citylist">
-					{{gus.title }}<br><div class='en'>{{gus.en}}</div>
-					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{gus.numb}}</span> 
-					</button>
+								{{gus.title }}<br><div class='en'>{{gus.en}}</div>
+								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{gus.numb}}</span> 
+								</button>
 							</div>
 						</ion-list>
-			</div>
-			</div>
+					</div>
+				</div>
 			
-			<div class="tab">
-			<input id="tab-7" type="checkbox" name="tabs">
-					<label for="tab-7">Большаково <ion-icon name="bus" item-end></ion-icon></label>
-			<div class="tab-content" [ngClass]="{invisible: !visibility}">
-			<a [ngClass]="{noimg: !visibility}" href="geo:54.8805,21.6521?z=8&q=Большаково автостанция">
-					<div class='img-box-bg bol'></div>
-					<p>пос. Большаково, Черняховского ул., 2-б</p>
-					</a>               
+				<div class="tab">
+					<input id="tab-7" type="checkbox" name="tabs">
+					<label for="tab-7">Большаково
+					<a href="geo:54.8805,21.6521?z=8&q=Большаково автостанция">
+					<ion-icon name="pin" item-end></ion-icon>
+					</a>
+					</label>
+					<div class="tab-content" [ngClass]="{invisible: !visibility}">
 						<ion-list>
 							<div *ngFor="let bolsh of bolshakovo">
 								<button ion-item (click)="openNavDetailsBolsh(bolsh)" class="citylist">
-					{{bolsh.title }}<br><div class='en'>{{bolsh.en}}</div>
-					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{bolsh.numb}}</span> 
-					</button>
+								{{bolsh.title }}<br><div class='en'>{{bolsh.en}}</div>
+								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{bolsh.numb}}</span> 
+								</button>
 							</div>
 						</ion-list>
-			</div>
-			</div>
-			<div class="tab">
-			<input id="tab-8" type="checkbox" name="tabs">
-					<label for="tab-8">Гвардейск <ion-icon name="bus" item-end></ion-icon></label>
-			<div class="tab-content" [ngClass]="{invisible: !visibility}">
-			<a [ngClass]="{noimg: !visibility}" href="geo:54.6311,21.8202?z=9&q=Гвардейск автостанция">
-					<div class='img-box-bg gvrd'></div>
-					<p>г. Гвардейск, ул. Гагарина 5а</p>
+					</div>
+				</div>
+
+				<div class="tab">
+					<input id="tab-8" type="checkbox" name="tabs">
+					<label for="tab-8">Гвардейск 
+					<a href="geo:54.6311,21.8202?z=9&q=Гвардейск автостанция">
+					<ion-icon name="pin" item-end></ion-icon>
 					</a>               
+					</label>
+					<div class="tab-content" [ngClass]="{invisible: !visibility}">
 						<ion-list>
 							<div *ngFor="let gvard of gvardeysk">
 								<button ion-item (click)="openNavDetailsGvard(gvard)" class="citylist">
-					{{gvard.title }}<br><div class='en'>{{gvard.en}}</div>
-					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{gvard.numb}}</span> 
-					</button>
+								{{gvard.title }}<br><div class='en'>{{gvard.en}}</div>
+								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{gvard.numb}}</span> 
+								</button>
 							</div>
 						</ion-list>
-			</div>
-			</div>
-			<div class="tab">
-			<input id="tab-9" type="checkbox" name="tabs">
-			<label for="tab-9">Железнодорожный <ion-icon name="bus" item-end></ion-icon></label>
-			<div class="tab-content" [ngClass]="{invisible: !visibility}">
-			<a [ngClass]="{noimg: !visibility}" href="geo:54.361693,21.305466?z=7">
-					<div class='img-box-bg jzd'></div>
-					<p>пос. Железнодорожный</p>
-					</a>               
+					</div>
+				</div>
+
+				<div class="tab">
+				<input id="tab-9" type="checkbox" name="tabs">
+				<label for="tab-9">Железнодорожный 
+				<a href="geo:54.361693,21.305466?z=7">
+				<ion-icon name="pin" item-end></ion-icon>
+				</a>               
+				</label>
+					<div class="tab-content" [ngClass]="{invisible: !visibility}">
 						<ion-list>
 							<div *ngFor="let jzd of jzdorojniy">
 								<button ion-item (click)="openNavDetailsJzd(jzd)" class="citylist">
-					{{jzd.title }}<br><div class='en'>{{jzd.en}}</div>
-					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{jzd.numb}}</span> 
-					</button>
+								{{jzd.title }}<br><div class='en'>{{jzd.en}}</div>
+								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{jzd.numb}}</span> 
+								</button>
 							</div>
 						</ion-list>
-			</div>
-			</div>
+					</div>
+				</div>
 
-			<div class="tab">
-			<input id="tab-10" type="checkbox" name="tabs">
-			<label for="tab-10">Краснознаменск <ion-icon name="bus" item-end></ion-icon></label>
-			<div class="tab-content" [ngClass]="{invisible: !visibility}">
-			<a [ngClass]="{noimg: !visibility}" href="geo:54.943894,22.492978?z=8&q=Краснознаменск автостанция">
-					<div class='img-box-bg krz'></div>
-					<p>пос. Краснознаменск,ул. Калининградская 47</p>
-					</a>               
+				<div class="tab">
+				<input id="tab-10" type="checkbox" name="tabs">
+				<label for="tab-10">Краснознаменск 
+				<a href="geo:54.943894,22.492978?z=8&q=Краснознаменск автостанция">
+				<ion-icon name="pin" item-end></ion-icon>
+				</a>               
+				</label>
+					<div class="tab-content" [ngClass]="{invisible: !visibility}">
 						<ion-list>
 							<div *ngFor="let krz of krznamensk">
 								<button ion-item (click)="openNavDetailsKrz(krz)" class="citylist">
-					{{krz.title }}<br><div class='en'>{{krz.en}}</div>
-					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{krz.numb}}</span> 
-					</button>
+								{{krz.title }}<br><div class='en'>{{krz.en}}</div>
+								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{krz.numb}}</span> 
+								</button>
 							</div>
 						</ion-list>
-			</div>
-			</div>
-			
-			<div class="tab">
-			<input id="tab-11" type="checkbox" name="tabs">
-			<label for="tab-11">Неман <ion-icon name="bus" item-end></ion-icon></label>
-			<div class="tab-content" [ngClass]="{invisible: !visibility}">
-			<a [ngClass]="{noimg: !visibility}" href="geo:54.943894,22.492978?z=8&q=Неман автостанция">
-					<div class='img-box-bg neman'></div>
-					<p>Неман,ул. Красноармейская 2</p>
-					</a>               
+					</div>
+				</div>
+				
+				<div class="tab">
+				<input id="tab-11" type="checkbox" name="tabs">
+				<label for="tab-11">Неман 
+				<a href="geo:54.943894,22.492978?z=8&q=Неман автостанция">
+				<ion-icon name="pin" item-end></ion-icon>
+				</a>       
+				</label>
+				<div class="tab-content" [ngClass]="{invisible: !visibility}">
 						<ion-list>
 							<div *ngFor="let nem of neman">
 								<button ion-item (click)="openNavDetailsNeman(nem)" class="citylist">
-					{{nem.title }}<br><div class='en'>{{nem.en}}</div>
-					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{nem.numb}}</span> 
-					</button>
+								{{nem.title }}<br><div class='en'>{{nem.en}}</div>
+								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{nem.numb}}</span> 
+								</button>
 							</div>
 						</ion-list>
-			</div>
-			</div>
-			
-			<div class="tab">
-			<input id="tab-13" type="checkbox" name="tabs">
-			<label for="tab-13">Правдинск <ion-icon name="bus" item-end></ion-icon></label>
-			<div class="tab-content" [ngClass]="{invisible: !visibility}">
-			<a [ngClass]="{noimg: !visibility}" href="geo:54.4463,21.01878?z=9&q=Правдинск автостанция">
-					<div class='img-box-bg prav'></div>
-					<p>Правдинск,ул. Набережная 1</p>
-					</a>               
+					</div>
+				</div>
+				
+				<div class="tab">
+				<input id="tab-13" type="checkbox" name="tabs">
+				<label for="tab-13">Правдинск
+				<a href="geo:54.4463,21.01878?z=9&q=Правдинск автостанция">
+				<ion-icon name="pin" item-end></ion-icon>
+				</a>
+				</label>
+				<div class="tab-content" [ngClass]="{invisible: !visibility}">
 						<ion-list>
 							<div *ngFor="let prav of pravdinsk">
 								<button ion-item (click)="openNavDetailsPravdinsk(prav)" class="citylist">
-					{{prav.title }}<br><div class='en'>{{prav.en}}</div>
-					<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{prav.numb}}</span> 
-					</button>
+								{{prav.title }}<br><div class='en'>{{prav.en}}</div>
+								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{prav.numb}}</span> 
+								</button>
 							</div>
 						</ion-list>
-			</div>
-			</div>
+					</div>
+				</div>
 
 			<h5>Балтийская коса</h5>
 
-			<div class="tab">
-				<input id="tab-14" type="checkbox" name="tabs">
-				<label for="tab-14">Паром <ion-icon name="boat"  item-end></ion-icon></label>
-				<div class="tab-content" [ngClass]="{invisible: !visibility}">             
-					<ion-list>
-						<div *ngFor="let boat of parom">
-							<button ion-item (click)="openNavDetailsParom(boat)" class="citylist">
+				<div class="tab">
+					<input id="tab-14" type="checkbox" name="tabs">
+					<label for="tab-14">Паром <ion-icon name="boat" item-end></ion-icon></label>
+					<div class="tab-content" [ngClass]="{invisible: !visibility}">             
+						<ion-list>
+							<div *ngFor="let boat of parom">
+								<button ion-item (click)="openNavDetailsParom(boat)" class="citylist">
 								{{boat.title}}<br><div class='en'>{{boat.en}}</div>
 								<span item-right class='numb'><ion-icon start name="boat"></ion-icon></span> 
-							</button>
-						</div>
-					</ion-list> 
+								</button>
+							</div>
+						</ion-list> 
+					</div>
 				</div>
 			</div>
-	</div>
 
 </ion-content>
 `,
@@ -2006,172 +2015,201 @@ export class Page1 {
 					'title': 'Калининград Южный',
 					'bullet_type': 'def start',
 					't1': '10:50',
-					'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
 					'r1': '6903', 'd1': 'ежедневно',
 				},
-				{'title': 'Калининград-Северный',
-				'bullet_type': 'def',
-				't1': '10:58',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				'r1': '6903', 'd1': 'ежедневно',
+				{
+					'title': 'Калининград-Северный',
+					'bullet_type': 'def',
+					't1': '10:58',
+					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					'r1': '6903', 'd1': 'ежедневно',
 				},
-				{'title': 'Кутузово-Новое',
-				'bullet_type': 'def',
-				't1': '11:04',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				'r1': '6903', 'd1': 'ежедневно',
+				{
+					'title': 'Кутузово-Новое',
+					'bullet_type': 'def',
+					't1': '11:04',
+					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					'r1': '6903', 'd1': 'ежедневно',
 				},
-				{'title': 'о.п. 7 км',
-				'bullet_type': 'def',
-				't1': '11:11',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				'r1': '6903', 'd1': 'ежедневно',
+				{
+					'title': 'о.п. 7 км',
+					'bullet_type': 'def',
+					't1': '11:11',
+					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					'r1': '6903', 'd1': 'ежедневно',
 				},
-				{'title': 'Рябиновка',
-				'bullet_type': 'def',
-				't1': '11:15',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				'r1': '6903', 'd1': 'ежедневно',
+				{
+					'title': 'Рябиновка',
+					'bullet_type': 'def',
+					't1': '11:15',
+					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					'r1': '6903', 'd1': 'ежедневно',
 				},
-				{'title': 'Каштановка',
-				'bullet_type': 'def',
-				't1': '11:20',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				'r1': '6903', 'd1': 'ежедневно',
+				{
+					'title': 'Каштановка',
+					'bullet_type': 'def',
+					't1': '11:20',
+					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					'r1': '6903', 'd1': 'ежедневно',
 				},
-				{'title': 'Муромское',
-				'bullet_type': 'def',
-				't1': '11:24',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				'r1': '6903', 'd1': 'ежедневно',
+				{
+					'title': 'Муромское',
+					'bullet_type': 'def',
+					't1': '11:24',
+					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					'r1': '6903', 'd1': 'ежедневно',
 				},
-				{'title': 'Сосновка',
-				'bullet_type': 'def',
-				't1': '11:29',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				'r1': '6903', 'd1': 'ежедневно',
+				{
+					'title': 'Сосновка',
+					'bullet_type': 'def',
+					't1': '11:29',
+					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					'r1': '6903', 'd1': 'ежедневно',
 				},
-				{'title': 'Зеленоградск-новый',
-				'bullet_type': 'def',
-				't1': '11:49',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				'r1': '6903', 'd1': 'ежедневно',
+				{
+					'title': 'Зеленоградск-новый',
+					'bullet_type': 'def',
+					't1': '11:49',
+					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					'r1': '6903', 'd1': 'ежедневно',
 				},
-				{'title': 'Малиновка',
-				'bullet_type': 'def',
-				't1': '11:53',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				'r1': '6903', 'd1': 'ежедневно',
+				{
+					'title': 'Малиновка',
+					'bullet_type': 'def',
+					't1': '11:53',
+					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					'r1': '6903', 'd1': 'ежедневно',
 				},
-				{'title': 'Сокольники-1',
-				'bullet_type': 'def',
-				't1': '11:56',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				'r1': '6903', 'd1': 'ежедневно',
+				{
+					'title': 'Сокольники-1',
+					'bullet_type': 'def',
+					't1': '11:56',
+					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					'r1': '6903', 'd1': 'ежедневно',
 				},
-				{'title': 'Сокольники-2',
-				'bullet_type': 'def',
-				't1': '11:59',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				'r1': '6903', 'd1': 'ежедневно',
+				{
+					'title': 'Сокольники-2',
+					'bullet_type': 'def',
+					't1': '11:59',
+					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					'r1': '6903', 'd1': 'ежедневно',
 				},
-				{'title': 'Рощино',
-				'bullet_type': 'def',
-				't1': '12:03',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				'r1': '6903', 'd1': 'ежедневно',
+				{
+					'title': 'Рощино',
+					'bullet_type': 'def',
+					't1': '12:03',
+					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					'r1': '6903', 'd1': 'ежедневно',
 				},
-				{'title': 'Куликово',
-				'bullet_type': 'def',
-				't1': '12:06',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				'r1': '6903', 'd1': 'ежедневно',
+				{
+					'title': 'Куликово',
+					'bullet_type': 'def',
+					't1': '12:06',
+					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					'r1': '6903', 'd1': 'ежедневно',
 				},
-				{'title': 'Пионерский Курорт',
-				'bullet_type': 'def start',
-				't1': '12:13',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				'r1': '6903', 'd1': 'ежедневно',
+				{
+					'title': 'Пионерский Курорт',
+					'bullet_type': 'def start',
+					't1': '12:13',
+					'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					'r1': '6903', 'd1': 'ежедневно',
 				},
-			],
-			back:[
-				{'title': 'Пионерский Курорт',
-				'bullet_type': 'def start',
-				't1': '06:05','r1': '6900', 'd1': 'по будням',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				},
-				{'title': 'Куликово',
-				'bullet_type': 'def',
-				't1': '06:13','r1': '6900', 'd1': 'по будням',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				},
-				{'title': 'Рощино',
-				'bullet_type': 'def ',
-				't1': '06:16','r1': '6900', 'd1': 'по будням',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				},
-				{'title': 'Сокольники-2',
-				'bullet_type': 'def ',
-				't1': '06:20','r1': '6900', 'd1': 'по будням',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				},
-				{'title': 'Сокольники-1',
-				'bullet_type': 'def ',
-				't1': '06:23','r1': '6900', 'd1': 'по будням',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				},
-				{'title': 'Малиновка',
-				'bullet_type': 'def ',
-				't1': '06:26','r1': '6900', 'd1': 'по будням',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				},
-				{'title': 'Зеленоградск-новый',
-				'bullet_type': 'def ',
-				't1': '06:45','r1': '6900', 'd1': 'по будням',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				},
-				{'title': 'Сосновка',
-				'bullet_type': 'def ',
-				't1': '06:51','r1': '6900', 'd1': 'по будням',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				},
-				{'title': 'Муромское',
-				'bullet_type': 'def ',
-				't1': '06:55','r1': '6900', 'd1': 'по будням',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				},
-				{'title': 'Каштановка',
-				'bullet_type': 'def ',
-				't1': '06:59','r1': '6900', 'd1': 'по будням',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				},
-				{'title': 'Рябиновка',
-				'bullet_type': 'def ',
-				't1': '07:04','r1': '6900', 'd1': 'по будням',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				},
-				{'title': 'о.п. 7 км',
-				'bullet_type': 'def ',
-				't1': '07:08','r1': '6900', 'd1': 'по будням',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				},
-				{'title': 'Кутузово-Новое',
-				'bullet_type': 'def ',
-				't1': '07:15','r1': '6900', 'd1': 'по будням',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				},
-				{'title': 'Калининград-Северный',
-				'bullet_type': 'def',
-				't1': '07:22','r1': '6900', 'd1': 'по будням',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				},
-				{'title': 'Калининград-Южный',
-				'bullet_type': 'def start',
-				't1': '07:28','r1': '6900', 'd1': 'по будням',
-				'ok2': 'noRow','ok3': 'noRow','ok4': 'noRow','ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
-				}
-			]
-		},
+				],
+				back: [
+					{
+						'title': 'Пионерский Курорт',
+						'bullet_type': 'def start',
+						't1': '06:05', 'r1': '6900', 'd1': 'по будням',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					},
+					{
+						'title': 'Куликово',
+						'bullet_type': 'def',
+						't1': '06:13', 'r1': '6900', 'd1': 'по будням',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					},
+					{
+						'title': 'Рощино',
+						'bullet_type': 'def ',
+						't1': '06:16', 'r1': '6900', 'd1': 'по будням',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					},
+					{
+						'title': 'Сокольники-2',
+						'bullet_type': 'def ',
+						't1': '06:20', 'r1': '6900', 'd1': 'по будням',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					},
+					{
+						'title': 'Сокольники-1',
+						'bullet_type': 'def ',
+						't1': '06:23', 'r1': '6900', 'd1': 'по будням',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					},
+					{
+						'title': 'Малиновка',
+						'bullet_type': 'def ',
+						't1': '06:26', 'r1': '6900', 'd1': 'по будням',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					},
+					{
+						'title': 'Зеленоградск-новый',
+						'bullet_type': 'def ',
+						't1': '06:45', 'r1': '6900', 'd1': 'по будням',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					},
+					{
+						'title': 'Сосновка',
+						'bullet_type': 'def ',
+						't1': '06:51', 'r1': '6900', 'd1': 'по будням',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					},
+					{
+						'title': 'Муромское',
+						'bullet_type': 'def ',
+						't1': '06:55', 'r1': '6900', 'd1': 'по будням',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					},
+					{
+						'title': 'Каштановка',
+						'bullet_type': 'def ',
+						't1': '06:59', 'r1': '6900', 'd1': 'по будням',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					},
+					{
+						'title': 'Рябиновка',
+						'bullet_type': 'def ',
+						't1': '07:04', 'r1': '6900', 'd1': 'по будням',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					},
+					{
+						'title': 'о.п. 7 км',
+						'bullet_type': 'def ',
+						't1': '07:08', 'r1': '6900', 'd1': 'по будням',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					},
+					{
+						'title': 'Кутузово-Новое',
+						'bullet_type': 'def ',
+						't1': '07:15', 'r1': '6900', 'd1': 'по будням',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					},
+					{
+						'title': 'Калининград-Северный',
+						'bullet_type': 'def',
+						't1': '07:22', 'r1': '6900', 'd1': 'по будням',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					},
+					{
+						'title': 'Калининград-Южный',
+						'bullet_type': 'def start',
+						't1': '07:28', 'r1': '6900', 'd1': 'по будням',
+						'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow',
+					}
+				]
+			},
 			{
 				'title': 'Советск',
 				'en': 'Sovetsk',
@@ -2831,7 +2869,7 @@ export class Page1 {
 				info4: '* : следует только до Светлогорска',
 				'icon': 'bus', 'map': '', city: 'Калининград',
 				'img': '',
-				'numb': '125',				
+				'numb': '125',
 			},
 			{
 				'title': 'Железнодорожный',
@@ -2947,12 +2985,12 @@ export class Page1 {
 				'img': 'zelenogradsk',
 				'numb': '140',
 				station: [
-					{title:'пл Василевского',tax:'20'},
-					{title:'пл Победы',tax:'20'},
-					{title:'ТЦ Аврора',tax:'20'},
-					{title:'Безымянка',tax:'69'},
-					{title:'Сосновка',tax:'75'},
-					{title:'Зеленоградск',tax:'84'}
+					{ title: 'пл Василевского', tax: '20' },
+					{ title: 'пл Победы', tax: '20' },
+					{ title: 'ТЦ Аврора', tax: '20' },
+					{ title: 'Безымянка', tax: '69' },
+					{ title: 'Сосновка', tax: '75' },
+					{ title: 'Зеленоградск', tax: '84' }
 				]
 			},
 			{
