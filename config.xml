@@ -49,4 +49,5 @@
     <plugin name="cordova-plugin-admob-free" spec="^0.14.0" />
     <engine name="ios" spec="^4.4.0" />
     <engine name="android" spec="6.4.0" />
+    <preference name="SplashShowOnlyFirstTime" value="false" />
 </widget>

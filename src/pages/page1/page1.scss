@@ -316,102 +316,102 @@ input:checked+section.box .box-title:before {
 // END .accordion
 //  <img src="assets/img/map_s.png">
 //  End  
-.baner {
-    width: 100%;
-    // height: 30%;
-    max-width: 600px;
-    margin: 0px auto;
-    text-align: center;
-}
+// .baner {
+//     width: 100%;
+//     // height: 30%;
+//     max-width: 600px;
+//     margin: 0px auto;
+//     text-align: center;
+// }
 
-.main-map {
-    width: 100%;
-    // height: 30%;
-    max-width: 900px;
-    margin: 0px auto;
-    // text-align: center;
-}
+// .main-map {
+//     width: 100%;
+//     // height: 30%;
+//     max-width: 900px;
+//     margin: 0px auto;
+//     // text-align: center;
+// }
 
-.img-box-bg {
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-bottom: -5.2em;
-    min-height: 14em;
-    @media screen and (max-width: 440px) {
-        min-height: 10em;
-    }
-    @media screen and (min-width: 640px) {
-        //   background-size: 100%;
-        min-height: 18em;
-    }
-}
-.sever {
-    background: url(../assets/img/map_s.png);
-    background-size: cover;
-}
+// .img-box-bg {
+//     background-repeat: no-repeat;
+//     background-position: center;
+//     margin-bottom: -5.2em;
+//     min-height: 14em;
+//     @media screen and (max-width: 440px) {
+//         min-height: 10em;
+//     }
+//     @media screen and (min-width: 640px) {
+//         //   background-size: 100%;
+//         min-height: 18em;
+//     }
+// }
+// .sever {
+//     background: url(../assets/img/map_s.png);
+//     background-size: cover;
+// }
 
-.ug {
-    background: url(../assets/img/map_u.png);
-    background-size: cover;
-}
+// .ug {
+//     background: url(../assets/img/map_u.png);
+//     background-size: cover;
+// }
 
-.sov {
-    background: url(../assets/img/map_sov.png);
-    background-size: cover;
-}
+// .sov {
+//     background: url(../assets/img/map_sov.png);
+//     background-size: cover;
+// }
 
-.cher {
-    background: url(../assets/img/map_cher.png);
-    background-size: cover;
-}
+// .cher {
+//     background: url(../assets/img/map_cher.png);
+//     background-size: cover;
+// }
 
-.gus {
-    background: url(../assets/img/map_gus.png);
-    background-size: cover;
-}
+// .gus {
+//     background: url(../assets/img/map_gus.png);
+//     background-size: cover;
+// }
 
-.bol {
-    background: url(../assets/img/map_bol.png);
-    background-size: cover;
-}
+// .bol {
+//     background: url(../assets/img/map_bol.png);
+//     background-size: cover;
+// }
 
-.gvrd {
-    background: url(../assets/img/map_gvrd.png);
-    background-size: cover;
-}
+// .gvrd {
+//     background: url(../assets/img/map_gvrd.png);
+//     background-size: cover;
+// }
 
-.jzd {
-    background: url(../assets/img/map_jzd.png);
-    background-size: cover;
-}
+// .jzd {
+//     background: url(../assets/img/map_jzd.png);
+//     background-size: cover;
+// }
 
-.krz {
-    background: url(../assets/img/map_krz.png);
-    background-size: cover;
-}
+// .krz {
+//     background: url(../assets/img/map_krz.png);
+//     background-size: cover;
+// }
 
-.neman {
-    background: url(../assets/img/map_neman.png);
-    background-size: cover;
-}
+// .neman {
+//     background: url(../assets/img/map_neman.png);
+//     background-size: cover;
+// }
 
-.ozer {
-    background: url(../assets/img/map_ozer.png);
-    background-size: cover;
-}
+// .ozer {
+//     background: url(../assets/img/map_ozer.png);
+//     background-size: cover;
+// }
 
-.prav {
-    background: url(../assets/img/map_prav.png);
-    background-size: cover;
-}
+// .prav {
+//     background: url(../assets/img/map_prav.png);
+//     background-size: cover;
+// }
 
-.watermark {
-    opacity: .6;
-    position: relative;
-    top: -30px;
-    left: 10px;
-    float: left;
-}
+// .watermark {
+//     opacity: .6;
+//     position: relative;
+//     top: -30px;
+//     left: 10px;
+//     float: left;
+// }
 
 
 /* Acordeon styles */
@@ -606,10 +606,6 @@ input[type=radio]:checked+label::after {
 .citylist hr {
     margin: 4px auto;
     width: 25%;
-}
-
-.citylist ion-slides {
-    // height: auto;
 }
 
 // New Segment
