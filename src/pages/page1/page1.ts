@@ -11,11 +11,35 @@ import { AdMobFree, AdMobFreeBannerConfig } from '@ionic-native/admob-free';
 export class DetailsPage {
 	item: any;
 	alertCtrl;
-	constructor(params: NavParams, alertCtrl: AlertController, public navCtrl: NavController) {
+	constructor(params: NavParams, alertCtrl: AlertController,public navCtrl: NavController,	
+		private adMobFree: AdMobFree	
+	) {
 
 		this.item = params.data.item;
 		this.tabs = ["Будни · Суббота", "Воскресенье · Праздники"];
 		this.alertCtrl = alertCtrl;
+		
+	// AdMob Block #############
+
+			// const bannerConfig: AdMobFreeBannerConfig = {
+			// 	id: 'ca-app-pub-7133305264165200/6243373138',
+			// 	isTesting: true,
+			// 	autoShow: true,
+			// 	bannerAtTop: true,
+			// }
+	
+			// this.adMobFree.banner.config(bannerConfig);
+			// this.adMobFree.banner.prepare()
+			// 	.then(() => {
+			// 		console.log('AdMob готов')
+			// 	})
+	
+			// 	.catch(e => console.log(e));
+
+			// this.adMobFree.banner.show();
+		
+			// AdMob Block #############
+
 	}
 
 	// New Segment
@@ -79,12 +103,12 @@ export class DetailsPage {
 @Component({
 	template: `
 <ion-header style="text-align:center;">
-    <ion-navbar color="primary"  (click)="startADB()">
-        <button ion-button menuToggle >
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
  			<ion-icon name="menu" color="hidden"></ion-icon>
  		</button>
 		<ion-buttons end>
-				<button ion-button onclick="window.plugins.socialsharing.share('KLoBus39 транспорт Калининградской области', 'Рекомендую приложение KLoBus39', 'https://pp.userapi.com/c638320/v638320752/4bd5e/UgZtg-jvSbs.jpg', 'https://play.google.com/store/apps/details?id=com.itgluck.klobus39')">
+				<button ion-button onclick="window.plugins.socialsharing.share('KLoBus39 транспорт Калининградской области', 'Рекомендую приложение KLoBus39', 'https://pp.userapi.com/c638320/v638320752/4bd5e/UgZtg-jvSbs.jpg', 'https://goo.gl/7O8QKI')">
 				<ion-icon name="share" color="hidden"></ion-icon>
 				</button>
 				<button ion-button (click)="hide()" (click)="toggle()">
@@ -179,27 +203,28 @@ export class DetailsPage {
 					</div>
 				</div>
 
-	<h5>Автостанции Калининградской области</h5>
+			<h5>Автостанции Калининградской области</h5>
 
-				<div class="tab">
-					<input id="tab-4" type="checkbox" name="tabs">
-					<label for="tab-4">Советск 
-					<a href="geo:55.081515,21.87958?z=9&q=АВ Советск">
-					<ion-icon name="pin" item-end></ion-icon>					
+					<div class="tab">
+					<input id="tab-5" type="checkbox" name="tabs" checked>
+					<label for="tab-5">Гусев 
+					<a href="geo:54.585265,22.198909?z=8&q=Гусев жд вокзал">
+					<ion-icon name="pin" item-end></ion-icon>
 					</a>               
 					</label>
 					<div class="tab-content" [ngClass]="{invisible: !visibility}">
 						<ion-list>
-							<div *ngFor="let sov of sovetsk">
-								<button ion-item (click)="openNavDetailsSov(sov)" class="citylist">
-								{{sov.title }}<br><div class='en'>{{sov.en}}</div>
-								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{sov.numb}}</span> 
+							<div *ngFor="let gus of gusev">
+								<button ion-item (click)="openNavDetailsGus(gus)" class="citylist">
+								{{gus.title }}<br><div class='en'>{{gus.en}}</div>
+								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{gus.numb}}</span> 
 								</button>
 							</div>
 						</ion-list>
 					</div>
 				</div>
-			
+
+
 				<div class="tab">
 					<input id="tab-6" type="checkbox" name="tabs">
 					<label for="tab-6">Черняховск
@@ -239,138 +264,24 @@ export class DetailsPage {
 				</div>
 
 				<div class="tab">
-					<input id="tab-5" type="checkbox" name="tabs">
-					<label for="tab-5">Гусев 
-					<a href="geo:54.585265,22.198909?z=8&q=Гусев жд вокзал">
-					<ion-icon name="pin" item-end></ion-icon>
+					<input id="tab-4" type="checkbox" name="tabs">
+					<label for="tab-4">Советск 
+					<a href="geo:55.081515,21.87958?z=9&q=АВ Советск">
+					<ion-icon name="pin" item-end></ion-icon>					
 					</a>               
 					</label>
 					<div class="tab-content" [ngClass]="{invisible: !visibility}">
 						<ion-list>
-							<div *ngFor="let gus of gusev">
-								<button ion-item (click)="openNavDetailsGus(gus)" class="citylist">
-								{{gus.title }}<br><div class='en'>{{gus.en}}</div>
-								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{gus.numb}}</span> 
+							<div *ngFor="let sov of sovetsk">
+								<button ion-item (click)="openNavDetailsSov(sov)" class="citylist">
+								{{sov.title }}<br><div class='en'>{{sov.en}}</div>
+								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{sov.numb}}</span> 
 								</button>
 							</div>
 						</ion-list>
 					</div>
 				</div>
 			
-				<div class="tab">
-					<input id="tab-7" type="checkbox" name="tabs">
-					<label for="tab-7">Большаково
-					<a href="geo:54.8805,21.6521?z=8&q=Большаково автостанция">
-					<ion-icon name="pin" item-end></ion-icon>
-					</a>
-					</label>
-					<div class="tab-content" [ngClass]="{invisible: !visibility}">
-						<ion-list>
-							<div *ngFor="let bolsh of bolshakovo">
-								<button ion-item (click)="openNavDetailsBolsh(bolsh)" class="citylist">
-								{{bolsh.title }}<br><div class='en'>{{bolsh.en}}</div>
-								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{bolsh.numb}}</span> 
-								</button>
-							</div>
-						</ion-list>
-					</div>
-				</div>
-
-				<div class="tab">
-					<input id="tab-8" type="checkbox" name="tabs">
-					<label for="tab-8">Гвардейск 
-					<a href="geo:54.6311,21.8202?z=9&q=Гвардейск автостанция">
-					<ion-icon name="pin" item-end></ion-icon>
-					</a>               
-					</label>
-					<div class="tab-content" [ngClass]="{invisible: !visibility}">
-						<ion-list>
-							<div *ngFor="let gvard of gvardeysk">
-								<button ion-item (click)="openNavDetailsGvard(gvard)" class="citylist">
-								{{gvard.title }}<br><div class='en'>{{gvard.en}}</div>
-								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{gvard.numb}}</span> 
-								</button>
-							</div>
-						</ion-list>
-					</div>
-				</div>
-
-				<div class="tab">
-				<input id="tab-9" type="checkbox" name="tabs">
-				<label for="tab-9">Железнодорожный 
-				<a href="geo:54.361693,21.305466?z=7">
-				<ion-icon name="pin" item-end></ion-icon>
-				</a>               
-				</label>
-					<div class="tab-content" [ngClass]="{invisible: !visibility}">
-						<ion-list>
-							<div *ngFor="let jzd of jzdorojniy">
-								<button ion-item (click)="openNavDetailsJzd(jzd)" class="citylist">
-								{{jzd.title }}<br><div class='en'>{{jzd.en}}</div>
-								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{jzd.numb}}</span> 
-								</button>
-							</div>
-						</ion-list>
-					</div>
-				</div>
-
-				<div class="tab">
-				<input id="tab-10" type="checkbox" name="tabs">
-				<label for="tab-10">Краснознаменск 
-				<a href="geo:54.943894,22.492978?z=8&q=Краснознаменск автостанция">
-				<ion-icon name="pin" item-end></ion-icon>
-				</a>               
-				</label>
-					<div class="tab-content" [ngClass]="{invisible: !visibility}">
-						<ion-list>
-							<div *ngFor="let krz of krznamensk">
-								<button ion-item (click)="openNavDetailsKrz(krz)" class="citylist">
-								{{krz.title }}<br><div class='en'>{{krz.en}}</div>
-								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{krz.numb}}</span> 
-								</button>
-							</div>
-						</ion-list>
-					</div>
-				</div>
-				
-				<div class="tab">
-				<input id="tab-11" type="checkbox" name="tabs">
-				<label for="tab-11">Неман 
-				<a href="geo:54.943894,22.492978?z=8&q=Неман автостанция">
-				<ion-icon name="pin" item-end></ion-icon>
-				</a>       
-				</label>
-				<div class="tab-content" [ngClass]="{invisible: !visibility}">
-						<ion-list>
-							<div *ngFor="let nem of neman">
-								<button ion-item (click)="openNavDetailsNeman(nem)" class="citylist">
-								{{nem.title }}<br><div class='en'>{{nem.en}}</div>
-								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{nem.numb}}</span> 
-								</button>
-							</div>
-						</ion-list>
-					</div>
-				</div>
-				
-				<div class="tab">
-				<input id="tab-13" type="checkbox" name="tabs">
-				<label for="tab-13">Правдинск
-				<a href="geo:54.4463,21.01878?z=9&q=Правдинск автостанция">
-				<ion-icon name="pin" item-end></ion-icon>
-				</a>
-				</label>
-				<div class="tab-content" [ngClass]="{invisible: !visibility}">
-						<ion-list>
-							<div *ngFor="let prav of pravdinsk">
-								<button ion-item (click)="openNavDetailsPravdinsk(prav)" class="citylist">
-								{{prav.title }}<br><div class='en'>{{prav.en}}</div>
-								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{prav.numb}}</span> 
-								</button>
-							</div>
-						</ion-list>
-					</div>
-				</div>
-
 			<h5>Балтийская коса</h5>
 
 				<div class="tab">
@@ -390,7 +301,141 @@ export class DetailsPage {
 			</div>
 
 </ion-content>
-`,
+`
+				// <div class="tab">
+				// 	<input id="tab-5" type="checkbox" name="tabs">
+				// 	<label for="tab-5">Гусев 
+				// 	<a href="geo:54.585265,22.198909?z=8&q=Гусев жд вокзал">
+				// 	<ion-icon name="pin" item-end></ion-icon>
+				// 	</a>               
+				// 	</label>
+				// 	<div class="tab-content" [ngClass]="{invisible: !visibility}">
+				// 		<ion-list>
+				// 			<div *ngFor="let gus of gusev">
+				// 				<button ion-item (click)="openNavDetailsGus(gus)" class="citylist">
+				// 				{{gus.title }}<br><div class='en'>{{gus.en}}</div>
+				// 				<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{gus.numb}}</span> 
+				// 				</button>
+				// 			</div>
+				// 		</ion-list>
+				// 	</div>
+				// </div>
+			
+				// <div class="tab">
+				// 	<input id="tab-7" type="checkbox" name="tabs">
+				// 	<label for="tab-7">Большаково
+				// 	<a href="geo:54.8805,21.6521?z=8&q=Большаково автостанция">
+				// 	<ion-icon name="pin" item-end></ion-icon>
+				// 	</a>
+				// 	</label>
+				// 	<div class="tab-content" [ngClass]="{invisible: !visibility}">
+				// 		<ion-list>
+				// 			<div *ngFor="let bolsh of bolshakovo">
+				// 				<button ion-item (click)="openNavDetailsBolsh(bolsh)" class="citylist">
+				// 				{{bolsh.title }}<br><div class='en'>{{bolsh.en}}</div>
+				// 				<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{bolsh.numb}}</span> 
+				// 				</button>
+				// 			</div>
+				// 		</ion-list>
+				// 	</div>
+				// </div>
+
+				// <div class="tab">
+				// 	<input id="tab-8" type="checkbox" name="tabs">
+				// 	<label for="tab-8">Гвардейск 
+				// 	<a href="geo:54.6311,21.8202?z=9&q=Гвардейск автостанция">
+				// 	<ion-icon name="pin" item-end></ion-icon>
+				// 	</a>               
+				// 	</label>
+				// 	<div class="tab-content" [ngClass]="{invisible: !visibility}">
+				// 		<ion-list>
+				// 			<div *ngFor="let gvard of gvardeysk">
+				// 				<button ion-item (click)="openNavDetailsGvard(gvard)" class="citylist">
+				// 				{{gvard.title }}<br><div class='en'>{{gvard.en}}</div>
+				// 				<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{gvard.numb}}</span> 
+				// 				</button>
+				// 			</div>
+				// 		</ion-list>
+				// 	</div>
+				// </div>
+
+				// <div class="tab">
+				// <input id="tab-9" type="checkbox" name="tabs">
+				// <label for="tab-9">Железнодорожный 
+				// <a href="geo:54.361693,21.305466?z=7">
+				// <ion-icon name="pin" item-end></ion-icon>
+				// </a>               
+				// </label>
+				// 	<div class="tab-content" [ngClass]="{invisible: !visibility}">
+				// 		<ion-list>
+				// 			<div *ngFor="let jzd of jzdorojniy">
+				// 				<button ion-item (click)="openNavDetailsJzd(jzd)" class="citylist">
+				// 				{{jzd.title }}<br><div class='en'>{{jzd.en}}</div>
+				// 				<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{jzd.numb}}</span> 
+				// 				</button>
+				// 			</div>
+				// 		</ion-list>
+				// 	</div>
+				// </div>
+
+				// <div class="tab">
+				// <input id="tab-10" type="checkbox" name="tabs">
+				// <label for="tab-10">Краснознаменск 
+				// <a href="geo:54.943894,22.492978?z=8&q=Краснознаменск автостанция">
+				// <ion-icon name="pin" item-end></ion-icon>
+				// </a>               
+				// </label>
+				// 	<div class="tab-content" [ngClass]="{invisible: !visibility}">
+				// 		<ion-list>
+				// 			<div *ngFor="let krz of krznamensk">
+				// 				<button ion-item (click)="openNavDetailsKrz(krz)" class="citylist">
+				// 				{{krz.title }}<br><div class='en'>{{krz.en}}</div>
+				// 				<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{krz.numb}}</span> 
+				// 				</button>
+				// 			</div>
+				// 		</ion-list>
+				// 	</div>
+				// </div>
+				
+				// <div class="tab">
+				// <input id="tab-11" type="checkbox" name="tabs">
+				// <label for="tab-11">Неман 
+				// <a href="geo:54.943894,22.492978?z=8&q=Неман автостанция">
+				// <ion-icon name="pin" item-end></ion-icon>
+				// </a>       
+				// </label>
+				// <div class="tab-content" [ngClass]="{invisible: !visibility}">
+				// 		<ion-list>
+				// 			<div *ngFor="let nem of neman">
+				// 				<button ion-item (click)="openNavDetailsNeman(nem)" class="citylist">
+				// 				{{nem.title }}<br><div class='en'>{{nem.en}}</div>
+				// 				<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{nem.numb}}</span> 
+				// 				</button>
+				// 			</div>
+				// 		</ion-list>
+				// 	</div>
+				// </div>
+				
+				// <div class="tab">
+				// <input id="tab-13" type="checkbox" name="tabs">
+				// <label for="tab-13">Правдинск
+				// <a href="geo:54.4463,21.01878?z=9&q=Правдинск автостанция">
+				// <ion-icon name="pin" item-end></ion-icon>
+				// </a>
+				// </label>
+				// <div class="tab-content" [ngClass]="{invisible: !visibility}">
+				// 		<ion-list>
+				// 			<div *ngFor="let prav of pravdinsk">
+				// 				<button ion-item (click)="openNavDetailsPravdinsk(prav)" class="citylist">
+				// 				{{prav.title }}<br><div class='en'>{{prav.en}}</div>
+				// 				<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{prav.numb}}</span> 
+				// 				</button>
+				// 			</div>
+				// 		</ion-list>
+				// 	</div>
+				// </div>
+
+,
 	styles: [`.invisible{display:block;}
 			.noimg{
 				display:none !important;
@@ -418,14 +463,19 @@ export class Page1 {
 	searchQuery: string = '';
 	checked: boolean = false;
 	visibility: boolean = true;
+	baner: any;
 
 
-	constructor(public navCtrl: NavController, params: NavParams, private adMobFree: AdMobFree
+	constructor(public navCtrl: NavController, params: NavParams,
+		// private adMobFree: AdMobFree
 	) {
 		this.searchQuery = '';
 		this.initializeItems();
 		this.item = params.data.item;
+
+	
 	}
+	
 
 	hide() {
 		this.checked = !this.checked;
@@ -434,25 +484,6 @@ export class Page1 {
 	}
 	toggle() {
 		this.visibility = !this.visibility;
-	}
-
-	startADB() {
-		// AdMob Block #############
-		const bannerConfig: AdMobFreeBannerConfig = {
-			id: 'ca-app-pub-7133305264165200/6243373138',
-			// isTesting: true,
-			autoShow: true,
-			bannerAtTop: true
-		}
-
-		this.adMobFree.banner.config(bannerConfig);
-		this.adMobFree.banner.prepare()
-			.then(() => {
-				console.log('AdMob готов')
-			})
-
-			.catch(e => console.log(e));
-		// AdMob Block #############
 	}
 
 	initializeItems() {
@@ -1271,12 +1302,10 @@ export class Page1 {
 					{
 						'title': 'Романово',
 						'bullet_type': 'var',
-
 						't2': '08:23',
 						't3': '11:50',
 						't4': '15:52',
 						't5': '18:20',
-
 						'ok7': 'noRow',
 						'r1': '6701', 'd1': 'кроме Вс',
 						'r2': '6703', 'd2': 'ежедневно',
@@ -2620,7 +2649,7 @@ export class Page1 {
 			},
 			{
 				'title': 'Балтийск',
-				'en': 'Baltiisk',
+				'en': 'Baltiysk',
 				'description': 'Приморск, Кострово, Волочаевское, Взморье',
 				time: '1:30', dist: '42', cost: '120',
 				'workday': "*06:15 06:20 06:40 07:00 07:15 07:40 08:10 08:40 09:00 09:25 09:50 10:20 10:40 11:00 11:25 11:40 12:05 12:30 13:05 13:30 13:45 14:10 14:40 15:00 15:20 15:45 16:10 16:30 16:55 17:10 17:35 18:05 18:25 18:45 19:15 19:40 20:00 20:30 21:00 21:55",
@@ -2640,7 +2669,7 @@ export class Page1 {
 			},
 			{
 				'title': 'Балтийск',
-				'en': 'Baltiisk',
+				'en': 'Baltiysk',
 				'description': 'Волочаевское, Взморье, Ижевское, Приморск',
 				time: '1:00', dist: '42', cost: '110',
 				'workday': "09:00",
@@ -2757,7 +2786,7 @@ export class Page1 {
 				'title': 'Гусев',
 				'en': 'Gusev',
 				'description': '',
-				time: '2:10', dist: '108', cost: '170',
+				time: '2:30', dist: '108', cost: '170',
 				'workday': "19:50",
 				'workday2': "22:18",
 				'workday3': "14:00",
@@ -3415,7 +3444,7 @@ export class Page1 {
 			},
 			{
 				'title': 'Пионерский',
-				'en': 'Pionerskii',
+				'en': 'Pionerskiy',
 				'description': 'Переславское, Романово, Заостровье',
 				time: '1:15', dist: '38', cost: '97',
 				'workday': "06:00 06:30 06:55 07:25 07:55 08:25 08:55 09:25 09:55 10:25 10:55 11:25 11:55 12:25 12:55 13:25 13:55 14:25 14:55 15:25 15:55 16:25 16:55 17:25 17:55 18:25 18:55 19:25 19:55 20:25",
@@ -4023,7 +4052,7 @@ export class Page1 {
 			},
 			{
 				'title': 'Пионерский',
-				'en': 'Pionerskii',
+				'en': 'Pionerskiy',
 				'description': 'Переславское, Романово, Заостровье',
 				time: ':55', dist: '34', cost: '97',
 				'workday': "06:20 06:50 07:20 07:45 08:15 08:45 09:20 09:50 10:20 10:50 11:20 11:50 12:20 12:50 13:20 13:50 14:20 14:50 15:20 15:50 16:20 16:50 17:20 17:50 18:20 18:50 19:20 19:50 20:20 20:50",
@@ -4041,7 +4070,7 @@ export class Page1 {
 			},
 			{
 				'title': 'Пионерский',
-				'en': 'Pionerskii',
+				'en': 'Pionerskiy',
 				'description': 'Переславское, Романово, Заостровье',
 				time: ':40', dist: '34', cost: '97',
 				'workday': "07:35 08:05 08:35 09:05 09:35 10:05 10:35 11:05 11:35 12:05 12:35 13:05 13:35 14:05 14:35 15:05 15:35 16:05 16:35 17:05 17:35 18:05 18:35 19:05",
@@ -5467,28 +5496,129 @@ export class Page1 {
 		//Гусев
 		this.gusev = [
 			{
-				'title': 'Неман',
-				'en': 'Neman',
-				'numb': '115',
-				'description': 'Канаш, Рудаково',
-				time: '-:-', dist: '-', cost: '-',
-				'workday': "08:36 14:20*",
-				'workday2': "09:35 15:20",
-				'workday3': "06:45 15:30*",
-				'workday4': "08:35 16:46",
-				// station:'',
-				'hollyday': "08:36 14:20*",
-				'hollyday2': "09:35 15:20",
-				'hollyday3': "06:45 15:30*",
-				'hollyday4': "08:35 16:46",
+				'title': 'Нестеров',
+				'en': 'Nesterov',
+				'city': 'Гусев',
+				'numb': '351',
+				'description': 'Дивное - Новое',
+				time: ':40', dist: '20', cost: '55',
+				'workday': "04:40 05:30 06:10 06:40 08:20 09:35 18:00",
+				'workday2': "05:20 06:10 06:50 07:20 09:00 10:15 18:40",
+				'workday3': "05:15 06:25 07:40 18:35",
+				'workday4': "05:55 07:05 08:20 19:15",
+				'hollyday': "04:40 05:30 06:10 06:40 08:20 09:35 18:00",
+				'hollyday2': "05:20 06:10 06:50 07:20 09:00 10:15 18:40",
+				'hollyday3': "05:15 06:25 07:40 18:35",
+				'hollyday4': "05:55 07:05 08:20 19:15",
+				'icon': 'bus'
+			},
+			{
+				'title': 'Нестеров',
+				'en': 'Nesterov',
+				'city': 'Гусев',
+				'numb': '346',
+				'description': 'Ясная Поляна, Илюшино',
+				time: ':55', dist: '-', cost: '75',
+				'workday': "12:30 15:25",
+				'workday2': "13:24 16:20",
+				'workday3': "09:00 13:50",
+				'workday4': "09:55 14:45",
+				'hollyday': "12:30 15:25",
+				'hollyday2': "13:24 16:20",
+				'hollyday3': "09:00 13:50",
+				'hollyday4': "09:55 14:45",
+				'icon': 'bus'
+			},
+			{
+				'title': 'Калининград',
+				'en': 'Kaliningrad',
+				'city': 'Гусев',
+				'numb': '580',
+				'description': 'Черняховск, Гвардейск',
+				time: '2:30', dist: '-', cost: '180',
+				'workday': "05:00 11:40 17:10",
+				'workday2': "07:30 14:10 19:40",
+				'workday3': "17:35 21:40",
+				'workday4': "19:55 00:05",
+				'hollyday': "05:00 11:40 17:10",
+				'hollyday2': "07:30 14:10 19:40",
+				'hollyday3': "17:35 21:40",
+				'hollyday4': "19:55 00:05",
+				'icon': 'bus'
+			},
+			{
+				'title': 'Калининград',
+				'en': 'Kaliningrad',
+				'city': 'Гусев',
+				'numb': '581',
+				'description': 'Черняховск, Гвардейск',
+				time: '2:30', dist: '-', cost: '180',
+				'workday': "14:00",
+				'workday2': "16:27",
+				'workday3': "19:50",
+				'workday4': "22:18",
+				'hollyday': "14:00",
+				'hollyday2': "16:27",
+				'hollyday3': "19:50",
+				'hollyday4': "22:18",
 				'icon': 'bus',
-				'map': '',
-				city: 'Советск',
-				'img': '',
-				info1: '* : следует до Рудаково',
-				info2: '* : следует до Рудаково',
-				info3: '* : следует до Рудаково',
-				info4: '* : следует до Рудаково',
+				info1: '* : рейс выполняется с 01.10 по 30.04',
+				info2: '* : рейс выполняется с 01.10 по 30.04',
+				info3: '* : рейс выполняется с 01.10 по 30.04',
+				info4: '* : рейс выполняется с 01.10 по 30.04',
+			},
+			{
+				'title': 'Калининград',
+				'en': 'Kaliningrad',
+				'city': 'Гусев',
+				'numb': '680э',
+				'description': 'Черняховск',
+				time: '2:10', dist: '-', cost: '180',
+				'workday': "05:25 05:50 06:40 07:00 07:50 08:20 09:10 10:00 10:25 11:15 11:35 12:05 12:30 13:45 13:50 14:25 15:00 15:25 16:15 17:45 18:00 19:15 19:30",
+				'workday2': "07:35 08:00 08:50 09:10 10:00 10:30 11:20 12:10 12:35 13:25 13:45 14:15 14:40 15:55 16:00 16:35 17:10 17:35 18:25 19:55 20:10 21:25 21:40",
+				'workday3': "08:25 08:50 09:25 10:20 11:20 12:10 12:35 12:55 13:25 13:50 14:40 15:05 15:30 15:55 16:45 17:10 18:00 19:15 19:30 20:30 21:00*",
+				'workday4': "10:30 10:55 11:25 12:25 13:25 14:15 14:40 15:00 15:30 15:55 16:45 17:10 17:35 18:00 18:50 19:15 20:30 21:20 21:45 22:35 23:05",
+				'hollyday': "05:25 05:50 06:40 07:00 07:50 08:20 09:10 10:00 10:25 11:15 11:35 12:05 12:30 13:45 13:50 14:25 15:00 15:25 16:15 17:45 18:00 19:15 19:30",
+				'hollyday2': "07:35 08:00 08:50 09:10 10:00 10:30 11:20 12:10 12:35 13:25 13:45 14:15 14:40 15:55 16:00 16:35 17:10 17:35 18:25 19:55 20:10 21:25 21:40",
+				'hollyday3': "08:25 08:50 09:25 10:20 11:20 12:10 12:35 12:55 13:25 13:50 14:40 15:05 15:30 15:55 16:45 17:10 18:00 19:15 19:30 20:30 21:00*",
+				'hollyday4': "10:30 10:55 11:25 12:25 13:25 14:15 14:40 15:00 15:30 15:55 16:45 17:10 17:35 18:00 18:50 19:15 20:30 21:20 21:45 22:35 23:05",
+				'icon': 'bus',
+				info2: '* : рейс выполняется только по пятницам и воскресеньям',
+				info4: '* : рейс выполняется только по пятницам и воскресеньям',
+			},
+			{
+				'title': 'Краснознаменск',
+				'en': 'Krasnoznamensk',
+				'city': 'Гусев',
+				'numb': '526',
+				'description': 'Весново',
+				time: ':55', dist: '-', cost: '185',
+				'workday': "05:20 09:46 12:40 18:26",
+				'workday2': "06:15 11:32 13:35 20:12",
+				'workday3': "06:20 11:40 13:35 20:15",
+				'workday4': "08:08 12:35 15:23 21:10",
+				'hollyday': "05:20 09:46 12:40 18:26",
+				'hollyday2': "06:15 11:32 13:35 20:12",
+				'hollyday3': "06:20 11:40 13:35 20:15",
+				'hollyday4': "08:08 12:35 15:23 21:10",
+				'icon': 'bus'
+			},
+			{
+				'title': 'Чернышевское',
+				'en': 'Chernyhevskoe',
+				'city': 'Гусев',
+				'numb': '583',
+				'description': 'Нестеров',
+				time: ':43', dist: '-', cost: '80',
+				'workday': "10:35 12:20 14:25 15:30 16:25 16:55 20:39",
+				'workday2': "11:26 13:11 15:16 16:13 17:08 17:46 21:22",
+				'workday3': "11:45 13:17 15:37 16:13 18:00 21:22",
+				'workday4': "12:28 14:00 16:20 16:56 18:43 22:05",
+				'hollyday': "10:35 12:20 14:25 15:30 16:25 16:55 20:39",
+				'hollyday2': "11:26 13:11 15:16 16:13 17:08 17:46 21:22",
+				'hollyday3': "11:45 13:17 15:37 16:13 18:00 21:22",
+				'hollyday4': "12:28 14:00 16:20 16:56 18:43 22:05",
+				'icon': 'bus'
 			},
 		];
 		// End gusev

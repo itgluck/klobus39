@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.itgluck.klobus39" version="3.6.5" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.itgluck.klobus39" version="3.6.6" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>KLoBus39</name>
     <description>Общественный транспорт Калининградской области</description>
-    <author email="klobus39@ya.ru" href="ghttps://goo.gl/9fGdWU">Bolshakov Nikita</author>
+    <author email="klobus39@ya.ru" href="https://goo.gl/7O8QKI">Bolshakov Nikita</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -47,7 +47,8 @@
     <plugin name="cordova-plugin-console" spec="^1.1.0" />
     <plugin name="lycwed-cordova-plugin-admob-free" spec="~1.0.6" />
     <plugin name="cordova-plugin-admob-free" spec="^0.14.0" />
+    <preference name="SplashShowOnlyFirstTime" value="false" />
     <engine name="ios" spec="^4.4.0" />
     <engine name="android" spec="6.4.0" />
-    <preference name="SplashShowOnlyFirstTime" value="false" />
+    <engine name="browser" spec="5.0.3" />
 </widget>
