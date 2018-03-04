@@ -43,8 +43,8 @@ export class MyApp {
       { title: 'О приложении', icon: 'help', component: Page6 }
     ];
 
-     // Создать на сайте фаил 3.6.5 (ver-1) 
-    this.infoblocks = this.http.get('https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/menu/update_v3.6.5.json').map(res => res.json());
+     // Создать на сайте фаил 3.6.5 (ver-1) а в ссылке указать будущую версию +1
+    this.infoblocks = this.http.get('https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/menu/update_v3.6.6.json').map(res => res.json());
 
   }
   
@@ -75,7 +75,7 @@ export class MyApp {
   // Check VersionApp  этот блок будет показан в версии 3.6.6
   doUpdate() {
     // Test
-    this.infoblocks = this.http.get('https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/menu/update_v3.6.4.json').map(res => res.json());
+    this.infoblocks = this.http.get('https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/menu/update_v3.6.6.json').map(res => res.json());
    
    
     // Создать на сайте фаил 3.6.5 (ver-1) 
