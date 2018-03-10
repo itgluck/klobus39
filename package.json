@@ -1,6 +1,6 @@
 {
     "name": "KLoBus39",
-    "version": "3.6.4",
+    "version": "3.6.6",
     "author": "Bolshakov Nikita",
     "homepage": "https://goo.gl/9fGdWU",
     "private": true,
@@ -22,6 +22,7 @@
         "@angular/platform-browser-dynamic": "5.2.3",
         "@ionic-native/admob-free": "^4.5.3",
         "@ionic-native/core": "4.5.3",
+        "@ionic-native/push": "^4.5.3",
         "@ionic-native/social-sharing": "^4.5.3",
         "@ionic-native/splash-screen": "4.5.3",
         "@ionic-native/status-bar": "4.5.3",

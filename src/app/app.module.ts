@@ -17,6 +17,8 @@ import { Promo } from '../pages/promo/promo';
 import { DetailsPromo } from '../pages/promo/promo';
 import { TrainDetails } from '../pages/page1/train/train';
 
+// import { Push, PushObject, PushOptions } from '@ionic-native/push';
+
 
 // AdMob
 import { AdMobFree } from '@ionic-native/admob-free';
@@ -73,6 +75,7 @@ import { AdMobFree } from '@ionic-native/admob-free';
     DetailsPromo
   ],
   providers: [
+    // Push,
     StatusBar,
     SocialSharing,
     AdMobFree,

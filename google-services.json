@@ -23,14 +23,6 @@
           }
         },
         {
-          "client_id": "155670320659-im1abano1i809cpomoj2qr41df5v6d7o.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.itgluck.klobus39",
-            "certificate_hash": "8bb207d4db0a18f876d780d7b06e4852c078ec0f"
-          }
-        },
-        {
           "client_id": "155670320659-e29cgl2v9h5g169t7uoqk28edhsk0l69.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -7,39 +7,15 @@ import { AdMobFree, AdMobFreeBannerConfig } from '@ionic-native/admob-free';
 
 @Component({
 	templateUrl: 'citydetal.html',
-})
+	})
 export class DetailsPage {
 	item: any;
 	alertCtrl;
-	constructor(params: NavParams, alertCtrl: AlertController,public navCtrl: NavController,	
-		private adMobFree: AdMobFree	
-	) {
+	constructor(params: NavParams, alertCtrl: AlertController,public navCtrl: NavController) {
 
 		this.item = params.data.item;
 		this.tabs = ["Будни · Суббота", "Воскресенье · Праздники"];
 		this.alertCtrl = alertCtrl;
-		
-	// AdMob Block #############
-
-			const bannerConfig: AdMobFreeBannerConfig = {
-				id: 'ca-app-pub-7133305264165200/6243373138',
-				isTesting: false,
-				autoShow: true,
-				bannerAtTop: true,
-			}
-	
-			this.adMobFree.banner.config(bannerConfig);
-			this.adMobFree.banner.prepare()
-				.then(() => {
-					console.log('AdMob готов')
-				})
-	
-				.catch(e => console.log(e));
-
-			this.adMobFree.banner.show();
-		
-			// AdMob Block #############
-
 	}
 
 	// New Segment
@@ -102,248 +78,248 @@ export class DetailsPage {
 // Page1
 @Component({
 	template: `
-<ion-header style="text-align:center;">
-    <ion-navbar color="primary">
-        <button ion-button menuToggle>
- 			<ion-icon name="menu" color="hidden"></ion-icon>
- 		</button>
-		<ion-buttons end>
-				<button ion-button onclick="window.plugins.socialsharing.share('KLoBus39 транспорт Калининградской области', 'Рекомендую приложение KLoBus39', 'https://pp.userapi.com/c638320/v638320752/4bd5e/UgZtg-jvSbs.jpg', 'https://goo.gl/7O8QKI')">
-				<ion-icon name="share" color="hidden"></ion-icon>
-				</button>
-				<button ion-button (click)="hide()" (click)="toggle()">
-				<ion-icon name="search" color="hidden"></ion-icon>
-				</button>
-		</ion-buttons>
-        <ion-title logo-header>
+			<ion-header style="text-align:center;">
+				<ion-navbar color="primary">
+					<button ion-button menuToggle>
+						<ion-icon name="menu" color="hidden"></ion-icon>
+					</button>
+					<ion-buttons end>
+							<button ion-button onclick="window.plugins.socialsharing.share('KLoBus39 транспорт Калининградской области', 'Рекомендую приложение KLoBus39', 'https://pp.userapi.com/c638320/v638320752/4bd5e/UgZtg-jvSbs.jpg', 'https://goo.gl/7O8QKI')">
+							<ion-icon name="share" color="hidden"></ion-icon>
+							</button>
+							<button ion-button (click)="hide()" (click)="toggle()" (click)="doADB()">
+							<ion-icon name="search" color="hidden"></ion-icon>
+							</button>
+					</ion-buttons>
+					<ion-title logo-header>
+						
+						KLoBus39
+					</ion-title>
+				</ion-navbar>
+				
+				<ion-toolbar color="primary" *ngIf="checked"> 
+					<ion-searchbar  [(ngModel)]="searchQuery" (ionInput)="getItems($event)" placeholder="Укажите город или маршрут"></ion-searchbar>
+				</ion-toolbar>
+				
+
+			</ion-header>
+
+
+			<ion-content class="citylist" >
+
+
+				<!--Accordion-->
+				<div class="arrows accordion">
 			
-			KLoBus39
-		</ion-title>
-	</ion-navbar>
-	
-    <ion-toolbar color="primary" *ngIf="checked"> 
-        <ion-searchbar  [(ngModel)]="searchQuery" (ionInput)="getItems($event)" placeholder="Укажите город или маршрут"></ion-searchbar>
-	</ion-toolbar>
-	
 
-</ion-header>
-
-
-<ion-content class="citylist" >
-
-
-    <!--Accordion-->
-    <div class="arrows accordion">
-  
-
-    <!--Железнодорожный вокзал--> 
- 
-        <div class="tab" [ngClass]="{noimg: !visibility}">
-			<input id="tab-elect" type="checkbox" name="tabs">
+				<!--Железнодорожный вокзал--> 
 			
-            <label for="tab-elect">Электрички <ion-icon name="subway" item-end></ion-icon></label>
-			<div class="tab-content" >
+					<div class="tab" [ngClass]="{noimg: !visibility}">
+						<input id="tab-elect" type="checkbox" name="tabs"  (click)="doADB()">
+						
+						<label for="tab-elect">Электрички <ion-icon name="subway" item-end></ion-icon></label>
+						<div class="tab-content" >
 
-				<ion-list class="trainbtn">
-					<div *ngFor="let train of trains">
-						<button ion-item (click)="trainList(train)" class="citylist">
-							
-							Калининград - {{train.title}}
-							<br><div class='en'>Kaliningrad - {{train.en}}
-							<br>{{train.info}}</div>
-						</button>
+							<ion-list class="trainbtn">
+								<div *ngFor="let train of trains">
+									<button ion-item (click)="trainList(train)" class="citylist">
+										
+										Калининград - {{train.title}}
+										<br><div class='en'>Kaliningrad - {{train.en}}
+										<br>{{train.info}}</div>
+									</button>
+								</div>
+							</ion-list>			
+						</div>
 					</div>
-                </ion-list>			
-			</div>
-		</div>
-		
- 	<h5>Автовокзалы г.Калининград</h5>
-		<!-- АвтоВокзалы --> 
-				<div class="tab">
-					<input id="tab-2" type="checkbox" name="tabs">
-					<label for="tab-2">Северный автовокзал  
-					<a href="geo:54.7214,20.50011?z=15&q=Северный вокзал">
-					<ion-icon item-end name="pin"></ion-icon>
-					</a>
-					</label>
-					<div class="tab-content"  [ngClass]="{invisible: !visibility}">
 					
-						<ion-list>
-							<div *ngFor="let data of spisok">
-								<button ion-item (click)="openNavDetailsPage2(data)" class="citylist">
-									{{data.title }}
-									<br><div class='en'>{{data.en}}</div>
-									<span item-right class='numb'>
-									<ion-icon start name="bus"></ion-icon>
-									{{data.numb}}
-									</span> 
-								</button>
+				<h5>Автовокзалы г.Калининград</h5>
+					<!-- АвтоВокзалы --> 
+							<div class="tab">
+								<input id="tab-2" type="checkbox" name="tabs" (click)="doADB()">
+								<label for="tab-2">Северный автовокзал  
+								<a href="geo:54.7214,20.50011?z=15&q=Северный вокзал">
+								<ion-icon item-end name="pin"></ion-icon>
+								</a>
+								</label>
+								<div class="tab-content"  [ngClass]="{invisible: !visibility}">
+								
+									<ion-list>
+										<div *ngFor="let data of spisok">
+											<button ion-item (click)="openNavDetailsPage2(data)" class="citylist">
+												{{data.title }}
+												<br><div class='en'>{{data.en}}</div>
+												<span item-right class='numb'>
+												<ion-icon start name="bus"></ion-icon>
+												{{data.numb}}
+												</span> 
+											</button>
+										</div>
+									</ion-list>
+								</div>
 							</div>
-						</ion-list>
-					</div>
-				</div>
 
-				<div class="tab">
-					<input id="tab-3" type="checkbox" name="tabs">
-					<label for="tab-3">Южный автовокзал 
-					<a href="geo:54.6935,20.50188?z=15&q=Южный вокзал">
-					<ion-icon name="pin" item-end></ion-icon>
-					</a>    
-					</label>
-					<div class="tab-content" [ngClass]="{invisible: !visibility}">
-					
-						<ion-list>
-							<div *ngFor="let item of items">
-								<button ion-item (click)="openNavDetailsPage(item)" class="citylist">
-								{{ item.title }}<br><div class='en'>{{item.en}}</div>
-								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{item.numb}}</span> 
-								</button>
-							</div> 
-						</ion-list>
-					</div>
-				</div>
-
-			<h5>Автостанции Калининградской области</h5>
-
-					<div class="tab">
-					<input id="tab-5" type="checkbox" name="tabs">
-					<label for="tab-5">Гусев 
-					<a href="geo:54.585265,22.198909?z=8&q=Гусев жд вокзал">
-					<ion-icon name="pin" item-end></ion-icon>
-					</a>               
-					</label>
-					<div class="tab-content" [ngClass]="{invisible: !visibility}">
-						<ion-list>
-							<div *ngFor="let gus of gusev">
-								<button ion-item (click)="openNavDetailsGus(gus)" class="citylist">
-								{{gus.title }}<br><div class='en'>{{gus.en}}</div>
-								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{gus.numb}}</span> 
-								</button>
+							<div class="tab">
+								<input id="tab-3" type="checkbox" name="tabs" (click)="doADB()">
+								<label for="tab-3">Южный автовокзал 
+								<a href="geo:54.6935,20.50188?z=15&q=Южный вокзал">
+								<ion-icon name="pin" item-end></ion-icon>
+								</a>    
+								</label>
+								<div class="tab-content" [ngClass]="{invisible: !visibility}">
+								
+									<ion-list>
+										<div *ngFor="let item of items">
+											<button ion-item (click)="openNavDetailsPage(item)" class="citylist">
+											{{ item.title }}<br><div class='en'>{{item.en}}</div>
+											<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{item.numb}}</span> 
+											</button>
+										</div> 
+									</ion-list>
+								</div>
 							</div>
-						</ion-list>
-					</div>
-				</div>
 
+						<h5>Автостанции Калининградской области</h5>
 
-				<div class="tab">
-					<input id="tab-6" type="checkbox" name="tabs">
-					<label for="tab-6">Черняховск
-					<a href="geo:54.6311,21.8202?z=9&q=Черняховск автовокзал">
-					<ion-icon name="pin" item-end></ion-icon>
-					</a>
-					</label>
-					<div class="tab-content" [ngClass]="{invisible: !visibility}">
-						<ion-list>
-							<div *ngFor="let cher of chernahovsk">
-								<button ion-item (click)="openNavDetailsCher(cher)" class="citylist">
-								{{cher.title }}<br><div class='en'>{{cher.en}}</div>
-								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{cher.numb}}</span> 
-								</button>
+								<div class="tab">
+								<input id="tab-5" type="checkbox" name="tabs" (click)="doADB()">
+								<label for="tab-5">Гусев 
+								<a href="geo:54.585265,22.198909?z=8&q=Гусев жд вокзал">
+								<ion-icon name="pin" item-end></ion-icon>
+								</a>               
+								</label>
+								<div class="tab-content" [ngClass]="{invisible: !visibility}">
+									<ion-list>
+										<div *ngFor="let gus of gusev">
+											<button ion-item (click)="openNavDetailsGus(gus)" class="citylist">
+											{{gus.title }}<br><div class='en'>{{gus.en}}</div>
+											<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{gus.numb}}</span> 
+											</button>
+										</div>
+									</ion-list>
+								</div>
 							</div>
-						</ion-list>
-					</div>
-				</div>
 
-				<div class="tab">
-					<input id="tab-8" type="checkbox" name="tabs">
-					<label for="tab-8">Гвардейск 
-					<a href="geo:54.6311,21.8202?z=9&q=Гвардейск автостанция">
-					<ion-icon name="pin" item-end></ion-icon>
-					</a>               
-					</label>
-					<div class="tab-content" [ngClass]="{invisible: !visibility}">
-						<ion-list>
-							<div *ngFor="let gvard of gvardeysk">
-								<button ion-item (click)="openNavDetailsGvard(gvard)" class="citylist">
-								{{gvard.title }}<br><div class='en'>{{gvard.en}}</div>
-								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{gvard.numb}}</span> 
-								</button>
-							</div>
-						</ion-list>
-					</div>
-				</div>
 
-				<div class="tab">
-					<input id="tab-7" type="checkbox" name="tabs" checked>
-					<label for="tab-7">Большаково
-					<a href="geo:54.8805,21.6521?z=8&q=Большаково автостанция">
-					<ion-icon name="pin" item-end></ion-icon>
-					</a>
-					</label>
-					<div class="tab-content" [ngClass]="{invisible: !visibility}">
-						<ion-list>
-							<div *ngFor="let bolsh of bolshakovo">
-								<button ion-item (click)="openNavDetailsBolsh(bolsh)" class="citylist">
-								{{bolsh.title }}<br><div class='en'>{{bolsh.en}}</div>
-								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{bolsh.numb}}</span> 
-								</button>
+							<div class="tab">
+								<input id="tab-6" type="checkbox" name="tabs" (click)="doADB()">
+								<label for="tab-6">Черняховск
+								<a href="geo:54.6311,21.8202?z=9&q=Черняховск автовокзал">
+								<ion-icon name="pin" item-end></ion-icon>
+								</a>
+								</label>
+								<div class="tab-content" [ngClass]="{invisible: !visibility}">
+									<ion-list>
+										<div *ngFor="let cher of chernahovsk">
+											<button ion-item (click)="openNavDetailsCher(cher)" class="citylist">
+											{{cher.title }}<br><div class='en'>{{cher.en}}</div>
+											<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{cher.numb}}</span> 
+											</button>
+										</div>
+									</ion-list>
+								</div>
 							</div>
-						</ion-list>
-					</div>
-				</div>
-					
-				<div class="tab">
-					<input id="tab-12" type="checkbox" name="tabs">
-					<label for="tab-12">Озерск 
-					<a href="geo:54.943894,22.492978?z=8&q=Озерск автостанция">
-					<ion-icon name="pin" item-end></ion-icon>
-					</a>               
-					</label>
-					<div class="tab-content" [ngClass]="{invisible: !visibility}">
-						<ion-list>
-							<div *ngFor="let ozer of ozersk">
-								<button ion-item (click)="openNavDetailsOzersk(ozer)" class="citylist">
-								{{ozer.title }}<br><div class='en'>{{ozer.en}}</div>
-								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{ozer.numb}}</span> 
-								</button>
-							</div>
-						</ion-list>
-					</div>
-				</div>
 
-				<div class="tab">
-					<input id="tab-4" type="checkbox" name="tabs">
-					<label for="tab-4">Советск 
-					<a href="geo:55.081515,21.87958?z=9&q=АВ Советск">
-					<ion-icon name="pin" item-end></ion-icon>					
-					</a>               
-					</label>
-					<div class="tab-content" [ngClass]="{invisible: !visibility}">
-						<ion-list>
-							<div *ngFor="let sov of sovetsk">
-								<button ion-item (click)="openNavDetailsSov(sov)" class="citylist">
-								{{sov.title }}<br><div class='en'>{{sov.en}}</div>
-								<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{sov.numb}}</span> 
-								</button>
+							<div class="tab">
+								<input id="tab-8" type="checkbox" name="tabs" (click)="doADB()">
+								<label for="tab-8">Гвардейск 
+								<a href="geo:54.6311,21.8202?z=9&q=Гвардейск автостанция">
+								<ion-icon name="pin" item-end></ion-icon>
+								</a>               
+								</label>
+								<div class="tab-content" [ngClass]="{invisible: !visibility}">
+									<ion-list>
+										<div *ngFor="let gvard of gvardeysk">
+											<button ion-item (click)="openNavDetailsGvard(gvard)" class="citylist">
+											{{gvard.title }}<br><div class='en'>{{gvard.en}}</div>
+											<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{gvard.numb}}</span> 
+											</button>
+										</div>
+									</ion-list>
+								</div>
 							</div>
-						</ion-list>
-					</div>
-				</div>
-			
-			<h5>Балтийская коса</h5>
 
-				<div class="tab">
-					<input id="tab-14" type="checkbox" name="tabs">
-					<label for="tab-14">Паром <ion-icon name="boat" item-end></ion-icon></label>
-					<div class="tab-content" [ngClass]="{invisible: !visibility}">             
-						<ion-list>
-							<div *ngFor="let boat of parom">
-								<button ion-item (click)="openNavDetailsParom(boat)" class="citylist">
-								{{boat.title}}<br><div class='en'>{{boat.en}}</div>
-								<span item-right class='numb'><ion-icon start name="boat"></ion-icon></span> 
-								</button>
+							<div class="tab">
+								<input id="tab-7" type="checkbox" name="tabs" (click)="doADB()">
+								<label for="tab-7">Большаково
+								<a href="geo:54.8805,21.6521?z=8&q=Большаково автостанция">
+								<ion-icon name="pin" item-end></ion-icon>
+								</a>
+								</label>
+								<div class="tab-content" [ngClass]="{invisible: !visibility}">
+									<ion-list>
+										<div *ngFor="let bolsh of bolshakovo">
+											<button ion-item (click)="openNavDetailsBolsh(bolsh)" class="citylist">
+											{{bolsh.title }}<br><div class='en'>{{bolsh.en}}</div>
+											<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{bolsh.numb}}</span> 
+											</button>
+										</div>
+									</ion-list>
+								</div>
 							</div>
-						</ion-list> 
-					</div>
-				</div>
-			</div>
+								
+							<div class="tab">
+								<input id="tab-12" type="checkbox" name="tabs" (click)="doADB()">
+								<label for="tab-12">Озерск 
+								<a href="geo:54.943894,22.492978?z=8&q=Озерск автостанция">
+								<ion-icon name="pin" item-end></ion-icon>
+								</a>               
+								</label>
+								<div class="tab-content" [ngClass]="{invisible: !visibility}">
+									<ion-list>
+										<div *ngFor="let ozer of ozersk">
+											<button ion-item (click)="openNavDetailsOzersk(ozer)" class="citylist">
+											{{ozer.title }}<br><div class='en'>{{ozer.en}}</div>
+											<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{ozer.numb}}</span> 
+											</button>
+										</div>
+									</ion-list>
+								</div>
+							</div>
 
-</ion-content>
-`
+							<div class="tab">
+								<input id="tab-4" type="checkbox" name="tabs" (click)="doADB()">
+								<label for="tab-4">Советск 
+								<a href="geo:55.081515,21.87958?z=9&q=АВ Советск">
+								<ion-icon name="pin" item-end></ion-icon>					
+								</a>               
+								</label>
+								<div class="tab-content" [ngClass]="{invisible: !visibility}">
+									<ion-list>
+										<div *ngFor="let sov of sovetsk">
+											<button ion-item (click)="openNavDetailsSov(sov)" class="citylist">
+											{{sov.title }}<br><div class='en'>{{sov.en}}</div>
+											<span item-right class='numb'><ion-icon start name="bus"></ion-icon>{{sov.numb}}</span> 
+											</button>
+										</div>
+									</ion-list>
+								</div>
+							</div>
+						
+						<h5>Балтийская коса</h5>
+
+							<div class="tab">
+								<input id="tab-14" type="checkbox" name="tabs" (click)="doADB()">
+								<label for="tab-14">Паром <ion-icon name="boat" item-end></ion-icon></label>
+								<div class="tab-content" [ngClass]="{invisible: !visibility}">             
+									<ion-list>
+										<div *ngFor="let boat of parom">
+											<button ion-item (click)="openNavDetailsParom(boat)" class="citylist">
+											{{boat.title}}<br><div class='en'>{{boat.en}}</div>
+											<span item-right class='numb'><ion-icon start name="boat"></ion-icon></span> 
+											</button>
+										</div>
+									</ion-list> 
+								</div>
+							</div>
+						</div>
+
+			</ion-content>
+			`
 
 
 				// <div class="tab">
-				// <input id="tab-9" type="checkbox" name="tabs">
+				// <input id="tab-9" type="checkbox" name="tabs" (click)="doADB()">
 				// <label for="tab-9">Железнодорожный 
 				// <a href="geo:54.361693,21.305466?z=7">
 				// <ion-icon name="pin" item-end></ion-icon>
@@ -362,7 +338,7 @@ export class DetailsPage {
 				// </div>
 
 				// <div class="tab">
-				// <input id="tab-10" type="checkbox" name="tabs">
+				// <input id="tab-10" type="checkbox" name="tabs" (click)="doADB()">
 				// <label for="tab-10">Краснознаменск 
 				// <a href="geo:54.943894,22.492978?z=8&q=Краснознаменск автостанция">
 				// <ion-icon name="pin" item-end></ion-icon>
@@ -381,7 +357,7 @@ export class DetailsPage {
 				// </div>
 				
 				// <div class="tab">
-				// <input id="tab-11" type="checkbox" name="tabs">
+				// <input id="tab-11" type="checkbox" name="tabs" (click)="doADB()">
 				// <label for="tab-11">Неман 
 				// <a href="geo:54.943894,22.492978?z=8&q=Неман автостанция">
 				// <ion-icon name="pin" item-end></ion-icon>
@@ -400,7 +376,7 @@ export class DetailsPage {
 				// </div>
 				
 				// <div class="tab">
-				// <input id="tab-13" type="checkbox" name="tabs">
+				// <input id="tab-13" type="checkbox" name="tabs" (click)="doADB()">
 				// <label for="tab-13">Правдинск
 				// <a href="geo:54.4463,21.01878?z=9&q=Правдинск автостанция">
 				// <ion-icon name="pin" item-end></ion-icon>
@@ -418,12 +394,9 @@ export class DetailsPage {
 				// 	</div>
 				// </div>
 
-,
+	,
 	styles: [`.invisible{display:block;}
-			.noimg{
-				display:none !important;
-			}
-`]
+			.noimg{	display:none !important;}`]
 })
 export class Page1 {
 	// Exp всех направлений
@@ -446,20 +419,39 @@ export class Page1 {
 	searchQuery: string = '';
 	checked: boolean = false;
 	visibility: boolean = true;
-	baner: any;
 
 
 	constructor(public navCtrl: NavController, params: NavParams,
-		// private adMobFree: AdMobFree
+		private adMobFree: AdMobFree
 	) {
+	
 		this.searchQuery = '';
 		this.initializeItems();
 		this.item = params.data.item;
+	}
+// AdMob Block #############
+	doADB(){
 
+		const bannerConfig: AdMobFreeBannerConfig = {
+			id: 'ca-app-pub-7133305264165200/6243373138',
+			isTesting: false,
+			autoShow: true,
+			bannerAtTop: false,
+		}
+
+		this.adMobFree.banner.config(bannerConfig);
+		this.adMobFree.banner.prepare()
+			.then(() => {
+				console.log('AdMob готов')
+			})
+
+			.catch(e => console.log(e));
+			console.log('AdMob start: Baner Show!');
+		// this.adMobFree.banner.remove();
 	
 	}
-	
-
+// AdMob Block #############
+ 
 	hide() {
 		this.checked = !this.checked;
 		this.initializeItems();
@@ -470,7 +462,6 @@ export class Page1 {
 	}
 
 	initializeItems() {
-
 		// Trains
 
 		this.trains = [
