@@ -3516,7 +3516,7 @@ export class Page1 {
 				'title': 'Правдинск',
 				'en': 'Pravdinsk',
 				'description': 'Домново, Солдатово, Ермаково',
-				time: '1:15', dist: '53', cost: '107',
+				time: '1:15', dist: '53', cost: '109',
 				'workday': "09:00 12:25 15:50* 21:00*",
 				'workday2': "10:10 13:35 17:14 22:24",
 				'workday3': "07:00* 10:40 14:10 17:20",

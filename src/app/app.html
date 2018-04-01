@@ -8,7 +8,6 @@
         <ion-list class="mainmenu" no-lines>
             <div *ngIf="show">
                 <button (click)="show = !show" *ngFor="let promo of (infoblocks | async)?.results" ion-item onclick="window.open('https://goo.gl/7O8QKI', '_system', 'location=yes'); return false;">
-                <!-- <ion-icon name="{{ promo.icon }}" item-left></ion-icon> -->
                 <img src="{{promo.img}}" item start>
                 <h2>{{ promo.title }}</h2>
                 <i class="inf" >{{ promo.subtitle}}</i>

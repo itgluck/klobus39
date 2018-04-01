@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.itgluck.klobus39" version="3.6.6" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.itgluck.klobus39" version="3.6.7" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>KLoBus39</name>
     <description>Общественный транспорт Калининградской области</description>
     <author email="klobus39@ya.ru" href="https://goo.gl/7O8QKI">Bolshakov Nikita</author>
@@ -39,13 +39,12 @@
     <preference name="webviewbounce" value="false" />
     <preference name="UIWebViewBounce" value="false" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="android-minSdkVersion" value="16" />
+    <preference name="android-minSdkVersion" value="20" />
     <preference name="android-targetSdkVersion" value="25" />
     <preference name="KeepRunning" value="true" />
     <preference name="BackupWebStorage" value="none" />
-    <preference name="loadUrlTimeoutValue" value="65000" />
+    <preference name="loadUrlTimeoutValue" value="64000" />
     <preference name="SplashScreen" value="none" />
-    <preference name="SplashScreenDelay" value="3000" />
     <feature name="StatusBar">
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
@@ -65,7 +64,6 @@
     <platform name="android">
         <resource-file src="google-services.json" target="google-services.json" />
     </platform>
-    <engine name="ios" spec="^4.4.0" />
-    <engine name="android" spec="6.4.0" />
+    <preference name="SplashScreenDelay" value="3000" />
     <engine name="browser" spec="5.0.3" />
 </widget>
