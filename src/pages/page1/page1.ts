@@ -114,8 +114,8 @@ export class DetailsPage {
 
 				<!--Железнодорожный вокзал--> 
 			
-					<div class="tab" [ngClass]="{noimg: !visibility}">
-						<input id="tab-elect" type="checkbox" name="tabs"  (click)="doADB()">
+					<div class="tab" [ngClass]="{noimg: !visibility}"  (click)="hideAdb()">
+						<input id="tab-elect" type="checkbox" name="tabs">
 						
 						<label for="tab-elect">Электрички <ion-icon name="subway" item-end></ion-icon></label>
 						<div class="tab-content" >
@@ -449,6 +449,11 @@ export class Page1 {
 			console.log('AdMob start: Baner Show!');
 		// this.adMobFree.banner.remove();
 	
+	}
+	// Убрать рекламу
+	hideAdb() {
+		this.adMobFree.banner.remove();
+		console.log('AdMob hide: Нет рекламы');
 	}
 // AdMob Block #############
  
