@@ -1,6 +1,10 @@
 .pravila {
     font-size: 1em;
     color: $secondary;
+    .baner {text-align: center;}
+    img {
+        margin: 0 auto;
+    }
 }
 
 .pravila p {
@@ -10,7 +14,7 @@
 }
 
 .pravila h4,
-h5 {
+h3 {
     font-weight: 300;
     text-align: center;
 }

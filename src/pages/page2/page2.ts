@@ -1,12 +1,5 @@
 import { Component } from '@angular/core';
 
-
-/*
-  Generated class for the WeatherPage page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   templateUrl: 'page2.html',
 })

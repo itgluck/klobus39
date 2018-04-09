@@ -1,7 +1,13 @@
     // Общий стиль для всех страниц
+@font-face {
+    font-family: Dusha;
+    src: url('../assets/fonts/10622.ttf')
+}
+
     html {
-        font-size: 63%;
+        font-size: 68%;
     }
+    h1,h2,h3,button, .toolbar-title, label,span, .label {font-family: Dusha;}
     
     iframe {
         // height: 100%;
@@ -10,6 +16,7 @@
         margin: 0px;
         margin-bottom: -4px;
         border: none;
+        font-family: Gabriela;
         // position: absolute;
     }
     
@@ -90,7 +97,7 @@
     .mainmenu .item-md {
         padding-left: 3em;
         h2 {
-            font-size: 1.5rem;
+            font-size: 2rem;
         }
     }
     

@@ -22,7 +22,7 @@ export class MyApp {
 
   infoblocks: Observable<any>;
   show: boolean = true;      
-  pages: Array<{ title: string, icon: string, component: any }>;
+  pages: Array<{ title: string, icon: string, component: any}>;
 
   constructor(public platform: Platform, private statusBar: StatusBar,
     public http: Http,
@@ -36,8 +36,8 @@ export class MyApp {
     ];
 
     //В ссылке ниже, указать будущую версию +1
-    this.infoblocks = this.http.get('https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/menu/update_v3.6.7.json').map(res => res.json());
-    // После публикации Создать на сайте фаил 3.6.6 (ver-1) 
+    this.infoblocks = this.http.get('https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/menu/update_v3.6.8.json').map(res => res.json());
+    // После публикации Создать на сайте фаил 3.6.8 (ver-1) 
 
   }
 
@@ -62,12 +62,12 @@ export class MyApp {
     
   }
 
-  // Check VersionApp  этот блок будет показан в версии 3.6.7
+  // Check VersionApp  этот блок будет показан в версии 3.6.8
   // doUpdateMsg() {
   //   // Test
-  //   this.infoblocks = this.http.get('https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/menu/update_v3.6.7.json').map(res => res.json());
+    // this.infoblocks = this.http.get('https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/menu/update_v3.6.8.json').map(res => res.json());
   //   // Local
-  //   // this.infoblocks = this.http.get('../assets/menu/update.json').map(res => res.json());
+    // this.infoblocks = this.http.get('../assets/menu/update.json').map(res => res.json());
 
   // }
 

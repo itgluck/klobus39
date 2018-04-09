@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Slides, Content, AlertController } from 'ionic-angular';
-import { DetailsPromo} from '../.././promo/promo';
+// import { DetailsPromo} from '../.././promo/promo';
 // TrainPage
 @Component({
     templateUrl: 'train.html'
@@ -64,7 +64,7 @@ export class TrainDetails {
         });
         confirm.present();
     }
-	goPromo() {
-		this.navCtrl.push(DetailsPromo);
-	}
+	// goPromo() {
+	// 	this.navCtrl.push(DetailsPromo);
+	// }
 }

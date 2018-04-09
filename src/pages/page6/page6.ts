@@ -32,7 +32,7 @@ export class Page6 {
           text: 'Написать',
           handler: () => {
             console.log('Message clicked');			
-			window.open('mailto:it.gluck@ya.ru?subject=Предложение-Отзыв о работе сервиса KLoBus39&body=App build v3.1 */ Здравсвуйте, уважаемые разработчики!');
+			window.open('mailto:it.gluck@ya.ru?subject=Предложение-Отзыв о работе сервиса KLoBus39&body=App build v3.6.7 */ Здравсвуйте, уважаемые разработчики!');
           }
         }
       ]
@@ -42,7 +42,7 @@ export class Page6 {
 	doUpdate() {
     let confirm = this.alertCtrl.create({
       title: 'Отценить',
-      message: 'Будем рады Вашему отзыву<p><h6>Версия приложения: 3.1</h6></p>',
+      message: 'Будем рады Вашему отзыву<p><h6>Версия приложения: 3.6.7</h6></p>',
       buttons: [
         {
           text: 'Отмена',

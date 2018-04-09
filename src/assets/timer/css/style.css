@@ -1,0 +1,35 @@
+@font-face {
+  font-family: Dusha;
+  src: url('./10622.ttf')
+}
+html{
+  color: #fff;
+  text-shadow: 1px 1px 4px #424242;
+  /* font-family:'Segoe UI', ; */
+  /* font-weight:500; */
+  max-height: 20em;
+  max-width: 320px;
+  text-align:center;
+  font-size: .9em;
+  margin: 0 auto;
+}
+
+h2{
+  /* padding: 4px auto; */
+  color: #fff;
+  font-family: Dusha;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 4px #424242;
+  padding-bottom: .8em;
+}
+span  {
+  font-family: Dusha;
+  letter-spacing: 4px;
+  padding: 3px 7px;
+  background: #28455d87;
+  border: 1px solid #d1c6a4;
+  border-radius: 10px;
+  box-shadow: #eee6d3 0px 0px 6px;
+  font-size: 1.6em;
+  font-weight: 200;
+}

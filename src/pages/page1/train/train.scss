@@ -8,8 +8,9 @@
     // min-width: 5.8rem;
     padding:5px;
     margin: 5px 10px !important;
+    
     ion-icon {
-        margin-right: 8px;
+        margin-right: 4px;
     }
 }
 
@@ -27,15 +28,20 @@
 
 .trainlist {
     color: $train;
+    [col-2] {
+        max-width: 20%;
+        width: 20%;
+    }
+    .info {
+        font-size: .7em;
+    }
     & .grid-train {
-        text-align: center;
+        font-size: .8em;
         color: $text;
         margin-top: -3em;
-        line-height: 1.3em;
         min-height: 6.5em;
-        // position: absolute;
-        left: 2em;
         // width: 90%;
+        text-align: center;
     }
     & .gridHeader {
         text-align: center;
@@ -46,6 +52,7 @@
     }
     & .col {
         display: inline-block;
+        // line-height: 2;
     }
     &.row {
         padding-bottom: 6px;
@@ -64,9 +71,9 @@
     display: block;
 }
 
-// .trainlist ion-row {
-//     line-height: 0em;
-// }
+.trainlist ion-row {
+    line-height: 10px;
+}
 .trainlist .station {
     color: $train;
 }
@@ -110,7 +117,7 @@
 
 .trainlist .icon {
     font-size: 1.3em;
-    margin-right: 8px;
+    margin-right: 4px;
 }
 
 .trainlist ion-label:after {
@@ -218,7 +225,7 @@ $orange: #EB8B6E;
 }
 
 .timeline {
-    max-width: 30em;
+    max-width: 32em;
     margin: -2em auto .5em;
     font-size: 1.4rem;
     li {

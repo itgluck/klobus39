@@ -1,20 +1,21 @@
 <ion-header>
     <ion-navbar color="train">
         <button ion-button menuToggle>
- <ion-icon name="menu" color="hidden"></ion-icon>
- </button>
+            <ion-icon name="menu" color="hidden"></ion-icon>
+        </button>
 
         <ion-title>Детали маршрута</ion-title>
         <ion-buttons end>
             <button ion-button (click)="doMessage()">
-            <ion-icon name="attach" item-left></ion-icon>
+                <ion-icon name="attach" item-left></ion-icon>
             </button>
         </ion-buttons>
     </ion-navbar>
     <ion-toolbar class="trainlist" color="train">
 
         <ion-segment class="SwipedTabs-tabs">
-            <ion-segment-button *ngFor='let tab of tabs ; let i = index ' style="width:100%;" value="IngoreMe" (click)="selectTab(i)" [ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }'>
+            <ion-segment-button *ngFor='let tab of tabs ; let i = index ' style="width:100%;" value="IngoreMe" (click)="selectTab(i)"
+                [ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }'>
                 {{tab}}
             </ion-segment-button>
         </ion-segment>
@@ -49,19 +50,20 @@
         </tr>
     </table>
 
-    <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideWillChange)="updateIndicatorPosition()" (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="true" style="height:unset;">
+    <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideWillChange)="updateIndicatorPosition()"
+        (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="true" style="height:unset;">
         <ion-slide>
             <div class="header">
-                <div class="city start">{{item.city}}</div>
-                <div class="city end">{{item.title}}</div>
+                <div class="city start"><h2>{{item.city}}</h2></div>
+                <div class="city end"><h2>{{item.title}}</h2></div>
             </div>
 
             <!--*** TimeLine-->
             <ion-grid class="info">
                 <ion-row>
-                    <ion-col col-3 push-1>Отправление</ion-col>
-                    <ion-col col-3 push-1>Маршрут</ion-col>
-                    <ion-col col-4 push-2>День недели</ion-col>
+                    <ion-col col-5>Отправление</ion-col>
+                    <ion-col col-2>Маршрут</ion-col>
+                    <ion-col col-4>День недели</ion-col>
                 </ion-row>
             </ion-grid>
             <div class="timeline">
@@ -73,37 +75,44 @@
                         <ion-grid class="grid-train">
                             <ion-row class={{item.ok1}}>
                                 <ion-col col-2>{{item.t1}}</ion-col>
-                                <ion-col col-3 push-1 class="rout_num"><ion-icon start name='subway'></ion-icon>{{item.r1}}</ion-col>
+                                <ion-col col-3 push-1 class="rout_num">
+                                    <ion-icon start name='subway'></ion-icon>{{item.r1}}</ion-col>
                                 <ion-col col-5 push-2 class="mini">{{item.d1}}</ion-col>
                             </ion-row>
                             <ion-row class={{item.ok2}}>
                                 <ion-col col-2>{{item.t2}}</ion-col>
-                                <ion-col col-3 push-1 class="rout_num"><ion-icon start name='subway'></ion-icon>{{item.r2}}</ion-col>
+                                <ion-col col-3 push-1 class="rout_num">
+                                    <ion-icon start name='subway'></ion-icon>{{item.r2}}</ion-col>
                                 <ion-col col-5 push-2 class="mini">{{item.d2}}</ion-col>
                             </ion-row>
                             <ion-row class={{item.ok3}}>
                                 <ion-col col-2>{{item.t3}}</ion-col>
-                                <ion-col col-3 push-1 class="rout_num"><ion-icon start name='subway'></ion-icon>{{item.r3}}</ion-col>
+                                <ion-col col-3 push-1 class="rout_num">
+                                    <ion-icon start name='subway'></ion-icon>{{item.r3}}</ion-col>
                                 <ion-col col-5 push-2 class="mini">{{item.d3}}</ion-col>
                             </ion-row>
                             <ion-row class={{item.ok4}}>
                                 <ion-col col-2>{{item.t4}}</ion-col>
-                                <ion-col col-3 push-1 class="rout_num"><ion-icon start name='subway'></ion-icon>{{item.r4}}</ion-col>
+                                <ion-col col-3 push-1 class="rout_num">
+                                    <ion-icon start name='subway'></ion-icon>{{item.r4}}</ion-col>
                                 <ion-col col-5 push-2 class="mini">{{item.d4}}</ion-col>
                             </ion-row>
                             <ion-row class={{item.ok5}}>
                                 <ion-col col-2>{{item.t5}}</ion-col>
-                                <ion-col col-3 push-1 class="rout_num"><ion-icon start name='subway'></ion-icon>{{item.r5}}</ion-col>
+                                <ion-col col-3 push-1 class="rout_num">
+                                    <ion-icon start name='subway'></ion-icon>{{item.r5}}</ion-col>
                                 <ion-col col-5 push-2 class="mini">{{item.d5}}</ion-col>
                             </ion-row>
                             <ion-row class={{item.ok6}}>
                                 <ion-col col-2>{{item.t6}}</ion-col>
-                                <ion-col col-3 push-1 class="rout_num"><ion-icon start name='subway'></ion-icon>{{item.r6}}</ion-col>
+                                <ion-col col-3 push-1 class="rout_num">
+                                    <ion-icon start name='subway'></ion-icon>{{item.r6}}</ion-col>
                                 <ion-col col-5 push-2 class="mini">{{item.d6}}</ion-col>
                             </ion-row>
                             <ion-row class={{item.ok7}}>
                                 <ion-col col-2>{{item.t7}}</ion-col>
-                                <ion-col col-3 push-1 class="rout_num"><ion-icon start name='subway'></ion-icon>{{item.r7}}</ion-col>
+                                <ion-col col-3 push-1 class="rout_num">
+                                    <ion-icon start name='subway'></ion-icon>{{item.r7}}</ion-col>
                                 <ion-col col-5 push-2 class="mini">{{item.d7}}</ion-col>
                             </ion-row>
                         </ion-grid>
@@ -119,15 +128,15 @@
 
         <ion-slide>
             <div class="header">
-                <div class="city start">{{item.title}}</div>
-                <div class="city end">{{item.city}}</div>
+                <div class="city start"><h2>{{item.title}}</h2></div>
+                <div class="city end"><h2>{{item.city}}</h2></div>
 
             </div>
             <ion-grid class="info">
                 <ion-row>
-                    <ion-col col-3 push-1>Отправление</ion-col>
-                    <ion-col col-3 push-1>Маршрут</ion-col>
-                    <ion-col col-4 push-2>День недели</ion-col>
+                    <ion-col col-5>Отправление</ion-col>
+                    <ion-col col-2>Маршрут</ion-col>
+                    <ion-col col-4>День недели</ion-col>
                 </ion-row>
             </ion-grid>
             <!--*** TimeLine BACK-->
@@ -140,37 +149,44 @@
                         <ion-grid class="grid-train">
                             <ion-row class={{back.ok1}}>
                                 <ion-col col-2>{{back.t1}}</ion-col>
-                                <ion-col col-3 push-1 class="rout_num"><ion-icon start name='subway'></ion-icon>{{back.r1}}</ion-col>
+                                <ion-col col-3 push-1 class="rout_num">
+                                    <ion-icon start name='subway'></ion-icon>{{back.r1}}</ion-col>
                                 <ion-col col-5 push-2 class="mini">{{back.d1}}</ion-col>
                             </ion-row>
                             <ion-row class={{back.ok2}}>
                                 <ion-col col-2>{{back.t2}}</ion-col>
-                                <ion-col col-3 push-1 class="rout_num"><ion-icon start name='subway'></ion-icon>{{back.r2}}</ion-col>
+                                <ion-col col-3 push-1 class="rout_num">
+                                    <ion-icon start name='subway'></ion-icon>{{back.r2}}</ion-col>
                                 <ion-col col-5 push-2 class="mini">{{back.d2}}</ion-col>
                             </ion-row>
                             <ion-row class={{back.ok3}}>
                                 <ion-col col-2>{{back.t3}}</ion-col>
-                                <ion-col col-3 push-1 class="rout_num"><ion-icon start name='subway'></ion-icon>{{back.r3}}</ion-col>
+                                <ion-col col-3 push-1 class="rout_num">
+                                    <ion-icon start name='subway'></ion-icon>{{back.r3}}</ion-col>
                                 <ion-col col-5 push-2 class="mini">{{back.d3}}</ion-col>
                             </ion-row>
                             <ion-row class={{back.ok4}}>
                                 <ion-col col-2>{{back.t4}}</ion-col>
-                                <ion-col col-3 push-1 class="rout_num"><ion-icon start name='subway'></ion-icon>{{back.r4}}</ion-col>
+                                <ion-col col-3 push-1 class="rout_num">
+                                    <ion-icon start name='subway'></ion-icon>{{back.r4}}</ion-col>
                                 <ion-col col-5 push-2 class="mini">{{back.d4}}</ion-col>
                             </ion-row>
                             <ion-row class={{back.ok5}}>
                                 <ion-col col-2>{{back.t5}}</ion-col>
-                                <ion-col col-3 push-1 class="rout_num"><ion-icon start name='subway'></ion-icon>{{back.r5}}</ion-col>
+                                <ion-col col-3 push-1 class="rout_num">
+                                    <ion-icon start name='subway'></ion-icon>{{back.r5}}</ion-col>
                                 <ion-col col-5 push-2 class="mini">{{back.d5}}</ion-col>
                             </ion-row>
                             <ion-row class={{back.ok6}}>
                                 <ion-col col-2>{{back.t6}}</ion-col>
-                                <ion-col col-3 push-1 class="rout_num"><ion-icon start name='subway'></ion-icon>{{back.r6}}</ion-col>
+                                <ion-col col-3 push-1 class="rout_num">
+                                    <ion-icon start name='subway'></ion-icon>{{back.r6}}</ion-col>
                                 <ion-col col-5 push-2 class="mini">{{back.d6}}</ion-col>
                             </ion-row>
                             <ion-row class={{back.ok7}}>
                                 <ion-col col-2>{{back.t7}}</ion-col>
-                                <ion-col col-3 push-1 class="rout_num"><ion-icon start name='subway'></ion-icon>{{back.r7}}</ion-col>
+                                <ion-col col-3 push-1 class="rout_num">
+                                    <ion-icon start name='subway'></ion-icon>{{back.r7}}</ion-col>
                                 <ion-col col-5 push-2 class="mini">{{back.d7}}</ion-col>
                             </ion-row>
                         </ion-grid>
@@ -184,15 +200,15 @@
     </ion-slides>
 
     <!-- Promo Seg -->
-	<ion-slides (click)="goPromo()" autoplay="3000" loop="true" speed="1200" style="height:unset;">
+    <!-- <ion-slides (click)="goPromo()" autoplay="2500" loop="true" speed="700" style="height:12em;">
         <ion-slide >
          <img src="https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/promo/promo1.jpg">
         </ion-slide>
         <ion-slide >
-          <img src="../../.././assets/promo/promo1.jpg">
+          <img src="https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/promo/promo2.jpg">
         </ion-slide>
         <ion-slide >
-          <img src="../../.././assets/promo/promo3.jpg">
+          <img src="https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/promo/promo3.jpg">
         </ion-slide> 
-      </ion-slides>
+      </ion-slides> -->
 </ion-content>

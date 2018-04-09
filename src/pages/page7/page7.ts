@@ -4,8 +4,8 @@ import { Slides, Content } from 'ionic-angular';
 @Component({
   templateUrl:'page7.html',
 })
-export class Page7 {
- items= [];
+export class Page7 { 
+ items= []; 
  cars=[];
 //  tabs=[];
 //  autobtn: string = "taxi";

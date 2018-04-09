@@ -17,30 +17,10 @@ import { Promo } from '../pages/promo/promo';
 import { DetailsPromo } from '../pages/promo/promo';
 import { TrainDetails } from '../pages/page1/train/train';
 
-// import { Push, PushObject, PushOptions } from '@ionic-native/push';
 
 
 // AdMob
 import { AdMobFree } from '@ionic-native/admob-free';
-// Cloud
-
-// const cloudSettings: CloudSettings = {
-//   'core': {
-//     'app_id': 'dec8db27',
-//   },
-//   'push': {
-//     'sender_id': '155670320659',
-//     'pluginConfig': {
-//       'ios': {
-//         'badge': true,
-//         'sound': true
-//       },
-//       'android': {
-//         'iconColor': '#343434'
-//       }
-//     }
-//   }
-// };
 
 @NgModule({
   declarations: [
@@ -82,5 +62,7 @@ import { AdMobFree } from '@ionic-native/admob-free';
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 }) 
+
+
 export class AppModule {}
 
