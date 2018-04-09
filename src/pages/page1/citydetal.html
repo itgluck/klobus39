@@ -54,23 +54,6 @@
     </div>
 
 
-    <!-- <Список станций> 140 пример-->
-        <!-- <input class="toggle-box" id="st1" type="checkbox">
-        <label for="st1">Все станции</label>
-        <div>
-            <ion-grid >
-                <ion-row  *ngFor="let station of item.station">
-                    <ion-col push-2 col-6>
-                        {{station.title}}
-                    </ion-col>
-                    <ion-col push-2 col-2>
-                            {{station.tax}} руб
-                    </ion-col>
-                </ion-row>        
-            </ion-grid>
-        </div> -->
-    <!-- </Список станций> -->
-
     <ion-toolbar no-border-bottom color="primary">
         <ion-segment class="SwipedTabs-tabs">
             <ion-segment-button *ngFor='let tab of tabs ; let i = index ' style="width:100%;" value="IngoreMe" (click)="selectTab(i)"
@@ -91,7 +74,7 @@
         <ion-slide>
             <!--WorkDay-->
 
-            <ion-list>
+            <ion-list class="detailist">
                 <input class="toggle-box" id="header1" type="checkbox" checked>
                 <label for="header1">{{item.city}} - {{item.title}}</label>
                 <!--Расписание Будни прямое-->

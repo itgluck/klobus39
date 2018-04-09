@@ -6,8 +6,8 @@
     h5 {
         font-weight: 300;
         color: $hidden;
-        margin: 18px;
-        font-size: 1.4rem;
+        margin: 12px;
+        font-size: 1.2rem;
     }
     .col {
         padding: 0;
@@ -17,6 +17,24 @@
     }
     .arrows h5 {
         text-align: center;
+    }
+    .detailist{
+        input[type=checkbox]:checked+label::after {
+            transform: rotate(90deg);
+            position: absolute;
+            color: $primary;
+            left: .81em;
+            top: .45em;
+            font-size: 2.3em;
+        }
+
+        label::after {
+            /* width: 1em; */
+            /* height: 1em; */
+            position: absolute;
+            left: 10px;
+            /* text-align: center; */
+            font-size: 2.3em;}
     }
   
     .subHeader {
@@ -172,7 +190,7 @@ promo-box {
 
 .citylist ion-label {
     font-variant: caps;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 300;
     height: 2em;
     margin: 10px 8px 10px 0;
@@ -444,7 +462,8 @@ input:checked+section.box .box-title:before {
 }
 
 .tab {
-    width: 100%;
+    width: 97%;
+    margin: 0 auto;
     color: $primary;
     overflow: hidden;
     background: $bg;
@@ -457,7 +476,7 @@ input:checked+section.box .box-title:before {
     position: relative;
     width: 100%;
     font-weight: 300;
-    line-height: 3.1em;
+    line-height: 2.4em;
     padding-left: 2em;
     // margin-bottom: 2px;
     // color: $primary;
@@ -500,12 +519,10 @@ input:checked~.tab-content {
 /* Icon */
 
 .tab label::after {
-    width: 1em;
-    height: 1em;
     position: absolute;
-    left: 10px;
-    text-align: center;
-    color: $hidden;
+     left: 4pt;
+     top: -2pt; 
+    color: rgba(107, 117, 130, 0.4);
     font-size: 2em;
 }
 
@@ -521,8 +538,8 @@ input[type=checkbox]:checked+label::after {
     transform: rotate(90deg);
     position: absolute;
     color: $primary;
-    left: 20px;
-    top: 10px;
+    left: 10px;
+    top: 4px;
 }
 
 .checked {
