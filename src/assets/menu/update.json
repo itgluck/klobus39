@@ -1,9 +1,8 @@
 {
     "results": [{
         "title": "Обновить",
-        "subtitle": "Доступна новая версия ",
-        "img": "../assets/menu/icon.png"
-    }],
+        "subtitle": "Доступна новая версия "
+        }],
     "version": "3.8",
     "message": ""
 }
