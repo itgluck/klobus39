@@ -1,31 +1,39 @@
 <ion-menu [content]="content" class="menu">
-    <ion-header class='logo'>
-        <h2 >Калининград</h2>
-        <iframe src="assets/menu/index.html"></iframe>       
+    <ion-header class='logo' >
+        <h2>Калининград</h2>
+        <iframe src="assets/menu/index.html"></iframe>
     </ion-header>
 
     <ion-content class="mainmenu">
         <ion-list class="mainmenu" no-lines>
-            <div *ngIf="show">
-                <button (click)="show = !show" *ngFor="let promo of (infoblocks | async)?.results" ion-item onclick="window.open('https://goo.gl/7O8QKI', '_system', 'location=yes'); return false;">
-                <img src="{{promo.img}}" item start>
-                <h2>{{ promo.title }}</h2>
-                <i class="inf" >{{ promo.subtitle}}</i>
-             </button>
+                <!-- (click)="showBanner();" -->
+            <div *ngIf='versionApp < newVer'>
+                <button *ngFor="let info of infoblocks" ion-item onclick="window.open('https://play.google.com/store/apps/details?id=com.itgluck.klobus39', '_system', 'location=yes'); return false;">
+                  
+                    <ion-icon name="download" item-left></ion-icon>
+                    <h2>{{ info.title }}</h2>
+                    <h4 class="inf">
+                        {{info.subtitle}}
+                        <i>{{newVer}}</i>
+                    </h4>
+                </button>
             </div>
-            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)"  color="$primary">
-       <ion-icon name="{{p.icon}}" item-left></ion-icon> <h2>{{p.title}}</h2>
-      </button>
-            <button ion-item onclick="window.plugins.socialsharing.share('KLoBus39 транспорт Калининградской области', 'Рекомендую приложение KLoBus39', 'https://pp.userapi.com/c638320/v638320752/4bd5e/UgZtg-jvSbs.jpg', 'https://goo.gl/7O8QKI')">
-            <ion-icon name="share" item-left></ion-icon><h2>Поделиться</h2>
+            <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" color="$primary">
+                <ion-icon name="{{p.icon}}" item-left></ion-icon>
+                <h2>{{p.title}}</h2>
+            </button>
+            <button ion-item onclick="window.plugins.socialsharing.share('KLoBus39 транспорт Калининградской области', 'Рекомендую приложение KLoBus39', 'https://pp.userapi.com/c638320/v638320752/4bd5e/UgZtg-jvSbs.jpg', 'https://play.google.com/store/apps/details?id=com.itgluck.klobus39')">
+                <ion-icon name="share" item-left></ion-icon>
+                <h2>Поделиться</h2>
             </button>
             <!-- <button menuClose ion-item (click)="showConfirm()"> -->
             <button menuClose ion-item (click)="goPromo()">
-                <ion-icon name="cart" item-left></ion-icon><h2>Магазин</h2>
+                <ion-icon name="cart" item-left></ion-icon>
+                <h2>Магазин</h2>
             </button>
-            <!-- <button ion-item (click)="doUpdateMsg()">
-                <ion-icon name="refresh" item-left></ion-icon><h5>Проверить обновления</h5>
-            </button> -->
+            <div class="http" onclick="window.open('https://play.google.com/store/apps/details?id=com.itgluck.klobus39', '_system', 'location=yes'); return false;">
+                {{webMessage}}
+            </div>
         </ion-list>
 
     </ion-content>

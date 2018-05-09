@@ -198,6 +198,7 @@ $orange: #EB8B6E;
         // position: absolute;
         position: absolute;
         left: .5em;
+        padding: 1em 2em;
     }
     &.end {
         margin-bottom: .5em;
@@ -279,10 +280,10 @@ $orange: #EB8B6E;
             border: 2px solid $train;
         }
         &.start {
-            width: 1.3em;
-            height: 1.3em;
-            margin-left: -2.15em;
-            border: 4px solid $white;
+            width: 1em;
+            height: 1em;
+            margin-left: -2em;
+            border: 2px solid $white;
             background: $train;
             box-shadow: 0 0 3px rgb(69, 83, 121), 0 2px 1px rgba(103, 153, 173, .5), 0 2px 3px rgba(0, 0, 0, .2);
         }

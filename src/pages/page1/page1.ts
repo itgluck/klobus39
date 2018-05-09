@@ -4,7 +4,6 @@ import { NavController, NavParams, AlertController, Slides, Content } from 'ioni
 
 // Routs
 import { TrainDetails } from './train/train';
-import { AdMobFree, AdMobFreeBannerConfig } from '@ionic-native/admob-free';
 
 @Component({
 	templateUrl: 'citydetal.html',
@@ -12,7 +11,7 @@ import { AdMobFree, AdMobFreeBannerConfig } from '@ionic-native/admob-free';
 export class DetailsPage {
 	item: any;
 	alertCtrl;
-	constructor(params: NavParams, alertCtrl: AlertController,public navCtrl: NavController) {
+	constructor(params: NavParams, alertCtrl: AlertController,public navCtrl: NavController ) {
 
 		this.item = params.data.item;
 		this.tabs = ["Будни · Суббота", "Воскресенье · Праздники"];
@@ -51,6 +50,7 @@ export class DetailsPage {
 
 	ionViewDidEnter() {
 		this.SwipedTabsIndicator = document.getElementById("indicator");
+		
 	}
 
 	selectTab(index) {
@@ -108,43 +108,17 @@ export class Page1 {
 	visibility: boolean = true;
 
 
-	constructor(public navCtrl: NavController, params: NavParams,
-		private adMobFree: AdMobFree
-	) {
-	
+	constructor(public navCtrl: NavController, params: NavParams) {
+		
 		this.searchQuery = '';
 		this.initializeItems();
 		this.item = params.data.item;
-
+		
 	}
-// AdMob Block #############
-	doADB(){
 
-		const bannerConfig: AdMobFreeBannerConfig = {
-			id: 'ca-app-pub-7133305264165200/6243373138',
-			isTesting: false,
-			autoShow: true,
-			bannerAtTop: false,
-		}
 
-		this.adMobFree.banner.config(bannerConfig);
-		this.adMobFree.banner.prepare()
-			.then(() => {
-				console.log('AdMob готов')
-			})
 
-			.catch(e => console.log(e));
-			console.log('AdMob start: Baner Show!');
-		// this.adMobFree.banner.remove();
-	
-	}
-	// Убрать рекламу
-	// hideAdb() {
-	// 	this.adMobFree.banner.remove();
-	// 	console.log('AdMob hide: Нет рекламы');
-	// }
-// AdMob Block #############
- 
+
 	hide() {
 		this.checked = !this.checked;
 		this.initializeItems();

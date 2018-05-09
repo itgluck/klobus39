@@ -1,13 +1,13 @@
 <ion-header style="text-align:center;">
     <ion-navbar color="primary">
         <button ion-button menuToggle>
-            <ion-icon name="menu" color="hidden"></ion-icon>
+            <ion-icon name="menu" color="hidden" ></ion-icon>
         </button>
         <ion-buttons end>
             <button ion-button onclick="window.plugins.socialsharing.share('KLoBus39 транспорт Калининградской области', 'Рекомендую приложение KLoBus39', 'https://pp.userapi.com/c638320/v638320752/4bd5e/UgZtg-jvSbs.jpg', 'https://goo.gl/7O8QKI')">
                 <ion-icon name="share" color="hidden"></ion-icon>
             </button>
-            <button ion-button (click)="hide()" (click)="toggle()" (click)="doADB()">
+            <button ion-button (click)="hide()" (click)="toggle();">
                 <ion-icon name="search" color="hidden"></ion-icon>
             </button>
         </ion-buttons>
@@ -55,7 +55,7 @@
         <h5>Автовокзалы г.Калининград</h5>
         <!-- АвтоВокзалы -->
         <div class="tab">
-            <input id="tab-2" type="checkbox" name="tabs" (click)="doADB()">
+            <input id="tab-2" type="checkbox" name="tabs">
             <label for="tab-2">Северный автовокзал
                 <a href="geo:54.7214,20.50011?z=15&q=Северный вокзал">
                     <ion-icon item-end name="pin"></ion-icon>
@@ -80,7 +80,7 @@
         </div>
 
         <div class="tab">
-            <input id="tab-3" type="checkbox" name="tabs" (click)="doADB()">
+            <input id="tab-3" type="checkbox" name="tabs">
             <label for="tab-3">Южный автовокзал
                 <a href="geo:54.6935,20.50188?z=15&q=Южный вокзал">
                     <ion-icon name="pin" item-end></ion-icon>
@@ -105,7 +105,7 @@
         <h5>Автостанции Калининградской области</h5>
 
         <div class="tab">
-            <input id="tab-5" type="checkbox" name="tabs" (click)="doADB()">
+            <input id="tab-5" type="checkbox" name="tabs">
             <label for="tab-5">Гусев
                 <a href="geo:54.585265,22.198909?z=8&q=Гусев жд вокзал">
                     <ion-icon name="pin" item-end></ion-icon>
@@ -128,7 +128,7 @@
 
 
         <div class="tab">
-            <input id="tab-6" type="checkbox" name="tabs" (click)="doADB()">
+            <input id="tab-6" type="checkbox" name="tabs">
             <label for="tab-6">Черняховск
                 <a href="geo:54.6311,21.8202?z=9&q=Черняховск автовокзал">
                     <ion-icon name="pin" item-end></ion-icon>
@@ -150,7 +150,7 @@
         </div>
 
         <div class="tab">
-            <input id="tab-8" type="checkbox" name="tabs" (click)="doADB()">
+            <input id="tab-8" type="checkbox" name="tabs">
             <label for="tab-8">Гвардейск
                 <a href="geo:54.6311,21.8202?z=9&q=Гвардейск автостанция">
                     <ion-icon name="pin" item-end></ion-icon>
@@ -172,7 +172,7 @@
         </div>
 
         <div class="tab">
-            <input id="tab-7" type="checkbox" name="tabs" (click)="doADB()">
+            <input id="tab-7" type="checkbox" name="tabs">
             <label for="tab-7">Большаково
                 <a href="geo:54.8805,21.6521?z=8&q=Большаково автостанция">
                     <ion-icon name="pin" item-end></ion-icon>
@@ -194,7 +194,7 @@
         </div>
 
         <div class="tab">
-            <input id="tab-12" type="checkbox" name="tabs" (click)="doADB()">
+            <input id="tab-12" type="checkbox" name="tabs">
             <label for="tab-12">Озерск
                 <a href="geo:54.943894,22.492978?z=8&q=Озерск автостанция">
                     <ion-icon name="pin" item-end></ion-icon>
@@ -216,7 +216,7 @@
         </div>
 
         <div class="tab">
-            <input id="tab-4" type="checkbox" name="tabs" (click)="doADB()">
+            <input id="tab-4" type="checkbox" name="tabs">
             <label for="tab-4">Советск
                 <a href="geo:55.081515,21.87958?z=9&q=АВ Советск">
                     <ion-icon name="pin" item-end></ion-icon>
@@ -240,7 +240,7 @@
         <h5>Балтийская коса</h5>
 
         <div class="tab">
-            <input id="tab-14" type="checkbox" name="tabs" (click)="doADB()">
+            <input id="tab-14" type="checkbox" name="tabs">
             <label for="tab-14">Паром
                 <ion-icon name="boat" item-end></ion-icon>
             </label>
@@ -265,7 +265,7 @@
 
 <!-- 
     				<div class="tab">
-				<input id="tab-9" type="checkbox" name="tabs" (click)="doADB()">
+				<input id="tab-9" type="checkbox" name="tabs">
 				<label for="tab-9">Железнодорожный 
 				<a href="geo:54.361693,21.305466?z=7">
 				<ion-icon name="pin" item-end></ion-icon>
@@ -284,7 +284,7 @@
 				</div>
 
 				<div class="tab">
-				<input id="tab-10" type="checkbox" name="tabs" (click)="doADB()">
+				<input id="tab-10" type="checkbox" name="tabs">
 				<label for="tab-10">Краснознаменск 
 				<a href="geo:54.943894,22.492978?z=8&q=Краснознаменск автостанция">
 				<ion-icon name="pin" item-end></ion-icon>
@@ -303,7 +303,7 @@
 				</div>
 				
 				<div class="tab">
-				<input id="tab-11" type="checkbox" name="tabs" (click)="doADB()">
+				<input id="tab-11" type="checkbox" name="tabs">
 				<label for="tab-11">Неман 
 				<a href="geo:54.943894,22.492978?z=8&q=Неман автостанция">
 				<ion-icon name="pin" item-end></ion-icon>
@@ -322,7 +322,7 @@
 				</div>
 				
 				<div class="tab">
-				<input id="tab-13" type="checkbox" name="tabs" (click)="doADB()">
+				<input id="tab-13" type="checkbox" name="tabs">
 				<label for="tab-13">Правдинск
 				<a href="geo:54.4463,21.01878?z=9&q=Правдинск автостанция">
 				<ion-icon name="pin" item-end></ion-icon>

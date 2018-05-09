@@ -7,7 +7,7 @@
     html {
         font-size: 68%;
     }
-    h1,h2,h3,button, .toolbar-title, label,span, .label {font-family: Dusha;}
+    h1,h2,h3,button, .toolbar-title, label,span, .label, i {font-family: Dusha;}
     
     iframe {
         // height: 100%;
@@ -159,24 +159,37 @@
         max-height: 160px;
         margin: 4px auto;
         background: rgba(0, 0, 0, .0);
+        i {
+            color: rgb(235, 33, 33)!important;
+            font-size: 1em; 
+            font-family: dusha;
+            // border: 1px solid $primary;
+            // border-radius: 12px;
+            // padding: 0px 8px;
+            // line-height: 2;
+        }
         .inf {
             color: rgb(64, 119, 238);
             font-size: .8em;
-            margin-left: 6px;
-            font-variant: unicase;
-            font-weight: 200;
-            // border: 1px solid $primary;
-            // border-radius: 8px;
-            // padding: 2px 4px;
-            // line-height: 2;
+            font-weight: 100;
+           
         }
+        
         ion-label img {
-            max-width: 1.8em;
+            max-width: 1.6em;
             float: left;
-            margin-right: 1.8em;
+            margin-right: 1.6em;
             // -webkit-animation: sk-bounce 12s infinite ease-in-out;
             // animation: sk-zoom 3s infinite ease-in-out;
         }
+    }
+    .mainmenu .http {
+        word-wrap: inherit;
+        font-size: 12px;
+        padding: 4em 0 .5em;
+        color: rgba(107, 117, 130, 0.4) !important;
+        text-indent: 1.42em;
+        text-align: center;
     }
     
     .mainmenu {
