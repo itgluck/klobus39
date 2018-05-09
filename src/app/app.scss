@@ -10,14 +10,14 @@
     h1,h2,h3,button, .toolbar-title, label,span, .label, i {font-family: Dusha;}
     
     iframe {
-        // height: 100%;
-        min-height: 6em;
+        height: 7em;
+        // min-height: 4em;
         width: 100%;
         margin: 0px;
         margin-bottom: -4px;
         border: none;
         font-family: Gabriela;
-        // position: absolute;
+        position: absolute;
     }
     
     .logo {
@@ -28,10 +28,12 @@
         background-size: 100%;
         h2 {
             position: absolute;
+            margin: 0em auto;
             color: rgba(252, 252, 252, 0.7);
             text-shadow: 2px 2px 4px rgba(0, 0, 0, .7);
             left: 25%;
-            bottom: -5px;
+            top: 2.5em;
+            z-index: inherit;
             // margin: 2.5em;
         }
     }
@@ -124,7 +126,7 @@
     }
     
     // Главное меню
-    .menu .header-md::after,
+    .header-md::after,
     .tabs-md[tabsPlacement="top"]>.tabbar::after,
     .footer-md::before,
     .tabs-md[tabsPlacement="bottom"]>.tabbar::before {
@@ -149,8 +151,8 @@
     }
     
     .mainmenu ion-list {
-        margin-top: 3%;
-        height: 82%;
+        margin-top: 1em;
+        height: 76%;
         // background: #92B5C8;
     }
     

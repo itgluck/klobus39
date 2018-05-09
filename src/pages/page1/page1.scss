@@ -686,27 +686,39 @@ h2{
     text-shadow: 1px 1px 4px #424242;
     padding-bottom: .8em;
 }
-  span  {
-    font-family: Dusha;
-    letter-spacing: 4px;
-    padding: 3px 7px;
-    background: rgba(125, 161, 209, 0.397);
-    border: 1px solid #d1c6a4;
-    border-radius: 10px;
-    box-shadow: #eee6d3 0px 0px 6px;
-    font-size: 1.1em;
-    font-weight: 200;
-  }
+ 
   .slide1 {
     background: url(../assets/timer/cup.jpg);
     background-size: cover;
     background-position-y: 20%;
     background-repeat: no-repeat;
+    span  {
+        font-family: Dusha;
+        letter-spacing: 4px;
+        padding: 3px 7px;
+        background: rgba(125, 161, 209, 0.397);
+        border: 1px solid #d1c6a4;
+        border-radius: 10px;
+        box-shadow: #eee6d3 0px 0px 6px;
+        font-size: 1.1em;
+        font-weight: 200;
+      }
   }
   .slide2 {
       background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJA9H3E9hEAr2KpgUPXmuDmvwu20szII_1NDuttY-NGO2kocyg);
       background-size: cover;
       background-position-y: 20%;
       background-repeat: no-repeat;
+      span  {
+        font-family: Dusha;
+        letter-spacing: 4px;
+        padding: 3px 7px;
+        background: rgba(125, 161, 209, 0.397);
+        border: 1px solid #d1c6a4;
+        border-radius: 10px;
+        box-shadow: #eee6d3 0px 0px 6px;
+        font-size: 1.6em;
+        font-weight: 200;
+      }
   }
 }

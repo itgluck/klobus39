@@ -61,10 +61,10 @@ export class MyApp {
       
       err => {
         console.log("не удалось получить данные");        
-        setInterval(() => {  
-          this.getVersion();
-          console.log("Проверка версии приложения " + this.newVer);
-        },10000);       
+        // setInterval(() => {  
+        //   // this.getVersion();
+        //   console.log("Проверка версии приложения " + this.newVer);
+        // },10000);       
         // alert ("Нет интернет соединения! К счастью, KLoBus39 работает офлайн");
       }
     )
