@@ -4,6 +4,12 @@
         "subtitle": "Доступна новая версия ",
         "img": "../assets/menu/icon.png"
     }],
+<<<<<<< HEAD
     "version": "3.7",
     "message": "Для актуальизации данных скачайте новую версию"
 }
+=======
+    "version": "3.8",
+    "message": ""
+}
+>>>>>>> 54f2d0bebc11fe03cc6d233d388fb1eab72b6d73

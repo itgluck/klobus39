@@ -1,5 +1,5 @@
 <ion-header style="text-align:center;">
-    <ion-navbar color="primary">
+    <ion-navbar color="primary" (click)="showBanner();">
         <button ion-button menuToggle>
             <ion-icon name="menu" color="hidden" ></ion-icon>
         </button>
@@ -20,11 +20,22 @@
 </ion-header>
 
 <ion-content class="citylist">
-    <div class="subHeader">
+    <div class="subHeader" (click)="showBanner();">
         <!-- <iframe src=".././assets/timer/index.html"></iframe> -->
-        <iframe src="./assets/timer/index.html"></iframe>   
-
-    </div>
+    <ion-slides autoplay="50000" loop="true" speed="800">
+            <!-- <ion-slide>
+                    <iframe src="./assets/timer/index.html"></iframe>
+            </ion-slide> -->
+            <ion-slide class="slide1">
+                    <h2>Турнир в Калининграде</h2>
+                    <span id='countdown'></span>
+            </ion-slide>
+            <ion-slide class="slide2">
+                    <h2>День города</h2>
+                    <span id='countdownKLG'></span>
+            </ion-slide>
+          </ion-slides>
+        </div>
     <!--Accordion-->
     <div class="arrows accordion">
 
@@ -50,7 +61,7 @@
                     </div>
                 </ion-list>
             </div>
-        </div>
+        </div> 
 
         <h5>Автовокзалы г.Калининград</h5>
         <!-- АвтоВокзалы -->

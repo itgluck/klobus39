@@ -38,16 +38,26 @@
     }
   
     .subHeader {
-margin: 0 auto;
-        min-height: 11em;
-        max-width: 420px;
+        height: 25%;
+        width: 100%;
+        // max-width: 420px;
         text-align: center;
-        background: url('.././assets/timer/cup.jpg');       
+        position: fixed;
+        margin: 0 auto;
+        // top: 3em;
+        // background: url('.././assets/timer/cup.jpg');       
         // background: url('http://news.rambler.ru/img/2018/03/09114641.460637.9106.jpeg');
-        background-size: 100% 100%;
-        background-position-y: 20%;
-        background-repeat: no-repeat;
+        
         color: $bg;
+        
+        & ion-slides {
+            margin: 0 auto;
+            height: 11em;
+            width: 90%;
+            max-width: 420px;
+        color: $primary!important;
+        // position: fixed;
+        }
     }
 
 }
@@ -454,6 +464,9 @@ input:checked+section.box .box-title:before {
 .accordion {
     margin: 3px auto;
     width: 100%;
+    position: absolute;
+    top: 11em;
+    background: $bg;
     // padding: 2%;
 }
 
@@ -662,3 +675,38 @@ input[type=radio]:checked+label::after {
 
 // End http://www.petenottage.co.uk/
 
+.swiper-container-android .swiper-slide, .swiper-wrapper{ 
+   
+    color: #fff!important;
+
+h2{
+    /* padding: 4px auto; */
+    font-family: Dusha;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 4px #424242;
+    padding-bottom: .8em;
+}
+  span  {
+    font-family: Dusha;
+    letter-spacing: 4px;
+    padding: 3px 7px;
+    background: rgba(125, 161, 209, 0.397);
+    border: 1px solid #d1c6a4;
+    border-radius: 10px;
+    box-shadow: #eee6d3 0px 0px 6px;
+    font-size: 1.1em;
+    font-weight: 200;
+  }
+  .slide1 {
+    background: url(../assets/timer/cup.jpg);
+    background-size: cover;
+    background-position-y: 20%;
+    background-repeat: no-repeat;
+  }
+  .slide2 {
+      background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJA9H3E9hEAr2KpgUPXmuDmvwu20szII_1NDuttY-NGO2kocyg);
+      background-size: cover;
+      background-position-y: 20%;
+      background-repeat: no-repeat;
+  }
+}

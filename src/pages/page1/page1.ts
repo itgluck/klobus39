@@ -2,8 +2,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, AlertController, Slides, Content } from 'ionic-angular';
 
-// Routs
 import { TrainDetails } from './train/train';
+import { AdMobFree, AdMobFreeBannerConfig } from '@ionic-native/admob-free';
 
 @Component({
 	templateUrl: 'citydetal.html',
@@ -108,15 +108,36 @@ export class Page1 {
 	visibility: boolean = true;
 
 
-	constructor(public navCtrl: NavController, params: NavParams) {
+	constructor(public navCtrl: NavController, params: NavParams,private adMobFree: AdMobFree) {
 		
 		this.searchQuery = '';
 		this.initializeItems();
 		this.item = params.data.item;
 		
+		this.showBanner();
 	}
 
-
+	showBanner() {
+		//   try {
+			var bannerConfig: AdMobFreeBannerConfig = {
+			  id: 'ca-app-pub-7133305264165200/6243373138',
+			  isTesting: false,
+			  autoShow: true,
+			  bannerAtTop: false
+			};
+		  
+			this.adMobFree.banner.config(bannerConfig);
+			this.adMobFree.banner.prepare()
+			
+			
+			.then(() => {
+			  this.adMobFree.banner.show();
+			  console.log("Banner Отображается!");
+			  // banner Ad is ready
+			  // if we set autoShow to false, then we will need to call the show method here
+			})
+			.catch(e => console.log(e));
+		  }
 
 
 	hide() {
@@ -130,7 +151,7 @@ export class Page1 {
 
 	initializeItems() {
 		// Trains
-
+		this.showBanner();
 		this.trains = [
 			{
 				'title': 'Багратионовск',

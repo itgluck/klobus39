@@ -12,7 +12,6 @@ import { DetailsPromo } from '../pages/promo/promo';
 import { Observable } from 'rxjs/Observable';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { AdMobFree, AdMobFreeBannerConfig } from '@ionic-native/admob-free';
 
 @Component({
   templateUrl: 'app.html'
@@ -20,7 +19,7 @@ import { AdMobFree, AdMobFreeBannerConfig } from '@ionic-native/admob-free';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   rootPage: any = Page1;
-
+  banner:any;
   infoblocks: Observable<any>;
   versionApp: number = 3.7;
   newVer: number;
@@ -29,7 +28,7 @@ export class MyApp {
   pages: Array<{ title: string, icon: string, component: any}>;
 
   constructor(public platform: Platform, private statusBar: StatusBar,
-    public http: Http,private adMobFree: AdMobFree
+    public http: Http
   ) {
     // this.adMobFree.banner.show();
     this.pages = [
@@ -39,22 +38,9 @@ export class MyApp {
       { title: 'О приложении', icon: 'help', component: Page6 }
     ];
     this.getVersion();
-    this.showBanner();
 
-    console.log("App start!");
-
-    //В ссылке ниже, указать будущую версию +1
-    // this.infoblocks = this.http.get('https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/menu/update_v3.7.json').map(res => res.json());
-    // После публикации Создать на сайте фаил 3.6.8 (ver-1) 
-
-    // this.infoblocks = this.http.get('../assets/menu/update.json').map(res => res.json());
-
-    // this.http.get('../assets/menu/update.json').map((val) => {
-    //   let actualVersionApp = val;
-    //   console.log(actualVersionApp);
-    // });
-    
   }
+
   // ionViewDidEnter() {
   //   this.showBanner();
   // }
@@ -77,7 +63,6 @@ export class MyApp {
         console.log("не удалось получить данные");        
         setInterval(() => {  
           this.getVersion();
-          this.showBanner();
           console.log("Проверка версии приложения " + this.newVer);
         },10000);       
         // alert ("Нет интернет соединения! К счастью, KLoBus39 работает офлайн");
@@ -86,27 +71,12 @@ export class MyApp {
      
   }
 // AdMob Block #############
-async showBanner(){	
-	try {
-		const bannerConfig: AdMobFreeBannerConfig = {
-			id: 'ca-app-pub-7133305264165200/6243373138',
-			isTesting: true,
-			autoShow: true,
-			bannerAtTop: false
-		}
-	
-    this.adMobFree.banner.config(bannerConfig);
-    // Create banner
-    this.adMobFree.banner.prepare();
-		this.adMobFree.banner.show();
-		// const result = await this.adMobFree.banner.prepare();
-		console.log("Banner Отображается!");
-	}
-	catch (e) {
-    console.error(e);
+
+//   catch (e) {
+//     console.error(e);
         
-	}
-}
+//   }
+// }
 
 
 
