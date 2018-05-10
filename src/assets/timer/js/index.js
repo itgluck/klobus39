@@ -65,6 +65,6 @@
     return timer = setInterval(showRemaining, 1000);
   };
 
-  CountDownTimer("07/14/2018 09:00", "countdownKLG");
+  CountDownTimer("07/21/2018 09:00", "countdownKLG");
 
 }).call(this);

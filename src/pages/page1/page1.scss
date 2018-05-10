@@ -678,10 +678,12 @@ input[type=radio]:checked+label::after {
 .swiper-container-android .swiper-slide, .swiper-wrapper{ 
    
     color: #fff!important;
+    font-family: Dusha;
 
 h2{
     /* padding: 4px auto; */
     font-family: Dusha;
+    font-size: 2rem;
     letter-spacing: 2px;
     text-shadow: 1px 1px 4px #424242;
     padding-bottom: .8em;
@@ -696,8 +698,8 @@ h2{
         font-family: Dusha;
         letter-spacing: 4px;
         padding: 3px 7px;
-        background: rgba(125, 161, 209, 0.397);
-        border: 1px solid #d1c6a4;
+        background: rgba(60, 64, 68, 0.5);
+        // border: 1px solid #d1c6a4;
         border-radius: 10px;
         box-shadow: #eee6d3 0px 0px 6px;
         font-size: 1.1em;
@@ -705,19 +707,17 @@ h2{
       }
   }
   .slide2 {
-      background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJA9H3E9hEAr2KpgUPXmuDmvwu20szII_1NDuttY-NGO2kocyg);
+      background: url(http://kaliningrad-city24.ru/wp-content/uploads/2018/05/den-gorodaKaliningrada-1024x683.jpg);
       background-size: cover;
       background-position-y: 20%;
       background-repeat: no-repeat;
       span  {
-        font-family: Dusha;
+        
         letter-spacing: 4px;
         padding: 3px 7px;
-        background: rgba(125, 161, 209, 0.397);
-        border: 1px solid #d1c6a4;
+        background: rgba(92, 93, 95, 0.5);
         border-radius: 10px;
-        box-shadow: #eee6d3 0px 0px 6px;
-        font-size: 1.6em;
+        font-size: 1.4em;
         font-weight: 200;
       }
   }
