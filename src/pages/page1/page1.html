@@ -20,7 +20,7 @@
 </ion-header>
 
 <ion-content class="citylist">
-    <div class="subHeader" (click)="showBanner();">
+    <div class="subHeader" (click)="showBanner();" [ngClass]="{noimg: !visibility}">
         <!-- <iframe src=".././assets/timer/index.html"></iframe> -->
     <ion-slides autoplay="50000" loop="true" speed="800">
             <!-- <ion-slide>

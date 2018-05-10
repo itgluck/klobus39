@@ -1,0 +1,10 @@
+{
+    "visibleBanner": "false",
+    "version": "1",
+    "dateOff": "12.07.2018",
+    "results": [{
+        "title": "Обновить",
+        "subtitle": "Доступна новая версия ",
+        "img": "../assets/menu/icon.png"
+    }]
+}

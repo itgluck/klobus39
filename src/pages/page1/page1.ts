@@ -5,6 +5,10 @@ import { NavController, NavParams, AlertController, Slides, Content } from 'ioni
 import { TrainDetails } from './train/train';
 import { AdMobFree, AdMobFreeBannerConfig } from '@ionic-native/admob-free';
 
+import { Observable } from 'rxjs/Observable';
+import { Http, HttpModule } from '@angular/http';
+import 'rxjs/add/operator/map';
+
 @Component({
 	templateUrl: 'citydetal.html',
 	})
@@ -79,8 +83,6 @@ export class DetailsPage {
 // Page1
 @Component({
 	templateUrl: `page1.html`
-
-
 	,
 	styles: [`.invisible{display:block;}
 			.noimg{	display:none !important;}`]
@@ -106,16 +108,43 @@ export class Page1 {
 	searchQuery: string = '';
 	checked: boolean = false;
 	visibility: boolean = true;
+	
+	// Banner
+	bannerBox: Observable<any>;
+	visibleBanner:boolean = false;
+	dateOff: any = "16-06-2018";
 
 
-	constructor(public navCtrl: NavController, params: NavParams,private adMobFree: AdMobFree) {
+	constructor(public navCtrl: NavController, params: NavParams,private adMobFree: AdMobFree,
+	public http: Http) {
 		
 		this.searchQuery = '';
 		this.initializeItems();
 		this.item = params.data.item;
 		
 		this.showBanner();
+		this.getBannerBox();
 	}
+	getBannerBox() {
+		this.http.get('https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/banner/banner.json')
+		.map(res => res.json())
+		.subscribe(
+		  data => {
+			this.bannerBox = data.results;
+			this.visibleBanner = data.visibleBanner;
+			this.dateOff = data.dateOff;
+			console.log("Текущая версия KLoBus39 " + this.bannerBox);
+			console.log("Актуальная версия приложения " + this.visibleBanner);
+			console.log("Актуальная версия приложения " + this.dateOff);
+        
+		  },
+		  
+		  err => {
+			console.log("не удалось получить данные");        
+		  }
+		)
+	}
+
 
 	showBanner() {
 		//   try {
