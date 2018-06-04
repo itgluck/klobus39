@@ -1,6 +1,7 @@
 {
-    "visibleBanner": "false",
+    "visibleBanner": "true",
     "version": "1",
+    "httpText": "Выводим текст!",
     "results": [{
         "title": "Обновить",
         "subtitle": "Доступна новая версия ",
