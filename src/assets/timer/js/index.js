@@ -15,7 +15,7 @@
       distance = end - now;
       if (distance <= 0) {
         clearInterval(timer);
-        selector.innerHTML = "Россия вперед!";
+        selector.innerHTML = "Болеем за наших!";
         return;
       }
       days = Math.floor(distance / _day);
@@ -52,7 +52,7 @@
       distance = end - now;
       if (distance <= 0) {
         clearInterval(timer);
-        selector.innerHTML = "Россия вперед!";
+        selector.innerHTML = "год";
         return;
       }
       days = Math.floor(distance / _day);

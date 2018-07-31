@@ -1,3 +1,4 @@
+
 .trainlist .rout_num{
     border: 1px solid $hidden;
     border-bottom: 3px solid $secondary;
@@ -5,6 +6,8 @@
     font-weight: 500;
     background: $bg2;
     text-align: center;
+    font-family: Dusha !important;
+    font-size: 1em;
     // min-width: 5.8rem;
     padding:5px;
     margin: 5px 10px !important;
@@ -40,8 +43,9 @@
         color: $text;
         margin-top: -3em;
         min-height: 6.5em;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
         // width: 90%;
-        text-align: center;
+        // text-align: center;
     }
     & .gridHeader {
         text-align: center;
@@ -52,6 +56,7 @@
     }
     & .col {
         display: inline-block;
+        
         // line-height: 2;
     }
     &.row {
@@ -229,6 +234,7 @@ $orange: #EB8B6E;
     max-width: 32em;
     margin: -2em auto .5em;
     font-size: 1.4rem;
+    color: $primary;
     li {
         margin-left: 1.5em;
         text-align: left;
@@ -261,8 +267,8 @@ $orange: #EB8B6E;
         vertical-align: top;
     }
     .bullet {
-        width: 1em;
-        height: 1em;
+        width: 12pt;
+        height: 12pt;
         box-sizing: border-box;
         border-radius: 50%;
         background: $white;
@@ -270,22 +276,22 @@ $orange: #EB8B6E;
         margin-left: -2em;
         margin-top: 2em;
         &.disable {
-            border: 1px solid $disable;
+            border: 1.5pt solid $disable;
             //  box-shadow: 0 1px 2px #9CC6D7, 0 0 3px rgba(103, 153, 173, .42), 0 2px 4px rgba(0, 0, 0, .24);
         }
         &.var {
-            border: 2px solid $disable;
+            border: 1.5pt solid $disable;
         }
         &.def {
-            border: 2px solid $train;
+            border: 1.5pt solid $train;
         }
         &.start {
-            width: 1em;
-            height: 1em;
+            width: 12pt;
+            height: 12pt;
             margin-left: -2em;
-            border: 2px solid $white;
+            border: 1.2pt solid $white;
             background: $train;
-            box-shadow: 0 0 3px rgb(69, 83, 121), 0 2px 1px rgba(103, 153, 173, .5), 0 2px 3px rgba(0, 0, 0, .2);
+            box-shadow: 0 0 .3em rgb(69, 83, 121), 0 2px 1px rgba(103, 153, 173, .5), 0 2px 3px rgba(0, 0, 0, .2);
         }
     }
     .st {

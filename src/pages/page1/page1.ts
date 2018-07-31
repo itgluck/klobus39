@@ -11,11 +11,11 @@ import 'rxjs/add/operator/map';
 
 @Component({
 	templateUrl: 'citydetal.html',
-	})
+})
 export class DetailsPage {
 	item: any;
 	alertCtrl;
-	constructor(params: NavParams, alertCtrl: AlertController,public navCtrl: NavController ) {
+	constructor(params: NavParams, alertCtrl: AlertController, public navCtrl: NavController) {
 
 		this.item = params.data.item;
 		this.tabs = ["Будни · Суббота", "Воскресенье · Праздники"];
@@ -51,10 +51,9 @@ export class DetailsPage {
 		});
 		confirm.present();
 	}
-
 	ionViewDidEnter() {
 		this.SwipedTabsIndicator = document.getElementById("indicator");
-		
+
 	}
 
 	selectTab(index) {
@@ -108,65 +107,60 @@ export class Page1 {
 	searchQuery: string = '';
 	checked: boolean = false;
 	visibility: boolean = true;
-	
+
 	// Banner
-	bannerBox: Observable<any>;
-	visibleBanner:boolean = false;
-	dateOff: any = "16-06-2018";
+	// bannerBox: Observable<any>;
+	visibleBanner: boolean = false;
+	httpTetx: String;
 
+	constructor(public navCtrl: NavController, params: NavParams, private adMobFree: AdMobFree,
+		public http: Http) {
 
-	constructor(public navCtrl: NavController, params: NavParams,private adMobFree: AdMobFree,
-	public http: Http) {
-		
 		this.searchQuery = '';
 		this.initializeItems();
 		this.item = params.data.item;
-		
-		this.showBanner();
-		this.getBannerBox();
+
+		setTimeout(() => {
+			console.log("Показать рекламный банер");
+			this.showBanner();
+		}, 9000);
+		// this.getBannerBox();
 	}
-	getBannerBox() {
-		this.http.get('https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/banner/banner.json')
-		.map(res => res.json())
-		.subscribe(
-		  data => {
-			this.bannerBox = data.results;
-			this.visibleBanner = data.visibleBanner;
-			this.dateOff = data.dateOff;
-			console.log("Текущая версия KLoBus39 " + this.bannerBox);
-			console.log("Актуальная версия приложения " + this.visibleBanner);
-			console.log("Актуальная версия приложения " + this.dateOff);
-        
-		  },
-		  
-		  err => {
-			console.log("не удалось получить данные");        
-		  }
-		)
-	}
+	// getBannerBox() {
+	// 	this.http.get('https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/banner/banner.json')
+	// 	.map(res => res.json())
+	// 	.subscribe(
+	// 	  data => {
+	// 		this.bannerBox = data.results;
+	// 		this.visibleBanner = data.visibleBanner;
+	// 		this.httpTetx = data.httpTetx;
+	// 		console.log("Данные Box " + this.bannerBox);
+	// 		console.log("Покзывать ли? " + this.visibleBanner);        
+	// 		console.log("Вывод текста: " + this.httpTetx);        
+	// 	  },
+
+	// 	  err => {
+	// 		console.log("не удалось получить данные");        
+	// 	  }
+	// 	)
+	// }
 
 
-	showBanner() {
+	showBanner() { 
 		//   try {
-			var bannerConfig: AdMobFreeBannerConfig = {
-			  id: 'ca-app-pub-7133305264165200/6243373138',
-			  isTesting: false,
-			  autoShow: true,
-			  bannerAtTop: false
-			};
-		  
-			this.adMobFree.banner.config(bannerConfig);
-			this.adMobFree.banner.prepare()
-			
-			
-			.then(() => {
-			  this.adMobFree.banner.show();
-			  console.log("Banner Отображается!");
-			  // banner Ad is ready
-			  // if we set autoShow to false, then we will need to call the show method here
-			})
-			.catch(e => console.log(e));
-		  }
+		var bannerConfig: AdMobFreeBannerConfig = {
+			id: 'ca-app-pub-7133305264165200/6243373138',
+			isTesting: false,
+			autoShow: true,
+			bannerAtTop: false
+		};
+
+		this.adMobFree.banner.config(bannerConfig);
+		this.adMobFree.banner.show();
+		
+	}
+	hideBanner() { this.adMobFree.banner.hide };
+
 
 
 	hide() {
@@ -180,7 +174,6 @@ export class Page1 {
 
 	initializeItems() {
 		// Trains
-		this.showBanner();
 		this.trains = [
 			{
 				'title': 'Багратионовск',
@@ -409,86 +402,86 @@ export class Page1 {
 						'r1': '6407', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
 					}],
 				back: [
-						{
-							'title': 'Балтийск',
-							'bullet_type': 'def start',
-							't1': '06:01',
-							'r1': '6410', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
-						},
-						{
-							'title': 'о.п. 45 км',
-							'bullet_type': 'def',
-							't1': '06:04',
-							'r1': '6410', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
-						},
-						{
-							'title': 'Мечниково',
-							'bullet_type': 'def',
-							't1': '06:08',
-							'r1': '6410', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
-						},
-						{
-							'title': 'Приморск-новый',
-							'bullet_type': 'def',
-							't1': '06:15',
-							'r1': '6410', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
-						},
-						{
-							'title': 'о.п. 33 км',
-							'bullet_type': 'disable',
+					{
+						'title': 'Балтийск',
+						'bullet_type': 'def start',
+						't1': '06:01',
+						'r1': '6410', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
+					},
+					{
+						'title': 'о.п. 45 км',
+						'bullet_type': 'def',
+						't1': '06:04',
+						'r1': '6410', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
+					},
+					{
+						'title': 'Мечниково',
+						'bullet_type': 'def',
+						't1': '06:08',
+						'r1': '6410', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
+					},
+					{
+						'title': 'Приморск-новый',
+						'bullet_type': 'def',
+						't1': '06:15',
+						'r1': '6410', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
+					},
+					{
+						'title': 'о.п. 33 км',
+						'bullet_type': 'disable',
 
-							'r1': '6410', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
-						},
-						{
-							'title': 'о.п. 29 км',
-							'bullet_type': 'def',
-							't1': '06:22',
-							'r1': '6410', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
-						},
-						{
-							'title': 'Шиповка',
-							'bullet_type': 'def',
-							't1': '06:29',
-							'r1': '6410', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
-						},
-						{
-							'title': 'о.п. 18 км',
-							'bullet_type': 'def',
-							't1': '06:34',
-							'r1': '6410', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
-						},
-						{
-							'title': 'Люблино',
-							'bullet_type': 'def',
-							't1': '06:39',
-							'r1': '6410', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
-						},
-						{
-							'title': 'о.п. 13 км',
-							'bullet_type': 'def',
-							't1': '06:42',
-							'r1': '6410', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
-						},
-						{
-							'title': 'Лесное-новое',
-							'bullet_type': 'def',
-							't1': '06:46',
-							'r1': '6410', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
-						},
-						{
-							'title': 'Западный-новый',
-							'bullet_type': 'def',
-							't1': '06:54',
-							'r1': '6410', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
-						},
-						{
-							'title': 'Калининград-Северный',
-							'bullet_type': 'def start',
-							't1': '07:02',
-							'r1': '6410', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
-						}
-					]
-				},
+						'r1': '6410', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
+					},
+					{
+						'title': 'о.п. 29 км',
+						'bullet_type': 'def',
+						't1': '06:22',
+						'r1': '6410', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
+					},
+					{
+						'title': 'Шиповка',
+						'bullet_type': 'def',
+						't1': '06:29',
+						'r1': '6410', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
+					},
+					{
+						'title': 'о.п. 18 км',
+						'bullet_type': 'def',
+						't1': '06:34',
+						'r1': '6410', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
+					},
+					{
+						'title': 'Люблино',
+						'bullet_type': 'def',
+						't1': '06:39',
+						'r1': '6410', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
+					},
+					{
+						'title': 'о.п. 13 км',
+						'bullet_type': 'def',
+						't1': '06:42',
+						'r1': '6410', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
+					},
+					{
+						'title': 'Лесное-новое',
+						'bullet_type': 'def',
+						't1': '06:46',
+						'r1': '6410', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
+					},
+					{
+						'title': 'Западный-новый',
+						'bullet_type': 'def',
+						't1': '06:54',
+						'r1': '6410', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
+					},
+					{
+						'title': 'Калининград-Северный',
+						'bullet_type': 'def start',
+						't1': '07:02',
+						'r1': '6410', 'd1': 'побудням', 'ok2': 'noRow', 'ok3': 'noRow', 'ok4': 'noRow', 'ok5': 'noRow', 'ok6': 'noRow', 'ok7': 'noRow'
+					}
+				]
+			},
 			{
 				'title': 'Мамоново', //update 21.02
 				'en': 'Mamonovo',
@@ -5496,78 +5489,78 @@ export class Page1 {
 				'icon': 'bus'
 			}
 		],
-		this.gvardeysk =[
-			{
-				'title': 'Калининград',
-				'en': 'Kaliningrad',
-				'city': 'Гвардейск',
-				'numb': '111',
-				'description': '',
-				time: '1:20', dist: '-', cost: '110',
-				'workday': "06:20 07:40 08:40 09:10 09:30 10:50 12:25 13:30 14:40 16:05 17:20 18:35 19:40 20:00 20:40",
-				'workday2': "07:40 09:00 10:00 10:30 10:50 12:10 13:45 14:50 16:00 17:25 18:40 19:55 21:00 21:20 22:00",
-				'workday3': "06:00 06:30 07:40 09:15 10:30 11:30 12:30 14:00 14:20 15:30 17:00 18:00 19:00 20:00 21:00",
-				'workday4': "07:20 07:50 19:00 10:35 11:50 12:50 13:50 15:20 15:40 16:50 18:20 19:20 20:20 21:20 22:20",
-				'hollyday': "06:20 07:40 08:40 09:10 09:30 10:50 12:25 13:30 14:40 16:05 17:20 18:35 19:40 20:00 20:40",
-				'hollyday2': "07:40 09:00 10:00 10:30 10:50 12:10 13:45 14:50 16:00 17:25 18:40 19:55 21:00 21:20 22:00",
-				'hollyday3': "06:00 06:30 07:40 09:15 10:30 11:30 12:30 14:00 14:20 15:30 17:00 18:00 19:00 20:00 21:00",
-				'hollyday4': "07:20 07:50 19:00 10:35 11:50 12:50 13:50 15:20 15:40 16:50 18:20 19:20 20:20 21:20 22:20",
-				'icon': 'bus'
-			},
-			{
-				'title': 'Калининград',
-				'en': 'Kaliningrad',
-				'city': 'Гвардейск',
-				'numb': '211э',
-				'description': '',
-				time: '1:00', dist: '-', cost: '80',
-				'workday': "06:05 06:25 06:55 07:20 07:50 08:15 09:00 09:35 10:10 10:45 11:25 11:45 12:50 13:10 13:45 14:15 14:45 16:10 16:50 17:15 18:00 18:20 19:15 19:40 20:30 21:20",
-				'workday2': "07:05 07:25 07:55 08:20 08:50 09:15 10:00 10:35 11:10 11:45 12:25 12:45 13:50 14:10 14:45 15:45 15:45 17:10 17:50 18:15 19:00 19:20 20:15 20:40 21:30 22:20",
-				'workday3': "06:25 07:25 07:50 08:20 08:45 09:25 10:10 10:30 11:00 11:25 12:15 12:45 13:30 14:35 15:20 16:00 16:45 17:50 18:10 19:20 20:00 20:50",
-				'workday4': "07:25 08:25 08:50 09:20 09:45 10:25 11:10 11:30 12:00 13:25 13:15 13:45 14:30 15:35 16:20 17:00 17:45 18:50 19:10 20:20 21:00 21:50",
-				'hollyday': "06:05 06:25 06:55 07:20 07:50 08:15 09:00 09:35 10:10 10:45 11:25 11:45 12:50 13:10 13:45 14:15 14:45 16:10 16:50 17:15 18:00 18:20 19:15 19:40 20:30 21:20",
-				'hollyday2': "07:05 07:25 07:55 08:20 08:50 09:15 10:00 10:35 11:10 11:45 12:25 12:45 13:50 14:10 14:45 15:45 15:45 17:10 17:50 18:15 19:00 19:20 20:15 20:40 21:30 22:20",
-				'hollyday3': "06:25 07:25 07:50 08:20 08:45 09:25 10:10 10:30 11:00 11:25 12:15 12:45 13:30 14:35 15:20 16:00 16:45 17:50 18:10 19:20 20:00 20:50",
-				'hollyday4': "07:25 08:25 08:50 09:20 09:45 10:25 11:10 11:30 12:00 13:25 13:15 13:45 14:30 15:35 16:20 17:00 17:45 18:50 19:10 20:20 21:00 21:50",
-				'icon': 'bus'
-			},
-			{
-				'title': 'Калининград',
-				'en': 'Kaliningrad',
-				'city': 'Гвардейск',
-				'numb': '580',
-				'description': '',
-				time: ':50', dist: '-', cost: '-',
-				'workday': "06:10 18:40",
-				'workday2': "07:00 19:30",
-				'workday3': "",
-				'workday4': "",
-				'hollyday': "06:10 18:40",
-				'hollyday2': "07:00 19:30",
-				'hollyday3': "",
-				'hollyday4': "",
-				'icon': 'bus'
-			},
-		],
-		this.parom = [
-			{
-				'title': 'Балтийская коса',
-				'en': 'Baltiiskaya kosa',
-				'description': 'паром - Балтийск, п.Коса',
-				time: '0:07', dist: '1', cost: '50',
-				'workday': "07:20 10:00 12:00 14:00 16:00 18:00 20:00 21:30",
-				'workday2': "07:27 10:07 12:07 14:07 16:07 18:07 20:07 21:35",
-				'workday3': "07:30 10:10 12:10 14:10 16:10 18:10 20:10 21:40",
-				'workday4': "07:37 10:17 12:17 14:17 16:17 18:17 20:17 22:45",
-				'hollyday': "07:20 10:00 12:00 14:00 16:00 18:00 20:00 21:30",
-				'hollyday2': "07:27 10:07 12:07 14:07 16:07 18:07 20:07 21:35",
-				'hollyday3': "07:30 10:10 12:10 14:10 16:10 18:10 20:10 21:40",
-				'hollyday4': "07:37 10:17 12:17 14:17 16:17 18:17 20:17 22:45",
-				'icon': 'boat', 'map': '', city: 'Калининград',
-				'img': 'blt',
-				'numb': ''
-			}
-		]
+			this.gvardeysk = [
+				{
+					'title': 'Калининград',
+					'en': 'Kaliningrad',
+					'city': 'Гвардейск',
+					'numb': '111',
+					'description': '',
+					time: '1:20', dist: '-', cost: '110',
+					'workday': "06:20 07:40 08:40 09:10 09:30 10:50 12:25 13:30 14:40 16:05 17:20 18:35 19:40 20:00 20:40",
+					'workday2': "07:40 09:00 10:00 10:30 10:50 12:10 13:45 14:50 16:00 17:25 18:40 19:55 21:00 21:20 22:00",
+					'workday3': "06:00 06:30 07:40 09:15 10:30 11:30 12:30 14:00 14:20 15:30 17:00 18:00 19:00 20:00 21:00",
+					'workday4': "07:20 07:50 19:00 10:35 11:50 12:50 13:50 15:20 15:40 16:50 18:20 19:20 20:20 21:20 22:20",
+					'hollyday': "06:20 07:40 08:40 09:10 09:30 10:50 12:25 13:30 14:40 16:05 17:20 18:35 19:40 20:00 20:40",
+					'hollyday2': "07:40 09:00 10:00 10:30 10:50 12:10 13:45 14:50 16:00 17:25 18:40 19:55 21:00 21:20 22:00",
+					'hollyday3': "06:00 06:30 07:40 09:15 10:30 11:30 12:30 14:00 14:20 15:30 17:00 18:00 19:00 20:00 21:00",
+					'hollyday4': "07:20 07:50 19:00 10:35 11:50 12:50 13:50 15:20 15:40 16:50 18:20 19:20 20:20 21:20 22:20",
+					'icon': 'bus'
+				},
+				{
+					'title': 'Калининград',
+					'en': 'Kaliningrad',
+					'city': 'Гвардейск',
+					'numb': '211э',
+					'description': '',
+					time: '1:00', dist: '-', cost: '80',
+					'workday': "06:05 06:25 06:55 07:20 07:50 08:15 09:00 09:35 10:10 10:45 11:25 11:45 12:50 13:10 13:45 14:15 14:45 16:10 16:50 17:15 18:00 18:20 19:15 19:40 20:30 21:20",
+					'workday2': "07:05 07:25 07:55 08:20 08:50 09:15 10:00 10:35 11:10 11:45 12:25 12:45 13:50 14:10 14:45 15:45 15:45 17:10 17:50 18:15 19:00 19:20 20:15 20:40 21:30 22:20",
+					'workday3': "06:25 07:25 07:50 08:20 08:45 09:25 10:10 10:30 11:00 11:25 12:15 12:45 13:30 14:35 15:20 16:00 16:45 17:50 18:10 19:20 20:00 20:50",
+					'workday4': "07:25 08:25 08:50 09:20 09:45 10:25 11:10 11:30 12:00 13:25 13:15 13:45 14:30 15:35 16:20 17:00 17:45 18:50 19:10 20:20 21:00 21:50",
+					'hollyday': "06:05 06:25 06:55 07:20 07:50 08:15 09:00 09:35 10:10 10:45 11:25 11:45 12:50 13:10 13:45 14:15 14:45 16:10 16:50 17:15 18:00 18:20 19:15 19:40 20:30 21:20",
+					'hollyday2': "07:05 07:25 07:55 08:20 08:50 09:15 10:00 10:35 11:10 11:45 12:25 12:45 13:50 14:10 14:45 15:45 15:45 17:10 17:50 18:15 19:00 19:20 20:15 20:40 21:30 22:20",
+					'hollyday3': "06:25 07:25 07:50 08:20 08:45 09:25 10:10 10:30 11:00 11:25 12:15 12:45 13:30 14:35 15:20 16:00 16:45 17:50 18:10 19:20 20:00 20:50",
+					'hollyday4': "07:25 08:25 08:50 09:20 09:45 10:25 11:10 11:30 12:00 13:25 13:15 13:45 14:30 15:35 16:20 17:00 17:45 18:50 19:10 20:20 21:00 21:50",
+					'icon': 'bus'
+				},
+				{
+					'title': 'Калининград',
+					'en': 'Kaliningrad',
+					'city': 'Гвардейск',
+					'numb': '580',
+					'description': '',
+					time: ':50', dist: '-', cost: '-',
+					'workday': "06:10 18:40",
+					'workday2': "07:00 19:30",
+					'workday3': "",
+					'workday4': "",
+					'hollyday': "06:10 18:40",
+					'hollyday2': "07:00 19:30",
+					'hollyday3': "",
+					'hollyday4': "",
+					'icon': 'bus'
+				},
+			],
+			this.parom = [
+				{
+					'title': 'Балтийская коса',
+					'en': 'Baltiiskaya kosa',
+					'description': 'паром - Балтийск, п.Коса',
+					time: '0:07', dist: '1', cost: '50',
+					'workday': "07:20 10:00 12:00 14:00 16:00 18:00 20:00 21:30",
+					'workday2': "07:27 10:07 12:07 14:07 16:07 18:07 20:07 21:35",
+					'workday3': "07:30 10:10 12:10 14:10 16:10 18:10 20:10 21:40",
+					'workday4': "07:37 10:17 12:17 14:17 16:17 18:17 20:17 22:45",
+					'hollyday': "07:20 10:00 12:00 14:00 16:00 18:00 20:00 21:30",
+					'hollyday2': "07:27 10:07 12:07 14:07 16:07 18:07 20:07 21:35",
+					'hollyday3': "07:30 10:10 12:10 14:10 16:10 18:10 20:10 21:40",
+					'hollyday4': "07:37 10:17 12:17 14:17 16:17 18:17 20:17 22:45",
+					'icon': 'boat', 'map': '', city: 'Калининград',
+					'img': 'blt',
+					'numb': ''
+				}
+			]
 
 	}
 

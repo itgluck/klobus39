@@ -1,13 +1,13 @@
     // Общий стиль для всех страниц
 @font-face {
-    font-family: Dusha;
-    src: url('../assets/fonts/10622.ttf')
+    font-family: 'Courier New', Courier, monospace;
+    // src: url('../assets/fonts/10622.ttf')
 }
 
     html {
         font-size: 68%;
     }
-    h1,h2,h3,button, .toolbar-title, label,span, .label, i {font-family: Dusha;}
+    h1,h2,h3,button, .toolbar-title, label,span, .label, i {font-family: Arial;}
     
     iframe {
         height: 7em;
@@ -19,12 +19,18 @@
         font-family: Gabriela;
         position: absolute;
     }
-    
+    .alert-title , 
+    {
+        color:$primary;
+    }
+    .alert-sub-title {
+        color: rgb(64, 119, 238);
+    }
     .logo {
         border: 0px;
         margin: 0em auto;
         box-shadow: 0px 2px 7px $hidden;
-        background-image: url(https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/menu/klg.jpg);
+        // background-image: url(https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/menu/klg.jpg);
         background-size: 100%;
         h2 {
             position: absolute;
@@ -170,7 +176,7 @@
             // padding: 0px 8px;
             // line-height: 2;
         }
-        .inf {
+        .inf{
             color: rgb(64, 119, 238);
             font-size: .8em;
             font-weight: 100;
@@ -187,8 +193,8 @@
     }
     .mainmenu .http {
         word-wrap: inherit;
-        font-size: 12px;
-        padding: 4em 0 .5em;
+        font-size: 10px;
+        padding: 2em 0;
         color: rgba(107, 117, 130, 0.4) !important;
         text-indent: 1.42em;
         text-align: center;
@@ -213,62 +219,3 @@
             transform: scale(1);
         }
     }
-
-    // Test
-    .bus-table {
-        @import url(https://fonts.googleapis.com/css?family=Viga);
-
-        #container {
-    //   background: $info;
-      width:90%;
-    //   height: 400px;
-      border-radius: 8px;
-      text-align: center;
-      margin: 20px auto;
-      color: #112;
-      font-family: 'Viga', sans-serif;
-      overflow: hidden;
-      }
-
-      #buttons a{
-      display: inline-block;
-      width: 40%;
-      padding: 18px 5%;
-      text-decoration: none;
-      color: inherit;
-      }
-
-      #buttons a{
-      background: $primary;
-      }
-
-      #buttons a.active{
-      background: none;
-      }
-
-      #container h2{
-      margin: 1em auto;
-      font-size: 2em;
-      }
-
-      #container #info{
-      height: 200px;
-      width: 200px;
-      background: $primary;
-      border-radius: 100%;
-      text-align: center;
-      margin: 0 auto;
-      }
-
-      #time{
-      padding-top: 18px;
-      display: block;
-      font-size: 3em;
-      }
-
-      #note{
-      padding-right:20%;
-      float: right;
-      }
-
-}

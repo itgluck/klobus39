@@ -13,22 +13,24 @@ import { Observable } from 'rxjs/Observable';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
+import { AlertController } from 'ionic-angular';
+
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   rootPage: any = Page1;
-  banner:any;
+  banner: any;
   infoblocks: Observable<any>;
-  versionApp: number = 3.7;
   newVer: number;
-  gitMessage: string ='';
-  // show: boolean = true;      
-  pages: Array<{ title: string, icon: string, component: any}>;
+  // *********************************************************
+  versionApp: number = 3.8;
+  gitMessage: string = '';
+  pages: Array<{ title: string, icon: string, component: any }>;
 
   constructor(public platform: Platform, private statusBar: StatusBar,
-    public http: Http
+    public http: Http, private alertCtrl: AlertController
   ) {
     // this.adMobFree.banner.show();
     this.pages = [
@@ -39,73 +41,102 @@ export class MyApp {
     ];
     this.getVersion();
 
+    setTimeout(() => {      
+      this.getUpdate();
+    }, 3000);
+    
   }
 
-  // ionViewDidEnter() {
-  //   this.showBanner();
-  // }
+ 
+  getUpdate() {
+    if (this.newVer > this.versionApp) 
+    {
+      let alert = this.alertCtrl.create({
+        title: 'Обновление',
+        subTitle: 'Доступна версия '+ this.newVer,
+        message: this.gitMessage,
+        buttons: [
+          {
+            text: 'Напомнить позже',
+            role: 'cancel',
+            handler: () => {
+              console.log('Cancel clicked');
+            }
+          },
+          {
+            text: 'Обновить',
+            handler: () => {
+              console.log('Update');
+              window.open('https://play.google.com/store/apps/details?id=com.itgluck.klobus39', '_system', 'location=yes'); return false;
+            }
+          }
+        ]
+      });
+      console.log("Доступно обновление " + this.newVer);
+      alert.present();
+    }
+    else {
+      console.log("У Вас актуальная версия приложения: " + this.versionApp)
+    }
+  }
   getVersion() {
     // this.http.get('../assets/menu/update.json')
-    
-      this.http.get('https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/menu/update.json')
-    .map(res => res.json())
-    .subscribe(
-      data => {
-        this.infoblocks = data.results;
-        this.newVer = data.version;
-        this.gitMessage = data.message;
-        console.log("Текущая версия KLoBus39 " + this.versionApp);
-        console.log("Актуальная версия приложения " + this.newVer);
-        console.log(this.gitMessage);          
-      },
-      
-      err => {
-        console.log("не удалось получить данные");        
-        // setInterval(() => {  
-        //   // this.getVersion();
-        //   console.log("Проверка версии приложения " + this.newVer);
-        // },10000);       
-        // alert ("Нет интернет соединения! К счастью, KLoBus39 работает офлайн");
-      }
-    )
-     
+
+    this.http.get('https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/menu/update.json')
+      .map(res => res.json())
+      .subscribe(
+        data => {
+          this.infoblocks = data.results;
+          this.newVer = data.version;
+          this.gitMessage = data.message;
+          console.log("Текущая версия KLoBus39 " + this.versionApp);
+          console.log("Актуальная версия приложения " + this.newVer);
+          console.log(this.gitMessage);
+        },
+
+        err => {
+          console.log("не удалось получить данные");
+        }
+      )
+
   }
-// AdMob Block #############
 
-//   catch (e) {
-//     console.error(e);
-        
-//   }
-// }
+  // AdMob Block #############
+
+  //   catch (e) {
+  //     console.error(e);
+
+  //   }
+  // }
 
 
 
-// Убрать рекламу
-// hideAdb() {
-// 	this.adMobFree.banner.remove();
-// 	console.log('AdMob hide: Нет рекламы');
-// }
-// AdMob Block #############
-  
+  // Убрать рекламу
+  // hideAdb() {
+  // 	this.adMobFree.banner.remove();
+  // 	console.log('AdMob hide: Нет рекламы');
+  // }
+  // AdMob Block #############
+
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.overlaysWebView(true); 
-   
+      this.statusBar.overlaysWebView(true);
+
     }
     );
 
-    
+
   }
 
   openPage(page) {
-    this.nav.push(page.component);     
+    this.nav.push(page.component);
   }
   // goHome() {
   //   this.nav.setRoot(Page1);
   // }
   goPromo() {
     this.nav.push(DetailsPromo);
-    
+
   }
 
 

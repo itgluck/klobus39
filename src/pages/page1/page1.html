@@ -1,17 +1,17 @@
 <ion-header style="text-align:center;">
-    <ion-navbar color="primary" (click)="showBanner();">
+    <ion-navbar color="primary">
         <button ion-button menuToggle>
-            <ion-icon name="menu" color="hidden" ></ion-icon>
+            <ion-icon name="menu" color="hidden"></ion-icon>
         </button>
         <ion-buttons end>
             <button ion-button onclick="window.plugins.socialsharing.share('KLoBus39 транспорт Калининградской области', 'Рекомендую приложение KLoBus39', 'https://pp.userapi.com/c638320/v638320752/4bd5e/UgZtg-jvSbs.jpg', 'https://goo.gl/7O8QKI')">
                 <ion-icon name="share" color="hidden"></ion-icon>
             </button>
-            <button ion-button (click)="hide()" (click)="toggle();">
+            <button ion-button (click)="hide()" (click)="toggle()" (click)= "hideBanner()">
                 <ion-icon name="search" color="hidden"></ion-icon>
             </button>
         </ion-buttons>
-        <ion-title logo-header>KLoBus39 </ion-title>
+        <ion-title logo-header>KLoBus39</ion-title>
     </ion-navbar>
 
     <ion-toolbar color="primary" *ngIf="checked">
@@ -20,22 +20,22 @@
 </ion-header>
 
 <ion-content class="citylist">
-    <div class="subHeader" (click)="showBanner();" [ngClass]="{noimg: !visibility}">
-        <!-- <iframe src=".././assets/timer/index.html"></iframe> -->
-    <ion-slides autoplay="50000" loop="true" speed="800">
-            <!-- <ion-slide>
-                    <iframe src="./assets/timer/index.html"></iframe>
-            </ion-slide> -->
+    
+    <!-- <div class="subHeader" (click)="showBanner();" *ngIf='visibleBanner == true'>
+        <ion-slides autoplay="7000" loop="true" speed="800">
             <ion-slide class="slide1">
-                    <h2>Турнир в Калининграде</h2>
-                    <span id='countdown'></span>
+                <h2>Турнир в Калининграде</h2>
             </ion-slide>
             <ion-slide class="slide2">
-                    <h2>День города</h2><br> через
-                    <span id='countdownKLG'></span>
+                <div class="blur"></div>
+                <div class="inner-wrapper">
+                    <h2>День города</h2>
+                </div>
             </ion-slide>
-          </ion-slides>
-        </div>
+        </ion-slides>
+    </div> -->
+
+
     <!--Accordion-->
     <div class="arrows accordion">
 
@@ -61,7 +61,7 @@
                     </div>
                 </ion-list>
             </div>
-        </div> 
+        </div>
 
         <h5>Автовокзалы г.Калининград</h5>
         <!-- АвтоВокзалы -->

@@ -7,7 +7,9 @@
         font-weight: 300;
         color: $hidden;
         margin: 12px;
-        font-size: 1.2rem;
+        font-size: 1.2rem;}
+        h5 , .info, .time {  
+        font-family: Arial, Helvetica, sans-serif;
     }
     .col {
         padding: 0;
@@ -36,31 +38,29 @@
             /* text-align: center; */
             font-size: 2.3em;}
     }
+}
   
     .subHeader {
-        height: 25%;
+        // height: 25%;
         width: 100%;
-        // max-width: 420px;
         text-align: center;
-        position: fixed;
-        margin: 0 auto;
-        // top: 3em;
+        position: static;
+        margin: .042em 0;
         // background: url('.././assets/timer/cup.jpg');       
         // background: url('http://news.rambler.ru/img/2018/03/09114641.460637.9106.jpeg');
         
         color: $bg;
         
         & ion-slides {
-            margin: 0 auto;
-            height: 11em;
-            width: 90%;
-            max-width: 420px;
+            // margin: 0.2em auto;
+            height: 10em;
+            // max-width: 420px;
         color: $primary!important;
         // position: fixed;
         }
     }
 
-}
+
 
 ion-content {
     bottom: 8em;
@@ -109,6 +109,7 @@ promo-box {
     width: 100%;
     text-align: center;
     font-size: .8em;
+    margin: 1em .3em;
     color: $hidden;
 }
 
@@ -262,7 +263,7 @@ label::after {
 
 .time {
     max-width: 3em;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     text-align: center;
     font-weight: 300;
     position: relative;
@@ -357,6 +358,7 @@ li {
 input:checked+section.box .box-title:before {
     transform: rotate(90deg);
 }
+
 
 // END .accordion
 //  <img src="assets/img/map_s.png">
@@ -460,12 +462,16 @@ input:checked+section.box .box-title:before {
 
 
 /* Acordeon styles */
+.grid {
+    margin: .2em auto 1.4em;
+}
 
 .accordion {
-    margin: 3px auto;
+    margin: 4px auto;
     width: 100%;
-    position: absolute;
-    top: 11em;
+    position: relative;
+    // position: absolute;
+    // top: 10.31em;
     background: $bg;
     // padding: 2%;
 }
@@ -491,7 +497,7 @@ input:checked+section.box .box-title:before {
     font-weight: 300;
     line-height: 2.4em;
     padding-left: 2em;
-    // margin-bottom: 2px;
+    // margin-top: -2px;
     // color: $primary;
     color: rgba(107, 117, 130, .8);
     background: rgba(215, 223, 230, 0.4);
@@ -624,7 +630,8 @@ input[type=radio]:checked+label::after {
 
 .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
     color: #fff !important;
-    // font-size: 1.3rem;
+    font-size: 1rem;
+    font-family: dusha;
 }
 
 .SwipedTabs-tabs {
@@ -634,17 +641,15 @@ input[type=radio]:checked+label::after {
 }
 
 
-.swiper-slide {
-    align-items: normal;
-}
-
-.slide-zoom {
-    padding-bottom: 1em;
-}
 
 .swiper-pagination-bullet-active {
     background: $secondary;
     opacity: 1;
+}
+.swiper-container-horizontal > .swiper-pagination-bullets {
+    left: 0;
+    bottom: 0px;
+    width: 100%;
 }
 
 .citylist hr {
@@ -675,33 +680,49 @@ input[type=radio]:checked+label::after {
 
 // End http://www.petenottage.co.uk/
 
+ion-slide {
+    // align-items: normal;    
+    // max-width: 97%;
+    // margin: .3em .1em;
+}
+
+.slide-zoom {
+    width: 100%;
+
+}
 .swiper-container-android .swiper-slide, .swiper-wrapper{ 
    
-    color: #fff!important;
+    color: rgb(12, 73, 129)!important;
     font-family: Dusha;
+    border-radius: 5px;
+    // margin: 0 .3em;
 
 h2{
     /* padding: 4px auto; */
+    // margin-top:0;
     font-family: Dusha;
     font-size: 2rem;
     letter-spacing: 2px;
-    text-shadow: 1px 1px 4px #424242;
-    padding-bottom: .8em;
+    // text-shadow: 1px 1px 2px #286570;
+    padding: .5em;
 }
  
   .slide1 {
-    background: url(../assets/timer/cup.jpg);
+    background: url(https://kgd2018.ru/bitrix/templates/renew/assets/img/header-banner-upper-img.png);
+    // background: url(../assets/timer/cup.jpg);
     background-size: cover;
     background-position-y: 20%;
     background-repeat: no-repeat;
+
     span  {
         font-family: Dusha;
         letter-spacing: 4px;
         padding: 3px 7px;
-        background: rgba(60, 64, 68, 0.5);
+        background: rgba(247, 56, 56, 0.5);
         // border: 1px solid #d1c6a4;
         border-radius: 10px;
-        box-shadow: #eee6d3 0px 0px 6px;
+        box-shadow: #eed6d3 0px 0px 6px;
+        color: rgb(255, 255, 255)!important;
         font-size: 1.1em;
         font-weight: 200;
       }
@@ -709,16 +730,34 @@ h2{
   .slide2 {
       background: url(http://kaliningrad-city24.ru/wp-content/uploads/2018/05/den-gorodaKaliningrada-1024x683.jpg);
       background-size: cover;
-      background-position-y: 20%;
       background-repeat: no-repeat;
-      span  {
+
+        span  {
         
         letter-spacing: 4px;
         padding: 3px 7px;
-        background: rgba(92, 93, 95, 0.5);
+        background: rgba(92, 93, 95, 0.3);
         border-radius: 10px;
         font-size: 1.4em;
         font-weight: 200;
-      }
-  }
+
+        }
+
+        .inner-wrapper {
+            z-index: 100;
+            color: #fff;
+            text-align: center;
+            text-shadow: 0 0 5px rgba(0,0,0,.5);
+        }
+        .blur {
+            z-index: 99;
+            background: url(http://kaliningrad-city24.ru/wp-content/uploads/2018/05/den-gorodaKaliningrada-1024x683.jpg);
+            background-size: cover;
+            background-position-y: 20%;
+            background-repeat: no-repeat;
+            -webkit-filter: blur(5px);
+            -moz-filter: blur(5px);
+            filter: blur(5px);
+        }
+    }
 }
