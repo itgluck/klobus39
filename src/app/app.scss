@@ -1,13 +1,13 @@
     // Общий стиль для всех страниц
 @font-face {
-    font-family: 'Courier New', Courier, monospace;
-    // src: url('../assets/fonts/10622.ttf')
+    font-family:  Dusha;
+    src: url('../assets/fonts/10622.ttf')
 }
 
     html {
         font-size: 68%;
     }
-    h1,h2,h3,button, .toolbar-title, label,span, .label, i {font-family: Arial;}
+    h1,h2,h3,button, .toolbar-title, label,span, .label, i {font-family: Dusha;}
     
     iframe {
         height: 7em;
@@ -103,7 +103,7 @@
     }
     
     .mainmenu .item-md {
-        padding-left: 3em;
+        padding-left: 1.8em;
         h2 {
             font-size: 2rem;
         }

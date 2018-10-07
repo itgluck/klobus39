@@ -18,7 +18,6 @@ import { DetailsPromo } from '../pages/promo/promo';
 import { TrainDetails } from '../pages/page1/train/train';
 
 
-
 // AdMob
 import { AdMobFree } from '@ionic-native/admob-free';
 

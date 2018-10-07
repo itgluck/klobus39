@@ -48,10 +48,10 @@ export class TrainDetails {
             message: 'Если у Вас есть идеи - как улучшить приложение или Вы заметили неточность в данных',
             buttons: [
                 {
-                    text: 'группа VK',
+                    text: 'Написать',
                     handler: () => {
-                        console.log('Message VK');
-                        window.open('https://vk.com/klobus_39', '_system', 'location=yes'); return false;
+                        console.log('Mail send');
+                        window.open('mailto:klobus39@yandex.ru', '_system', 'location=yes'); return false;
                     }
                 },
                 {

@@ -1,8 +1,5 @@
 .citylist {
     color: $primary;   
-    // background: #EBEDEE;
-    font-weight: 200;
-    font-family: 'Roboto', 'Arial Narrow', Arial, sans-serif;
     h5 {
         font-weight: 300;
         color: $hidden;
@@ -37,6 +34,17 @@
             left: 10px;
             /* text-align: center; */
             font-size: 2.3em;}
+    }
+    // .label-md {
+    //     margin: 6pt 0 ;
+    // }
+    h2{
+        margin: 2px 0;
+        font-size: 1.6rem;
+        font-weight: normal;
+        position: absolute;
+        top: 12%;
+        left: 28%;
     }
 }
   
@@ -149,15 +157,17 @@ promo-box {
 // End Spec
 .citylist button {
     span {
-        border: 1px solid $hidden;
-        border-bottom: 3px solid $secondary;
+        border: 1px solid rgba(195, 207, 223, 0.247);
+        border-bottom: 3px solid rgba(108, 129, 145, 0.658);
         border-radius: 6px;
-        font-weight: 500;
-        background: $bg2;
+        font-weight: 500; 
+        background: #f7f7f7;
         text-align: center;
-        min-width: 6.3rem;
-        padding: 0.5rem;
-        margin: 5px 10px !important;
+        padding: 4px 8px;
+        width: 6.5rem;
+        position: absolute;
+        left: 3%;
+        top: 20%;
         ion-icon {
             display: inline;
             margin-right: 4px;
@@ -167,9 +177,9 @@ promo-box {
 
 .numb {
     font-size: 1.45rem;
-    position: absolute;
-    top: 12%;
-    right: 5%;
+    // position: absolute;
+    // top: 12%;
+    // right: 5%;
     // color: $secondary;
 }
 
@@ -183,8 +193,11 @@ promo-box {
     ion-label {
         height: 3em;
     }
-    ion-label:after {
-        top: 7px;
+
+    .en {
+        color: $hidden;
+        padding: 8px 0;
+        padding-left: 10%;
     }
 }
 
@@ -200,33 +213,25 @@ promo-box {
 }
 
 .citylist ion-label {
-    font-variant: caps;
-    font-size: 1.5rem;
-    font-weight: 300;
-    height: 2em;
-    margin: 10px 8px 10px 0;
-    font-family: Dusha;
+    padding: 3pt 0; 
+    line-height: 12pt;
 }
 
 .citylist ion-label:after {
     position: absolute;
     right: 1%;
-    top: 3px;
-    display: inline-block;
-    // line-height: 1;
+    top: 50%;
+    margin-top: -6pt;
     content: '\203a';
     font-size: 30pt;
     color: $hidden;
-    margin-right: 5px;
 }
 
 .en {
-    color: $hidden;
-    padding-left: 12px;
-    padding-bottom: 2px;
-    font-size: 1.28rem;
-    // line-height: 12px;
-    font-weight: 200;
+    color: $hidden;margin-top: -5px;
+    padding-left: 30%;
+    font-size: 1.4rem;
+    font-weight: 100;
 }
 
 .trainbtn .rout {
@@ -680,11 +685,11 @@ input[type=radio]:checked+label::after {
 
 // End http://www.petenottage.co.uk/
 
-ion-slide {
-    // align-items: normal;    
-    // max-width: 97%;
-    // margin: .3em .1em;
-}
+// ion-slide {
+//     // align-items: normal;    
+//     // max-width: 97%;
+//     // margin: .3em .1em;
+// }
 
 .slide-zoom {
     width: 100%;
@@ -695,16 +700,10 @@ ion-slide {
     color: rgb(12, 73, 129)!important;
     font-family: Dusha;
     border-radius: 5px;
-    // margin: 0 .3em;
-
 h2{
-    /* padding: 4px auto; */
-    // margin-top:0;
     font-family: Dusha;
     font-size: 2rem;
     letter-spacing: 2px;
-    // text-shadow: 1px 1px 2px #286570;
-    padding: .5em;
 }
  
   .slide1 {

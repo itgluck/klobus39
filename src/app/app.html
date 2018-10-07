@@ -6,7 +6,6 @@
 
     <ion-content class="mainmenu">
         <ion-list class="mainmenu" no-lines>
-                <!-- (click)="showBanner();" -->
             <div *ngIf='versionApp < newVer'>
                 <button *ngFor="let info of infoblocks" ion-item onclick="window.open('https://play.google.com/store/apps/details?id=com.itgluck.klobus39', '_system', 'location=yes'); return false;">
                   
@@ -26,12 +25,11 @@
                 <ion-icon name="share" item-left></ion-icon>
                 <h2>Поделиться</h2>
             </button>
-            <!-- <button menuClose ion-item (click)="showConfirm()"> -->
             <button menuClose ion-item (click)="goPromo()">
                 <ion-icon name="cart" item-left></ion-icon>
                 <h2>Магазин</h2>
             </button>
-            <div (click) ="getUpdate()" class="http">
+            <div (click) ="getUpdate();" class="http" >
                 Версия: {{versionApp}}
             </div>
         </ion-list>

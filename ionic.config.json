@@ -1,8 +1,8 @@
 {
-    "name": "KLoBus39",
-    "app_id": "742129a7",
-    "type": "ionic-angular",
-    "integrations": {
-        "cordova": {}
-    }
+  "name": "KLoBus39",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "pro_id": "742129a7"
 }

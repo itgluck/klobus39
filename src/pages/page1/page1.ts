@@ -5,8 +5,8 @@ import { NavController, NavParams, AlertController, Slides, Content } from 'ioni
 import { TrainDetails } from './train/train';
 import { AdMobFree, AdMobFreeBannerConfig } from '@ionic-native/admob-free';
 
-import { Observable } from 'rxjs/Observable';
-import { Http, HttpModule } from '@angular/http';
+// import { Observable } from 'rxjs/Observable';
+// import { Http, HttpModule } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -15,12 +15,17 @@ import 'rxjs/add/operator/map';
 export class DetailsPage {
 	item: any;
 	alertCtrl;
-	constructor(params: NavParams, alertCtrl: AlertController, public navCtrl: NavController) {
+	constructor(params: NavParams,
+		alertCtrl: AlertController,
+		public navCtrl: NavController) 
+	{
 
 		this.item = params.data.item;
 		this.tabs = ["Будни · Суббота", "Воскресенье · Праздники"];
 		this.alertCtrl = alertCtrl;
 	}
+
+
 
 	// New Segment
 	@ViewChild('SwipedTabsSlider') SwipedTabsSlider: Slides;
@@ -35,10 +40,10 @@ export class DetailsPage {
 			message: 'Внесите свой вклад - сообщите об ошибке или дополните информацию',
 			buttons: [
 				{
-					text: 'группа VK',
+					text: 'Написать',
 					handler: () => {
-						console.log('Message VK');
-						window.open('https://vk.com/klobus_39', '_system', 'location=yes'); return false;
+						console.log('Написать письмо');
+						window.open('mailto:klobus39@yandex.ru', '_system', 'location=yes'); return false;
 					}
 				},
 				{
@@ -105,7 +110,7 @@ export class Page1 {
 	trains = [];
 	item: any;
 	searchQuery: string = '';
-	checked: boolean = false;
+	checked: boolean = true;
 	visibility: boolean = true;
 
 	// Banner
@@ -113,55 +118,36 @@ export class Page1 {
 	visibleBanner: boolean = false;
 	httpTetx: String;
 
-	constructor(public navCtrl: NavController, params: NavParams, private adMobFree: AdMobFree,
-		public http: Http) {
+	constructor(public navCtrl: NavController,
+		params: NavParams,
+		private admobFree: AdMobFree,
+	) {
 
 		this.searchQuery = '';
 		this.initializeItems();
 		this.item = params.data.item;
 
-		setTimeout(() => {
-			console.log("Показать рекламный банер");
-			this.showBanner();
-		}, 9000);
-		// this.getBannerBox();
+
 	}
-	// getBannerBox() {
-	// 	this.http.get('https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/banner/banner.json')
-	// 	.map(res => res.json())
-	// 	.subscribe(
-	// 	  data => {
-	// 		this.bannerBox = data.results;
-	// 		this.visibleBanner = data.visibleBanner;
-	// 		this.httpTetx = data.httpTetx;
-	// 		console.log("Данные Box " + this.bannerBox);
-	// 		console.log("Покзывать ли? " + this.visibleBanner);        
-	// 		console.log("Вывод текста: " + this.httpTetx);        
-	// 	  },
-
-	// 	  err => {
-	// 		console.log("не удалось получить данные");        
-	// 	  }
-	// 	)
-	// }
-
-
-	showBanner() { 
-		//   try {
-		var bannerConfig: AdMobFreeBannerConfig = {
-			id: 'ca-app-pub-7133305264165200/6243373138',
-			isTesting: false,
-			autoShow: true,
-			bannerAtTop: false
-		};
-
-		this.adMobFree.banner.config(bannerConfig);
-		this.adMobFree.banner.show();
-		
-	}
-	hideBanner() { this.adMobFree.banner.hide };
-
-
+		// AdMob Block #############
+		showBanner() {
+			const bannerConfig: AdMobFreeBannerConfig = {
+				id: 'ca-app-pub-7133305264165200/6243373138',
+				isTesting: false,
+				autoShow: true
+			};
+			this.admobFree.banner.config(bannerConfig);
+			// this.admobFree.banner.show();
+			this.admobFree.banner.prepare()
+				.then(() => {				
+					// banner Ad is ready
+					// if we set autoShow to false, then we will need to call the show method here
+				})
+				.catch(e => console.log(e));
+				
+				console.log("Банер с рекламой показан");
+		}
+		//  End Block
 
 	hide() {
 		this.checked = !this.checked;
@@ -173,6 +159,7 @@ export class Page1 {
 	}
 
 	initializeItems() {
+		this.showBanner();
 		// Trains
 		this.trains = [
 			{

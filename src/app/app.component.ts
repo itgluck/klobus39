@@ -25,12 +25,12 @@ export class MyApp {
   infoblocks: Observable<any>;
   newVer: number;
   // *********************************************************
-  versionApp: number = 3.8;
+  versionApp: number = 3.9;
   gitMessage: string = '';
   pages: Array<{ title: string, icon: string, component: any }>;
 
   constructor(public platform: Platform, private statusBar: StatusBar,
-    public http: Http, private alertCtrl: AlertController
+    public http: Http, private alertCtrl: AlertController,
   ) {
     // this.adMobFree.banner.show();
     this.pages = [
@@ -39,21 +39,20 @@ export class MyApp {
       { title: 'Правила', icon: 'checkbox-outline', component: Page5 },
       { title: 'О приложении', icon: 'help', component: Page6 }
     ];
-    this.getVersion();
 
-    setTimeout(() => {      
-      this.getUpdate();
-    }, 3000);
-    
+
+
+
   }
 
- 
+
+
+
   getUpdate() {
-    if (this.newVer > this.versionApp) 
-    {
+    if (this.newVer > this.versionApp) {
       let alert = this.alertCtrl.create({
         title: 'Обновление',
-        subTitle: 'Доступна версия '+ this.newVer,
+        subTitle: 'Доступна версия ' + this.newVer,
         message: this.gitMessage,
         buttons: [
           {
@@ -101,29 +100,17 @@ export class MyApp {
 
   }
 
-  // AdMob Block #############
-
-  //   catch (e) {
-  //     console.error(e);
-
-  //   }
-  // }
-
-
-
-  // Убрать рекламу
-  // hideAdb() {
-  // 	this.adMobFree.banner.remove();
-  // 	console.log('AdMob hide: Нет рекламы');
-  // }
-  // AdMob Block #############
-
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.overlaysWebView(true);
 
     }
     );
+    this.getVersion();
+
+    setTimeout(() => {
+      this.getUpdate();
+    }, 3000);
 
 
   }
@@ -131,9 +118,7 @@ export class MyApp {
   openPage(page) {
     this.nav.push(page.component);
   }
-  // goHome() {
-  //   this.nav.setRoot(Page1);
-  // }
+
   goPromo() {
     this.nav.push(DetailsPromo);
 
