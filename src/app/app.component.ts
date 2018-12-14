@@ -15,6 +15,7 @@ import 'rxjs/add/operator/map';
 
 import { AlertController } from 'ionic-angular';
 
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -25,12 +26,13 @@ export class MyApp {
   infoblocks: Observable<any>;
   newVer: number;
   // *********************************************************
-  versionApp: number = 3.9;
+  versionApp: number = 3.10;
   gitMessage: string = '';
   pages: Array<{ title: string, icon: string, component: any }>;
 
   constructor(public platform: Platform, private statusBar: StatusBar,
-    public http: Http, private alertCtrl: AlertController,
+    public http: Http, 
+    private alertCtrl: AlertController,  
   ) {
     // this.adMobFree.banner.show();
     this.pages = [
@@ -39,14 +41,7 @@ export class MyApp {
       { title: 'Правила', icon: 'checkbox-outline', component: Page5 },
       { title: 'О приложении', icon: 'help', component: Page6 }
     ];
-
-
-
-
   }
-
-
-
 
   getUpdate() {
     if (this.newVer > this.versionApp) {
@@ -103,15 +98,14 @@ export class MyApp {
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.overlaysWebView(true);
-
     }
     );
     this.getVersion();
 
     setTimeout(() => {
       this.getUpdate();
-    }, 3000);
-
+      console.log("Запрос версии приложения: установлена " + this.versionApp);
+    }, 4000);
 
   }
 
@@ -123,7 +117,6 @@ export class MyApp {
     this.nav.push(DetailsPromo);
 
   }
-
 
 
 

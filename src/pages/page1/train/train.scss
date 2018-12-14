@@ -6,8 +6,9 @@
     font-weight: 500;
     background: $bg2;
     text-align: center;
-    font-family: Dusha !important;
-    font-size: 1em;
+    font-family: blogger !important;
+    font-weight: bold;
+    // font-size: 1em;
     // min-width: 5.8rem;
     padding:5px;
     margin: 5px 10px !important;
@@ -164,8 +165,23 @@ $disable: rgba(72, 97, 115, 0.5);
 $var: #C3DEDF;
 $orange: #EB8B6E;
 .trainlist .header {
-    background: url(../assets/img/200.jpg);
+    height: 9em;
+    // background: rgb(67,93,111);
+    width: 50%;
+    margin: 0 auto;
+    
+}
+.testbox {
+    position: absolute;
+    top: 0em;
+    width: 100%;
+    height: 10em;
+    background: linear-gradient(180deg, rgba(67,93,111,1) 32%, rgba(106,148,177,1) 100%, rgba(111,155,185,1) 100%);
+    // background: url(../assets/img/200.jpg);
     background-size: 100% 100%;
+    background-repeat: no-repeat;
+//   background-attachment: fixed;
+  background-position: center; 
 }
 
 .table-train {
@@ -198,17 +214,16 @@ $orange: #EB8B6E;
     display: inline-block;
     padding: .5em;
     text-shadow: $hidden 0px 2px 4px;
-    color: rgba(243, 249, 250, .5);
+    color: rgba(243, 249, 250, .7);
     &.start {
         // position: absolute;
-        position: absolute;
         left: .5em;
-        padding: 1em 2em;
+        padding: 1em;
     }
     &.end {
-        margin-bottom: .5em;
+        margin: .5em auto;
         padding-bottom: 2em;
-        left: 14%;
+        right: -1em;
         position: relative;
         top: 2em;
     }

@@ -1,8 +1,8 @@
 .citylist {
     color: $primary;   
     h5 {
-        font-weight: 300;
-        color: $hidden;
+        font-weight: 300;       
+        color: #9ba1b1;
         margin: 12px;
         font-size: 1.2rem;}
         h5 , .info, .time {  
@@ -80,12 +80,46 @@ promo-box {
     max-height: 15em;
 }
 
+.toolbar .searchbar-md {
+    padding: 0 6pt 0 0;
+animation: move-down 1.6s  alternate;
+    -webkit-animation: move-down .6s  alternate;
+} 
+
+@keyframes move-down { 
+    from {
+      top: -2em;
+      opacity: 0;             
+    }
+    to {
+      top: 0em;
+      opacity: 1;
+    }
+  }
+
+ 
+  @-webkit-keyframes move-down {
+    from {
+        top: -2em;            
+      }
+      to {
+        top: 0em; 
+      }
+  }
 
 
 .searchbar-md .searchbar-input {
-    border-radius: 6px;
-    font-weight: 200;
-    font-size: 1em;
+    border-radius: 9px;
+    font-weight: 250;
+    font-size: 1.08em;
+    padding: 2pt 12pt;
+}
+.searchbar-md .searchbar-search-icon {
+    left: 5px;
+    top: 8px;
+    width: 21px;
+    height: 21px;
+    display: none;
 }
 
 .img {
@@ -95,15 +129,16 @@ promo-box {
     box-shadow: 0px 2px 7px;
 }
 
-.logo-header {
-    max-height: 1.5em;
-    margin: 0px auto;
-    margin-left: -2em;
-}
+// .logo-header {
+//     max-height: 1.5em;
+//     margin: 0px auto;
+//     margin-left: -2em;
+//     font-weight: bold;
+// }
 
-.logo-header :before {
-    text-align: center;
-}
+// .logo-header :before {
+//     text-align: center;
+// }
 
 .row div {
     padding: 0px auto;
@@ -130,7 +165,7 @@ promo-box {
     width: 40%;
     span {
         font-size: 3em;
-        font-weight: 400;
+        font-weight: bold;
         color: $primary;
         background: $bg2;
         border: 1px solid #eee;
@@ -160,7 +195,7 @@ promo-box {
         border: 1px solid rgba(195, 207, 223, 0.247);
         border-bottom: 3px solid rgba(108, 129, 145, 0.658);
         border-radius: 6px;
-        font-weight: 500; 
+        font-weight: bold; 
         background: #f7f7f7;
         text-align: center;
         padding: 4px 8px;
@@ -291,7 +326,7 @@ label::after {
 .station {
     padding: 5px 0px 5px;
     color: $secondary;
-    font-size: 1.1em;
+    font-size: .9em;
     line-height: 26px;
     min-width: 60%;
 }
@@ -472,13 +507,11 @@ input:checked+section.box .box-title:before {
 }
 
 .accordion {
-    margin: 4px auto;
+    padding-top: 1em;
     width: 100%;
-    position: relative;
-    // position: absolute;
-    // top: 10.31em;
-    background: $bg;
-    // padding: 2%;
+    position: absolute;
+    // background: $bg;
+    background: rgba(107, 117, 130, 0.2);
 }
 
 .accordion input {
@@ -490,10 +523,13 @@ input:checked+section.box .box-title:before {
     margin: 0 auto;
     color: $primary;
     overflow: hidden;
+    border-radius: 4px;
     background: $bg;
     margin-bottom: .5em;
     transition: all .15s ease-in-out;
-    box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24);
+    box-shadow: 0 -1px 2px rgba(255, 255, 255, 0.5), 0px 0px 5px rgba(94, 141, 180, 0.5), 0px 0px 2px #96c2cb;
+
+    // box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24);
 }
 
  label {
@@ -503,9 +539,9 @@ input:checked+section.box .box-title:before {
     line-height: 2.4em;
     padding-left: 2em;
     // margin-top: -2px;
-    // color: $primary;
-    color: rgba(107, 117, 130, .8);
-    background: rgba(215, 223, 230, 0.4);
+    color: $primary;
+    // color: rgba(107, 117, 130, .8);
+    // background: rgba(215, 223, 230, 0.16);
     font-size: 1.3em;
     display: inline-block;
 }
@@ -546,8 +582,8 @@ input:checked~.tab-content {
     position: absolute;
      left: 4pt;
      top: -2pt; 
-    color: rgba(107, 117, 130, 0.4);
-    font-size: 2em;
+    color: $hidden;
+    font-size: 1.62em;
 }
 
 input[type=checkbox]+label::after {
@@ -562,8 +598,8 @@ input[type=checkbox]:checked+label::after {
     transform: rotate(90deg);
     position: absolute;
     color: $primary;
-    left: 10px;
-    top: 4px;
+    left: 16px;
+    top: 8px;
 }
 
 .checked {
@@ -594,9 +630,9 @@ input[type=checkbox]:checked+label::after {
 
 .tab input[type=checkbox]:checked+label {
     font-weight: 500;
-    background: rgba(215, 223, 230, 0.6);
+    background: rgba(222, 229, 235, 0.35);
     // border-bottom: 2px solid $hidden2;
-    border-bottom: 1px solid $secondary;
+    border-bottom: 2px solid $secondary;
     box-shadow: $hidden -1px 3px 3px;
     color: $primary;
     ion-icon {
@@ -636,7 +672,8 @@ input[type=radio]:checked+label::after {
 .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
     color: #fff !important;
     font-size: 1rem;
-    font-family: dusha;
+    // font-family: dusha;
+    font-family: 'blogger';
 }
 
 .SwipedTabs-tabs {
@@ -652,9 +689,14 @@ input[type=radio]:checked+label::after {
     opacity: 1;
 }
 .swiper-container-horizontal > .swiper-pagination-bullets {
-    left: 0;
+    // left: 0;
+    // bottom: 0px;
+    // width: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
     bottom: 0px;
-    width: 100%;
+    position: absolute;
 }
 
 .citylist hr {
@@ -697,13 +739,12 @@ input[type=radio]:checked+label::after {
 }
 .swiper-container-android .swiper-slide, .swiper-wrapper{ 
    
-    color: rgb(12, 73, 129)!important;
-    font-family: Dusha;
-    border-radius: 5px;
+    // color: rgb(12, 73, 129)!important;
+    // border-radius: 5px;
 h2{
-    font-family: Dusha;
+    font-family: CityName;
     font-size: 2rem;
-    letter-spacing: 2px;
+    letter-spacing: 4px;
 }
  
   .slide1 {
@@ -714,7 +755,6 @@ h2{
     background-repeat: no-repeat;
 
     span  {
-        font-family: Dusha;
         letter-spacing: 4px;
         padding: 3px 7px;
         background: rgba(247, 56, 56, 0.5);

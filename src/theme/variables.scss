@@ -3,7 +3,6 @@
 $font-path: "../assets/fonts";
 @import "ionic.globals";
 @import url(http://fonts.googleapis.com/css?family=Noto+Sans);
-
 // audio,
 // canvas,
 // progress,
@@ -12,6 +11,7 @@ $font-path: "../assets/fonts";
 ion-app.md {
     font-size: 1.5rem;
 }
+
 
 // toolbar-md{
 //   max-height: 4em;
@@ -31,7 +31,7 @@ secondary: rgba(67, 93, 111, .9), train: #435D6F, info: #68BBDC, danger: #f53d3d
 $primary: #435D6F;
 $secondary: rgba(67, 93, 111, .9);
 $train: #435D6F;
-$text: #5D6B7E;
+$text: rgba(111, 115, 119, 0.753);
 $hidden: rgba(107, 117, 130, 0.4);
 $hidden2: rgba(10, 15, 30, .45);
 $bg: #fff;
@@ -46,6 +46,15 @@ $info: #91A1BB;
 // http://ionicframework.com/docs/v2/ionicons/
 @import "ionicons";
 // Fonts
+
 // --------------------------------------------------
 @import "roboto";
 @import "noto-sans";
+@font-face {
+    font-family: 'CityName';
+    src: url('../assets/fonts/1isadora.ttf');
+}
+@font-face {
+    font-family: 'blogger';
+    src: url('../assets/fonts/exo-20.ttf');
+}

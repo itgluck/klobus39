@@ -44,16 +44,15 @@
                 <td>км</td>
                 <td>руб</td>
             </tr>
-            <tr class="station">
+            <tr >
                 <td style="line-height:3.5em;">
                     <ion-icon name="pin" item-left></ion-icon>
                     Остановки:
                 </td>
-                <td colspan="3">{{item.description}} </td>
+                <td colspan="3" class="station">{{item.description}} </td>
             </tr>
         </table>
     </div>
-
 
     <ion-toolbar no-border-bottom color="primary">
         <ion-segment class="SwipedTabs-tabs">
@@ -67,7 +66,6 @@
         <!-- <div id='indicator' class="SwipedTabs-indicatorSegment" [ngStyle]="{'width.px': (this.tabElementWidth_px)}"></div> -->
         <div id='indicator' class="SwipedTabs-indicatorSegment" style="width:50%;"></div>
     </ion-toolbar>
-
 
     <!-- New Seg -->
     <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideWillChange)="updateIndicatorPosition()"
@@ -96,6 +94,7 @@
                         <ion-row>
                             <ion-col col-12 class="info">{{item.info1}}</ion-col>
                         </ion-row>
+
                     </ion-grid>
                 </div>
 

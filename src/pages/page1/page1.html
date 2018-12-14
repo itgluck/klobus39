@@ -4,23 +4,21 @@
             <ion-icon name="menu" color="hidden"></ion-icon>
         </button>
         <ion-buttons end>
-            <button ion-button onclick="window.plugins.socialsharing.share('KLoBus39 транспорт Калининградской области', 'Рекомендую приложение KLoBus39', 'https://pp.userapi.com/c638320/v638320752/4bd5e/UgZtg-jvSbs.jpg', 'https://goo.gl/7O8QKI')">
+            <!-- <button ion-button onclick="window.plugins.socialsharing.share('KLoBus39 транспорт Калининградской области', 'Рекомендую приложение KLoBus39', 'https://pp.userapi.com/c638320/v638320752/4bd5e/UgZtg-jvSbs.jpg', 'https://goo.gl/7O8QKI')">
                 <ion-icon name="share" color="hidden"></ion-icon>
-            </button>
-            <!-- <button ion-button (click)="hide()" (click)="toggle()">
+            </button> -->
+            <button ion-button (click)="toggle(); hide()">
                 <ion-icon name="search" color="hidden"></ion-icon>
-            </button>            -->
+            </button>
         </ion-buttons>
-        <ion-title logo-header>KLoBus39</ion-title>
-    </ion-navbar>
+        <ion-title *ngIf="!checked"> KLoBus39   </ion-title>
 
-    <ion-toolbar color="primary" *ngIf="checked" (click)="toggle()">
-        <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="getItems($event)" placeholder="Укажите город или маршрут"></ion-searchbar>
-    </ion-toolbar>
+        <ion-searchbar *ngIf="checked" [(ngModel)]="searchQuery" (ionInput)="getItems($event)" placeholder="Укажите город или маршрут"></ion-searchbar>
+    </ion-navbar>
 </ion-header>
 
 <ion-content class="citylist">
- 
+
     <!--Accordion-->
     <div class="arrows accordion">
 
@@ -114,7 +112,7 @@
                     <div *ngFor="let gus of gusev">
                         <button ion-item (click)="openNavDetailsGus(gus)" class="citylist">
                             <span class='numb'>
-                                <ion-icon  name="bus"></ion-icon>
+                                <ion-icon name="bus"></ion-icon>
                                 {{gus.numb}}
                             </span>
                             <h2>

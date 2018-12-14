@@ -1,13 +1,13 @@
     // Общий стиль для всех страниц
-@font-face {
-    font-family:  Dusha;
-    src: url('../assets/fonts/10622.ttf')
-}
+
 
     html {
         font-size: 68%;
     }
-    h1,h2,h3,button, .toolbar-title, label,span, .label, i {font-family: Dusha;}
+    h1,h2,h3,button, .toolbar-title, label,span, .label, i {
+        font-family: 'blogger';
+        // font-family: 'Futuris Cyrillic';
+    }
     
     iframe {
         height: 7em;
@@ -103,7 +103,7 @@
     }
     
     .mainmenu .item-md {
-        padding-left: 1.8em;
+        padding-left: 2.6em;
         h2 {
             font-size: 2rem;
         }
@@ -117,8 +117,6 @@
         line-height: 4rem;
         border-top: 0px;
         background: $secondary;
-        // background: $secondary;
-        // color: #fff;
         text-align: center;
         text-transform: uppercase;
         margin-bottom: 2px;
@@ -170,7 +168,7 @@
         i {
             color: rgb(235, 33, 33)!important;
             font-size: 1em; 
-            font-family: dusha;
+            // font-family: 'blogger', arial;
             // border: 1px solid $primary;
             // border-radius: 12px;
             // padding: 0px 8px;

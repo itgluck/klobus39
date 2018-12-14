@@ -63,8 +63,5 @@ export class TrainDetails {
             ]
         });
         confirm.present();
-    }
-	// goPromo() {
-	// 	this.navCtrl.push(DetailsPromo);
-	// }
+    } 
 }
