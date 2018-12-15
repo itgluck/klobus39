@@ -1,5 +1,7 @@
 .citylist {
     color: $primary;   
+    animation: move-down .4s  alternate;
+    -webkit-animation: move-down .4s  alternate;
     h5 {
         font-weight: 300;       
         color: #9ba1b1;
@@ -82,13 +84,13 @@ promo-box {
 
 .toolbar .searchbar-md {
     padding: 0 6pt 0 0;
-animation: move-down 1.6s  alternate;
-    -webkit-animation: move-down .6s  alternate;
+animation: move-down .4s  alternate;
+    -webkit-animation: move-down .4s  alternate;
 } 
 
 @keyframes move-down { 
     from {
-      top: -2em;
+      top: -1em;
       opacity: 0;             
     }
     to {
@@ -100,7 +102,7 @@ animation: move-down 1.6s  alternate;
  
   @-webkit-keyframes move-down {
     from {
-        top: -2em;            
+        top: -1em;            
       }
       to {
         top: 0em; 
@@ -113,6 +115,7 @@ animation: move-down 1.6s  alternate;
     font-weight: 250;
     font-size: 1.08em;
     padding: 2pt 12pt;
+    color: $primary;
 }
 .searchbar-md .searchbar-search-icon {
     left: 5px;
@@ -664,8 +667,8 @@ input[type=radio]:checked+label::after {
 }
 
 .SwipedTabs-tabs ion-segment-button {
-    border-bottom: 2px rgb(131, 139, 150) solid !important;
-    color: rgb(164, 176, 194) !important;
+    border-bottom: 1px rgba(124, 134, 150, 0.7) solid !important;
+    color: rgba(124, 134, 150, 0.7) !important;
     font-weight: 300;
 }
 
@@ -677,7 +680,7 @@ input[type=radio]:checked+label::after {
 }
 
 .SwipedTabs-tabs {
-    background-color: $secondary;
+    // background-color: $secondary;
     border-top: solid 1px $primary;
     height: 3em;
 }
@@ -744,7 +747,7 @@ input[type=radio]:checked+label::after {
 h2{
     font-family: CityName;
     font-size: 2rem;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
 }
  
   .slide1 {
