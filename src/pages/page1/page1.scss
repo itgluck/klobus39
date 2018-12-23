@@ -1,7 +1,8 @@
 .citylist {
     color: $primary;   
-    animation: move-down .4s  alternate;
-    -webkit-animation: move-down .4s  alternate;
+    font-family: blogger;
+    // animation: move-down .4s  alternate;
+    // -webkit-animation: move-down .4s  alternate;
     h5 {
         font-weight: 300;       
         color: #9ba1b1;
@@ -194,6 +195,7 @@ animation: move-down .4s  alternate;
 
 // End Spec
 .citylist button {
+    // height: 3.6em;
     span {
         border: 1px solid rgba(195, 207, 223, 0.247);
         border-bottom: 3px solid rgba(108, 129, 145, 0.658);
@@ -223,13 +225,13 @@ animation: move-down .4s  alternate;
 
 .trainbtn button {
     color: $train;
-    // height: 4.5em;
+    height: 5em;
     border-bottom: 1px $hidden solid;
     .item-inner {
         border-bottom: none !important;
     }
     ion-label {
-        height: 3em;
+        // height: 3em;
     }
 
     .en {
@@ -251,15 +253,15 @@ animation: move-down .4s  alternate;
 }
 
 .citylist ion-label {
-    padding: 3pt 0; 
-    line-height: 12pt;
+    // padding: 5pt 0; 
+    // line-height: 12pt;
 }
 
 .citylist ion-label:after {
     position: absolute;
     right: 1%;
     top: 50%;
-    margin-top: -6pt;
+    margin-top: -23pt;
     content: '\203a';
     font-size: 30pt;
     color: $hidden;
@@ -337,6 +339,7 @@ label::after {
 .bar-button {
     font-size: 2rem;
     padding-right: 6px;
+    color: #fff;
 }
 
 // ******************
@@ -523,6 +526,7 @@ input:checked+section.box .box-title:before {
 
 .tab {
     width: 97%;
+    max-width: 30em;
     margin: 0 auto;
     color: $primary;
     overflow: hidden;
@@ -744,7 +748,7 @@ input[type=radio]:checked+label::after {
    
     // color: rgb(12, 73, 129)!important;
     // border-radius: 5px;
-h2{
+.city h2{
     font-family: CityName;
     font-size: 2rem;
     letter-spacing: 3px;

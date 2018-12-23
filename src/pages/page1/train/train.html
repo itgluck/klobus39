@@ -25,7 +25,13 @@
 
 <ion-content class="trainlist">
 
-<div class="testbox"></div>
+
+    <div class="testbox">
+        <div class=" color-overlay">
+
+        </div>
+    </div>
+
     <table class='table-train'>
         <tr>
             <td>
@@ -54,9 +60,14 @@
         (ionSlideDidChange)="updateIndicatorPosition()" (pan)="updateIndicatorPosition()" [pager]="true" style="height:unset;">
         <ion-slide>
             <div class="header">
-                <div class="city start"><h2>{{item.city}}</h2></div>
-                <div class="city end"><h2>{{item.title}}</h2></div>
+                <div class="city start">
+                    <h2>{{item.city}}</h2>
+                </div>
+                <div class="city end">
+                    <h2>{{item.title}}</h2>
+                </div>
             </div>
+
 
             <!--*** TimeLine-->
             <ion-grid class="info">
@@ -76,43 +87,50 @@
                             <ion-row class={{item.ok1}}>
                                 <ion-col col-2>{{item.t1}}</ion-col>
                                 <ion-col col-3 push-1 class="rout_num">
-                                    <ion-icon start name='subway'></ion-icon>{{item.r1}}</ion-col>
+                                    <ion-icon start name='subway'></ion-icon>{{item.r1}}
+                                </ion-col>
                                 <ion-col col-5 push-2 class="mini">{{item.d1}}</ion-col>
                             </ion-row>
                             <ion-row class={{item.ok2}}>
                                 <ion-col col-2>{{item.t2}}</ion-col>
                                 <ion-col col-3 push-1 class="rout_num">
-                                    <ion-icon start name='subway'></ion-icon>{{item.r2}}</ion-col>
+                                    <ion-icon start name='subway'></ion-icon>{{item.r2}}
+                                </ion-col>
                                 <ion-col col-5 push-2 class="mini">{{item.d2}}</ion-col>
                             </ion-row>
                             <ion-row class={{item.ok3}}>
                                 <ion-col col-2>{{item.t3}}</ion-col>
                                 <ion-col col-3 push-1 class="rout_num">
-                                    <ion-icon start name='subway'></ion-icon>{{item.r3}}</ion-col>
+                                    <ion-icon start name='subway'></ion-icon>{{item.r3}}
+                                </ion-col>
                                 <ion-col col-5 push-2 class="mini">{{item.d3}}</ion-col>
                             </ion-row>
                             <ion-row class={{item.ok4}}>
                                 <ion-col col-2>{{item.t4}}</ion-col>
                                 <ion-col col-3 push-1 class="rout_num">
-                                    <ion-icon start name='subway'></ion-icon>{{item.r4}}</ion-col>
+                                    <ion-icon start name='subway'></ion-icon>{{item.r4}}
+                                </ion-col>
                                 <ion-col col-5 push-2 class="mini">{{item.d4}}</ion-col>
                             </ion-row>
                             <ion-row class={{item.ok5}}>
                                 <ion-col col-2>{{item.t5}}</ion-col>
                                 <ion-col col-3 push-1 class="rout_num">
-                                    <ion-icon start name='subway'></ion-icon>{{item.r5}}</ion-col>
+                                    <ion-icon start name='subway'></ion-icon>{{item.r5}}
+                                </ion-col>
                                 <ion-col col-5 push-2 class="mini">{{item.d5}}</ion-col>
                             </ion-row>
                             <ion-row class={{item.ok6}}>
                                 <ion-col col-2>{{item.t6}}</ion-col>
                                 <ion-col col-3 push-1 class="rout_num">
-                                    <ion-icon start name='subway'></ion-icon>{{item.r6}}</ion-col>
+                                    <ion-icon start name='subway'></ion-icon>{{item.r6}}
+                                </ion-col>
                                 <ion-col col-5 push-2 class="mini">{{item.d6}}</ion-col>
                             </ion-row>
                             <ion-row class={{item.ok7}}>
                                 <ion-col col-2>{{item.t7}}</ion-col>
                                 <ion-col col-3 push-1 class="rout_num">
-                                    <ion-icon start name='subway'></ion-icon>{{item.r7}}</ion-col>
+                                    <ion-icon start name='subway'></ion-icon>{{item.r7}}
+                                </ion-col>
                                 <ion-col col-5 push-2 class="mini">{{item.d7}}</ion-col>
                             </ion-row>
                         </ion-grid>
@@ -128,8 +146,12 @@
 
         <ion-slide>
             <div class="header">
-                <div class="city start"><h2>{{item.title}}</h2></div>
-                <div class="city end"><h2>{{item.city}}</h2></div>
+                <div class="city start">
+                    <h2>{{item.title}}</h2>
+                </div>
+                <div class="city end">
+                    <h2>{{item.city}}</h2>
+                </div>
 
             </div>
             <ion-grid class="info">
@@ -150,43 +172,50 @@
                             <ion-row class={{back.ok1}}>
                                 <ion-col col-2>{{back.t1}}</ion-col>
                                 <ion-col col-3 push-1 class="rout_num">
-                                    <ion-icon start name='subway'></ion-icon>{{back.r1}}</ion-col>
+                                    <ion-icon start name='subway'></ion-icon>{{back.r1}}
+                                </ion-col>
                                 <ion-col col-5 push-2 class="mini">{{back.d1}}</ion-col>
                             </ion-row>
                             <ion-row class={{back.ok2}}>
                                 <ion-col col-2>{{back.t2}}</ion-col>
                                 <ion-col col-3 push-1 class="rout_num">
-                                    <ion-icon start name='subway'></ion-icon>{{back.r2}}</ion-col>
+                                    <ion-icon start name='subway'></ion-icon>{{back.r2}}
+                                </ion-col>
                                 <ion-col col-5 push-2 class="mini">{{back.d2}}</ion-col>
                             </ion-row>
                             <ion-row class={{back.ok3}}>
                                 <ion-col col-2>{{back.t3}}</ion-col>
                                 <ion-col col-3 push-1 class="rout_num">
-                                    <ion-icon start name='subway'></ion-icon>{{back.r3}}</ion-col>
+                                    <ion-icon start name='subway'></ion-icon>{{back.r3}}
+                                </ion-col>
                                 <ion-col col-5 push-2 class="mini">{{back.d3}}</ion-col>
                             </ion-row>
                             <ion-row class={{back.ok4}}>
                                 <ion-col col-2>{{back.t4}}</ion-col>
                                 <ion-col col-3 push-1 class="rout_num">
-                                    <ion-icon start name='subway'></ion-icon>{{back.r4}}</ion-col>
+                                    <ion-icon start name='subway'></ion-icon>{{back.r4}}
+                                </ion-col>
                                 <ion-col col-5 push-2 class="mini">{{back.d4}}</ion-col>
                             </ion-row>
                             <ion-row class={{back.ok5}}>
                                 <ion-col col-2>{{back.t5}}</ion-col>
                                 <ion-col col-3 push-1 class="rout_num">
-                                    <ion-icon start name='subway'></ion-icon>{{back.r5}}</ion-col>
+                                    <ion-icon start name='subway'></ion-icon>{{back.r5}}
+                                </ion-col>
                                 <ion-col col-5 push-2 class="mini">{{back.d5}}</ion-col>
                             </ion-row>
                             <ion-row class={{back.ok6}}>
                                 <ion-col col-2>{{back.t6}}</ion-col>
                                 <ion-col col-3 push-1 class="rout_num">
-                                    <ion-icon start name='subway'></ion-icon>{{back.r6}}</ion-col>
+                                    <ion-icon start name='subway'></ion-icon>{{back.r6}}
+                                </ion-col>
                                 <ion-col col-5 push-2 class="mini">{{back.d6}}</ion-col>
                             </ion-row>
                             <ion-row class={{back.ok7}}>
                                 <ion-col col-2>{{back.t7}}</ion-col>
                                 <ion-col col-3 push-1 class="rout_num">
-                                    <ion-icon start name='subway'></ion-icon>{{back.r7}}</ion-col>
+                                    <ion-icon start name='subway'></ion-icon>{{back.r7}}
+                                </ion-col>
                                 <ion-col col-5 push-2 class="mini">{{back.d7}}</ion-col>
                             </ion-row>
                         </ion-grid>

@@ -1,7 +1,7 @@
 
 .trainlist .rout_num{
     border: 1px solid $hidden;
-    border-bottom: 3px solid $secondary;
+    border-bottom: 3px solid $primary;
     border-radius: 6px;
     font-weight: 500;
     background: $bg2;
@@ -31,21 +31,25 @@
 // }
 
 .trainlist {
-    color: $train;
+    color: $train;   
+    font-family: blogger; 
     [col-2] {
         max-width: 20%;
         width: 20%;
     }
     .info {
         font-size: .7em;
-        color: #555;
+        text-shadow: rgba(30, 33, 36, 0.8) 1px 1px 1px;
+        color:rgba(255, 255, 255, 0.6);
+        position: absolute;
+        top: 9.5em;
     }
     & .grid-train {
         font-size: .8em;
-        color: #555;
+        // color: #555;
         margin-top: -3em;
         min-height: 6.5em;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        // font-family: Verdana, Geneva, Tahoma, sans-serif;
         // width: 90%;
         // text-align: center;
     }
@@ -79,7 +83,7 @@
 }
 
 .trainlist ion-row {
-    line-height: 10px;
+    // line-height: 10pt;
 }
 .trainlist .station {
     color: $train;
@@ -171,24 +175,33 @@ $orange: #EB8B6E;
     margin: 1.2em auto;
     
 }
+
 .testbox {
-    position: absolute;
-    top: 0em;
+    .color-overlay {
+        height: 10em;
+        width: 100%;
+        box-sizing: border-box;
+        background: linear-gradient(110deg, rgba(34, 87, 122, 0.3) 62%, rgba(34, 87, 122, 0.8) 23%);
+    }
     width: 100%;
     height: 10em;
+    top: 0em;
+    opacity: .7;
+    position: absolute;
     // background: linear-gradient(180deg, rgba(67,93,111,1) 32%, rgba(106,148,177,1) 100%, rgba(111,155,185,1) 100%);
-    background: url(../assets/img/wave.png);
-    background-size: 100% 100%;
+    // background: url(../assets/img/wave.png);
+    background: url(../assets/img/train.jpg);
+    background-size: cover;
     background-repeat: no-repeat;
-//   background-attachment: fixed;
   background-position: center; 
 }
 
 .table-train {
     position: absolute;
     top: 12px;
-    color: $info;
-    text-shadow: $hidden 1px 1px 1px;
+    // color: $secondary;
+    color:rgba(255, 255, 255, 0.6);
+    text-shadow: $hidden2 1px 1px 2px;
     right: 10px;
     width: 30%;
     text-align: center;
@@ -198,16 +211,13 @@ $orange: #EB8B6E;
 
 .table-train .detals {
     font-size: 1em;
-    color: rgba(235, 250, 252, .6);
+    // color: rgba(235, 250, 252, .6);
+    text-shadow: rgba(30, 33, 36, 0.8) 2px 1px 1px;
+    color:#fff;
     // color: $white;
 }
 
-.color-overlay {
-    padding: 1em 2em;
-    box-sizing: border-box;
-    // background: rgba(160,218,225, 0.5);
-    background: linear-gradient(110deg, rgba(160, 218, 225, 0.1) 62%, rgba(160, 218, 225, 0.2) 23%);
-}
+
 
 .city {
     font-size: 1.4em;
@@ -223,10 +233,10 @@ $orange: #EB8B6E;
     &.end {
         margin: 0 auto;
         right: -1em;
-        text-shadow: rgba(93, 94, 95, 0.7) 2px 1px 1px;
         position: relative;
         top: 2em;
-        color:rgb(64, 127, 199);
+        // text-shadow: rgba(198, 201, 204, 1) 1px 1px 0px;
+        // color:rgb(72, 150, 240);
     }
 }
 
@@ -251,6 +261,8 @@ $orange: #EB8B6E;
     margin: -2em auto .5em;
     font-size: 1.4rem;
     color: $primary;
+    position: relative;
+    top: 4em;
     li {
         margin-left: 1.5em;
         text-align: left;

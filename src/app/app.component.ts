@@ -26,7 +26,7 @@ export class MyApp {
   infoblocks: Observable<any>;
   newVer: number;
   // *********************************************************
-  versionApp: number = 3.10;
+  versionApp: number = 3.11;
   gitMessage: string = '';
   pages: Array<{ title: string, icon: string, component: any }>;
 
