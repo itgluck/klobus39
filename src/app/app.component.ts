@@ -75,6 +75,7 @@ export class MyApp {
   }
   getVersion() {
     // this.http.get('../assets/menu/update.json')
+    // https://github.com/itgluck/klobus39/blob/master/src/assets/menu/update.json   ***Тут поменять версию ***
 
     this.http.get('https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/menu/update.json')
       .map(res => res.json())

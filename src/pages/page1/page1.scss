@@ -230,9 +230,7 @@ animation: move-down .4s  alternate;
     .item-inner {
         border-bottom: none !important;
     }
-    ion-label {
-        // height: 3em;
-    }
+
 
     .en {
         color: $hidden;
@@ -250,11 +248,6 @@ animation: move-down .4s  alternate;
     padding: 2px 5px;
     font-size: .8em;
     box-shadow: 0 1px 2px #9CC6D7, 0 0 2px rgba(103, 153, 173, .22), 0 2px 4px rgba(0, 0, 0, .24);
-}
-
-.citylist ion-label {
-    // padding: 5pt 0; 
-    // line-height: 12pt;
 }
 
 .citylist ion-label:after {
