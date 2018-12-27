@@ -14,6 +14,7 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import { AlertController } from 'ionic-angular';
+import { AppVersion } from './routs';
 
 
 @Component({
@@ -22,17 +23,17 @@ import { AlertController } from 'ionic-angular';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   rootPage: any = Page1;
-  banner: any;
+  // banner: any;
   infoblocks: Observable<any>;
   newVer: number;
+  currentAppVersion = AppVersion;
   // *********************************************************
-  versionApp: number = 3.11;
   gitMessage: string = '';
   pages: Array<{ title: string, icon: string, component: any }>;
 
   constructor(public platform: Platform, private statusBar: StatusBar,
-    public http: Http, 
-    private alertCtrl: AlertController,  
+    public http: Http,
+    private alertCtrl: AlertController,
   ) {
     // this.adMobFree.banner.show();
     this.pages = [
@@ -41,10 +42,36 @@ export class MyApp {
       { title: 'Правила', icon: 'checkbox-outline', component: Page5 },
       { title: 'О приложении', icon: 'help', component: Page6 }
     ];
+    this.getVersion();
+    // setInterval(this.getUpdate, 5000);
   }
 
+  // this.http.get('../assets/menu/update.json')
+  // https://github.com/itgluck/klobus39/blob/master/src/assets/menu/update.json   ***Тут поменять версию ***
+  getVersion() {
+    console.log("Запрос версии приложения ... " + AppVersion);
+    this.http.get('https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/menu/update.json')
+      .map(res => res.json())
+      .subscribe(
+        data => {
+          this.infoblocks = data.results;
+          this.gitMessage = data.message;
+          this.newVer = data.version;
+          console.log("данные: " + this.newVer);
+        },
+        err => {
+          console.log("не удалось получить данные");
+        }
+      )
+    console.log("данные вне функции: " + this.newVer);
+    setTimeout(() => {
+      console.log("Прошло 5 сек...");
+      this.getUpdate();
+    }, 5000);
+  }
   getUpdate() {
-    if (this.newVer > this.versionApp) {
+    if (this.newVer > AppVersion) {
+      console.log('Предложение обновиться!' + this.newVer);
       let alert = this.alertCtrl.create({
         title: 'Обновление',
         subTitle: 'Доступна версия ' + this.newVer,
@@ -66,48 +93,20 @@ export class MyApp {
           }
         ]
       });
-      console.log("Доступно обновление " + this.newVer);
       alert.present();
+      console.log("Доступно обновление " + this.newVer);
     }
     else {
-      console.log("У Вас актуальная версия приложения: " + this.versionApp)
+      console.log("Обновлений нет! " + this.newVer);
     }
-  }
-  getVersion() {
-    // this.http.get('../assets/menu/update.json')
-    // https://github.com/itgluck/klobus39/blob/master/src/assets/menu/update.json   ***Тут поменять версию ***
-
-    this.http.get('https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/menu/update.json')
-      .map(res => res.json())
-      .subscribe(
-        data => {
-          this.infoblocks = data.results;
-          this.newVer = data.version;
-          this.gitMessage = data.message;
-          console.log("Текущая версия KLoBus39 " + this.versionApp);
-          console.log("Актуальная версия приложения " + this.newVer);
-          console.log(this.gitMessage);
-        },
-
-        err => {
-          console.log("не удалось получить данные");
-        }
-      )
-
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.overlaysWebView(true);
+
     }
     );
-    this.getVersion();
-
-    setTimeout(() => {
-      this.getUpdate();
-      console.log("Запрос версии приложения: установлена " + this.versionApp);
-    }, 4000);
-
   }
 
   openPage(page) {

@@ -1,3 +1,4 @@
+export var AppVersion:any = 3.01;
 export var db_trains = [
     {
         'title': 'Багратионовск',
