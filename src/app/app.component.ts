@@ -43,7 +43,6 @@ export class MyApp {
       { title: 'О приложении', icon: 'help', component: Page6 }
     ];
     this.getVersion();
-    // setInterval(this.getUpdate, 5000);
   }
 
   // this.http.get('../assets/menu/update.json')
@@ -60,21 +59,21 @@ export class MyApp {
           console.log("данные: " + this.newVer);
         },
         err => {
-          console.log("не удалось получить данные");
+          console.log("не удалось получить данные"); 
         }
       )
     console.log("данные вне функции: " + this.newVer);
     setTimeout(() => {
       console.log("Прошло 5 сек...");
       this.getUpdate();
-    }, 5000);
+    }, 3000);
   }
   getUpdate() {
     if (this.newVer > AppVersion) {
       console.log('Предложение обновиться!' + this.newVer);
       let alert = this.alertCtrl.create({
-        title: 'Обновление',
-        subTitle: 'Доступна версия ' + this.newVer,
+        title: 'Доступна версия ' + this.newVer,
+        subTitle: 'Что нового:',
         message: this.gitMessage,
         buttons: [
           {
@@ -97,7 +96,7 @@ export class MyApp {
       console.log("Доступно обновление " + this.newVer);
     }
     else {
-      console.log("Обновлений нет! " + this.newVer);
+      console.log("Для вашей версии " + this.newVer + " - Обновлений нет!");
     }
   }
 

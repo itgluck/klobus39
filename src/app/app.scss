@@ -19,12 +19,19 @@
         font-family: Gabriela;
         position: absolute;
     }
-    .alert-title , 
+    .alert-title, 
     {
         color:$primary;
     }
     .alert-sub-title {
         color: rgb(64, 119, 238);
+    }
+    .alert-md .alert-message{
+        color:$primary;
+        text-align: end;
+        font-family: 'blogger';
+        text-indent: 25px;
+    text-align: justify;
     }
     .logo {
         border: 0px;

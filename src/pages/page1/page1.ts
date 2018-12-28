@@ -4,7 +4,7 @@ import { TrainDetails } from './train/train';
 
 import 'rxjs/add/operator/map';
 
-import { AdMobFree, AdMobFreeBannerConfig } from '@ionic-native/admob-free';
+import { AdMobFree, AdMobFreeBannerConfig} from '@ionic-native/admob-free';
 // Import All Routs ***
 import { db_parom, db_trains, db_sovetsk, db_ozersk, db_bolshakovo, db_gvardeysk, db_chernahovsk, db_gusev, db_spisok, db_items } from '../../app/routs'
 
@@ -126,9 +126,9 @@ export class Page1 {
 		this.searchQuery = '';
 		this.initializeItems();
 		this.item = params.data.item;
+		// this.showBanner();
 
-
-
+		
 	}
 
 
@@ -154,15 +154,17 @@ export class Page1 {
 		this.bolshakovo = db_bolshakovo;
 		this.ozersk = db_ozersk;
 		this.sovetsk = db_sovetsk;
-		this.showBanner();
-		console.log('данные о маршрутах загружены');
 	}
 
 	// AdMob Block #############
-	// ionViewWillLoad() {
-	// 	console.log("Банер - удачная попытка!");
-	// 	this.showBanner();
-	// }
+	ionViewWillLoad() {
+		setTimeout(() => {
+			console.log("Прошло 5 сек...");
+			this.showBanner();
+			// this.showInterstitialAds();
+			console.log("Банер - удачная попытка!");
+		  }, 4000);
+	}
 
 	showBanner() {
 		const bannerConfig: AdMobFreeBannerConfig = {
@@ -174,13 +176,30 @@ export class Page1 {
 		// this.admobFree.banner.show();
 		this.admobFree.banner.prepare()
 			.then(() => {
-				// banner Ad is ready
-				// if we set autoShow to false, then we will need to call the show method here
+				console.log("Банер с рекламой загружен");
+				this.admobFree.banner.show();
 			})
 			.catch(e => console.log(e));
 
-		console.log("Банер с рекламой показан");
 	}
+
+	// showInterstitialAds() {
+	// 	const interstitalConfig: AdMobFreeInterstitialConfig = {
+	// 	  id: 'ca-app-pub-7133305264165200/6597507258',
+	// 	  isTesting: true,
+	// 	  autoShow: true
+	// 	};
+	// 	this.admobFree.interstitial.config(interstitalConfig);
+	
+	// 	this.admobFree.interstitial.prepare()
+	// 	  .then(() => {
+	// 		this.admobFree.interstitial.show();
+	// 	  })
+	// 	  .catch(e => console.log(e));
+	//   }
+	
+
+	
 	//  End Block
 	//Search -
 	getItems(searchbar) {
