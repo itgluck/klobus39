@@ -19,6 +19,24 @@
         font-family: Gabriela;
         position: absolute;
     }
+    .toast-md .toast-message {
+        font-size: 1.2rem;
+        color: #fff;
+        padding: 1em 2em;
+        bottom: 0;
+        font-family: blogger;
+        text-align: center;
+    }
+    .toast-md .toast-wrapper {
+        margin: .5em auto;
+        position: absolute;
+        z-index: 10;
+        display: block;
+        max-width: 80%;
+        width: 28em;
+        background: rgb(61, 61, 61);
+        border-radius: 12pt;
+    }
     .alert-title, 
     {
         color:$primary;

@@ -6,7 +6,7 @@
 
     <ion-content class="mainmenu">
         <ion-list class="mainmenu" no-lines>
-            <div *ngIf="currentAppVersion != newVer">
+            <div *ngIf="currentAppVersion < newVer">
                 <button *ngFor="let info of infoblocks" ion-item onclick="window.open('https://play.google.com/store/apps/details?id=com.itgluck.klobus39', '_system', 'location=yes'); return false;">
                   
                     <ion-icon name="download" item-left></ion-icon>
@@ -29,7 +29,7 @@
                 <ion-icon name="cart" item-left></ion-icon>
                 <h2>Магазин</h2>
             </button>
-            <div (click) ="getUpdate();" class="http" >
+            <div (click) ="getVersion();" class="http" >
                 Версия: {{currentAppVersion}}
             </div>
         </ion-list>

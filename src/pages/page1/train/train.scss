@@ -40,9 +40,9 @@
     .info {
         font-size: .7em;
         text-shadow: rgba(30, 33, 36, 0.8) 1px 1px 1px;
-        color:rgba(255, 255, 255, 0.6);
-        position: absolute;
-        top: 9.5em;
+        color:rgba(255, 255, 255, 0.75);
+        max-width: 42em;
+        margin: 0 auto;
     }
     & .grid-train {
         font-size: .8em;
@@ -166,13 +166,13 @@ $grey: rgba(159, 161, 161, .4);
 $light: rgba(194, 230, 220, .5);
 $purple: #B97CFC;
 $pink: #F93B69;
-$disable: rgba(72, 97, 115, 0.5);
+$disable: rgba(130, 180, 180, 0.9);
 $var: #C3DEDF;
 $orange: #EB8B6E;
 .trainlist .header {
     height: 5em;
     // background: rgb(67,93,111);
-    margin: 1.2em auto;
+    margin: 1em auto;
     
 }
 
@@ -182,6 +182,7 @@ $orange: #EB8B6E;
         width: 100%;
         box-sizing: border-box;
         background: linear-gradient(110deg, rgba(34, 87, 122, 0.3) 62%, rgba(34, 87, 122, 0.8) 23%);
+        box-shadow: 0 -1px 0 #e5e5e5, 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24);
     }
     width: 100%;
     height: 10em;
@@ -194,6 +195,7 @@ $orange: #EB8B6E;
     background-size: cover;
     background-repeat: no-repeat;
   background-position: center; 
+  position:fixed;
 }
 
 .table-train {
@@ -258,11 +260,10 @@ $orange: #EB8B6E;
 
 .timeline {
     max-width: 32em;
-    margin: -2em auto .5em;
+    margin: -1.2em auto .5em;
     font-size: 1.4rem;
     color: $primary;
-    position: relative;
-    top: 4em;
+    // position: relative;
     li {
         margin-left: 1.5em;
         text-align: left;

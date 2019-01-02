@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, ToastController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { Page1 } from '../pages/page1/page1';
@@ -25,7 +25,8 @@ export class MyApp {
   rootPage: any = Page1;
   // banner: any;
   infoblocks: Observable<any>;
-  newVer: number;
+  newVer: number = null;
+  html: any;
   currentAppVersion = AppVersion;
   // *********************************************************
   gitMessage: string = '';
@@ -34,6 +35,7 @@ export class MyApp {
   constructor(public platform: Platform, private statusBar: StatusBar,
     public http: Http,
     private alertCtrl: AlertController,
+    public toastCtrl: ToastController
   ) {
     // this.adMobFree.banner.show();
     this.pages = [
@@ -42,13 +44,15 @@ export class MyApp {
       { title: 'Правила', icon: 'checkbox-outline', component: Page5 },
       { title: 'О приложении', icon: 'help', component: Page6 }
     ];
-    this.getVersion();
+    setTimeout(() => {
+      this.getVersion();
+    }, 2000);
   }
 
-  // this.http.get('../assets/menu/update.json')
   // https://github.com/itgluck/klobus39/blob/master/src/assets/menu/update.json   ***Тут поменять версию ***
   getVersion() {
-    console.log("Запрос версии приложения ... " + AppVersion);
+    console.log("Версия при запуске: " + this.newVer);
+    console.log("Версия KLoBus39 на устройстве ... " + AppVersion);
     this.http.get('https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/menu/update.json')
       .map(res => res.json())
       .subscribe(
@@ -56,21 +60,51 @@ export class MyApp {
           this.infoblocks = data.results;
           this.gitMessage = data.message;
           this.newVer = data.version;
-          console.log("данные: " + this.newVer);
+          console.log("Версия на GitHub данные получены: " + this.newVer);
         },
         err => {
-          console.log("не удалось получить данные"); 
+          console.log("не удалось получить данные с GitHub");
         }
       )
-    console.log("данные вне функции: " + this.newVer);
     setTimeout(() => {
-      console.log("Прошло 5 сек...");
-      this.getUpdate();
-    }, 3000);
+      console.log("3 сек прошло, Сравнение версий ...");
+      this.goCalc();
+    }, 2500);
   }
+
+  goCalc() {
+    console.log("Сравнение версий ...");
+    if (this.newVer == AppVersion) {
+      console.log("Уже установлена актуальная версия: " + this.newVer);
+      return
+    }
+    if ( this.newVer == null) {
+      console.log("Null version " + this.newVer)
+      this.updToast();
+      this.notUpdConnectToast();
+    }
+    if (this.newVer > AppVersion) {
+      console.log("Версии не совпали - Запуск обновления...");
+      setTimeout(() => {
+        this.updToast();
+        this.getUpdate();
+      }, 2000);
+    }
+    console.log("Сравнение версий окончено");
+  }
+
+  updToast() {
+    const toast = this.toastCtrl.create({
+      message: "Проверка обновлений ...",
+      duration: 800
+    });
+    toast.present();
+  }
+
+
   getUpdate() {
     if (this.newVer > AppVersion) {
-      console.log('Предложение обновиться!' + this.newVer);
+      console.log('Предложение обновиться до версии: ' + this.newVer);
       let alert = this.alertCtrl.create({
         title: 'Доступна версия ' + this.newVer,
         subTitle: 'Что нового:',
@@ -80,30 +114,42 @@ export class MyApp {
             text: 'Напомнить позже',
             role: 'cancel',
             handler: () => {
-              console.log('Cancel clicked');
+              console.log('Отказался');
             }
           },
           {
             text: 'Обновить',
             handler: () => {
-              console.log('Update');
+              console.log('Обновился');
               window.open('https://play.google.com/store/apps/details?id=com.itgluck.klobus39', '_system', 'location=yes'); return false;
             }
           }
         ]
       });
-      alert.present();
-      console.log("Доступно обновление " + this.newVer);
+      alert.present();      
     }
     else {
-      console.log("Для вашей версии " + this.newVer + " - Обновлений нет!");
+      this.notUpdConnectToast();
     }
+      setTimeout(() => {
+        this.newVer = null;
+        console.log("Версия зачищена!!!");
+      }, 9000);
+  }
+
+
+  notUpdConnectToast() {
+    console.log("Не удалось подключиться к серверу обновлений");
+    const toast = this.toastCtrl.create({
+      message: "Не удалось подключиться к серверу обновлений",
+      duration: 3000
+    });
+    toast.present();
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.overlaysWebView(true);
-
     }
     );
   }
@@ -114,10 +160,6 @@ export class MyApp {
 
   goPromo() {
     this.nav.push(DetailsPromo);
-
   }
-
-
-
 
 }
