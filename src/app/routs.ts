@@ -1,4 +1,4 @@
-export var AppVersion:any = 3.11; 
+export var AppVersion:number = 3.12; 
 export var db_trains = [
     {
         'title': 'Багратионовск',
