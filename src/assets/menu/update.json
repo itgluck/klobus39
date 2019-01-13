@@ -2,7 +2,8 @@
     "results": [{
         "title": "Обновить",
         "subtitle": "Доступна новая версия ",
-        "img": "../assets/menu/icon.png"
+        "img": "../assets/menu/icon.png",
+        "weatherbox": true,
     }],
     "version": "3.12",
     "message": "* изменения в интерфейсе"
