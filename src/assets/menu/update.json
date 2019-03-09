@@ -4,7 +4,7 @@
         "subtitle": "Доступна новая версия ",
         "img": "../assets/menu/icon.png"
     }],
-    "version": "3.14",
+    "version": "3.15",
     "weatherbox": true,
     "message": "* Обновлена информация о маршрутах: 113, 103, 105, 109, 110 "
 }
