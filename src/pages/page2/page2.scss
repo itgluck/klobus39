@@ -23,18 +23,22 @@
         white-space: inherit;
     }
     .label span {
-        font-size: .9em;
+        font-size: .8em;
         color: $text;
         text-indent: 25px;
         padding-right: 12px;
     }
-    .list-header-md {
+
+    .list-header-md{
         margin-bottom: 6px;
         padding-left: 36px;
         min-height: 4.5rem;
         border-top: 2px solid $hidden;
         font-size: 2rem;
-        color: $bg;
-        background: $secondary;
+        background: $primary;
+        // color: #fff;
     }
+    .list-header-md .label-md{
+        color: #fff;
+            }
 }

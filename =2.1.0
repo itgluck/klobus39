@@ -1,0 +1,16 @@
+
+> node-sass@4.11.0 install D:\Android\Proj\klobus\node_modules\node-sass
+> node scripts/install.js
+
+Cached binary found at C:\Users\Developer\AppData\Roaming\npm-cache\node-sass\4.11.0\win32-ia32-64_binding.node
+
+> node-sass@4.11.0 postinstall D:\Android\Proj\klobus\node_modules\node-sass
+> node scripts/build.js
+
+Binary found at D:\Android\Proj\klobus\node_modules\node-sass\vendor\win32-ia32-64\binding.node
+Testing binary
+Binary is fine
++ typescript@2.4.2
+added 7 packages from 5 contributors, removed 7 packages and audited 5030 packages in 17.73s
+found 0 vulnerabilities
+

@@ -1,30 +1,32 @@
-import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, ToastController } from 'ionic-angular';
+import { ToastController, Nav, Platform, AlertController} from 'ionic-angular';
+import { Component, ViewChild, } from '@angular/core';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import { Page5 } from '../pages/page5/page5';
-import { Page6 } from '../pages/page6/page6';
+import { Page6 } from '../pages/page6/page6'; 
 import { Page7 } from '../pages/page7/page7';
 import { DetailsPromo } from '../pages/promo/promo';
 
-import { Observable } from 'rxjs/Observable';
+// import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-import { AlertController } from 'ionic-angular';
 import { AppVersion } from './routs';
 
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  styles: [`.weather-no{	display:none !important;}`]
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   rootPage: any = Page1;
   infoblocks: Observable<any>;
   gitVer: number = null;
+  weatherbox:boolean = false;
   version: number = AppVersion;
   // *********************************************************
   gitMessage: string = '';
@@ -41,32 +43,41 @@ export class MyApp {
       { title: 'Правила', icon: 'checkbox-outline', component: Page5 },
       { title: 'О приложении', icon: 'help', component: Page6 }
     ];
+    this.weatherbox = false;
     this.gitVer = AppVersion;
     setTimeout(() => {
       this.getVersion();
-    }, 2000);
+      this.weatherbox = false;
+    }, 7000);
   }
   // https://github.com/itgluck/klobus39/blob/master/src/assets/menu/update.json   ***Тут поменять версию ***
   getVersion() {
     console.log("*** Версия APP: " + this.version + " *** Версия на GitHub " + this.gitVer);
     
-    this.http.get('https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/menu/update2.json')
+    this.http.get('https://raw.githubusercontent.com/itgluck/klobus39/master/src/assets/menu/update.json')
       .map(res => res.json())
-      .subscribe(
+      .subscribe( 
         data => {
           this.infoblocks = data.results;
           this.gitMessage = data.message;
           this.gitVer = data.version;
+          this.weatherbox = data.weatherbox;
           console.log("Версия на GitHub: " + this.gitVer);
+          console.log("Показать погоду: " + this.weatherbox);
         },
         err => {
           console.log("не удалось получить данные с GitHub");
+          
+          this.weatherbox = false;
+          console.log("Погода не доступна " + this.weatherbox);
+          
         }
       )
 
     setTimeout(() => {
       console.log("Сравнение версий: " +this.gitVer +" != " + this.version);
       if (this.gitVer != AppVersion) {
+      // if (this.gitVer > AppVersion) {
         console.log("Версии не совпали - Запуск обновления...");
         setTimeout(() => {
           this.updToast();
@@ -80,26 +91,6 @@ export class MyApp {
     }, 3000);
   }
 
-  // goCalc() {
-  //   console.log("Сравнение версий ...");
-  //   // if (this.gitVer != AppVersion) {
-  //   //   console.log("Уже установлена актуальная версия: " + this.gitVer);
-  //   // }
-  //   // if ( this.gitVer == null) {
-  //   //   console.log("Null version " + this.gitVer)
-  //   //   this.updToast();
-  //   //   // this.notUpdConnectToast();
-  //   // }
-  //   if (this.gitVer != AppVersion) {
-  //     console.log("Версии не совпали - Запуск обновления...");
-  //     setTimeout(() => {
-  //       this.updToast();
-  //       this.getUpdate();
-  //     }, 2000);
-  //   }
-  //   console.log("Сравнение версий окончено");
-  // }
-
   updToast() {
     const toast = this.toastCtrl.create({
       message: "Проверка обновлений ...",
@@ -107,6 +98,11 @@ export class MyApp {
     });
     toast.present();
   }
+
+  getWeather(){
+    this.weatherbox = false;
+    console.log(this.weatherbox);
+  };
 
   getUpdate() {
     console.log('Предложение обновиться до версии: ' + this.gitVer);
@@ -133,27 +129,15 @@ export class MyApp {
     });
     alert.present();
 
-    setTimeout(() => {
-      this.gitVer = null;
-      console.log("Версия зачищена!!!");
-    }, 9000);
+    // setTimeout(() => {
+    //   this.getWeather();
+    //   console.log("Версия зачищена!!!");
+    // }, 6000);
   }
-
-
-  // notUpdConnectToast() {
-  //   console.log("Не удалось подключиться к серверу обновлений");
-  //   const toast = this.toastCtrl.create({
-  //     message: "Не удалось подключиться к серверу обновлений",
-  //     duration: 3000
-  //   });
-  //   toast.present();
-  // }
 
   initializeApp() {
     this.platform.ready().then(() => {
       this.statusBar.overlaysWebView(true);
-      this.gitVer = null;
-      console.log("Версия зачищена при старте");
     }
     );
   }

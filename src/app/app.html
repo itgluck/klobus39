@@ -1,14 +1,20 @@
-<ion-menu [content]="content" class="menu">
-    <ion-header class='logo' >
-        <h2>Калининград</h2>
-        <iframe src="assets/menu/index.html"></iframe>
+<ion-menu [content]="content">
+    <ion-header>
+        <!-- *ngIf="weatherbox == true" 
+            *ngIf="gitMessage.length == 0"-->
+        <!-- <div class="logo weather" [ngClass]="{'weather-no': weatherbox != true}" ></div> -->
+        <div class="weather" *ngIf="weatherbox == true">
+            <!-- <iframe src="./assets/menu/index.html"></iframe> -->
+            <div class="overlay"></div>
+            <a  class="weatherwidget-io" [ngClass]="{'weather-no': weatherbox !=true}" href="https://forecast7.com/ru/54d7120d45/kaliningrad/" data-font="Arial Narrow" data-icons="Climacons Animated" data-mode="Current" data-days="3" data-theme="weather_one" ></a>
+        </div>
+
     </ion-header>
 
     <ion-content class="mainmenu">
-        <ion-list class="mainmenu" no-lines>
+        <ion-list no-lines>
             <div *ngIf="version < gitVer">
                 <button *ngFor="let info of infoblocks" ion-item onclick="window.open('https://play.google.com/store/apps/details?id=com.itgluck.klobus39', '_system', 'location=yes'); return false;">
-                  
                     <ion-icon name="download" item-left></ion-icon>
                     <h2>{{ info.title }}</h2>
                     <h4 class="inf">
@@ -25,13 +31,14 @@
                 <ion-icon name="share" item-left></ion-icon>
                 <h2>Поделиться</h2>
             </button>
-            <button menuClose ion-item (click)="goPromo()">
+
+            <!-- <button menuClose ion-item (click)="goPromo()">
                 <ion-icon name="cart" item-left></ion-icon>
                 <h2>Магазин</h2>
-            </button>
-            <div (click) ="getVersion();" class="http" >
+            </button> -->
+            <p (click)="getVersion();" class="http" item-center>
                 Версия: {{version}}
-            </div>
+            </p>
         </ion-list>
 
     </ion-content>

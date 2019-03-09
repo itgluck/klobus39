@@ -408,6 +408,4 @@ export class Page1 {
 		this.navCtrl.push(TrainDetails, { item: train });
 	}
 
-
-
 }

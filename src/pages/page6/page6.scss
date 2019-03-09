@@ -5,6 +5,12 @@
     padding: 16px;
     text-align: center;
     font-family: blogger;
+    h4,h3,h2 {
+        font-weight: 300;
+        text-align: center;
+        font-size: 1.3em;
+        color: $primary;
+    }
 }
 
 .about p {
@@ -18,14 +24,9 @@
     text-align: left;
     margin-left: 2em;
 }
-.about h2 {
-    text-align: center;
-}
-.about h3 {
-    font-size: 1.8rem;
-}
+
 .about hr {
-    min-width: 100%;
+    width: 70%;
 }
 .button-full-md {
     margin-bottom: 1.2em;
